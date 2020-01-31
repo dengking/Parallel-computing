@@ -3,4 +3,4 @@ Parallel and distributed computing](https://en.wikipedia.org/wiki/Distributed_co
 
 > The terms "[concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)", "[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)", and "distributed computing" have a lot of overlap, and no clear distinction exists between them. The same system may be characterized both as "parallel" and "distributed"; the processors in a typical distributed system run concurrently in parallel. Parallel computing may be seen as a particular tightly coupled form of distributed computing, and distributed computing may be seen as a loosely coupled form of parallel computing.
 
-所以，有必要对它们进行研究。本repository按照维基百科的[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)进行组织，对相关理论知识进行梳理。
+所以，有必要对它们进行研究。本repository按照维基百科的[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)进行组织，对相关理论知识进行梳理，其中重点关注[Distributed computing](https://en.wikipedia.org/wiki/Concurrent_computing)。
