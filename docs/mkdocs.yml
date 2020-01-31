@@ -1,0 +1,4 @@
+nav:
+    - Home: index.md
+    - Parallel-computing: wikipedia-Parallel-computing.md
+    - Distributed-computing: Distributed-computing
