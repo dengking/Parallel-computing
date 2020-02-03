@@ -1,0 +1,3 @@
+# 前言
+
+distributed computing是一个非常宽泛的概念，非常多的架构都可以归入到distributed computing的范轴中。本章梳理这些架构，需要注意的是，架构之间没有优劣之分，只有谁比谁更加适合于具体的问题。
