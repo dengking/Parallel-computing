@@ -1,3 +1,4 @@
 nav:
     - Concurrent-computing: Concurrent-computing.md
     - Futures-and-promises: Futures-and-promises.md
+    - Classic-problem: Classic-problem

@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - Producer–consumer-problem: Producer–consumer-problem
+    - Dining-philosophers-problem: Dining-philosophers-problem
