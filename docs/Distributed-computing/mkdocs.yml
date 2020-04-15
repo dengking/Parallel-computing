@@ -1,4 +1,4 @@
 nav:
     - Distributed-computing: Distributed-computing.md
-    - Example-of-distributed-system: Example-of-distributed-system.md
-    - Application: Application
+    - Theory: Theory
+    - Examples: Examples
