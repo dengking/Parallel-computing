@@ -1,4 +1,8 @@
 nav:
     - Concurrent-computing: Concurrent-computing.md
+    - Books: Books.md
     - Futures-and-promises: Futures-and-promises.md
     - Classic-problem: Classic-problem
+    - Lock-free: Lock-free
+    - Concurrent-data-structure: Concurrent-data-structure
+    - Concurrent-server: Concurrent-server

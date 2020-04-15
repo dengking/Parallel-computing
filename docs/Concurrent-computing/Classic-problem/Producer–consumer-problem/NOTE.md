@@ -1,0 +1,1 @@
+生产者一个thread，消费者一个thread，两者之间的队列使用list来实现，一种比较理想的模式是，消费者不断地从队列的一段pop，生产者不断地向队列的一段append，可以让消费者持list的end，让生产者持list的front，当end等于front的时候，则队列为空，则消费者阻塞。
