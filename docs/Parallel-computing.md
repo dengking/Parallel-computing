@@ -1,6 +1,6 @@
-[TOC]
 
-# [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
+
+# 维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
 
 **Parallel computing** is a type of [computation](https://en.wikipedia.org/wiki/Computing) in which many calculations or the execution of [processes](https://en.wikipedia.org/wiki/Process_(computing)) are carried out **simultaneously**. Large problems can often be divided into smaller ones, which can then be solved at the same time. 
 
