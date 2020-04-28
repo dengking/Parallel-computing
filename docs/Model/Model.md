@@ -136,3 +136,12 @@ cppreference [Atomic operations library](https://en.cppreference.com/w/cpp/atomi
 [Test and test-and-set](https://en.wikipedia.org/wiki/Test_and_test-and-set)
 
 [Consistency in Distributed Systems](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/printversion.pdf)
+
+
+
+## 串行
+
+串行的英语是serial
+
+显然，串行和并行是相反的。
+
