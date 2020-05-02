@@ -1,0 +1,3 @@
+nav:
+    - Synchronization: Synchronization.md
+    - Mutual-exclusion: Mutual-exclusion.md
