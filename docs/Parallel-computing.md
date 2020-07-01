@@ -1,6 +1,8 @@
+# Parallel computing
 
+“Parallel computing”即“并行计算”。
 
-# 维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
+## 维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
 
 **Parallel computing** is a type of [computation](https://en.wikipedia.org/wiki/Computing) in which many calculations or the execution of [processes](https://en.wikipedia.org/wiki/Process_(computing)) are carried out **simultaneously**. Large problems can often be divided into smaller ones, which can then be solved at the same time. 
 
@@ -28,7 +30,7 @@ In some cases parallelism is transparent to the programmer, such as in bit-level
 
 A theoretical [upper bound](https://en.wikipedia.org/wiki/Upper_bound) on the [speed-up](https://en.wikipedia.org/wiki/Speedup) of a single program as a result of parallelization is given by [Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law).
 
-## Background
+### Background
 
 To deal with the problem of power consumption and overheating the major [central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit) (CPU or processor) manufacturers started to produce power efficient processors with multiple cores. The core is the computing unit of the processor and in multi-core processors each core is independent and can access the same memory concurrently. [Multi-core processors](https://en.wikipedia.org/wiki/Multi-core_processor) have brought parallel computing to [desktop computers](https://en.wikipedia.org/wiki/Desktop_computers). Thus parallelisation of serial programmes has become a mainstream programming task.
 
@@ -78,7 +80,7 @@ Applications are often classified according to how often their subtasks need to 
 
 Parallel programming languages and parallel computers must have a [consistency model](https://en.wikipedia.org/wiki/Consistency_model) (also known as a memory model). The consistency model defines rules for how operations on [computer memory](https://en.wikipedia.org/wiki/Computer_data_storage) occur and how results are produced.
 
-## [Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)
+### [Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)
 
 ### Bit-level parallelism
 
@@ -94,7 +96,7 @@ Parallel programming languages and parallel computers must have a [consistency m
 
 
 
-## Hardware
+### Hardware
 
 ### Memory and communication
 
@@ -138,17 +140,17 @@ A distributed computer (also known as a distributed memory multiprocessor) is a 
 
 Within parallel computing, there are specialized parallel devices that remain niche areas of interest. While not [domain-specific](https://en.wikipedia.org/wiki/Domain-specific_programming_language), they tend to be applicable to only a few classes of parallel problems.
 
-## Software
+### Software
 
 ### Parallel programming languages
 
 *Main article:* [List of concurrent and parallel programming languages](https://en.wikipedia.org/wiki/List_of_concurrent_and_parallel_programming_languages)
 
-## [Algorithmic methods](https://en.wikipedia.org/wiki/Parallel_computing#Algorithmic_methods)
+### [Algorithmic methods](https://en.wikipedia.org/wiki/Parallel_computing#Algorithmic_methods)
 
 
 
-## Fault tolerance
+### Fault tolerance
 
 *Further information:* [Fault-tolerant computer system](https://en.wikipedia.org/wiki/Fault-tolerant_computer_system)
 
@@ -167,3 +169,10 @@ As parallel computers become larger and faster, we are now able to solve problem
 - [Branch and bound](https://en.wikipedia.org/wiki/Branch_and_bound) methods
 - [Graphical models](https://en.wikipedia.org/wiki/Graphical_model) (such as detecting [hidden Markov models](https://en.wikipedia.org/wiki/Hidden_Markov_model) and constructing [Bayesian networks](https://en.wikipedia.org/wiki/Bayesian_network))
 - [Finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine) simulation
+
+
+
+
+
+
+
