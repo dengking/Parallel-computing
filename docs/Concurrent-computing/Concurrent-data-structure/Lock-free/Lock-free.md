@@ -4,6 +4,10 @@
 
 lock-free and Atomicity and memory alignment：https://stackoverflow.com/questions/381244/purpose-of-memory-alignment
 
+
+
+https://stackoverflow.com/questions/8918401/does-a-multiple-producer-single-consumer-lock-free-queue-exist-for-c
+
 ## Lock free data structure
 
 drdobbs：[Lock-Free Data Structures](https://www.drdobbs.com/lock-free-data-structures/184401865)
