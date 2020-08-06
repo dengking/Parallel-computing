@@ -10,24 +10,13 @@
 
 ### Fork-join model in OS
 
-在[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)中，普遍采用fork-join model，当entity是process、thread时，OS提供了system call或api来实现这种model，关于此，在工程Linux-OS的process章节中进行了总结，在apue在也进行了总结。
+#### Process/thread
 
-下面是草稿
+在[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)中，普遍采用fork-join model，当entity是process、thread时，OS提供了system call或api来实现这种model，关于此，在工程[Linux-OS](https://dengking.github.io/Linux-OS/)的`Programming\Process`章节中进行了总结，在apue在也进行了总结。
 
-fork api：
+#### Barrier
 
-
-
-join api
-
-| entity  | api                                                          |
-| ------- | ------------------------------------------------------------ |
-| process | [WAIT(2)](http://man7.org/linux/man-pages/man2/waitpid.2.html)、[WAIT4(2)](http://man7.org/linux/man-pages/man2/wait4.2.html) |
-| thread  | [PTHREAD_JOIN(3)](http://man7.org/linux/man-pages/man3/pthread_join.3.html)、[pthread_barrier_wait(3)](https://linux.die.net/man/3/pthread_barrier_wait) |
-
-`pthread_join`、`barrier`都可以看做是这种模型。
-
-
+`barrier`都可以看做是这种模型。
 
 ### Fork-join model、divide-conquer and merge algorithm
 
