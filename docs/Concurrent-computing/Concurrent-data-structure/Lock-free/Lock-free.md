@@ -36,3 +36,17 @@ Public domain implementation of four different lock free queues:
 - MPSC lock free dynamic queue which requires a memory allocation with each insert.
 - SPSC wait free bound queue/ring buffer which which uses a fixed size pre-allocated buffer.
 - MPMC lock free bound queue/ring buffer which which uses a fixed size pre-allocated buffer.
+
+
+
+### [concurrentqueue](https://github.com/cameron314/concurrentqueue)
+
+A fast multi-producer, multi-consumer lock-free concurrent queue for C++11
+
+
+
+### [A Fast General Purpose Lock-Free Queue for C++](https://moodycamel.com/blog/2014/a-fast-general-purpose-lock-free-queue-for-c++)
+
+
+
+### [Is there a production ready lock-free queue or hash implementation in C++ [closed]](https://stackoverflow.com/questions/1164023/is-there-a-production-ready-lock-free-queue-or-hash-implementation-in-c)
