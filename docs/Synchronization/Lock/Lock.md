@@ -8,6 +8,22 @@
 
 ## optimistic and pessimistic locking
 
+wikipedia [Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
+
+
+
+https://en.wikipedia.org/wiki/Server_Message_Block#Opportunistic_locking
+
+
+
+https://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/4/html/TransactionJTA_Overview-Pessimistic_and_optimistic_locking.html
+
+
+
+https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking
+
+
+
 ## granularity of lock
 
 引发我对这个问题思考的是对下面代码的阅读：
@@ -42,6 +58,18 @@ https://stackoverflow.com/questions/12179130/what-are-range-locks
 
 
 ### baeldung [Double-Checked Locking with Singleton](https://www.baeldung.com/java-singleton-double-checked-locking)
+
+
+
+### Examples
+
+#### cppreference multiple threads attempt to initialize the same **static local variable** concurrently
+
+在cppreference Storage class specifiers#Static local variables中列举了这样的例子：
+
+> Note: usual implementations of this feature use variants of the **double-checked locking pattern**, which reduces runtime overhead for already-initialized local statics to a single non-atomic boolean comparison.
+
+
 
 ## getter-setter-lock
 
