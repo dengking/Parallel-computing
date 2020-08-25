@@ -1,4 +1,5 @@
 nav:
     - Synchronization: Synchronization.md
+    - Concurrency-control: Concurrency-control.md
     - Mutual-exclusion: Mutual-exclusion.md
     - Lock: Lock
