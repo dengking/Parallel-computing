@@ -53,11 +53,25 @@ https://stackoverflow.com/questions/12179130/what-are-range-locks
 
 ## Double-checked locking
 
+在工程programming-language的`C-family-language\C++\Pattern\Singleton`章节也对它进行了讨论，其中主要收录了如下文章：
+
+- aristeia [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf)
+
+
+
 ### 维基百科[Double-checked locking](https://en.wikipedia.org/wiki/Double-checked_locking)
 
 
 
-### baeldung [Double-Checked Locking with Singleton](https://www.baeldung.com/java-singleton-double-checked-locking)
+The pattern, when implemented in some language/hardware combinations, can be unsafe. At times, it can be considered an [anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern).[[2\]](https://en.wikipedia.org/wiki/Double-checked_locking#cite_note-bdec-2)
+
+> NOTE: 关于这个的论证，在下面文章中有进行说明:
+>
+> - aristeia [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf)
+
+#### Usage in C++11
+
+> NOTE: 这一段，收录于工程programming-language的`C-family-language\C++\Pattern\Singleton`章节。
 
 
 
@@ -65,7 +79,7 @@ https://stackoverflow.com/questions/12179130/what-are-range-locks
 
 #### cppreference multiple threads attempt to initialize the same **static local variable** concurrently
 
-在cppreference Storage class specifiers#Static local variables中列举了这样的例子：
+在cppreference [Storage class specifiers#Static local variables](https://en.cppreference.com/w/cpp/language/storage_duration)中列举了这样的例子：
 
 > Note: usual implementations of this feature use variants of the **double-checked locking pattern**, which reduces runtime overhead for already-initialized local statics to a single non-atomic boolean comparison.
 
