@@ -1,0 +1,1 @@
+在distributed computing中，创建合适的abstraction是解决很多问题的核心。
