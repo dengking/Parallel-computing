@@ -1,5 +1,6 @@
 nav:
     - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    - Abstraction: Abstraction
     - Consensus: Consensus
     - High-availability: High-availability
     - Logical-clock: Logical-clock
