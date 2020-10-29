@@ -2,6 +2,10 @@
 
 
 
+## dist-prog-book [Futures and Promises](http://dist-prog-book.com/chapter/2/futures.html)
+
+> NOTE: 这篇文章收录在`Distributed-computing\Book-Programming-Models-for-Distributed-Computing\chapter-2`章节。
+
 ## wikipedia [Futures and promises](https://en.wikipedia.org/wiki/Futures_and_promises)
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **future**, **promise**, **delay**, and **deferred** refer to constructs used for [synchronizing](https://en.wikipedia.org/wiki/Synchronization_(computer_science)) program [execution](https://en.wikipedia.org/wiki/Execution_(computing)) in some [concurrent programming languages](https://en.wikipedia.org/wiki/Concurrent_programming_language). They describe an object that acts as a **proxy** for a result that is initially unknown, usually because the [computation](https://en.wikipedia.org/wiki/Computation) of its value is yet incomplete.
@@ -78,3 +82,8 @@ In some programming languages such as [Oz](https://en.wikipedia.org/wiki/Oz_(pro
 
 - In [C++11](https://en.wikipedia.org/wiki/C%2B%2B11) a `std::future` provides a read-only view. The value is set directly by using a `std::promise`, or set to the result of a function call using `std::packaged_task` or `std::async`.
 
+
+
+## Futures and promises originated in [functional programming](https://en.wikipedia.org/wiki/Functional_programming) 
+
+关于functional programming，参见工程programming-language的`Theory\Programming-paradigm\Functional-programming`章节。
