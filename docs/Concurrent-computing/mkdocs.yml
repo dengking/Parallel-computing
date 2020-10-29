@@ -1,5 +1,5 @@
 nav:
-    - Concurrent-computing: Concurrent-computing.md
+    - Concurrent-computing: index.md
     - Books: Books.md
     - Classic-problem: Classic-problem
     - Lock-free: Lock-free
