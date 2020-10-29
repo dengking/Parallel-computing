@@ -2,6 +2,6 @@ nav:
     - Concurrent-computing: index.md
     - Books: Books.md
     - Classic-problem: Classic-problem
-    - Lock-free: Lock-free
     - Concurrent-data-structure: Concurrent-data-structure
     - Concurrent-server: Concurrent-server
+    - Design-pattern: Design-pattern
