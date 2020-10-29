@@ -1,5 +1,7 @@
 nav:
-    - Distributed-computing: Distributed-computing.md
+    - Distributed-computing: index.md
     - Theory: Theory
+    - Book-Programming-Models-for-Distributed-Computing: Book-Programming-Models-for-Distributed-Computing
+    - Architecture: Architecture
     - Examples: Examples
     - TODO: TODO.md

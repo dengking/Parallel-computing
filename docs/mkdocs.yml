@@ -1,7 +1,8 @@
 nav:
     - Home: index.md
     - Parallel-computing: wikipedia-Parallel-computing.md
-    - Synchronization: Synchronization
-    - Model: Model
     - Concurrent-computing: Concurrent-computing
     - Distributed-computing: Distributed-computing
+    - Model: Model
+    - Synchronization: Synchronization
+    
