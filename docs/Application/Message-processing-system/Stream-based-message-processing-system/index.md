@@ -42,14 +42,12 @@ Technically speaking, **event streaming** is the practice of capturing data in r
 
 关于stream-based message processing system，参见下面的较好的文章:
 
-### linkedin [Spark Streaming vs Flink vs Storm vs Kafka Streams vs Samza : Choose Your Stream Processing Framework](https://www.linkedin.com/pulse/spark-streaming-vs-flink-storm-kafka-streams-samza-choose-prakash/)
+1)  linkedin [Spark Streaming vs Flink vs Storm vs Kafka Streams vs Samza : Choose Your Stream Processing Framework](https://www.linkedin.com/pulse/spark-streaming-vs-flink-storm-kafka-streams-samza-choose-prakash/)
 
+2) scottlogic [Comparing Apache Spark, Storm, Flink and Samza stream processing engines - Part 1](https://blog.scottlogic.com/2018/07/06/comparing-streaming-frameworks-pt1.html)
 
+3) upsolver [7 Popular Stream Processing Frameworks Compared](https://www.upsolver.com/blog/popular-stream-processing-frameworks-compared)。
 
+4) zhuanlan [Apache 两个开源项目比较：Flink vs Spark](https://zhuanlan.zhihu.com/p/68206953)
 
-
-### scottlogic [Comparing Apache Spark, Storm, Flink and Samza stream processing engines - Part 1](https://blog.scottlogic.com/2018/07/06/comparing-streaming-frameworks-pt1.html)
-
-
-
-### upsolver [7 Popular Stream Processing Frameworks Compared](https://www.upsolver.com/blog/popular-stream-processing-frameworks-compared)。
+5) [Flink及主流流框架比较](https://blog.csdn.net/justlpf/article/details/80292375)
