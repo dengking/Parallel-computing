@@ -24,6 +24,12 @@
 
 Technically speaking, **event streaming** is the practice of capturing data in real-time from event sources like databases, sensors, mobile devices, cloud services, and software applications in the form of **streams of events**; storing these event streams durably for later retrieval; manipulating, processing, and reacting to the **event streams** in real-time as well as retrospectively(回顾); and routing the event streams to different destination technologies as needed. Event streaming thus ensures a continuous flow and interpretation of data so that the right information is at the right place, at the right time.
 
+
+
+### wikipedia [Event stream processing](https://en.wikipedia.org/wiki/Event_stream_processing)
+
+
+
 ## 时代背景
 
 在linkedin [Spark Streaming vs Flink vs Storm vs Kafka Streams vs Samza : Choose Your Stream Processing Framework](https://www.linkedin.com/pulse/spark-streaming-vs-flink-storm-kafka-streams-samza-choose-prakash/)中对stream-based message processing framework兴起的时代背景进行了非常好的总结:
@@ -34,7 +40,7 @@ Technically speaking, **event streaming** is the practice of capturing data in r
 
 ## Implementations
 
-关于stream-based message processing system，参见下面的两篇较好的文章。
+关于stream-based message processing system，参见下面的较好的文章:
 
 ### linkedin [Spark Streaming vs Flink vs Storm vs Kafka Streams vs Samza : Choose Your Stream Processing Framework](https://www.linkedin.com/pulse/spark-streaming-vs-flink-storm-kafka-streams-samza-choose-prakash/)
 
@@ -43,3 +49,7 @@ Technically speaking, **event streaming** is the practice of capturing data in r
 
 
 ### scottlogic [Comparing Apache Spark, Storm, Flink and Samza stream processing engines - Part 1](https://blog.scottlogic.com/2018/07/06/comparing-streaming-frameworks-pt1.html)
+
+
+
+### upsolver [7 Popular Stream Processing Frameworks Compared](https://www.upsolver.com/blog/popular-stream-processing-frameworks-compared)。
