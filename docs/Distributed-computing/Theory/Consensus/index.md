@@ -1,6 +1,6 @@
+# Consensus 
 
-
-# [Consensus (computer science)](https://en.wikipedia.org/wiki/Consensus_(computer_science))
+## wikipedia [Consensus (computer science)](https://en.wikipedia.org/wiki/Consensus_(computer_science))
 
 > NOTE： Consensus的中文意思是共识
 
@@ -8,7 +8,7 @@ A fundamental problem in [distributed computing](https://en.wikipedia.org/wiki/D
 
 > NOTE : 在redis中，Consensus 所指就是cluster中的所有的node对cluster state（哪些节点是master，哪些节点是slave）的agreement；显然，达成agreement的最简单的方式就是vote；
 
-## Problem description
+### Problem description
 
 The consensus problem requires agreement among a number of processes (or agents) for a single data value. Some of the processes (agents) may fail or be unreliable in other ways, so consensus protocols must be [fault tolerant](https://en.wikipedia.org/wiki/Fault_tolerant) or resilient（弹性的，可快速恢复的）. The processes must somehow put forth their candidate values, communicate with one another, and agree on a single consensus value（发起一轮投票）.
 
