@@ -1,0 +1,1 @@
+# [图解分布式一致性协议Paxos](https://www.cnblogs.com/hugb/p/8955505.html)

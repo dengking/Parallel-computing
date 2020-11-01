@@ -1,4 +1,4 @@
-[TOC]
+
 
 # [Consensus (computer science)](https://en.wikipedia.org/wiki/Consensus_(computer_science))
 
@@ -14,7 +14,7 @@ The consensus problem requires agreement among a number of processes (or agents)
 
 The consensus problem is a fundamental problem in control of multi-agent systems. One approach to generating consensus is for all processes (agents) to agree on a **majority value**. In this context, a majority requires at least one more than half of available **votes** (where each process is given a vote). However, one or more faulty processes may skew（扭曲，歪斜） the resultant outcome such that consensus may not be reached or reached incorrectly.
 
-然而,一个或多个有缺陷的过程可能会扭曲结果,即达成共识的结果可能无法达到或达到错误。
+> 然而,一个或多个有缺陷的过程可能会扭曲结果,即达成共识的结果可能无法达到或达到错误。
 
 Protocols that solve consensus problems are designed to deal with limited numbers of faulty [processes](https://en.wikipedia.org/wiki/Process_(computing)). These protocols must satisfy a number of requirements to be useful. For instance, a trivial protocol could have all processes output binary value 1. This is not useful and thus the requirement is modified such that the output must somehow depend on the input. That is, the output value of a consensus protocol must be the input value of some process. Another requirement is that a process may decide upon and output a value only once and this decision is irrevocable. A process is called correct in an execution if it does not experience a failure. A consensus protocol tolerating halting failures must satisfy the following properties.
 
