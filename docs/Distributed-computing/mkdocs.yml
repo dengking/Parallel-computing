@@ -2,5 +2,4 @@ nav:
     - Distributed-computing: index.md
     - Theory: Theory
     - Architecture: Architecture
-    - Examples: Examples
     - TODO: TODO.md

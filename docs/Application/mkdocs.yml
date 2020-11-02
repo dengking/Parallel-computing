@@ -1,2 +1,5 @@
 nav:
+    - Examples: Examples.md
     - Message-processing-system: Message-processing-system
+    - Blockchain: Blockchain
+    - IPFS: IPFS
