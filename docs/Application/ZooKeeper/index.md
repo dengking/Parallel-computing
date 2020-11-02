@@ -1,10 +1,54 @@
 # Apache ZooKeeper
 
-官网：[Apache ZooKeeper](http://zookeeper.apache.org/)
+ZooKeeper的关键字是"coordination"，即"协调"。
+
+## 官网 [Apache ZooKeeper](http://zookeeper.apache.org/)
+
+
+
+## [ZooKeeper: A Distributed Coordination Service for Distributed Applications](https://zookeeper.apache.org/doc/current/zookeeperOver.html)
+
+
+
+
+
+
+
+## wikipedia [Apache ZooKeeper#Use cases](https://en.wikipedia.org/wiki/Apache_ZooKeeper#Use_cases)
+
+Typical use cases for ZooKeeper are:
+
+1) [Naming service](https://en.wikipedia.org/wiki/Name_service)
+
+
+
+2) [Configuration management](https://en.wikipedia.org/wiki/Configuration_management)
+
+
+
+3) [Data Synchronization](https://en.wikipedia.org/wiki/Synchronization_(computer_science))
+
+
+
+4) [Leader election](https://en.wikipedia.org/wiki/Leader_election)
+
+
+
+5) [Message queue](https://en.wikipedia.org/wiki/Message_queue)
+
+
+
+6) [Notification system](https://en.wikipedia.org/wiki/Notification_system)
+
+
 
 ## Doc
 
 [ZooKeeper: A Distributed Coordination Service for Distributed Applications](http://zookeeper.apache.org/doc/r3.6.0/zookeeperOver.html#ch_DesignOverview)
+
+
+
+
 
 ## Q&A
 
@@ -21,4 +65,5 @@ zookeeper主备切换。
 
 leader 和 follower 的角色如何进行指定？
 
-与redis不同的是，zookeeper中，leader是由选举产生的，而不是由用户直接进行指定。
+与redis不同的是，zookeeper中，leader是由选举产生的，而不是由用户直接进行指定。	
+

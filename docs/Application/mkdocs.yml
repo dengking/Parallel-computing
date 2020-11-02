@@ -3,3 +3,6 @@ nav:
     - Message-processing-system: Message-processing-system
     - Blockchain: Blockchain
     - IPFS: IPFS
+    - ZooKeeper: ZooKeeper
+    - Celery: Celery
+    - NFS: NFS
