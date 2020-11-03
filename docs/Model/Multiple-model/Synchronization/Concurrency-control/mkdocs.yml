@@ -1,4 +1,9 @@
 nav:
-    - Concurrency-control: Concurrency-control.md
-    - Read-copy-update: Read-copy-update.md
+    - Concurrency-control: index.md
+    
     - Multiversion-concurrency-control: Multiversion-concurrency-control.md
+    - Optimistic-and-pessimistic: Optimistic-and-pessimistic.md
+    
+    - Read-copy-update: Read-copy-update.md
+    - Compare-and-swap: Compare-and-swap.md
+    - Fetch-and-add: Fetch-and-add.md

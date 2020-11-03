@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - Multiversion-concurrency-control: Multiversion-concurrency-control.md
+    - Timestamp-based concurrency-control: Timestamp-based concurrency-control.md
