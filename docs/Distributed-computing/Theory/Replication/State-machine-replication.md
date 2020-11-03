@@ -1,4 +1,4 @@
-# [State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)
+# wikipedia [State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)
 
 状态机复制
 
