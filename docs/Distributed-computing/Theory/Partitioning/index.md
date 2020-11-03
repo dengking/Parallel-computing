@@ -20,10 +20,10 @@ csdn [彻底搞清分库分表（垂直分库，垂直分表，水平分库，�
 
 meituan [大众点评订单系统分库分表实践](https://tech.meituan.com/2016/11/18/dianping-order-db-sharding.html)
 
-### Redis partition
+### Redis 
 
 redis [Partitioning: how to split data among multiple Redis instances.](https://redis.io/topics/partitioning)
 
-
+redis [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial)
 
 ### Distributed hash table
