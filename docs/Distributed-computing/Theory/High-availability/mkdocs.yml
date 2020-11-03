@@ -1,2 +1,3 @@
 nav:
-    - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    - Introduction: index.md
+    - Single-point-of-failure: Single-point-of-failure.md

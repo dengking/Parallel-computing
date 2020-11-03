@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Inter-entity-communication: Inter-entity-communication.md
+    - Synchronization: Synchronization
