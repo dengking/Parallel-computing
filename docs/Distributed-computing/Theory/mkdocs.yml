@@ -7,4 +7,6 @@ nav:
     - High-availability: High-availability
     - Consistency: Consistency
     - Consensus: Consensus
+    - Partitioning: Partitioning
+    - Replication: Replication
     - Logical-clock: Logical-clock

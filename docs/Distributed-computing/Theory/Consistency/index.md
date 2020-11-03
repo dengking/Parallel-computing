@@ -17,3 +17,5 @@ csdn [Zookeeper专题——3、分布式一致性，几种实现的优缺点](ht
 csdn [分布式一致性协议](https://blog.csdn.net/demon7552003/article/details/86657767)
 
 这篇文章非常好，总结了各种可能的实现方式。
+
+jianshu [取代 ZooKeeper！高并发下的分布式一致性开源组件 StateSynchronizer](https://www.jianshu.com/p/2691ef1c2b35)

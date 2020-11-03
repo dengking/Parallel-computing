@@ -4,7 +4,7 @@
 
 > 事实是由多数决定的，使用投票的方式
 
-
+这个思想，在Book Designing Data-Intensive Applications 的`CHAPTER 8 The Trouble with Distributed Systems # Knowledge, Truth, and Lies`章节进行了介绍。
 
 ## wikipedia [Consensus (computer science)](https://en.wikipedia.org/wiki/Consensus_(computer_science))
 
