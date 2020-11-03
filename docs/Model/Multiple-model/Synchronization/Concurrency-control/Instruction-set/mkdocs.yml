@@ -4,3 +4,4 @@ nav:
     - Compare-and-swap: Compare-and-swap.md
     - Fetch-and-add: Fetch-and-add.md
     - Test-and-set: Test-and-set.md
+    - Conditional-Put-and-Delete: Conditional-Put-and-Delete.md
