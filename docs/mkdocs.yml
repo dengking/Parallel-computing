@@ -1,8 +1,9 @@
 4nav:
     - Home: index.md
-    - Parallel-computing: wikipedia-Parallel-computing.md
+    - Parallel-computing: Parallel-computing.md
     - Concurrent-computing: Concurrent-computing
     - Distributed-computing: Distributed-computing
     - Model: Model
+    - Programming-model: Programming-model
     - Application: Application
     

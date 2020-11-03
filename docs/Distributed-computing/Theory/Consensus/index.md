@@ -1,10 +1,16 @@
 # Consensus 
 
+"consensus "即"共识"，它是distributed computing中的典型问题。目前采用的基本思想是(在Designing Data-Intensive Applications ):
+
+> 事实是由多数决定的，使用投票的方式
+
+
+
 ## wikipedia [Consensus (computer science)](https://en.wikipedia.org/wiki/Consensus_(computer_science))
 
 > NOTE： Consensus的中文意思是共识
 
-A fundamental problem in [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) and [multi-agent systems](https://en.wikipedia.org/wiki/Multi-agent_system) is to achieve overall system reliability in the presence of a number of faulty processes. This often requires processes to agree on some data value that is needed during computation. Examples of applications of **consensus** include whether to commit a transaction to a database, agreeing on the identity of a [leader](https://en.wikipedia.org/wiki/Leader_election), [state machine replication](https://en.wikipedia.org/wiki/State_machine_replication), and [atomic broadcasts](https://en.wikipedia.org/wiki/Atomic_broadcast). The real world applications include [clock synchronization](https://en.wikipedia.org/wiki/Clock_synchronization), [PageRank](https://en.wikipedia.org/wiki/PageRank), opinion formation, [smart power grids](https://en.wikipedia.org/wiki/Smart_grid), [state estimation](https://en.wikipedia.org/wiki/State_estimation), [control of UAVs](https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle) (and multiple robots/agents in general), [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)), [blockchain](https://en.wikipedia.org/wiki/Blockchain) and others.
+A fundamental problem in [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) and [multi-agent systems](https://en.wikipedia.org/wiki/Multi-agent_system) is to achieve overall system reliability in the presence of a number of faulty processes. This often requires processes to agree on some data value that is needed during computation. Examples of applications of **consensus** include whether to commit a transaction to a database, agreeing on the identity of a [leader](https://en.wikipedia.org/wiki/Leader_election), [state machine replication](https://en.wikipedia.org/wiki/State_machine_replication), and [atomic broadcasts](https://en.wikipedia.org/wiki/Atomic_broadcast). The real world applications include [clock synchronization](https://en.wikipedia.org/wiki/Clock_synchronization), [PageRank](https://en.wikipedia.org/wiki/PageRank), opinion formation(意见形成), [smart power grids](https://en.wikipedia.org/wiki/Smart_grid), [state estimation](https://en.wikipedia.org/wiki/State_estimation), [control of UAVs](https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle) (and multiple robots/agents in general), [load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing)), [blockchain](https://en.wikipedia.org/wiki/Blockchain) and others.
 
 > NOTE : 在redis中，Consensus 所指就是cluster中的所有的node对cluster state（哪些节点是master，哪些节点是slave）的agreement；显然，达成agreement的最简单的方式就是vote；
 

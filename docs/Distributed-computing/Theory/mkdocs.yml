@@ -1,6 +1,10 @@
 nav:
+    - Introduction: index.md
     - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
     - Abstraction: Abstraction
-    - Consensus: Consensus
+    - CAP: CAP
     - High-availability: High-availability
+    - Consistency: Consistency
+    - Consensus: Consensus
     - Logical-clock: Logical-clock

@@ -1,2 +1,3 @@
 nav:
     - Consensus: index.md
+    - Leader-election: Leader-election.md

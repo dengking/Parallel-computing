@@ -1,4 +1,8 @@
-# [Leader election](https://en.wikipedia.org/wiki/Leader_election)
+# Leader election
+
+
+
+## wikipedia [Leader election](https://en.wikipedia.org/wiki/Leader_election)
 
 In [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing), **leader election** is the process of designating a single [process](https://en.wikipedia.org/wiki/Process_(computing)) as the organizer of some task distributed among several computers (nodes). Before the task is begun, all network nodes are either unaware which node will serve as the "leader" (or [coordinator](https://en.wikipedia.org/wiki/Distributed_computing#Coordinator_election)) of the task, or unable to communicate with the current coordinator. After a **leader election algorithm** has been run, however, each node throughout the network recognizes a particular, unique node as the task leader.
 
