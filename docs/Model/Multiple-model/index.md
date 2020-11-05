@@ -1,7 +1,5 @@
 # Multiple model
 
-
-
 本文使用一个统一的模型来对对parallel computing、concurrent computing、distributed computing进行描述，这个模型命名为“**multiple model**”。
 
 ## What is multiple model?
@@ -10,6 +8,7 @@
 
 - race condition
 - atomic
+- communication
 - ......
 
 这是因为parallel computing、concurrent computing、distributed computing都涉及“**多个**”element或entity（这些element并发或并行地运行中），所以它们都会涉及与**多个**相关的问题，我们将使用“**multiple model**”来对它们进行统一的描述。
@@ -111,27 +110,7 @@ cppreference [Atomic operations library](https://en.cppreference.com/w/cpp/atomi
 
 ## Message passing
 
-
-
-## Synchronization
-
-维基百科[Synchronization (computer science)](https://en.wikipedia.org/wiki/Synchronization_(computer_science))
-
-
-
-## Concurrency control
-
-维基百科[Concurrency control](https://en.wikipedia.org/wiki/Concurrency_control)
-
-维基百科[Distributed concurrency control](https://en.wikipedia.org/wiki/Distributed_concurrency_control)
-
-
-
-[Double-checked locking](https://en.wikipedia.org/wiki/Double-checked_locking)
-
-[Test and test-and-set](https://en.wikipedia.org/wiki/Test_and_test-and-set)
-
-[Consistency in Distributed Systems](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/06/printversion.pdf)
+其实就是entity之间的communication。
 
 
 
