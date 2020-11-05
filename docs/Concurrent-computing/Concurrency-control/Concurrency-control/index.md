@@ -24,12 +24,11 @@ In information technology and computer science, especially in the fields of comp
 
 
 
-Computer systems, both software and hardware, consist of modules, or components. Each component is
-designed to operate correctly, i.e., to obey or to meet certain consistency rules. When components that operate
-concurrently interact by messaging or by sharing accessed data (in memory or storage), a certain component's
-consistency may be violated by another component. The general area of concurrency control provides rules,
-methods, design methodologies, and theories to maintain the consistency of components operating
-concurrently while interacting, and thus the consistency and correctness of the whole system. Introducing
+Computer systems, both software and hardware, consist of modules, or components. Each component is designed to operate correctly, i.e., to obey or to meet certain **consistency rules**. When components that operate concurrently interact by **messaging** or by **sharing accessed data** (in memory or storage), a certain component's **consistency** may be violated by another component. The general area of concurrency control provides rules, methods, design methodologies, and theories to maintain the consistency of components operating concurrently while interacting, and thus the **consistency** and **correctness** of the whole system. 
+
+> NOTE: 上面这段话的前面部分其实就是multiple model(参见`Model\Multiple-model`章节)。
+
+Introducing
 concurrency control into a system means applying operation constraints which typically result in some
 performance reduction. Operation consistency and correctness should be achieved with as good as possible
 efficiency, without reducing performance below reasonable levels. Concurrency control can require significant

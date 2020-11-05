@@ -5,7 +5,6 @@ nav:
     - Abstraction: Abstraction
     - CAP: CAP
     - High-availability: High-availability
-    - Consistency: Consistency
     - Consensus: Consensus
     - Partitioning: Partitioning
     - Replication: Replication
