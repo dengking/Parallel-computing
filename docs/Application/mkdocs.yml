@@ -1,6 +1,7 @@
 nav:
     - Examples: Examples.md
     - Message-processing-system: Message-processing-system
+    - Computation-system: Computation-system
     - Data-system: Data-system
     - Blockchain: Blockchain
     - IPFS: IPFS
