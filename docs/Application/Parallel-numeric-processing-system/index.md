@@ -1,4 +1,4 @@
-# Computation system/Computation engine
+# Parallel-numeric-processing-system
 
 在学习TensorFlow的实现的时候，想到了这个主题，觉得有必要总结一下。
 
@@ -16,11 +16,11 @@
 
 1) 如何实现? 如何架构?
 
+## Implementation
 
+Dataflow-programming，参见`./Dataflow-programming`。
 
-下面结合具体实现来看: 
-
-## Implementation: Microsoft [Naiad](https://www.microsoft.com/en-us/research/project/naiad/)
+## Case: Microsoft [Naiad](https://www.microsoft.com/en-us/research/project/naiad/)
 
 > The Naiad project is an investigation of **data-parallel dataflow computation**, like Dryad and DryadLINQ, but with a focus on low-latency streaming and cyclic computations. Naiad introduces a new **computational model**, timely dataflow, which combines low-latency asynchronous message flow with lightweight coordination when required. These **primitives**(原语) allow the efficient implementation of many **dataflow patterns**, from **bulk** and streaming computation to iterative graph processing and machine learning.
 
@@ -42,7 +42,7 @@
 
 4) symbolic programming
 
-## Implementation: Google TensorFlow
+## Case: Google TensorFlow
 
 ### 实现思路: 
 
