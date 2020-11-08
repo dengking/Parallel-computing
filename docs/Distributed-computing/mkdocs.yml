@@ -2,4 +2,5 @@ nav:
     - Distributed-computing: index.md
     - Theory: Theory
     - Architecture: Architecture
+    - Ordering: Ordering
     - TODO: TODO.md
