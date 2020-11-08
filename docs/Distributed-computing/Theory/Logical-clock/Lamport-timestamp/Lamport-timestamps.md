@@ -1,6 +1,6 @@
 
 
-# [Lamport timestamps](https://en.wikipedia.org/wiki/Lamport_timestamps)
+# wikipedia [Lamport timestamps](https://en.wikipedia.org/wiki/Lamport_timestamps)
 
 
 
