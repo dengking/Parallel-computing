@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
     - Overview: Overview.md
-    - Programmer's-Guide: Programmer's-Guide.md
-    - Recipes-and-Solutions: Recipes-and-Solutions.md
+    - Programmer's-Guide: Programmer's-Guide
     - Application: Application
