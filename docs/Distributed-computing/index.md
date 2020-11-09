@@ -1,4 +1,16 @@
-# [Distributed computing](https://en.wikipedia.org/wiki/Distributed_computing)
+# Distributed computing
+
+## 时代背景
+
+在`Parallel-computing`中介绍了background；
+
+在`Distributed-computing\Theory\Book-Designing-Data-Intensive-Applications`中也介绍了时代背景。
+
+## Distributed computing and 分而治之思想
+
+Distributed computing 在某种程度上是遵循 分而治之思想 的。
+
+## wikipedia [Distributed computing](https://en.wikipedia.org/wiki/Distributed_computing)
 
 **Distributed computing** is a field of [computer science](https://en.wikipedia.org/wiki/Computer_science) that studies distributed systems. A *distributed system* is a system whose components are located on different [networked computers](https://en.wikipedia.org/wiki/Computer_network), which communicate and coordinate their actions by [passing messages](https://en.wikipedia.org/wiki/Message_passing) to one another. The components interact with one another in order to achieve a common goal. 
 
@@ -18,7 +30,7 @@ A [computer program](https://en.wikipedia.org/wiki/Computer_program) that runs w
 
 
 
-## [Parallel and distributed computing](https://en.wikipedia.org/wiki/Distributed_computing#Parallel_and_distributed_computing)
+### [Parallel and distributed computing](https://en.wikipedia.org/wiki/Distributed_computing#Parallel_and_distributed_computing)
 
 Distributed systems are groups of **networked computers** which share a common goal for their work. The terms "[concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)", "[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)", and "distributed computing" have a lot of overlap, and no clear distinction exists between them. The same system may be characterized both as "parallel" and "distributed"; the processors in a typical distributed system run concurrently in parallel. **Parallel computing** may be seen as a particular tightly coupled form of **distributed computing**, and **distributed computing** may be seen as a loosely coupled form of **parallel computing**. Nevertheless, it is possible to roughly classify concurrent systems as "parallel" or "distributed" using the following criteria:
 
@@ -36,7 +48,7 @@ The figure on the right illustrates the difference between distributed and paral
 
 The situation is further complicated by the traditional uses of the terms parallel and distributed *algorithm* that do not quite match the above definitions of parallel and distributed *systems* (see [below](https://en.wikipedia.org/wiki/Distributed_computing#Theoretical_foundations) for more detailed discussion). Nevertheless, as a rule of thumb, high-performance parallel computation in a shared-memory multiprocessor uses parallel algorithms while the coordination of a large-scale distributed system uses distributed algorithms. 
 
-## [Architectures](https://en.wikipedia.org/wiki/Distributed_computing#Architectures)
+### [Architectures](https://en.wikipedia.org/wiki/Distributed_computing#Architectures)
 
 Various hardware and software architectures are used for distributed computing. At a lower level, it is necessary to interconnect multiple CPUs with some sort of network, regardless of whether that network is printed onto a circuit board or made up of loosely coupled devices and cables. At a higher level, it is necessary to interconnect [processes](https://en.wikipedia.org/wiki/Process_(computing)) running on those CPUs with some sort of [communication system](https://en.wikipedia.org/wiki/Communication_system). 
 

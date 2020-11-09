@@ -30,7 +30,7 @@ In some cases parallelism is transparent to the programmer, such as in bit-level
 
 A theoretical [upper bound](https://en.wikipedia.org/wiki/Upper_bound) on the [speed-up](https://en.wikipedia.org/wiki/Speedup) of a single program as a result of parallelization is given by [Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law).
 
-### Background
+### Background(时代背景)
 
 To deal with the problem of power consumption and overheating the major [central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit) (CPU or processor) manufacturers started to produce power efficient processors with multiple cores. The core is the computing unit of the processor and in multi-core processors each core is independent and can access the same memory concurrently. [Multi-core processors](https://en.wikipedia.org/wiki/Multi-core_processor) have brought parallel computing to [desktop computers](https://en.wikipedia.org/wiki/Desktop_computers). Thus parallelisation of serial programmes has become a mainstream programming task.
 
@@ -40,7 +40,7 @@ To deal with the problem of power consumption and overheating the major [central
 
 Understanding [data dependencies](https://en.wikipedia.org/wiki/Data_dependency) is fundamental in implementing [parallel algorithms](https://en.wikipedia.org/wiki/Parallel_algorithm). No program can run more quickly than the longest chain of dependent calculations (known as the [critical path](https://en.wikipedia.org/wiki/Critical_path_method)), since calculations that depend upon prior calculations in the chain must be executed in order. However, most algorithms do not consist of just a long chain of dependent calculations; there are usually opportunities to execute independent calculations in parallel.
 
-总结：上述[critical path](https://en.wikipedia.org/wiki/Critical_path_method)的概念是非常重要的；
+> 总结：上述[critical path](https://en.wikipedia.org/wiki/Critical_path_method)的概念是非常重要的；
 
 ### [Race conditions, mutual exclusion, synchronization, and parallel slowdown](https://en.wikipedia.org/wiki/Parallel_computing#Race_conditions,_mutual_exclusion,_synchronization,_and_parallel_slowdown)
 
