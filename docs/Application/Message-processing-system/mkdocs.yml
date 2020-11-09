@@ -4,3 +4,4 @@ nav:
     - Application-protocol: Application-protocol
     - Stream-based-message-processing-system: Stream-based-message-processing-system
     - Message-queue: Message-queue
+    - Distributed-log-system: Distributed-log-system
