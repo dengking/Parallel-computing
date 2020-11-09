@@ -6,7 +6,9 @@ ZooKeeper的关键字是"coordination"，即"协调"。
 
 
 
-## [ZooKeeper: A Distributed Coordination Service for Distributed Applications](https://zookeeper.apache.org/doc/current/zookeeperOver.html)
+### Doc
+
+[ZooKeeper: A Distributed Coordination Service for Distributed Applications](http://zookeeper.apache.org/doc/r3.6.0/zookeeperOver.html#ch_DesignOverview)
 
 
 
@@ -39,12 +41,6 @@ Typical use cases for ZooKeeper are:
 
 
 6) [Notification system](https://en.wikipedia.org/wiki/Notification_system)
-
-
-
-## Doc
-
-[ZooKeeper: A Distributed Coordination Service for Distributed Applications](http://zookeeper.apache.org/doc/r3.6.0/zookeeperOver.html#ch_DesignOverview)
 
 
 

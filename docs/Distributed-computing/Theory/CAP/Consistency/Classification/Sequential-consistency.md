@@ -1,4 +1,10 @@
-# [Sequential consistency](https://en.wikipedia.org/wiki/Sequential_consistency)
+# Sequential consistency
+
+## 素材
+
+本节总结讨论Sequential consistency的内容。
+
+### wikipedia [Sequential consistency](https://en.wikipedia.org/wiki/Sequential_consistency)
 
 顺序一致性
 
@@ -26,13 +32,30 @@ Conceptually, there is single **global memory** and a "switch" that connects an 
 
 The sequential consistency is weaker than [strict consistency](https://en.wikipedia.org/wiki/Strict_consistency), which requires a read from a location to return the value of the last write to that location; strict consistency demands that operations be seen in the order in which they were actually issued.
 
-## See also
+#### See also
 
 - [Concurrent data structure](https://en.wikipedia.org/wiki/Concurrent_data_structure)
 - [Linearizability](https://en.wikipedia.org/wiki/Linearizability)
 - [Serializability](https://en.wikipedia.org/wiki/Serializability)
 
-## References
 
-1.  [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport), "How to Make a Multiprocessor Computer That Correctly Executes Multiprocess Programs", IEEE Trans. Comput. C-28,9 (Sept. 1979), 690-691.
-2. **^** [Sarita V. Adve](https://en.wikipedia.org/w/index.php?title=Sarita_V._Adve&action=edit&redlink=1), [Kourosh Gharachorloo](https://en.wikipedia.org/w/index.php?title=Kourosh_Gharachorloo&action=edit&redlink=1), "Shared Memory Consistency Models: A Tutorial"
+
+### `book-Distributed-operating-systems`
+
+在这本书的`6-Distributed-Shared-Memory\6.3.2-Sequential-Consistency`中对sequential
+
+参见`Theory\book-Distributed-operating-systems\6-Distributed-Shared-Memory\6.3.2-Sequential-Consistency`章节。
+
+## Case study
+
+### Case: zookeeper
+
+zookeeper承诺Sequential Consistency，在 [ZooKeeper overview#Guarantees](https://zookeeper.apache.org/doc/r3.6.2/zookeeperOver.html#Guarantees) 中对此进行了说明:
+
+> **Sequential Consistency** - Updates from a **client** will be applied in the order that they were sent.
+
+
+
+### Case: C++ memory model
+
+参见工程programming-language的`C++\Language-reference\Basic-concept\Abstract-machine\Memory-model`章节。
