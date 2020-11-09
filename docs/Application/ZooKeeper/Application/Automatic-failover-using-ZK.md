@@ -6,3 +6,8 @@ Automatic failover是实现HA的关键，本文总结如何使用ZK来实现auto
 
 基于master/slave架构的automatic failover，核心是如何进行leader selection，在`./Lead-election`章节进行了介绍。
 
+
+
+## TODO
+
+stackoverflow [zookeeper failover for kafka cluster](https://stackoverflow.com/questions/43231279/zookeeper-failover-for-kafka-cluster)
