@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - The-Trouble-with-Distributed-Systems: The-Trouble-with-Distributed-Systems.md
     - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
     - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
     - Abstraction: Abstraction
