@@ -17,3 +17,7 @@ github [libzookeeper_master](https://github.com/shuntan/libzookeeper_master)
 ## Python
 
 官方提供了Python client。
+
+## Java
+
+[Apache Curator](http://curator.apache.org/index.html)

@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
     - Overview: Overview.md
-    - Programmer's-Guide: Programmer's-Guide
-    - Application: Application
+    - Developers: Developers
