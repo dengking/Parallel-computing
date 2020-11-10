@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Messaging-pattern: Messaging-pattern.md
     - Pub-sub: Pub-sub
     - Actor-proactor-reactor: Actor-proactor-reactor
     - Message-queue: Message-queue

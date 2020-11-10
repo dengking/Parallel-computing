@@ -9,3 +9,13 @@ Also fan-out in [software construction](https://en.wikipedia.org/wiki/Software_c
 1.  ["AMQP 0-9-1 Model Explained"](https://www.rabbitmq.com/tutorials/amqp-concepts.html). *RabbitMQ*.
 2. ["Writing Request/Response Clients and Servers: Sending Asynchronous Messages"](https://docs.oracle.com/cd/E13161_01/tuxedo/docs10gr3/pgc/pgreq.html#wp1055477). *Oracle Tuxedo Documentation*.
 
+
+
+
+
+## TODO
+
+https://www.rabbitmq.com/tutorials/amqp-concepts.html
+
+思考：Publish–subscribe pattern和fan-out之间的差异所在；
+
