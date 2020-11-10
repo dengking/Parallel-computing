@@ -7,4 +7,5 @@ nav:
      # event library
     - Library: Library
     - Event-VS-exception-VS-signal: Event-VS-exception-VS-signal.md
+    - Design-pattern: Design-pattern
    

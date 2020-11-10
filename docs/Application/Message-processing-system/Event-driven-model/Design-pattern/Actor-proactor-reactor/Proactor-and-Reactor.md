@@ -1,10 +1,24 @@
-# [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938)
+# Proactor and Reactor
+
+每个模式中都有一个`Initiator`
+
+reactor的同步是指什么？
+
+Proactor的异步是指什么？启动一个操作，等操作完成后，在执行回调函数
+
+
+
+两者都涉及了call back
+
+
+
+## zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938)
 
 
 
 
 
-## [A](https://www.zhihu.com/question/26943938/answer/68773398)
+### [A](https://www.zhihu.com/question/26943938/answer/68773398)
 
 
 
@@ -23,7 +37,6 @@
 
 
 在**Reactor**中，**事件分离器**负责等待文件描述符或socket为读写操作准备就绪，然后将就绪事件传递给对应的处理器，最后由**处理器**负责完成实际的读写工作。
-
 
 **而在Proactor模式中，**处理器--或者兼任处理器的**事件分离器**，只负责发起异步读写操作。IO操作本身由**操作系统**来完成。传递给操作系统的参数需要包括用户定义的**数据缓冲区地址**和**数据大小**，操作系统才能从中得到写出操作所需数据，或写入从socket读到的数据。**事件分离器**捕获**IO操作完成事件**，然后将事件传递给对应处理器。比如，在windows上，处理器发起一个异步IO操作，再由事件分离器等待IOCompletion事件。典型的异步模式实现，都建立在操作系统支持异步API的基础之上，我们将这种实现称为“系统级”异步或“真”异步，因为应用程序完全依赖操作系统执行真正的IO工作。
 
@@ -59,14 +72,14 @@ Reactor框架中用户定义的操作是在实际操作之前调用的。比如�
 http://www.cnblogs.com/dawen/archive/2011/05/18/2050358.html
 ```
 
-## [A](https://www.zhihu.com/question/26943938/answer/35007092)
+### [A](https://www.zhihu.com/question/26943938/answer/35007092)
 
 reactor：能收了你跟俺说一声。
 proactor: 你给我收十个字节，收好了跟俺说一声。
 
 
 
-## [A](https://www.zhihu.com/question/26943938/answer/35034068)
+### [A](https://www.zhihu.com/question/26943938/answer/35034068)
 
 Reactor: 
 libevent/libev/libuv/ZeroMQ/Event Library in Redis

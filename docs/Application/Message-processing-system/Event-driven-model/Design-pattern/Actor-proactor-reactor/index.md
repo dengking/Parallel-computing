@@ -1,4 +1,4 @@
-# Actor proactor and reactor
+# Actor、proactor and reactor
 
 在[GotW.ca: Herb Sutter](http://gotw.ca/)首页中，给出了**[Effective Concurrency: Know When to Use an Active Object Instead of a Mutex](http://www.drdobbs.com/go-parallel/article/showArticle.jhtml?articleID=227500074)**，其中的active object引起了我的注意。
 

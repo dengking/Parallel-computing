@@ -1,2 +1,5 @@
 nav:
     - Introduction: index.md
+    - Pub-sub: Pub-sub
+    - Actor-proactor-reactor: Actor-proactor-reactor
+    - Message-queue: Message-queue

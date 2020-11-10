@@ -85,7 +85,7 @@ Figures 3 and 4 show how a Web server designed using **reactive event dispatchin
 2. The Web Server invokes event loop of the `Initiation Dispatcher`;
 3. A client connects to the Web Server;
 4. The `Acceptor` is notified by the `Initiation Dispatcher` of the new connection request and the
-  `Acceptor` accepts the new connection;
+    `Acceptor` accepts the new connection;
 
 5. The `Acceptor` creates an `HTTP Handler` to service the new client;
 6. `HTTP Handler` registers the connection with the `Initiation Dispatcher` for reading client request data(that is, when the connection becomes“ready for reading”);
@@ -123,7 +123,7 @@ Figures 5 and 6 show how a Web server designed using proactive event dispatching
 3. The Web Server invokes the event loop of the `Completion Dispatcher`;
 4. The client connects to the Web Server;
 5. When the asynchronous accept operation completes,the Operating System notifies the `Completion`
-  `Dispatcher`;
+    `Dispatcher`;
 6. The `Completion Dispatcher` notifies the `Acceptor`;
 7. The Acceptor creates an `HTTP Handler`;
 8. The `HTTP Handler` initiates an asynchronous operation to read the request data from the client and passes itself as a `Completion Handler` and a reference to the `Completion Dispatcher` that will be used to notify the `HTTP Handler` upon completion of the asynchronous read.
@@ -138,10 +138,10 @@ Figure 6 shows the sequence of steps that the proactive Web Server takes to serv
 4. The `HTTP Handler` parses the request;
 5. The `HTTP Handler` synchronously reads the requested file;
 6. The `HTTP Handler` initiates an asynchronous operation to write the file data to the client connection and passes itself as a `Completion Handler` and a reference to the `Completion Dispatcher` that will
-  be used to notify the `HTTP Handler` upon completion of the asynchronous write;
+    be used to notify the `HTTP Handler` upon completion of the asynchronous write;
 7. When the write operation completes,the Operating System notifies the `Completion Dispatcher`;
 8. The `Completion Dispatcher` then notifies the `Completion Handler` (steps 6-8 continue until the
-  file has been delivered completely).
+    file has been delivered completely).
 
 A `C++` code example that applies the **proactive event dispatching model** to a Web server appears in Section 8.
 
@@ -306,7 +306,7 @@ most intuitive solution is to use dedicated threads to perform the `Asynchronous
 
 1. **Operation invocation**: Because the operation will be performed in a different thread of control from the invoking application thread, some type of thread synchronization must occur. One approach would be to spawn a thread for each operation. A more common approach is for the `Asynchronous Operation Processor` to control a pool of dedicated threads. This approach would require that the application thread queue the operation request before continuing with other application computations.
 2. **Operation execution**: Since the operation will be performed in a dedicated thread,it can perform “blocking” operations without directly impeding(妨碍) progress of the application.For instance, when providing a mechanism for asynchronous I/O reads, the dedicated thread can block while reading from
-  socket or file handles.
+    socket or file handles.
 3. **Operation completion**: When the operation completes,the application must be notified. In particular, the dedicated thread must delegate application-specific notifications to the **Completion Dispatcher**. This will require additional synchronization between threads.
 
 ### 7.2 Implementing the Completion Dispatcher
