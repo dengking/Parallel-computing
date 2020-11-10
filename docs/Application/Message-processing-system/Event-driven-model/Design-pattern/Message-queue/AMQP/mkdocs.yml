@@ -1,3 +1,4 @@
 nav:
-    - Advanced-Message-Queuing-Protocol: Advanced-Message-Queuing-Protocol.md
+    - Advanced-Message-Queuing-Protocol: index.md
     - Fan-out: Fan-out.md
+    - Rabbitmq: Rabbitmq
