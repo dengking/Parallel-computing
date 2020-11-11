@@ -2,6 +2,8 @@
 
 要实现event passing，是有多种方式可选的。
 
+## Wikipedia [Message passing](https://infogalactic.com/info/Message_passing)
+
 
 ## Inter-process communication
 

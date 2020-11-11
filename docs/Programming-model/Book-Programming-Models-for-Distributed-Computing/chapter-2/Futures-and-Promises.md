@@ -4,43 +4,69 @@ BY KISALAYA PRASAD, AVANTI PATIL, AND HEATHER MILLER
 
 ---
 
-**Futures and promises** are a popular abstraction for **asynchronous programming**, especially in the context of **distributed systems**. We'll cover the motivation for and history of these abstractions, and see how they have evolved over time. We’ll do a deep dive into their differing semantics, and various models of execution. This isn't only history and evolution; we’ll also dive into futures and promises most widely utilized today in languages like JavaScript, Scala, and C++. (55 min read)
+**Futures and promises** are a popular abstraction for **asynchronous programming**, especially in the context of **distributed systems**. We'll cover the motivation for and history of these abstractions, and see how they have evolved over time. We’ll do a deep dive into their differing semantics, and various **models of execution**. This isn't only history and evolution; we’ll also dive into **futures** and **promises** most widely utilized today in languages like JavaScript, Scala, and C++. (55 min read)
 
-***SUMMARY***:in distributed system，asynchronous programming 有着广泛的应用。
+> NOTE: in distributed system，asynchronous programming 有着广泛的应用。
+
+> NOTE: "model of execution"，在后文中会反复出现。
 
 ---
 
 ## Introduction
 
-As human beings we have the ability to multitask *i.e.* we can walk, talk, and eat at the same time except when sneezing. Sneezing is a blocking activity because it forces you to stop what you’re doing for a brief moment, and then you resume where you left off. One can think of the human sense of multitasking as multithreading in the context of computers.
+As human beings we have the ability to **multitask** *i.e.* we can walk, talk, and eat at the same time except when sneezing(打喷嚏). Sneezing is a blocking activity because it forces you to stop what you’re doing for a brief moment, and then you resume where you left off. One can think of the human sense of multitasking as multithreading in the context of computers.
 
-Consider for a moment a simple computer processor; no parallelism, just the ability to complete one task or process at a time. In this scenario, sometimes the processor is blocked when some blocking operation is called. Such blocking calls can include I/O operations like reading/writing to disk, or sending or receiving packets over the network. And as programmers, we know that blocking calls like I/O can take disproportionately more time than a typical CPU-bound task, like iterating over a list.
+Consider for a moment a simple computer processor; no parallelism, just the ability to complete one task or process at a time. In this scenario, sometimes the processor is blocked when some **blocking operation** is called. Such **blocking calls** can include **I/O operations** like reading/writing to disk, or sending or receiving packets over the network. And as programmers, we know that blocking calls like I/O can take disproportionately more time than a typical CPU-bound task, like iterating over a list.
 
 The processor can handle **blocking calls** in two ways:
 
-- **Synchronously**: the processor waits until the blocking call completes its task and returns the result. Afterwards, the processor will move on to processing the next task. *This can oftentimes be problematic because the CPU may not be utilized in an efficient manner; it may wait for long periods of time.*
-- **Asynchronously**: When tasks are processed asynchronously, CPU time spent waiting in the synchronous case is instead spent processing some other task using a preemptive time sharing algorithm. That is, rather than wait, process some other task instead. Thus, the processor is never left waiting as long as there is more work that can be done.
+1) **Synchronously**: the processor waits until the blocking call completes its task and returns the result. Afterwards, the processor will move on to processing the next task. *This can oftentimes be problematic because the CPU may not be utilized in an efficient manner; it may wait for long periods of time.*
+
+2) **Asynchronously**: When tasks are processed asynchronously, CPU time spent waiting in the synchronous case is instead spent processing some other task using a preemptive(抢占式) time sharing algorithm. That is, rather than wait, process some other task instead. Thus, the processor is never left waiting as long as there is more work that can be done.
+
+> NOTE:现代CPU都是使用的这种调度策略。联想到concurrency programming中的错发，其实和CPU做法背后的思想是一样的。这提示了我们，相似的问题，在computer science的各个层次都会出现，可以采用相同的思想、相似的解决方法。
+>
+> 当使用asynchronous方式的时候，必然会涉及到的一个问题是: 当asynchronous operation完成的时候，如何通知？这在hardware层是通过interrupt的方式来实现的。
 
 In the world of programming, many constructs have been introduced in order to help programmers reach ideal levels of resource utilization. Arguably one of the most widely-used of which are **futures** and/or **promises**.
 
-In this chapter, we’ll do a deep dive into futures and promises, a popular abstraction for doing both **synchronous and asynchronous programming**. We’ll go through the motivation for and history of these abstractions, understand what sort of scenarios they’re useful for, and cover how they have evolved over time. We’ll cover the various models of execution associated with these abstractions, and finally we’ll touch on the **futures** and **promises** most widely utilized today in different general purpose programming languages such as JavaScript, Scala, and C++.
+In this chapter, we’ll do a deep dive into futures and promises, a popular abstraction for doing both **synchronous and asynchronous programming**. We’ll go through the motivation for and history of these abstractions, understand what sort of scenarios they’re useful for, and cover how they have evolved over time. We’ll cover the various **models of execution** associated with these abstractions, and finally we’ll touch on the **futures** and **promises** most widely utilized today in different general purpose programming languages such as JavaScript, Scala, and C++.
 
-***SUMMARY***:**futures** and **promises** is a popular abstraction for doing both **synchronous and asynchronous programming**.
+> NOTE: **futures** and **promises** is a popular abstraction for doing both **synchronous and asynchronous programming**.
 
 ## The Basic Idea
 
 As we’ll see in subsequent sections, what we choose to call this concept, and its precise definition tends to vary. We will start with the widest possible definition of the concept of a future/promise, and later zoom in and cover the many semantic differences between different languages’ interpretations of these constructs.
 
+> NOTE: 不同的programminglanguage，对future 和 promise 的解释可能是不同的
+
 In the broadest sense,
 
 > A *future or promise* can be thought of as a value that will *eventually* become available.
 
-***SUMMARY***:future在金融领域的含义是“期货”，在computer science中，它的含义则是上面这段话所描述的，它表示的是在为了某个时刻，value将available。对比future在这两个领域中的含义，可以看出这个词表示的是某个和未来有关的事务，它是一种抽象，也就是下面的这段话中的it is an abstraction which encodes a notion of time；显然这是和时间相关的。其实并不需要把future和promise想得玄乎，完全可以使用function调用并获得函数的返回值的过程对其进行类比，函数的执行过程可能需要耗费一定的时间，所以需要等待一定的时间才能够获得其返回值，显然等待一定的时间就可以就可以获得一个value的过程，我们可以使用future对其进行描述；现在想来这种抽象是非常适合于**concurrency**， **synchronous and asynchronous programming**。
 
-Or said another way, it is an abstraction which encodes a notion of time. By choosing to use this construct, it is assumed that your value can now have many possible states, depending on the point in time which we request it. The simplest variation includes two time-dependent states; a future/promise is either:
 
-1. **completed/determined**: the computation is complete and the future/promise’s value is available.
-2. **incomplete/undetermined**: the computation is not yet complete.
+> NOTE: future在金融领域的含义是“期货”，在computer science中，它的含义则是上面这段话所描述的，它表示的是在为了某个时刻，value将available。对比future在这两个领域中的含义，可以看出这个词表示的是某个和**未来**有关的事物，它是一种抽象，也就是下面的这段话中的"it is an abstraction which encodes a notion of time"；显然这是和**时间**相关的。
+>
+> 其实并不需要把future和promise想得玄乎，完全可以使用function调用并获得函数的返回值的过程对其进行类比，函数的执行过程可能需要耗费一定的时间，所以需要等待一定的时间才能够获得其返回值，显然等待一定的时间就可以就可以获得一个value的过程，我们可以使用future对其进行描述；现在想来这种抽象是非常适合于**concurrency**， **synchronous and asynchronous programming**。
+>
+> 对future/promise的类比:
+>
+> 1) 我觉得promise/future，其实和C++ vocabulary type中的`std::optional`、`std::any`、`std::variant`有些类似;
+>
+> 2) 在wikipedia [Futures and promises](https://en.wikipedia.org/wiki/Futures_and_promises)中，将promise/future比作placeholder
+>
+> 3) future/promise是symbol，参见symbolic programming，它代表了某个未来的值
+
+Or said another way, **it is an abstraction which encodes a notion of time**. 
+
+### State
+
+By choosing to use this construct, it is assumed that your value can now have many possible **states**, depending on the point in time which we request it. The simplest variation includes two time-dependent states; a future/promise is either:
+
+1) **completed/determined**: the computation is complete and the **future/promise’s value** is available.
+
+2) **incomplete/undetermined**: the computation is not yet complete.
 
 As we’ll later see, other states have been introduced in some variations of futures/promises to better support needs like **error-handling** and **cancellation**.
 
@@ -50,37 +76,49 @@ Importantly, futures/promises typically enable some degree of **concurrency**. T
 >
 > [(Halstead, 1985)](http://dist-prog-book.com/chapter/2/futures.html#Multilisp)
 
-***SUMMARY***:In [this article](https://en.wikipedia.org/wiki/Futures_and_promises) it calls this property a **placeholder**.
+> NOTE: In wikipedia [Futures and promises](https://en.wikipedia.org/wiki/Futures_and_promises) it calls this property a **placeholder**.
 
 Some interpretations(解释) of futures/promises have a type associated with them, others not. Typically a future/promise is [**single-assignment**](https://en.wikipedia.org/wiki/Assignment_(computer_science)#Single_assignment); that is, it can only be written to once. Some interpretations are **blocking** (**synchronous**), others are completely **non-blocking** (**asynchronous**). Some interpretations must be explicitly *kicked off* (i.e. manually started), while in other interpretations, computation is started implicitly.
 
-Inspired by functional programming, one of the major distinctions between different interpretations of this construct have to do with *pipelineing* or *composition*. Some of the more popular interpretations of futures/promises make it possible to *chain* operations, or define a pipeline of operations to be invoked upon completion of the computation represented by the future/promise. This is in contrast to callback-heavy or more imperative direct blocking approaches.
+### Functional programming: pipeline/composition
+
+> NOTE: future/promise是起源自functional programming的
+
+Inspired by **functional programming**, one of the major distinctions between different interpretations of this construct have to do with *pipelineing* or *composition*. Some of the more popular interpretations of futures/promises make it possible to *chain* operations, or define a pipeline of operations to be invoked upon completion of the computation represented by the **future/promise**. This is in contrast to callback-heavy or more imperative direct blocking approaches.
 
 ## Motivation and Uses
 
+> NOTE: 这段总结了future/promise的use case。
+
 The rise of promises and futures as a topic of relevance has for the most part occurred alongside of the rise of **parallel and concurrent programming** and **distributed systems**. This follows somewhat naturally, since, as an abstraction which **encodes** time, futures/promises introduce a nice way to reason about **state changes** when latency becomes an issue; a common concern faced by programmers when a node must communicate with another node in a distributed system.
 
-***SUMMARY***:现在看来在科学的每个领域，创造出对问题的描述，刻画方式是非常重要的，就好比此处的future/promise之于 **parallel and concurrent programming** and **distributed systems**。
+> NOTE: 现在看来在科学的每个领域，创造出对问题的描述，刻画方式是非常重要的，就好比此处的future/promise之于 **parallel and concurrent programming** and **distributed systems**。
 
 However promises and futures are considered useful in a number of other contexts as well, both distributed and not. Some such contexts include:
 
-- **Request-Response Patterns**, such as web service calls over HTTP. A **future** may be used to represent the value of the response of the HTTP request.
-- **Input/Output**, such as UI dialogs requiring user input, or operations such as reading large files from disk. A **future** may be used to represent the IO call and the resulting value of the IO (e.g., terminal input, array of bytes of a file that was read).
-- **Long-Running Computations**. Imagine you would like the process which initiated a long-running computation, such as a complex numerical algorithm, not to wait on the completion of that long-running computation and to instead move on to process some other task. A future may be used to represent this long-running computation and the value of its result.
-- **Database Queries**. Like long-running computations, database queries can be time-consuming. Thus, like above, it may be desirable to offload the work of doing the query to another process and move on to processing the next task. A **future** may be used to represent the query and resulting value of the query.
-- **RPC (Remote Procedure Call)**. Network latency is typically an issue when making an RPC call to a server. Like above, it may be desirable to not have to wait on the result of the RPC invocation by instead offloading it to another process. A future may be used to represent the RPC call and its result; when the server responds with a result, the future is completed and its value is the server’s response.
-- **Reading Data from a Socket** can be time-consuming particularly due to network latency. It may thus be desirable to not to have to wait on incoming data, and instead to offload it to another process. A future may be used to represent the reading operation and the resulting value of what it reads when the future is completed.
-- **Timeouts**, such as managing timeouts in a web service. A future representing a timeout could simply return no result or some kind of empty result like the `Unit` type in typed programming languages.
+1) **Request-Response Patterns**, such as web service calls over HTTP. A **future** may be used to represent the value of the response of the HTTP request.
 
-Many real world services and systems today make heavy use of futures/promises in popular contexts such as these, thanks to the notion of a future or a promise having been introduced in popular languages and frameworks such as JavaScript, Node.js, Scala, Java, C++, amongst many others. As we will see in further sections, this proliferation（扩散） of **futures/promises** has resulted in futures/promises changing meanings and names over time and across languages.
+2) **Input/Output**, such as UI dialogs requiring user input, or operations such as reading large files from disk. A **future** may be used to represent the IO call and the resulting value of the IO (e.g., terminal input, array of bytes of a file that was read).
 
-***SUMMARY***:在**futures/promises**的发展过程中，其含义以及发生了变化。
+3) **Long-Running Computations**. Imagine you would like the process which initiated a long-running computation, such as a complex numerical algorithm, not to wait on the completion of that long-running computation and to instead move on to process some other task. A future may be used to represent this long-running computation and the value of its result.
+
+4) **Database Queries**. Like long-running computations, database queries can be time-consuming. Thus, like above, it may be desirable to offload the work of doing the query to another process and move on to processing the next task. A **future** may be used to represent the query and resulting value of the query.
+
+5) **RPC (Remote Procedure Call)**. Network latency is typically an issue when making an RPC call to a server. Like above, it may be desirable to not have to wait on the result of the RPC invocation by instead offloading it to another process. A future may be used to represent the RPC call and its result; when the server responds with a result, the future is completed and its value is the server’s response.
+
+6) **Reading Data from a Socket** can be time-consuming particularly due to network latency. It may thus be desirable to not to have to wait on incoming data, and instead to offload it to another process. A future may be used to represent the reading operation and the resulting value of what it reads when the future is completed.
+
+7) **Timeouts**, such as managing timeouts in a web service. A future representing a timeout could simply return no result or some kind of empty result like the `Unit` type in typed programming languages.
+
+Many real world services and systems today make heavy use of **futures/promises** in popular contexts such as these, thanks to the notion of a future or a promise having been introduced in popular languages and frameworks such as JavaScript, `Node.js`, Scala, Java, C++, amongst many others. As we will see in further sections, this proliferation（扩散） of **futures/promises** has resulted in futures/promises changing meanings and names over time and across languages.
+
+> NOTE: 在**futures/promises**的发展过程中，其含义以及发生了变化。
 
 ## Diverging Terminology
 
 *Future*, *Promise*, *Delay* or *Deferred* generally refer to roughly the same **synchronization mechanism** where an object acts as a **proxy** for as-of-yet unknown result. When the result is available, some other code then gets executed. Over the years, these terms have come to refer to slightly different semantic meanings between languages and ecosystems.
 
-***SUMMARY***:显然，上面所说的proxy，应该是[virtual proxy](https://en.wikipedia.org/wiki/Proxy_pattern#Virtual_Proxy)。
+> NOTE: 显然，上面所说的proxy，应该是[virtual proxy](https://en.wikipedia.org/wiki/Proxy_pattern#Virtual_Proxy)。
 
 Sometimes, a language may have *one* construct named **future**, **promise**, **delay**, **deferred**, etc.
 
@@ -91,7 +129,9 @@ However, in other cases, a language may have *two* constructs, typically referre
 
 In other words, a future is a **read-only window** to a value written into a **promise**. You can get the `Future` associated with a `Promise` by calling the `future` method on it, but conversion in the other direction is not possible. Another way to look at it would be, if you *promise* something to someone, you are responsible for keeping it, but if someone else makes a *promise* to you, you expect them to honor it in the *future*（另一种看待它的方法是，如果你向某人承诺，你有责任保留它，但如果其他人向你做出承诺，你希望他们在将来尊重它）.
 
-***SUMMARY***:可以通过在`Future`上调用`future`发放来获得该`Future` 相关联的`Promise`，但是反方向的转换是不可能的，也就是给定**promise**无法得到它的**future**。之于为什么这样，我觉得可能是目前**promise**还没有执行，所以它的future没有值。最后一段话是作者的一个比喻。
+> NOTE:可以通过在`Future`上调用`future`发放来获得该`Future` 相关联的`Promise`，但是反方向的转换是不可能的，也就是给定**promise**无法得到它的**future**。之于为什么这样，我觉得可能是目前**promise**还没有执行，所以它的future没有值。最后一段话是作者的一个比喻。
+
+### Scala
 
 In Scala, they are defined as follows:
 
@@ -101,15 +141,25 @@ In Scala, they are defined as follows:
 
 An important difference between Scala and Java (6) futures is that Scala futures are asynchronous in nature. Java’s future, at least till Java 6, were blocking. Java 7 introduced asynchronous futures to great fanfare.
 
+### Java
+
 In Java 8, the `Future<T>` interface has methods to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation when it is complete. `CompletableFutures` can be thought of as a **promise**, since their value can be explicitly set. However, `CompletableFuture` also implements the `Future` interface allowing it to be used as a `Future` as well. **Promises** can be thought of as a future with a public set method which the caller (or anybody else) can use to set the value of the future.
 
-***SUMMARY***:The last paragraph is a metaphor。
+> NOTE:The last paragraph is a metaphor。
+
+### JQuery 
 
 In the JavaScript world, JQuery introduces a notion of `Deferred` objects which are used to represent a unit of work which is not yet finished. The `Deferred` object contains a **promise** object which represents the result of that unit of work. **Promises** are values returned by a function. The **deferred** object can also be canceled by its caller.
 
+### `C#`
+
 Like Scala and Java, C# also makes the distinction between the future and promise constructs described above. In C#, **futures** are called `Task<T>`s, and **promises** are called `TaskCompletionSource<T>`. The result of the **future** is available in the read-only property `Task<T>.Result` which returns `T`, and `TaskCompletionSource<T>.Task<TResult>` has methods to complete the `Task` object with a result of type `T` or with an exception or cancellation. Important to note; `Task`s are **asynchronous** in C#.
 
+### JavaScript 
+
 And confusingly, the JavaScript community has standardized on a single construct known as a `Promise` which can be used like other languages’ notions of futures. The Promises specification [(Promises/A+, 2013)](http://dist-prog-book.com/chapter/2/futures.html#PromisesAPlus) defines only a single interface and leaves the details of completing (or *fulfilling*) the promise to the implementer of the spec. **Promises** in JavaScript are also **asynchronous** and able to be **pipelined**. JavaScript promises are enabled by default in browsers that support ECMAScript 6 (EC6), or are available in a number of libraries such as [Bluebird](http://bluebirdjs.com/docs/getting-started.html) and [Q](https://github.com/kriskowal/q).
+
+### Summary
 
 As we can see, concepts, semantics, and terminology seem to differ between languages and library implementations of futures/promises. These differences in terminology and semantics arise from the long history and independent language communities that have proliferated（扩散） the use of futures/promises.
 
@@ -461,6 +511,8 @@ Thus stream calls (and sends) whose replies are lost because of broken streams w
 
 ### Modern Languages
 
+### Scala
+
 In modern languages like Scala, Promises generally come with two callbacks. One to handle the success case and other to handle the failure. e.g.
 
 ```Scala
@@ -533,7 +585,7 @@ q.then(function(data) {
 });
 ```
 
-Promises also have a catch method, which work the same way as onFailure callback, but also help deal with errors in a composition. Exceptions in promises behave the same way as they do in a synchronous block of code : they jump to the nearest exception handler.
+Promises also have a catch method, which work the same way as `onFailure` callback, but also help deal with errors in a composition. Exceptions in promises behave the same way as they do in a synchronous block of code : they jump to the nearest exception handler.
 
 ```
 function work(data) {

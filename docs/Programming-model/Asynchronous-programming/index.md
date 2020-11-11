@@ -4,6 +4,20 @@
 
 https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)asynchronous 
 
+## Wikipedia [Asynchrony (computer programming)](https://infogalactic.com/info/Asynchrony_(computer_programming))
+
+
+
+## Examples
+
+[Ajax](https://infogalactic.com/info/Ajax_(programming))
+
+
+
+## Programming model
+
+### Fluent API
+
 
 
 ## Asynchronous programming and multithreading
@@ -54,6 +68,12 @@ Signals are classic examples of **asynchronous events**. They occur at what appe
 
 Unix的signal的asynchronous event的处理是通过注册signal handler来实现的；注册的signal handler的接口有
 
-## Fluent API
 
-在fluent API中，也讨论了asynchronous programming的问题
+
+## Draft
+
+
+
+asynchronous的思想是: 对于耗时操作，不等待它执行完成，让它在**main loop/flow **之外独立运行而不阻塞**main loop**，这样main loop就可以在它执行的这段时间内去处理其他的事情，待耗时操作完成的时候，它再**通知**main loop它的完成，然后main loop再来处理它的结果。
+
+当进行**asynchronous programming**的时候，往往需要表达"当 某个**event** 发生时，执行 某个 **callback**"，这个**callback**往往是用户注册的自定义函数，这种是可以使用fluent API来进行描述的，它其实非常类似于builder pattern，即由用户来设置**callback**，最最典型的就是jQuery，现代很多programming language都是支持这种paradigm的。

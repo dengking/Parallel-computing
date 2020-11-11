@@ -87,3 +87,10 @@ In some programming languages such as [Oz](https://en.wikipedia.org/wiki/Oz_(pro
 ## Futures and promises originated in [functional programming](https://en.wikipedia.org/wiki/Functional_programming) 
 
 关于functional programming，参见工程programming-language的`Theory\Programming-paradigm\Functional-programming`章节。
+
+
+
+## Application of future and promise
+
+1) C++ 
+
