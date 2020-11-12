@@ -1,4 +1,6 @@
-# [Linearizability](https://en.wikipedia.org/wiki/Linearizability)
+# Atomicity
+
+## wikipedia [Linearizability](https://en.wikipedia.org/wiki/Linearizability)
 
 In [concurrent programming](https://en.wikipedia.org/wiki/Concurrent_programming), an operation (or set of operations) is **linearizable** if it consists of an ordered list of invocation and **response events** ([callbacks](https://en.wikipedia.org/wiki/Callbacks)), that may be extended by adding **response events** such that:
 
@@ -27,9 +29,20 @@ In grey a linear sub-history, processes beginning in b do not have a linearizabl
 
 
 
-## History of linearizability
+### History of linearizability
 
 Linearizability was first introduced as a [consistency model](https://en.wikipedia.org/wiki/Consistency_model) by [Herlihy](https://en.wikipedia.org/wiki/Maurice_Herlihy) and [Wing](https://en.wikipedia.org/wiki/Jeannette_Wing) in 1987. It encompassed(包含) more restrictive definitions of atomic, such as "an atomic operation is one which cannot be (or is not) interrupted by concurrent operations", which are usually vague(模糊的) about when an operation is considered to begin and end.
 
 An atomic object can be understood immediately and completely from its sequential definition, as a set of operations run in parallel which always appear to occur one after the other; no inconsistencies may emerge. Specifically, linearizability guarantees that the [invariants](https://en.wikipedia.org/wiki/Invariant_(computer_science)) of a system are *observed* and *preserved* by all operations: if all operations individually preserve an invariant, the system as a whole will.
 
+
+
+## wikipedia [Atomicity (database systems)](https://en.wikipedia.org/wiki/Atomicity_(database_systems))
+
+
+
+## TODO
+
+在下面文章中提及了atomicity内容:
+
+1) [Using Redis as a Time Series Database: Why and How](https://www.infoq.com/articles/redis-time-series/)

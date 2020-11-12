@@ -1,5 +1,5 @@
 nav:
-    - Concurrent-data-structure: Concurrent-data-structure.md
+    - Concurrent-data-structure: index.md
     - Lock-free: Lock-free
     - TODO-Memory-reclamation: TODO-Memory-reclamation.md
     - TODO: TODO.md

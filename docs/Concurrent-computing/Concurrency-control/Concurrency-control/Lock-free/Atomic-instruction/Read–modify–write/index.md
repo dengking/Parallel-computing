@@ -34,3 +34,51 @@ It is impossible to implement an operation that requires a given **consensus num
 
 
 ## stackoverflow [Why it's termed read-modify-write but not read-write?](https://stackoverflow.com/questions/49452022/why-its-termed-read-modify-write-but-not-read-write)
+
+
+
+### [A](https://stackoverflow.com/a/49638936)
+
+Because that is exactly the sequence of events on a typical architecture such as `X86`.
+
+1. *read*: The value is read from a memory location (cache) into a CPU register
+2. *modify*: The value is incremented inside the CPU register
+3. *write*: The updated register value is written back to memory (cache).
+
+In order to create the perception of atomicity, the cache line is locked between the `read` and the `write` operation.
+
+For example, incrementing a C++ atomic variable:
+
+```C++
+g.fetch_add(1);
+```
+
+Is compiled by `gcc` into:
+
+```assembly
+0x00000000004006c0 <+0>:     lock addl $0x1,0x200978(%rip)        # 0x601040 <g>
+```
+
+Despite being a single instruction, `addl` is not atomic by itself. The `lock` prefix is necessary to guarantee that the updated register value is written back to the cache line before it can be accessed by other cores (the store buffer is flushed, but bypassed for RMW operations).
+
+The **`MESI` cache coherence protocol** ensures that all cores observe the updated memory value after the lock on the cache line has been released. This guarantees that all threads observe the latest value in the modification order which is required for RMW operations by the C++ standard.
+
+> NOTE: 解释得非常好。
+
+
+
+## Compare-and-swap VS test-and-set
+
+stackoverflow [compare and swap vs test and set](https://stackoverflow.com/questions/3659336/compare-and-swap-vs-test-and-set)
+
+[A](https://stackoverflow.com/a/3659535): 
+
+> `test-and-set` modifies the contents of a memory location and returns its old value as a single atomic operation.
+>
+> `compare-and-swap` atomically compares the contents of a memory location to a given value and, **only if they are the same**, modifies the contents of that memory location to a given new value.
+>
+> *The difference marked in bold.*
+
+[A](https://stackoverflow.com/a/40101529):
+
+> **Test and set operates on a bit, compare and swap operates on a 32-bit field.**

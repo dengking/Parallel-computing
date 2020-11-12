@@ -4,3 +4,4 @@ nav:
     - Multiple-model: Multiple-model
 #################### fork-join model是一种非常普遍的model####################     
     - Fork–join-model: Fork–join-model.md
+    - Stream-model: Stream-model
