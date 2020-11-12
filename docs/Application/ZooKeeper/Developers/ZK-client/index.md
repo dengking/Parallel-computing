@@ -1,5 +1,7 @@
 # ZK client
 
+很多ZK client都已经将ZK的各种application给封装好了，使用这些client，我们可以快速地使用响应的功能。
+
 ## C++
 
 github [ZooKeeper C++](https://github.com/tgockel/zookeeper-cpp)
@@ -21,3 +23,4 @@ github [libzookeeper_master](https://github.com/shuntan/libzookeeper_master)
 ## Java
 
 [Apache Curator](http://curator.apache.org/index.html)
+
