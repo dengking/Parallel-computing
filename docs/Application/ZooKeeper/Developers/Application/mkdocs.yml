@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
     - Lead-election: Lead-election
-    - Automatic-failover-using-ZK: Automatic-failover-using-ZK.md
+
+    - Lock: Lock
     - Herd-Effect-in-ZK: Herd-Effect-in-ZK.md

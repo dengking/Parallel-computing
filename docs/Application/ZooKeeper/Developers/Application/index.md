@@ -32,3 +32,6 @@ Another function directly provided by ZooKeeper is *group membership*. The group
 
 参见`./Lead-election`
 
+
+
+## zhuanlan.zhihu [为什么需要 Zookeeper](https://zhuanlan.zhihu.com/p/69114539)

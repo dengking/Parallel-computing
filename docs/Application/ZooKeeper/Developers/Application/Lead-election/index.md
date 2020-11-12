@@ -191,11 +191,23 @@ void zk_watcher(zhandle_t *zh, int type, int state, const char *path, void *cont
 
 ```
 
+## Implementation 
 
+### github [Automatic Redis Failover](https://github.com/ryanlecompte/redis_failover)
 
-## github [Automatic Redis Failover](https://github.com/ryanlecompte/redis_failover)
+> NOTE: Ruby语言实现的
 
 This gem (built using [ZK](https://github.com/slyphon/zk)) attempts to address these **failover** scenarios. One or more **Node Manager daemons** run as **background processes** and monitor all of your configured master/slave nodes. When the **daemon** starts up, it automatically discovers the **current master/slaves**. **Background watchers** are setup for each of the **redis nodes**. As soon as a node is detected as being offline, it will be moved to an "unavailable" state. If the node that went offline was the master, then one of the slaves will be promoted as the new master. All existing slaves will be automatically reconfigured to point to the new master for replication. All nodes marked as unavailable will be periodically checked to see if they have been brought back online. If so, the newly available nodes will be configured as slaves and brought back into the list of available nodes. Note that detection of a node going down should be nearly instantaneous, since the mechanism used to keep tabs on a node is via a blocking Redis BLPOP call (no polling). This call fails nearly immediately when the node actually goes offline. To avoid false positives (i.e., intermittent flaky network interruption), the Node Manager will only mark a node as unavailable if it fails to communicate with it 3 times (this is configurable via --max-failures, see configuration options below). Note that you can (and should) deploy multiple Node Manager daemons since they each report periodic health reports/snapshots of the redis servers. A "node strategy" is used to determine if a node is actually unavailable. By default a majority strategy is used, but you can also configure "consensus" or "single" as well.
+
+
+
+### github [maweina](https://github.com/maweina)/[zookeeper-leader-election](https://github.com/maweina/zookeeper-leader-election)
+
+> NOTE: Java语言实现的
+
+### github [tgockel](https://github.com/tgockel)/[zookeeper-cpp](https://github.com/tgockel/zookeeper-cpp)
+
+> NOTE: C++语言实现的
 
 ## TODO
 
