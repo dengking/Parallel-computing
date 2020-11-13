@@ -4,7 +4,9 @@
 
 ## Async
 
-"async"即"异步"。
+"async"即"异步"。asynchronous的思想是: 对于耗时操作，不等待它执行完成，让它在**main loop/flow **之外独立运行而不阻塞**main loop**，这样main loop就可以在它执行的这段时间内去处理其他的事情，待耗时操作完成的时候(是一个**event**)，它再**通知**(notify)main loop它的完成，然后**main loop**再来处理它的结果。
+
+当进行**asynchronous programming**的时候，往往需要表达"当 某个**event** 发生时，执行 某个 **callback**"，这个**callback**往往是用户注册的自定义函数，这种是可以使用fluent API来进行描述的，它其实非常类似于builder pattern，即由用户来设置**callback**，最最典型的就是jQuery，现代很多programming language都是支持这种paradigm的。
 
 ### Wikipedia [Asynchrony (computer programming)](https://infogalactic.com/info/Asynchrony_(computer_programming))
 
@@ -52,18 +54,8 @@ https://en.wikipedia.org/wiki/Asynchronous_method_invocation
 
 5) Unix signal
 
-参见工程Linux-OS的Programming\IO
+参见工程Linux-OS的`Programming\IO\Blocking-and-non-blocking-VS-sync-and-async`章节。
 
+6) Asynchronous IO
 
-
-
-
-
-
-## Draft
-
-
-
-asynchronous的思想是: 对于耗时操作，不等待它执行完成，让它在**main loop/flow **之外独立运行而不阻塞**main loop**，这样main loop就可以在它执行的这段时间内去处理其他的事情，待耗时操作完成的时候(是一个**event**)，它再**通知**(notify)main loop它的完成，然后**main loop**再来处理它的结果。
-
-当进行**asynchronous programming**的时候，往往需要表达"当 某个**event** 发生时，执行 某个 **callback**"，这个**callback**往往是用户注册的自定义函数，这种是可以使用fluent API来进行描述的，它其实非常类似于builder pattern，即由用户来设置**callback**，最最典型的就是jQuery，现代很多programming language都是支持这种paradigm的。
+参见工程Linux-OS的`Programming\IO\IO-model`章节。
