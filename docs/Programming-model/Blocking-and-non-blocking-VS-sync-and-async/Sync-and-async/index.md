@@ -2,7 +2,11 @@
 
 今天在阅读jQuery的ajax的代码的时候，看到了其中有非常多的**回调函数**等，显然这是**异步编程**的思想，于是我想，有必要总结Asynchronous  programming的相关知识了。
 
-## Wikipedia [Asynchrony (computer programming)](https://infogalactic.com/info/Asynchrony_(computer_programming))
+## Async
+
+"async"即"异步"。
+
+### Wikipedia [Asynchrony (computer programming)](https://infogalactic.com/info/Asynchrony_(computer_programming))
 
 > https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)asynchronous 
 
@@ -26,7 +30,7 @@ A common way for dealing with **asynchrony** in a [programming interface](https:
 
 
 
-## Examples of asynchrony 
+### Examples of asynchrony 
 
 
 
@@ -38,17 +42,19 @@ A common way for dealing with **asynchrony** in a [programming interface](https:
 
 > [Asynchronous method dispatch](https://infogalactic.com/info/Asynchronous_method_dispatch) (AMD), a data communication method used when there is a need for the server side to handle a large number of long lasting client requests.[[6\]](https://infogalactic.com/info/Asynchrony_(computer_programming)#cite_note-6)
 
-3) Unix signal
-
-在APUE的10.2 Signal Concepts中有下面这样的一段话：
-
-> Signals are classic examples of **asynchronous events**. They occur at what appear to be random times to the process. The process can’t simply test a variable (such as errno) to see whether a signal has occurred; instead, the process has to tell the kernel ‘‘if and when this signal occurs, do the following.’’We can tell the kernel to do one of three things when a signal occurs. We call this the disposition of the signal, or the action associated with a signal.
-
-Unix的signal的asynchronous event的处理是通过注册signal handler来实现的；注册的signal handler的接口有
-
-4) Asynchronous method invocation
+3) Asynchronous method invocation
 
 https://en.wikipedia.org/wiki/Asynchronous_method_invocation
+
+4) Interrupt
+
+今天在阅读 Wikipedia的[context switch](https://en.wikipedia.org/wiki/Context_switch) 的时候，其中提及了interrupt，显然，interrupt是一种典型的asynchronous方式。
+
+5) Unix signal
+
+参见工程Linux-OS的Programming\IO
+
+
 
 
 
