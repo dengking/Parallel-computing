@@ -2,10 +2,6 @@
 
 今天在阅读jQuery的ajax的代码的时候，看到了其中有非常多的**回调函数**等，显然这是**异步编程**的思想，于是我想，有必要总结Asynchronous  programming的相关知识了:
 
-https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)asynchronous 
-
-## Wikipedia [Asynchrony (computer programming)](https://infogalactic.com/info/Asynchrony_(computer_programming))
-
 
 
 ## Examples
