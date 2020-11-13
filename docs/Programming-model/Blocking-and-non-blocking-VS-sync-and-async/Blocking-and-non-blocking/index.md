@@ -44,23 +44,6 @@ Once the event occurs for which the process is waiting ("is blocked on"), the pr
 
 
 
-### 补充内容
-
-1) Node.js
-
-- About Node.js
-
-- Node.js-Overview of Blocking vs Non-Blocking
-
-2) Unix-The TTY demystified
-
-3) redis-An introduction to Redis data types and abstractions
-
-其中Blocking operations on lists章节的观点非常具有参考意义
-
-- wikipedia-Asynchronous-IO
-- wikipedia-Process-state
-
 ### Blocking and timeout
 
 在很多应用中，一直将application block是非常危险的，因为它可能导致系统不可用；所以为block设置一个timeout是非常重要的；
@@ -81,8 +64,61 @@ OS中，process有blocked状态，显然是符合前面的描述的。
 
 ### Wikipedia [Non-blocking algorithm](https://infogalactic.com/info/Non-blocking_algorithm)
 
+In [computer science](https://infogalactic.com/info/Computer_science), an [algorithm](https://infogalactic.com/info/Algorithm) is called **non-blocking** if failure or [suspension](https://infogalactic.com/info/Scheduling_(computing)) of any [thread](https://infogalactic.com/info/Thread_(computing)) cannot cause failure or suspension of another thread;[[1\]](https://infogalactic.com/info/Non-blocking_algorithm#cite_note-1) for some operations, these algorithms provide a useful alternative to traditional [blocking implementations](https://infogalactic.com/info/Lock_(computer_science)). 
+
+> NOTE: 如果任何线程的失败或暂停不会导致另一个线程的失败或暂停，则称为**非阻塞算法**。
+
+A non-blocking algorithm is 
+
+1) **lock-free** if there is guaranteed system-wide [progress](https://infogalactic.com/info/Resource_starvation), and 
+
+> NOTE: "progress"的意思是
+
+2) **wait-free** if there is also guaranteed per-thread progress.
+
+
+
+#### Motivation
+
+> NOTE: *Main article:* [Disadvantages of locks](https://infogalactic.com/info/Lock_(computer_science)#Disadvantages) 
+>
+> non-blocking algorithm是为了解决lock的弊端
+
+#### Implementation
+
+> NOTE: 下面描述了两种实现方式:
+>
+> 1) atomic read-modify-write primitive
+>
+> 2) software transactional memory
+
+With few exceptions, non-blocking algorithms use [atomic](https://infogalactic.com/info/Linearizability) [read-modify-write](https://infogalactic.com/info/Read-modify-write) primitives that the hardware must provide, the most notable of which is [compare and swap (CAS)](https://infogalactic.com/info/Compare-and-swap). [Critical sections](https://infogalactic.com/info/Critical_section) are almost always implemented using standard interfaces over these primitives (in the general case, critical sections will be blocking, even when implemented with these primitives). Until recently, all non-blocking algorithms had to be written "natively" with the underlying primitives to achieve acceptable performance. 
+
+> NOTE: atomic read-modify-write在`Concurrent-computing\Concurrency-control\Non-blocking`章节进行了描述。
+
+However, the emerging field of [software transactional memory](https://infogalactic.com/info/Software_transactional_memory) promises standard abstractions for writing efficient non-blocking code.[[3\]](https://infogalactic.com/info/Non-blocking_algorithm#cite_note-lightweight-transactions-3)[[4\]](https://infogalactic.com/info/Non-blocking_algorithm#cite_note-composable-memory-transactions-4)
+
+
+
+### Wikipedia [Non-blocking I/O](https://infogalactic.com/info/Asynchronous_I/O)
 
 
 
 
-### Wikipedia [Asynchronous I/O](https://infogalactic.com/info/Asynchronous_I/O)
+
+## 补充内容
+
+1) Node.js
+
+- About Node.js
+
+- Node.js-Overview of Blocking vs Non-Blocking
+
+2) Unix-The TTY demystified
+
+3) redis-An introduction to Redis data types and abstractions
+
+其中Blocking operations on lists章节的观点非常具有参考意义
+
+- wikipedia-Asynchronous-IO
+- wikipedia-Process-state
