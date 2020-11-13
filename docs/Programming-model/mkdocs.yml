@@ -3,5 +3,5 @@ nav:
     - Book-Programming-Models-for-Distributed-Computing: Book-Programming-Models-for-Distributed-Computing
     - Northeastern-University-CS7680: Northeastern-University-CS7680
     - MapReduce: MapReduce
-    - Asynchronous-programming: Asynchronous-programming
+    - Blocking-and-non-blocking-VS-sync-and-async: Blocking-and-non-blocking-VS-sync-and-async
     
