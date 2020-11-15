@@ -1,5 +1,7 @@
 # Ordering in distributed system
 
+关于order和computation之间的关系，参见工程discrete的`Relation-structure-computation\Make-it-computational`章节。
+
 在阅读TensorFlow whitepaper的时候，其中有这样的描述:
 
 > Our implementation also sometimes inserts **control dependencies** to enforce **orderings** between otherwise independent operations as a way of, for example, controlling the peak memory usage.
@@ -35,9 +37,3 @@
 cornell [Distributed Systems: Ordering and Consistency](https://www.cs.cornell.edu/courses/cs6410/2018fa/slides/14-lamport-clocks.pdf)
 
 
-
-## ordering的维度
-
-基于空间维度
-
-基于时间维度
