@@ -1,2 +1,4 @@
 nav:
-    - Lock-free: Lock-free.md
+    - Linearizability: Linearizability.md
+    - Atomic-instruction: Atomic-instruction
+    - Memory-barrier: Memory-barrier

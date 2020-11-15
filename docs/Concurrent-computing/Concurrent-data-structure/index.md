@@ -2,12 +2,18 @@
 
 
 
+## Wikipedia [Concurrent data structure](https://infogalactic.com/info/Concurrent_data_structure)
+
+
+
+
+
 ## Implementation
 
-### [ConcLinkedList](https://github.com/gavra0/ConcLinkedList)
+### github [ConcLinkedList](https://github.com/gavra0/ConcLinkedList)
 
 
 
-### [libcds](https://github.com/khizmax/libcds)
+### github [libcds](https://github.com/khizmax/libcds)
 
 http://libcds.sourceforge.net/doc/cds-api/index.html

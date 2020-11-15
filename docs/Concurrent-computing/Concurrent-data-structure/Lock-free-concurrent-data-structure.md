@@ -1,6 +1,6 @@
 # Lock free
 
-维基百科：https://en.wikipedia.org/wiki/Non-blocking_algorithm
+
 
 lock-free and Atomicity and memory alignment：https://stackoverflow.com/questions/381244/purpose-of-memory-alignment
 

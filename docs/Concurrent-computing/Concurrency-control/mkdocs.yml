@@ -1,16 +1,14 @@
 nav:
+    - Concurrency-control: index.md 
+    - Optimistic-and-pessimistic: Optimistic-and-pessimistic.md
     - Synchronization: Synchronization.md
     - Concurrency-control: Concurrency-control.md
     - Mutual-exclusion: Mutual-exclusion.md
     - Lock: Lock
     
     
-    nav:
-    - Concurrency-control: index.md
     
-    - Multiversion-concurrency-control: Multiversion-concurrency-control.md
-    - Optimistic-and-pessimistic: Optimistic-and-pessimistic.md
+    - Software-transactional-memory: Software-transactional-memory
+
     
-    - Read-copy-update: Read-copy-update.md
-    - Compare-and-swap: Compare-and-swap.md
-    - Fetch-and-add: Fetch-and-add.md
+    - Read-copy-update: Read-copy-update
