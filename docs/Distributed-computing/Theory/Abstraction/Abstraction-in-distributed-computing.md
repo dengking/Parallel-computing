@@ -26,13 +26,13 @@ Throughout this book, we will keep our eyes open for good **abstractions** that 
 
 > NOTE: 紧随上一段而来
 
-**Maintainability** has many facets, but in essence it’s about making life better for the engineering and operations teams who need to work with the system. Good **abstractions** can help reduce complexity and make the system easier to modify and adapt for new use cases.
+**Maintainability** has many facets(面), but in essence it’s about making life better for the engineering and operations teams who need to work with the system. Good **abstractions** can help reduce complexity and make the system easier to modify and adapt for new use cases.
 
 3) `CHAPTER 2 Data Models and Query Languages`:
 
 > NOTE: level model，参见工程`software-engineering`的`Software-design\Principle\Abstraction`。
 
-In a complex application there may be more intermediary levels, such as APIs built upon APIs, but the basic idea is still the same: each layer hides the complexity of the layers below it by providing a clean data model. These **abstractions** allow different groups of people—for example, the engineers at the database vendor and the application developers using their database—to work together effectively.
+In a complex application there may be more intermediary(中间) levels, such as APIs built upon APIs, but the basic idea is still the same: each layer hides the complexity of the layers below it by providing a clean data model. These **abstractions** allow different groups of people—for example, the engineers at the database vendor and the application developers using their database—to work together effectively.
 
 
 
@@ -73,6 +73,5 @@ and that storage devices are perfectly reliable (**durability**). Even though cr
 
 We will now continue along the same lines, and seek **abstractions** that can allow an application to ignore some of the problems with **distributed systems**. For example, one of the most important **abstractions** for distributed systems is **consensus**: that is, getting all of the nodes to agree on something.
 
-But first we first need to explore the range of **guarantees** and **abstractions** that can be provided in a
-distributed system.
+But first we first need to explore the range of **guarantees** and **abstractions** that can be provided in a distributed system.
 
