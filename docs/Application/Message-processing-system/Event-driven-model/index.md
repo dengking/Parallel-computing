@@ -173,3 +173,24 @@ In addition, systems such as Node.js are also event-driven.
 ### Case: Linux OS kernel
 
 参见: [Linux OS kernel is event-driven](https://dengking.github.io/Linux-OS/Kernel/Guide/Linux-OS's-interaction-with-the-hardware/Linux-OS-kernel-is-event-driven/)
+
+## TODO
+
+一些关乎event-driven model的内容：
+
+- [Event (computing)](https://en.wikipedia.org/wiki/Event_(computing))
+
+- [Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)
+
+- [Event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture)
+
+- [Event handler](https://en.wikipedia.org/wiki/Event_(computing)#Event_handler)
+
+- [Interrupt](https://en.wikipedia.org/wiki/Interrupt)
+
+- [Interrupt-driven](https://en.wikipedia.org/wiki/Interrupt)
+
+- [Interrupt handler](https://en.wikipedia.org/wiki/Interrupt_handler)
+
+
+
