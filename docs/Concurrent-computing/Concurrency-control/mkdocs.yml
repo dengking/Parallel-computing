@@ -1,14 +1,9 @@
 nav:
     - Concurrency-control: index.md 
-    - Optimistic-and-pessimistic: Optimistic-and-pessimistic.md
+    - Optimistic-and-pessimistic: Optimistic-and-pessimistic
     - Synchronization: Synchronization.md
     - Concurrency-control: Concurrency-control.md
     - Mutual-exclusion: Mutual-exclusion.md
     - Lock: Lock
-    
-    
-    
-    - Software-transactional-memory: Software-transactional-memory
-
-    
+    - Transactional-memory: Transactional-memory
     - Read-copy-update: Read-copy-update
