@@ -2,3 +2,5 @@ nav:
     - Introduction: index.md
     - Producer–consumer-problem: Producer–consumer-problem
     - Dining-philosophers-problem: Dining-philosophers-problem
+    - Readers–writers-problem: Readers–writers-problem
+    - ABA-problem: ABA-problem
