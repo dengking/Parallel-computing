@@ -1,5 +1,6 @@
 nav:
     - Concurrency-control: index.md 
+    - Challenge: Challenge
     - Optimistic-and-pessimistic: Optimistic-and-pessimistic
     - Synchronization: Synchronization.md
     - Concurrency-control: Concurrency-control.md

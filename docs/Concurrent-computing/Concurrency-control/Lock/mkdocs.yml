@@ -1,3 +1,4 @@
 nav:
-    - Lock: Lock.md
+    - Introduction: index.md
     - Mutex: Mutex.md
+    - Deadlock: Deadlock.md
