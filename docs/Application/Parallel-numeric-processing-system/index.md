@@ -20,6 +20,14 @@
 
 Dataflow-programming，参见`./Dataflow-programming`。
 
+### Front end and back end
+
+> NOTE: 在numeric processing system中，会涉及expression-oriented programming的，因为我们需要描述expression。
+
+Programmer实现需要描述computation，一般使用expression tree/computational graph的形式，然后由front end将expression tree/computational graph转换为instruction/command，然后由backend来进行执行；
+
+关于front end，参见工程Language的`Formal-language-processing`章节。
+
 ## Case: Microsoft [Naiad](https://www.microsoft.com/en-us/research/project/naiad/)
 
 > The Naiad project is an investigation of **data-parallel dataflow computation**, like Dryad and DryadLINQ, but with a focus on low-latency streaming and cyclic computations. Naiad introduces a new **computational model**, timely dataflow, which combines low-latency asynchronous message flow with lightweight coordination when required. These **primitives**(原语) allow the efficient implementation of many **dataflow patterns**, from **bulk** and streaming computation to iterative graph processing and machine learning.
