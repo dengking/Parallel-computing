@@ -1,4 +1,8 @@
 nav:
+    - Primer: Primer
     - Linearizability: Linearizability.md
+    - preshing-Atomic-vs-Non-Atomic-Operations: preshing-Atomic-vs-Non-Atomic-Operations.md
     - Atomic-instruction: Atomic-instruction
     - Memory-barrier: Memory-barrier
+    - Memory-reclamation: Memory-reclamation
+    - expert-Jeff-Preshing: expert-Jeff-Preshing.md

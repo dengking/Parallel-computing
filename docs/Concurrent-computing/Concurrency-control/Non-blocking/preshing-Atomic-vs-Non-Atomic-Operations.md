@@ -1,4 +1,4 @@
-# [Atomic vs. Non-Atomic Operations](https://preshing.com/20130618/atomic-vs-non-atomic-operations/)
+# preshing [Atomic vs. Non-Atomic Operations](https://preshing.com/20130618/atomic-vs-non-atomic-operations/)
 
 Much has already been written about atomic operations on the web, usually with a focus on [atomic read-modify-write (RMW)](http://preshing.com/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation) operations. However, those aren’t the only kinds of **atomic operations**. There are also **atomic loads and stores**, which are equally important. In this post, I’ll compare **atomic** loads and stores to their **non-atomic** counterparts at both the **processor level** and the **C/C++ language level**. Along the way, we’ll clarify the C++11 concept of a “data race”.
 

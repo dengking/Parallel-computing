@@ -8,3 +8,4 @@ nav:
     - Lock: Lock
     - Transactional-memory: Transactional-memory
     - Read-copy-update: Read-copy-update
+    - Barrier: Barrier
