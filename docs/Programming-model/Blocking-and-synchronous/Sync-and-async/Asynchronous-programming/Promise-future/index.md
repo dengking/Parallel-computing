@@ -16,11 +16,8 @@ The term *promise* was proposed in 1976 by [Daniel P. Friedman](https://en.wikip
 
 The terms *future*, *promise*, *delay*, and *deferred* are often used interchangeably（互换）, although some differences in usage between *future* and *promise* are treated below. Specifically, when usage is distinguished, a **future** is a *read-only* placeholder view of a variable, while a **promise** is a writable, [single assignment](https://en.wikipedia.org/wiki/Single_assignment) container which sets the value of the future（promise用于设置future的值）.[[4\]](https://en.wikipedia.org/wiki/Futures_and_promises#cite_note-4) Notably, a future may be defined without specifying which specific **promise** will set its value, and different possible **promises** may set the value of a given **future**, though this can be done only once for a given **future**. In other cases a future and a promise are created together and associated with each other: the **future** is the value, the **promise** is the function that sets the value – essentially the return value (**future**) of an asynchronous function (**promise**). Setting the value of a future is also called *resolving*, *fulfilling*, or *binding* it.
 
-> NOTE: 这段话对future和promise的解释非常到位。
+> NOTE: 这段话对future和promise的解释非常到位，其实它所阐述的就是"Promise-future communication channel"，参见后面的"Promise-future communication channel"。
 >
-> future: read-only placeholder/view of shared data
->
-> promise: set the value of the future
 
 ### Applications
 
@@ -94,6 +91,38 @@ In some programming languages such as [Oz](https://en.wikipedia.org/wiki/Oz_(pro
 
 As an example of the first possibility, in [C++11](https://en.wikipedia.org/wiki/C%2B%2B11), a thread that needs the value of a future can block until it is available by calling the `wait()` or `get()` member functions. You can also specify a timeout on the wait using the `wait_for()` or `wait_until()` member functions to avoid indefinite blocking. If the future arose from a call to `std::async` then a blocking wait (without a timeout) may cause synchronous invocation of the function to compute the result on the waiting thread.
 
+### List of implementations
+
+#### Coroutines
+
+Futures can be implemented in [coroutines](https://en.wikipedia.org/wiki/Coroutine)[[27\]](https://en.wikipedia.org/wiki/Futures_and_promises#cite_note-python-27) or [generators](https://en.wikipedia.org/wiki/Generator_(computer_programming)),[[95\]](https://en.wikipedia.org/wiki/Futures_and_promises#cite_note-95) resulting in the same evaluation strategy (e.g., cooperative multitasking or lazy evaluation).
+
+> NOTE: C++ coroutine是基于promise、future概念的
+
+#### Channels
+
+*Main article:* [Channel (programming)](https://en.wikipedia.org/wiki/Channel_(programming))
+
+Futures can easily be implemented in [channels](https://en.wikipedia.org/wiki/Channel_(programming)): a future is a one-element channel, and a promise is a process that sends to the channel, fulfilling the future.[[96\]](https://en.wikipedia.org/wiki/Futures_and_promises#cite_note-96)[[97\]](https://en.wikipedia.org/wiki/Futures_and_promises#cite_note-97) This allows futures to be implemented in concurrent programming languages with support for channels, such as CSP and [Go](https://en.wikipedia.org/wiki/Go_(programming_language)). The resulting futures are explicit, as they must be accessed by reading from the channel, rather than only evaluation.
+
+> NOTE: 这就是"Promise-future communication channel"。
+
+## Promise-future communication channel
+
+"promise-future communication channel"是在cppreference [std::promise](https://en.cppreference.com/w/cpp/thread/promise)中提出的，我觉得它非常好的描述了promise-future:
+
+> The promise is the "push" end of the promise-future communication channel: the operation that stores a value in the shared state *synchronizes-with* (as defined in [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order)) the successful return from any function that is waiting on the shared state (such as [std::future::get](https://en.cppreference.com/w/cpp/thread/future/get)). 
+
+在wikipedia [Futures and promises](https://en.wikipedia.org/wiki/Futures_and_promises)的第二段中所总结的: 
+
+> future: read-only placeholder/view of shared data
+>
+> promise: set the value of the future
+
+在wikipedia [Futures and promises](https://en.wikipedia.org/wiki/Futures_and_promises)的"Channels"中也总结了相同的内容。
+
+
+
 ## Futures and promises originated in [functional programming](https://en.wikipedia.org/wiki/Functional_programming) 
 
 关于functional programming，参见工程programming-language的`Theory\Programming-paradigm\Functional-programming`章节。
@@ -104,3 +133,10 @@ As an example of the first possibility, in [C++11](https://en.wikipedia.org/wiki
 
 1) C++ 
 
+
+
+## TODO
+
+stackoverflow [What's the difference between a Future and a Promise?](https://stackoverflow.com/questions/14541975/whats-the-difference-between-a-future-and-a-promise)
+
+softwareengineering [What is the difference between a Future and a Promise?](https://softwareengineering.stackexchange.com/questions/207136/what-is-the-difference-between-a-future-and-a-promise)

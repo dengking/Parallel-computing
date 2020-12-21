@@ -6,7 +6,9 @@
 
 In [computer programming](https://en.wikipedia.org/wiki/Computer_programming), the **async/await pattern** is a syntactic feature of many programming languages that allows an [asynchronous](https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)), [non-blocking](https://en.wikipedia.org/wiki/Non-blocking_I/O) [function](https://en.wikipedia.org/wiki/Subroutine) to be structured in a way similar to an ordinary **synchronous function**. 
 
-> NOTE: asynchronous function的结果will be binded to a promise，参见下面的"Example C#"章节
+> NOTE: async/await其实是syntax sugar。
+>
+> asynchronous function的结果will be binded to a promise，参见下面的"Example C#"章节
 
 It is semantically related to the concept of a [coroutine](https://en.wikipedia.org/wiki/Coroutine) (携程) and is often implemented using similar techniques, and is primarily intended to provide opportunities for the program to execute other code while waiting for a long-running, asynchronous task to complete, usually represented by [promises](https://en.wikipedia.org/wiki/Futures_and_promises) or similar data structures. 
 
@@ -32,7 +34,7 @@ public async Task<int> FindPageSize(Uri uri)
 
 > NOTE: 这段话的意思是 the `async` keyword 表面: 这个method是asynchronous的，意味着 这个method 可以使用 `await` expression。
 
-2) The return type, `Task<T>`, is C#'s analogue to the concept of a promise, and here is indicated to have a result value of type `int`.
+2) The return type, `Task<T>`, is C#'s analogue(类似物) to the concept of a promise, and here is indicated to have a result value of type `int`.
 
 
 
@@ -59,3 +61,36 @@ public async Task<int> FindPageSize(Uri uri)
 
 
 A function using `async`/`await` can use as many `await` expressions as it wants, and each will be handled in the same way (though(虽然) a **promise** will only be returned to the caller for the first await, while every other await will utilize(利用) internal callbacks). A function can also hold a **promise** object directly and do other processing first (including starting other **asynchronous tasks**), delaying awaiting the promise until its result is needed. Functions with promises also have promise aggregation methods that allow you to await multiple promises at once or in some special pattern (such as C#'s `Task.WhenAll()`, which returns a valueless `Task` that resolves when all of the tasks in the arguments have resolved). Many promise types also have additional features beyond what the `async`/`await` pattern normally uses, such as being able to set up more than one result callback or inspect the progress(进展) of an especially long-running task.
+
+
+
+### In C++
+
+In C++, await (named co_await in C++) has been officially merged into C++20 draft, so it is on course to be formally accepted as a part of official C++20;[[11\]](https://en.wikipedia.org/wiki/Async/await#cite_note-11) also [MSVC](https://en.wikipedia.org/wiki/MSVC) and [Clang](https://en.wikipedia.org/wiki/Clang) compilers are already supporting at least some form of co_await ([GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) still has no support for it).
+
+```C++
+#include <future>
+#include <iostream>
+
+using namespace std;
+
+future<int> add(int a, int b)
+{
+    int c = a + b;
+    co_return c;
+}
+
+future<void> test()
+{
+    int ret = co_await add(1, 2);
+    cout << "return " << ret << endl;
+}
+
+int main()
+{
+    auto fut = test();
+    fut.wait();
+
+    return 0;
+}
+```
