@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Async-await: Async-await.md
+    - Async-await: Async-await
     - Promise-future: Promise-future
