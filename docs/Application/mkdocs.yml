@@ -8,3 +8,4 @@ nav:
     - ZooKeeper: ZooKeeper
     - Celery: Celery
     - NFS: NFS
+    - RPC: RPC

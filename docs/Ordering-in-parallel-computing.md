@@ -58,4 +58,6 @@ Distributed system是典型multiple entity model，即它是由多个不同的�
 
 cornell [Distributed Systems: Ordering and Consistency](https://www.cs.cornell.edu/courses/cs6410/2018fa/slides/14-lamport-clocks.pdf)
 
+## Logical clock
 
+参见 `Distributed-computing\Theory\Logical-clock` 章节。
