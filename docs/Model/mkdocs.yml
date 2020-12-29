@@ -3,5 +3,6 @@ nav:
 #################### 建立一个统一的模型来描述parallel computing####################
     - Multiple-model: Multiple-model
 #################### fork-join model是一种非常普遍的model####################     
-    - Fork–join-model: Fork–join-model.md
+    - Fork–join-model: Fork–join-model
     - Stream-model: Stream-model
+    - Communicating-Sequential-Processes: Communicating-Sequential-Processes
