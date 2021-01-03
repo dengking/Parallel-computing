@@ -1,6 +1,6 @@
 # Compare and swap
 
-
+典型的
 
 ## wikipedia [Compare-and-swap](https://en.wikipedia.org/wiki/Compare-and-swap)
 

@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Compare-and-swap: Compare-and-swap.md
-    - Fetch-and-add: Fetch-and-add.md
-    - Test-and-set: Test-and-set.md
+    - Compare-and-swap: Compare-and-swap
+    - Fetch-and-add: Fetch-and-add
+    - Test-and-set: Test-and-set
