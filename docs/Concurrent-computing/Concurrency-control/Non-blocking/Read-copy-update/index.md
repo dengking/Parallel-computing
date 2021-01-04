@@ -88,6 +88,14 @@ Of course, RCU also has disadvantages. For example, RCU is a specialized techniq
 
 Despite well over a decade of experience with RCU, the exact extent of its applicability is still a research topic.
 
+## Example
+
+在下列文章中，提及了read-copy-update:
+
+1、wikipedia [Atomicity (database systems)](https://en.wikipedia.org/wiki/Atomicity_(database_systems))
+
+Typically, systems implement Atomicity by providing some mechanism to indicate which transactions have started and which finished; or by keeping a copy of the data before any changes occurred ([read-copy-update](https://en.wikipedia.org/wiki/Read-copy-update)).
+
 ## TODO
 
 1) lwn.net [What is RCU, Fundamentally?](https://lwn.net/Articles/262464/)
