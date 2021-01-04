@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Read–modify–write: Read–modify–write.md
-    - Read-copy-update: Read-copy-update.md
+    - Primer: Primer
+    - Read–modify–write: Read–modify–write
     - Conditional-Put-and-Delete: Conditional-Put-and-Delete.md

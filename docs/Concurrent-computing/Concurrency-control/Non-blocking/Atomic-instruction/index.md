@@ -10,7 +10,7 @@
 
 2、write
 
-atomic operation的实现思路将可能的read、write 操作进行**集成**，提供实现**集成功能**的atomic instruction，典型的例子包括:
+atomic operation的实现思路是典型的"assemble as atomic primitive": 将可能的read、write 操作进行**集成**，提供实现**集成功能**的atomic instruction，典型的例子包括:
 
 - Test-and-set
 - Fetch-and-add

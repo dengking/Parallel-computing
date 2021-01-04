@@ -1,5 +1,7 @@
 # preshing [Atomic vs. Non-Atomic Operations](https://preshing.com/20130618/atomic-vs-non-atomic-operations/)
 
+> NOTE: 这篇文章写得非常好
+
 Much has already been written about atomic operations on the web, usually with a focus on [atomic read-modify-write (RMW)](http://preshing.com/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation) operations. However, those aren’t the only kinds of **atomic operations**. There are also **atomic loads and stores**, which are equally important. In this post, I’ll compare **atomic** loads and stores to their **non-atomic** counterparts at both the **processor level** and the **C/C++ language level**. Along the way, we’ll clarify the C++11 concept of a “data race”.
 
 ![img](https://preshing.com/images/nonatomic.png)
@@ -10,7 +12,11 @@ Without those guarantees, [lock-free programming](http://preshing.com/20120612/a
 
 > Any time two threads operate on a shared variable concurrently, and one of those operations performs a write, both threads **must** use atomic operations.
 
+> NOTE: 上面这些都是可以使用multiple-model来进行分析的，尤其是从read-write的角度来进行分析的
+
 If you violate this rule, and either thread uses a non-atomic operation, you’ll have what the C++11 standard refers to as a **data race** (not to be confused with Java’s concept of a data race, which is different, or the more general [race condition](http://en.wikipedia.org/wiki/Race_condition)). The C++11 standard doesn’t tell you why data races are bad; only that if you have one, “undefined behavior” will result ([§1.10.21](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf)). The real reason why such data races are bad is actually quite simple: They result in **torn reads** and **torn writes**.
+
+> NOTE: "torn"的意思是"撕裂的"
 
 A **memory operation** can be **non-atomic** because it uses multiple **CPU instructions**, non-atomic even when using a single CPU instruction, or non-atomic because you’re writing portable code and you simply can’t make the assumption. Let’s look at a few examples.
 
@@ -31,7 +37,9 @@ void storeValue()
 }
 ```
 
-When you compile this function for 32-bit x86 using GCC, it generates the following machine code.
+When you compile this function for **32-bit** x86 using GCC, it generates the following machine code.
+
+> NOTE: 需要注意的是: `uint64_t`是64-bit，实验环境是: 32-bit
 
 ```assembly
 $ gcc -O2 -S -masm=intel test.c
@@ -45,17 +53,17 @@ $ cat test.s
 
 As you can see, the compiler implemented the 64-bit assignment using two separate **machine instructions**. The first instruction sets the lower 32 bits to `0x00000002`, and the second sets the upper 32 bits to `0x00000001`. Clearly, this assignment operation is not atomic. If `sharedValue` is accessed concurrently by different threads, several things can now go wrong:
 
-- If a thread calling `storeValue` is preempted between the two machine instructions, it will leave the value of `0x0000000000000002` in memory – a **torn write**. At this point, if another thread reads `sharedValue`, it will receive this completely bogus value which nobody intended to store.
+1、If a thread calling `storeValue` is preempted between the two machine instructions, it will leave the value of `0x0000000000000002` in memory – a **torn write**. At this point, if another thread reads `sharedValue`, it will receive this completely bogus(伪造的) value which nobody intended to store.
 
-  如果调用`storeValue`的线程在两个机器指令之间被抢占，它将在内存中保留`0x0000000000000002`的值 - 一个撕裂的写入。 此时，如果另一个线程读取`sharedValue`，它将收到这个完全虚假的值，没有人打算存储。
+> NOTE: 如果调用`storeValue`的线程在两个机器指令之间被抢占，它将在内存中保留`0x0000000000000002`的值 - 一个撕裂的写入。 此时，如果另一个线程读取`sharedValue`，它将收到这个完全虚假的值，没有人打算存储。
 
-- Even worse, if a thread is preempted between the two instructions, and another thread modifies `sharedValue` before the first thread resumes, it will result in a permanently **torn write**: the upper 32 bits from one thread, the lower 32 bits from another.
+2、Even worse, if a thread is preempted between the two instructions, and another thread modifies `sharedValue` before the first thread resumes, it will result in a permanently **torn write**: the upper 32 bits from one thread, the lower 32 bits from another.
 
-  更糟糕的是，如果一个线程在两个指令之间被抢占，而另一个线程在第一个线程恢复之前修改了`sharedValue`，则会导致永久性的写入：一个线程的高32位，另一个低32位（第一个线程先写入的一半内容会被第二个线程覆盖，然后第一个线程resume后，它会写入后半部分，这就覆盖了第二个线程之前写入的内容，显然它们相互覆盖，导致了最终各自都只写入了一半）
+> NOTE: 更糟糕的是，如果一个线程在两个指令之间被抢占，而另一个线程在第一个线程恢复之前修改了`sharedValue`，则会导致永久性的写入：一个线程的高32位，另一个低32位（第一个线程先写入的一半内容会被第二个线程覆盖，然后第一个线程resume后，它会写入后半部分，这就覆盖了第二个线程之前写入的内容，显然它们相互覆盖，导致了最终各自都只写入了一半）
 
-- On multicore devices, it isn’t even necessary to preempt one of the threads to have a torn write. When a thread calls `storeValue`, any thread executing on a different core could read `sharedValue` at a moment when only half the change is visible.
+3、On multicore devices, it isn’t even necessary to preempt one of the threads to have a torn write. When a thread calls `storeValue`, any thread executing on a different core could read `sharedValue` at a moment when only half the change is visible.
 
-  显然，multicore的情况下，可能每个thread会占用一个core，但是它们共享process的memory，它们能够同时access process的memory中的同一个地址；如果它们对shared memory的access不按照互斥原则来进行，即每次在access shared memory之前，先lock；则就会导致对shared memory的access是无序的；显然互斥原则即能够保证在multicore情况下的安全，也保证了在single core情况下，即使preempted，也能够安全；
+> NOTE: 显然，multicore的情况下，可能每个thread会占用一个core，但是它们共享process的memory，它们能够同时access process的memory中的同一个地址；如果它们对shared memory的access不按照互斥原则来进行，即每次在access shared memory之前，先lock；则就会导致对shared memory的access是无序的；显然互斥原则即能够保证在multicore情况下的安全，也保证了在single core情况下，即使preempted，也能够安全；
 
 Reading concurrently from `sharedValue` brings its own set of problems:
 
@@ -76,7 +84,7 @@ $ cat test.s
 
 Here too, the compiler has implemented the load operation using two **machine instructions**: The first reads the lower 32 bits into `eax`, and the second reads the upper 32 bits into `edx`. In this case, if a concurrent store to `sharedValue` becomes **visible** between the two instructions, it will result in a **torn read** – even if the concurrent store was atomic.
 
-***SUMMARY*** : 上面这段话的意思是在两个machine instruction之间，另外一个线程write to `sharedValue`，这就导致之前read的值是一半一半的；
+> NOTE: 上面这段话的意思是在两个machine instruction之间，另外一个线程write to `sharedValue`，这就导致之前read的值是一半一半的；
 
 These problems are not just theoretical. [Mintomic](http://mintomic.github.io/)’s test suite includes a test case called `test_load_store_64_fail`, in which one thread stores a bunch of 64-bit values to a single variable using a plain assignment operator, while another thread repeatedly performs a plain load from the same variable, validating each result. On a multicore x86, this test fails consistently, as expected.
 
@@ -111,7 +119,7 @@ Those are enough processor-specific details for now. Let’s look at atomicity a
 
 
 
-***THINKING*** : `mov` is not atomic的情况还没有搞懂，需要Google：mov is not atomic when address is not aligned
+> NOTE: `mov` is not atomic的情况还没有搞懂，需要Google: `mov` is not atomic when address is not aligned
 
 ## All C/C++ Operations Are Presumed（假定） Non-Atomic 
 
@@ -130,9 +138,13 @@ The language standards have nothing to say about **atomicity** in this case. May
 
 In practice, we usually know more about our target platforms than that. For example, it’s common knowledge that on all modern x86, x64, Itanium, SPARC, ARM and PowerPC processors, plain 32-bit integer assignment *is* atomic as long as the target variable is naturally aligned. You can verify it by consulting your processor manual and/or compiler documentation. In the games industry, I can tell you that a *lot* of 32-bit integer assignments rely on this particular guarantee.
 
-***SUMMARY*** : 上面这段话让我想起来[alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)的重要价值
+> NOTE: 上面这段话让我想起来[alignment](https://en.wikipedia.org/wiki/Data_structure_alignment)的重要价值
 
-Nonetheless(尽管如此), when writing truly portable C and C++, there’s a long-standing tradition of pretending that we don’t know anything more than what the language standards tell us. **Portable C and C++ is designed to run on every possible computing device past, present and imaginary** (这句话说明了portable的含义). Personally, I like to imagine a machine where memory can only be changed by mixing it up first:
+Nonetheless(尽管如此), when writing truly portable C and C++, there’s a long-standing tradition of pretending that we don’t know anything more than what the language standards tell us. **Portable C and C++ is designed to run on every possible computing device past, present and imaginary** (这句话说明了portable的含义). 
+
+> NOTE: 上面在这段话，其实总结了书写cross-plateform/portable C and C++ program的精神要义: 对于 language standards 未进行标准化的，我们应该假装不知道，即不做任何假设。
+
+Personally, I like to imagine a machine where memory can only be changed by mixing it up first:
 
 ![img](https://preshing.com/images/slot-machines.png)
 
@@ -140,11 +152,13 @@ On such a machine, you definitely wouldn’t want to perform a concurrent read a
 
 In `C++11`, there is finally a way to perform truly portable atomic loads and stores: the `C++11` atomic library. Atomic loads and stores performed using the `C++11` atomic library would even work on the imaginary computer above – even if it means the `C++11` atomic library must secretly lock a mutex to make each operation atomic. There’s also the [Mintomic](http://mintomic.github.io/) library which I [released last month](http://preshing.com/20130505/introducing-mintomic-a-small-portable-lock-free-api), which doesn’t support as many platforms, but works on several older compilers, is hand-optimized and is guaranteed to be lock-free.
 
+> NOTE: C++11 atomic library对atomic load、store进行了标准化。
+
 ## Relaxed Atomic Operations
 
 Let’s return to the original `sharedValue` example from earlier in this post. We’ll rewrite it using Mintomic so that all operations are performed atomically on every platform Mintomic supports. First, we must declare `sharedValue` as one of Mintomic’s [atomic data types](http://mintomic.github.io/lock-free/atomics/).
 
-```c
+```c++
 #include <mintomic/mintomic.h>
 
 mint_atomic64_t sharedValue = { 0 };
