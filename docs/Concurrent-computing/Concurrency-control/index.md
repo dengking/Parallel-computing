@@ -2,6 +2,12 @@
 
 Concurrency control无处不在。
 
+## Concurrency control的目的
+
+最最基本的目的: 保证data的correction；
+
+其他的系统，可能有着其他的目的；
+
 ## wikipedia [Concurrency control](https://en.wikipedia.org/wiki/Concurrency_control)
 
 In information technology and computer science, especially in the fields of computer programming, operating systems, multiprocessors, and databases, **concurrency control** ensures that correct results for concurrent operations are generated, while getting those results as quickly as possible.
@@ -38,11 +44,13 @@ Concurrency control can require significant additional complexity and overhead i
 
 > NOTE: 这部分内容放到了工程DB中
 
+
+
 ## wikipedia [Distributed concurrency control](https://en.wikipedia.org/wiki/Distributed_concurrency_control)
 
 
 
-### Concurrency control in operating systems
+
 
 ## wikipedia [Category:Concurrency control](https://en.wikipedia.org/wiki/Category:Concurrency_control)
 
@@ -55,8 +63,6 @@ Concurrency control can require significant additional complexity and overhead i
 
 
 ## TODO
-
-
 
 
 
