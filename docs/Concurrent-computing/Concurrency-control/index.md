@@ -28,11 +28,7 @@ Computer systems, both software and hardware, consist of modules, or components.
 
 > NOTE: 上面这段话的前面部分其实就是multiple model(参见`Model\Multiple-model`章节)。
 
-Introducing
-concurrency control into a system means applying operation constraints which typically result in some
-performance reduction. Operation consistency and correctness should be achieved with as good as possible
-efficiency, without reducing performance below reasonable levels. Concurrency control can require significant
-additional complexity and overhead in a concurrent algorithm compared to the simpler sequential algorithm.
+Introducing concurrency control into a system means applying operation constraints which typically result in some performance reduction. Operation consistency and correctness should be achieved with as good as possible efficiency, without reducing performance below reasonable levels. Concurrency control can require significant additional complexity and overhead in a concurrent algorithm compared to the simpler sequential algorithm.
 
 Concurrency control can require significant additional complexity and overhead in a [concurrent algorithm](https://en.wikipedia.org/wiki/Concurrent_algorithm) compared to the simpler [sequential algorithm](https://en.wikipedia.org/wiki/Sequential_algorithm).
 
@@ -40,22 +36,7 @@ Concurrency control can require significant additional complexity and overhead i
 
 ### Concurrency control in databases
 
-#### Concurrency control mechanisms
-
-##### Categories
-
-- [Optimistic](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
-- Pessimistic 
-- Semi-optimistic 
-
-##### Methods
-
-- Locking (e.g., **[Two-phase locking](https://en.wikipedia.org/wiki/Two-phase_locking)** - 2PL)
-- Serialization [graph checking](https://en.wikipedia.org/wiki/Serializability#Testing_conflict_serializability)
-- [Timestamp ordering](https://en.wikipedia.org/wiki/Timestamp-based_concurrency_control) (TO)
-- [Commitment ordering](https://en.wikipedia.org/wiki/Commitment_ordering) 
-
-
+> NOTE: 这部分内容放到了工程DB中
 
 ## wikipedia [Distributed concurrency control](https://en.wikipedia.org/wiki/Distributed_concurrency_control)
 

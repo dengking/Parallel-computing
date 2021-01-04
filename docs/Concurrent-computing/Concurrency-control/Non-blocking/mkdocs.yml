@@ -1,7 +1,7 @@
 nav:
     - Primer: Primer
     - expert-Jeff-Preshing: expert-Jeff-Preshing    
-    - Linearizability: Linearizability
+
     - Atomic-instruction: Atomic-instruction
     - Memory-barrier: Memory-barrier
     - Memory-reclamation: Memory-reclamation

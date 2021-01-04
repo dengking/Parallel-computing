@@ -1,5 +1,3 @@
 nav:
     - Introduction: index.md
-    - Atomic-commit: Atomic-commit
-    - Two-phase-commit-protocol: Two-phase-commit-protocol
-    - Three-phase-commit-protocol: Three-phase-commit-protocol
+    
