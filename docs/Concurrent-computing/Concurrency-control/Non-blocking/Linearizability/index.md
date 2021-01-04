@@ -11,7 +11,7 @@ Informally, this means that the unmodified list of events is linearizable [if an
 
 In a concurrent system, processes can access a shared object at the same time. Because multiple processes are accessing a single object, there may arise a situation in which while one process is accessing the object, another process changes its contents. This example demonstrates the need for linearizability. In a linearizable system although operations overlap on a shared object, each operation appears to take place instantaneously. Linearizability is a strong correctness condition, which constrains what outputs are possible when an object is accessed by multiple processes concurrently. It is a safety property which ensures that operations do not complete in an unexpected or unpredictable manner. If a system is linearizable it allows a programmer to reason about the system.[[2\]](https://en.wikipedia.org/wiki/Linearizability#cite_note-2)
 
-***TRANSLATION*** : 在并发系统中，进程可以同时访问共享对象。由于多个进程正在访问单个对象，因此可能会出现这样的情况：当一个进程正在访问该对象时，另一个进程会更改其内容。此示例演示了线性化的必要性。在可线性化系统中，尽管操作在共享对象上重叠，但每个操作似乎都是即时进行的。线性化是一种强正确性条件，它限制了当多个进程同时访问对象时可能的输出。它是一种安全属性，可确保操作不会以意外或不可预测的方式完成。如果系统是可线性化的，则允许程序员推理系统。
+> ***TRANSLATION*** : 在并发系统中，进程可以同时访问共享对象。由于多个进程正在访问单个对象，因此可能会出现这样的情况：当一个进程正在访问该对象时，另一个进程会更改其内容。此示例演示了线性化的必要性。在可线性化系统中，尽管操作在共享对象上重叠，但每个操作似乎都是即时进行的。线性化是一种强正确性条件，它限制了当多个进程同时访问对象时可能的输出。它是一种安全属性，可确保操作不会以意外或不可预测的方式完成。如果系统是可线性化的，则允许程序员推理系统。
 
 
 
