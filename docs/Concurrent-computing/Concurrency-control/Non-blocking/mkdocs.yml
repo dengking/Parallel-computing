@@ -1,7 +1,7 @@
 nav:
+    - Introduction: index.md
     - Primer: Primer
     - expert-Jeff-Preshing: expert-Jeff-Preshing    
-
     - Atomic-instruction: Atomic-instruction
     - Memory-barrier: Memory-barrier
     - Memory-reclamation: Memory-reclamation

@@ -1,11 +1,10 @@
 nav:
     - Introduction: index.md 
+    - Synchronization: Synchronization
     - Challenge: Challenge
+    - Linearizability: Linearizability    
     - Optimistic-and-pessimistic: Optimistic-and-pessimistic
-    - Synchronization: Synchronization.md
-    - Concurrency-control: Concurrency-control.md
-    - Mutual-exclusion: Mutual-exclusion.md
-    - Lock: Lock
+    - Mutual-exclusion: Mutual-exclusion
     - Transactional-memory: Transactional-memory
-    - Read-copy-update: Read-copy-update
+    - Non-blocking: Non-blocking
     - Barrier: Barrier
