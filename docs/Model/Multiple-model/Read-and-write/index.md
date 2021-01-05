@@ -31,3 +31,6 @@ concurrent computing领域中的[Readers–writers problem](https://en.wikipedia
 
 consistent model也是基于read、write而建立的，其中所谓的看见，其实是read
 
+## Memory access
+
+参见 工程hardware的 `CPU-memory-access` 章节。

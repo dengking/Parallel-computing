@@ -53,11 +53,13 @@
 
 显然对于不同的concurrency/parallel element/unit，它们的shared data是可能不同的，下面是一些简单的例子:
 
-1、DBMS 
+1、DBMS  table
 
-table
+2、file
 
-2、...
+3、memory
+
+4、......
 
 > NOTE: 后续进行补充
 

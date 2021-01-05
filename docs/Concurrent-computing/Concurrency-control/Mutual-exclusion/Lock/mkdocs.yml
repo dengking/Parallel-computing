@@ -1,4 +1,7 @@
 nav:
     - Introduction: index.md
-    - Mutex: Mutex.md
+    - Mutex: Mutex
     - Deadlock: Deadlock.md
+    - Seqlock: Seqlock
+    - Readers–writer-lock: Readers–writer-lock
+    - Spinlock: Spinlock
