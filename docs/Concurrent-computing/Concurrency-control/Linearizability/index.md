@@ -118,3 +118,25 @@ A common theme when designing linearizable objects is to provide an **all-or-not
 在下面文章中提及了atomicity内容:
 
 1) [Using Redis as a Time Series Database: Why and How](https://www.infoq.com/articles/redis-time-series/)
+
+
+
+## draft
+
+
+
+### Serialization
+
+> NOTE: 本节标题的含义是"串行"，串行的英语是serial，显然，串行和并行是相反的。
+
+参见文章：维基百科[Linearizability](https://en.wikipedia.org/wiki/Linearizability)。
+
+实现Serialization的方式有：
+
+- atomic操作
+- 加锁机制
+
+[What is the difference between linearizability and serializability?](https://stackoverflow.com/questions/4179587/what-is-the-difference-between-linearizability-and-serializability)
+
+维基百科[Mutual exclusion](https://en.wikipedia.org/wiki/Mutual_exclusion)
+

@@ -4,9 +4,11 @@ Concurrency control无处不在。
 
 ## Concurrency control的目的
 
-最最基本的目的: 保证data的correction；
+最最基本的目的: 保证shared data的correction；
 
 其他的系统，可能有着其他的目的；
+
+
 
 ## wikipedia [Concurrency control](https://en.wikipedia.org/wiki/Concurrency_control)
 
@@ -59,6 +61,28 @@ Concurrency control can require significant additional complexity and overhead i
 ## wikipedia [Category:Concurrency control algorithms](https://en.wikipedia.org/wiki/Category:Concurrency_control_algorithms)
 
 
+
+## 从multiple model来看待concurrency control
+
+由于对shared data的operation只有read、write两大类，因此，
+
+一、大多数concurrency control都是基于read、write来做的
+
+比如:
+
+1、atomic instruction，尤其是read-modify-write系列instruction，参见`Concurrent-computing\Concurrency-control\Non-blocking\Atomic-instruction`章节
+
+2、read-write lock
+
+二、可以基于read and write来进行optimize
+
+在`./How-to-choose-technique`中进行了总结。
+
+## How to optimize？
+
+> NOTE: 显然，需要遵循optimization principle
+
+在`./How to choose technique`中进行了总结。
 
 
 
