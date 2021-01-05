@@ -31,3 +31,9 @@ If waiting time is unknown, or if you're in user mode Spinlocks aren't efficient
 Here is a question on SO addressing that: [Spinlocks, How Useful Are They?](https://stackoverflow.com/questions/1456225/spinlocks-how-much-useful-are-they)
 
 ## stackoverflow [Spinlocks, How Useful Are They?](https://stackoverflow.com/questions/1456225/spinlocks-how-useful-are-they)
+
+
+
+# Implementation
+
+stackoverflow [x86 spinlock using cmpxchg](https://stackoverflow.com/questions/6935442/x86-spinlock-using-cmpxchg)
