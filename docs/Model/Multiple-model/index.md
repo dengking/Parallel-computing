@@ -91,7 +91,9 @@ One: shared data
 - 多个entity之间如何达成consensus（共识）
 - ......
 
+下面是一些用于说明problem的词语:
 
+1、memory corruption 来源: microsoft [Lockless Programming Considerations for Xbox 360 and Microsoft Windows](https://docs.microsoft.com/en-us/windows/win32/dxtecharts/lockless-programming?redirectedfrom=MSDN)
 
 ### From single machine to multiple machine
 
