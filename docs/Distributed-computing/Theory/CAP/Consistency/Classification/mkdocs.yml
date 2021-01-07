@@ -1,2 +1,5 @@
 nav:
-    - Linearizability: Linearizability
+    - Primer: Primer
+    - Strong-consistency: Strong-consistency
+    - Sequential-consistency: Sequential-consistency
+    - Weak-consistency: Weak-consistency

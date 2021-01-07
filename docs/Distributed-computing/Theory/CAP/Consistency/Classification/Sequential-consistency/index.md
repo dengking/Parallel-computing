@@ -1,14 +1,12 @@
 # Sequential consistency
 
-## 素材
 
-本节总结讨论Sequential consistency的内容。
 
-### wikipedia [Sequential consistency](https://en.wikipedia.org/wiki/Sequential_consistency)
+## wikipedia [Sequential consistency](https://en.wikipedia.org/wiki/Sequential_consistency)
 
-顺序一致性
-
-sequential order 先后顺序，相继顺序
+> 顺序一致性
+>
+> sequential order 先后顺序，相继顺序
 
 **Sequential consistency** is one of the [consistency models](https://en.wikipedia.org/wiki/Consistency_model) used in the domain of [concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing) (e.g. in [distributed shared memory](https://en.wikipedia.org/wiki/Distributed_shared_memory), [distributed transactions](https://en.wikipedia.org/wiki/Distributed_transaction), etc.).
 
@@ -32,7 +30,7 @@ Conceptually, there is single **global memory** and a "switch" that connects an 
 
 The sequential consistency is weaker than [strict consistency](https://en.wikipedia.org/wiki/Strict_consistency), which requires a read from a location to return the value of the last write to that location; strict consistency demands that operations be seen in the order in which they were actually issued.
 
-#### See also
+### See also
 
 - [Concurrent data structure](https://en.wikipedia.org/wiki/Concurrent_data_structure)
 - [Linearizability](https://en.wikipedia.org/wiki/Linearizability)

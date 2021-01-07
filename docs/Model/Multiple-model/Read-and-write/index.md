@@ -29,8 +29,12 @@ concurrent computing领域中的[Readers–writers problem](https://en.wikipedia
 
 ## Consistency model
 
-consistent model也是基于read、write而建立的，其中所谓的看见，其实是read
+consistent model也是基于read、write而建立的:
+
+1、在CPU中，使用load、store来表示read、write
 
 ## Memory access
 
 参见 工程hardware的 `CPU-memory-access` 章节。
+
+1、memory ordering是基于read、write来建立的

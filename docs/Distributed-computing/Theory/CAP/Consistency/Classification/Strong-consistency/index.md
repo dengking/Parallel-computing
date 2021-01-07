@@ -1,4 +1,4 @@
-# [Strong consistency](https://en.wikipedia.org/wiki/Strong_consistency)
+# wikipedia [Strong consistency](https://en.wikipedia.org/wiki/Strong_consistency)
 
 **Strong consistency** is one of the [consistency models](https://en.wikipedia.org/wiki/Consistency_model) used in the domain of the [concurrent programming](https://en.wikipedia.org/wiki/Concurrent_programming) (e.g., in [distributed shared memory](https://en.wikipedia.org/wiki/Distributed_shared_memory), [distributed transactions](https://en.wikipedia.org/wiki/Distributed_transactions)).
 
