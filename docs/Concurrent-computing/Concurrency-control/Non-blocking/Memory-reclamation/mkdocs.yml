@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies: cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies
     - Using-Quiescent-States-to-Reclaim-Memory: Using-Quiescent-States-to-Reclaim-Memory
    
