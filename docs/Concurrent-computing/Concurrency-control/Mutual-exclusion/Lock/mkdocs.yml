@@ -2,6 +2,6 @@ nav:
     - Introduction: index.md
     - Mutex: Mutex
     - Seqlock: Seqlock
-    - Readers–writer-lock: Readers–writer-lock
+    - Read–write-lock: Read–write-lock
     - Spinlock: Spinlock
     - Disadvantage: Disadvantage

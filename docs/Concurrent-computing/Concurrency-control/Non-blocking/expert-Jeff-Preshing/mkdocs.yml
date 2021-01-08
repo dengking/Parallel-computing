@@ -1,3 +1,6 @@
 nav:
     - Introduction: index.md
+    - Library-cpp11-on-multicore: Library-cpp11-on-multicore
+    - Performance: Performance
+    - Multithread: Multithread
     

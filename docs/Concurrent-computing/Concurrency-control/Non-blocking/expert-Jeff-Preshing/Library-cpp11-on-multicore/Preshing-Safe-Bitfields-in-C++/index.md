@@ -1,0 +1,1 @@
+# preshing [Safe Bitfields in C++](https://preshing.com/20150324/safe-bitfields-in-cpp/)

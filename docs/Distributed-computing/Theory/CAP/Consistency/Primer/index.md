@@ -11,6 +11,8 @@
 > "全局时钟下的顺序"则是指理想的状态(顺序)，这种理想状态可以这样来模拟: 由于所有的node share data，所有的node都是在对shared data进行operation(read、write)，因此可以认为所有的node都在同一个processor上执行，显然这种情况下，它们就有一个全局时钟了，在这个理想的状态(顺序)下，所有的write都立即生效(在实际中，可能无法达成)，就好比在同一个processor，这就是"强一致性（Strong Consistency）"。
 >
 > 由于系统中的每个node都有一份copy，change在它们之间同步是需要时间的。
+>
+> 不是所有的consistency model都参考了**全局时钟**的，"Sequential Consistency"就没有参考"全局时钟"，貌似只有strong consistency才参考了"全局时钟"。Sequential Consistency貌似仅仅强调sequence；
 
 ### 1. 一致性（Consistency）
 
