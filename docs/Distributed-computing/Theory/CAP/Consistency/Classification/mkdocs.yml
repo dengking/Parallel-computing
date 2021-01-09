@@ -1,5 +1,5 @@
 nav:
-    - Primer: Primer
     - Strong-consistency: Strong-consistency
     - Sequential-consistency: Sequential-consistency
     - Weak-consistency: Weak-consistency
+    - TODO-Sequential-consistency-VS-linearizability: TODO-Sequential-consistency-VS-linearizability.md

@@ -130,13 +130,21 @@ RCU defines and uses efficient and scalable mechanisms for publishing and readin
 
 These mechanisms distribute the work among read and update paths in such a way as to make read paths extremely fast. In some cases (non-preemptable kernels), RCU's read-side primitives have zero overhead.
 
+## kernel [RCU concepts](https://www.kernel.org/doc/html/latest/RCU/index.html)
 
+### Using RCU to Protect Read-Mostly Arrays
+
+Although RCU is more commonly used to protect linked lists, it can also be used to protect arrays. Three situations are as follows:
+
+1. [Hash Tables](https://www.kernel.org/doc/html/latest/RCU/arrayRCU.html#hash-tables)
+2. [Static Arrays](https://www.kernel.org/doc/html/latest/RCU/arrayRCU.html#static-arrays)
+3. [Resizable Arrays](https://www.kernel.org/doc/html/latest/RCU/arrayRCU.html#resizable-arrays)
+
+Each of these three situations involves an RCU-protected pointer to an array that is separately indexed. 
 
 ## TODO
 
 
-
-2) kernel [RCU concepts](https://www.kernel.org/doc/html/latest/RCU/index.html)
 
 3、mit [Read-Copy Update in a Garbage Collected Environment](https://math.mit.edu/research/highschool/primes/materials/2016/conf/10-1%20Sheth-Welling-Sheth.pdf)
 
