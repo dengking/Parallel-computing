@@ -3,7 +3,6 @@ nav:
     - Synchronization: Synchronization
     - How-to-optimize: How-to-optimize
     - Challenge: Challenge
-    - Linearizability: Linearizability    
     - Optimistic-and-pessimistic: Optimistic-and-pessimistic
     - Mutual-exclusion: Mutual-exclusion
     - Transactional-memory: Transactional-memory
