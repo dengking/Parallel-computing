@@ -118,7 +118,17 @@ Typically, systems implement Atomicity by providing some mechanism to indicate w
 
 ## lwn.net [What is RCU, Fundamentally?](https://lwn.net/Articles/262464/)
 
-Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing reads to occur concurrently with updates. In contrast with conventional locking primitives that ensure **mutual exclusion** among concurrent threads regardless of whether they be readers or updaters, or with **reader-writer locks** that allow concurrent reads but not in the presence of updates, RCU supports concurrency between a **single updater** and **multiple readers**. RCU ensures that reads are coherent(连贯) by maintaining multiple versions of objects and ensuring that they are not freed up until all pre-existing read-side critical sections complete. RCU defines and uses efficient and scalable mechanisms for publishing and reading new versions of an object, and also for deferring the collection of old versions. These mechanisms distribute the work among read and update paths in such a way as to make read paths extremely fast. In some cases (non-preemptable kernels), RCU's read-side primitives have zero overhead.
+Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing reads to occur concurrently with updates. In contrast with conventional locking primitives that ensure **mutual exclusion** among concurrent threads regardless of whether they be readers or updaters, or with **reader-writer locks** that allow concurrent reads but not in the presence of updates, RCU supports concurrency between a **single updater** and **multiple readers**. 
+
+RCU ensures that reads are coherent(连贯) by maintaining multiple versions of objects and ensuring that they are not freed up until all pre-existing read-side critical sections complete. 
+
+> NOTE: 此处的"coherent"的用法，让我连接了这个此的含义
+
+RCU defines and uses efficient and scalable mechanisms for publishing and reading new versions of an object, and also for deferring the collection of old versions. 
+
+> NOTE: memory reclamation，上述"deferring"，让我想到了在"cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies"中，也使用了这个词语。
+
+These mechanisms distribute the work among read and update paths in such a way as to make read paths extremely fast. In some cases (non-preemptable kernels), RCU's read-side primitives have zero overhead.
 
 
 

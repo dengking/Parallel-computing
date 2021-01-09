@@ -1,5 +1,6 @@
 nav:
     - Concurrent-computing: index.md
+    - Multithread: Multithread
     - Concurrency-control: Concurrency-control
     - Books: Books.md
     - Classic-problem: Classic-problem
