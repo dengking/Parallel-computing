@@ -10,6 +10,8 @@
 >
 > "全局时钟下的顺序"则是指理想的状态(顺序)，这种理想状态可以这样来模拟: 由于所有的node share data，所有的node都是在对shared data进行operation(read、write)，因此可以认为所有的node都在同一个processor上执行，显然这种情况下，它们就有一个全局时钟了，在这个理想的状态(顺序)下，所有的write都立即生效(在实际中，可能无法达成)，就好比在同一个processor，这就是"强一致性（Strong Consistency）"。
 >
+> sequential consistency也需要将所有的process模拟到同一个processor上。
+>
 > 由于系统中的每个node都有一份copy，change在它们之间同步是需要时间的。
 >
 > 不是所有的consistency model都参考了**全局时钟**的，"Sequential Consistency"就没有参考"全局时钟"，貌似只有strong consistency才参考了"全局时钟"。Sequential Consistency貌似仅仅强调sequence；
@@ -78,6 +80,8 @@ Read(x, 0)：读出x=0
 > `Write(x, 4)`由于网络延时，导致更新的数据没有及时同步到P2中，因此P2读出的是旧值
 >
 > 每个P中，load和store是维持的；
+>
+> 上述 "从这两个进程的角度来看，**顺序**应该是这样的：Write(y,2) , Read(x,0) , Write(x,4), Read(y,2)"，其中得出的顺序其实也是将两个process模拟到同一个processor上得出的。
 
 2）图b满足**强一致性**，因为每个读操作都读到了该变量的最新写的结果，同时两个进程看到的操作顺序与全局时钟的顺序一样，都是Write(y,2) , Read(x,4) , Write(x,4), Read(y,2)。
 

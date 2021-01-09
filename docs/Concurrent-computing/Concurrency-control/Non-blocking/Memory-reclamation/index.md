@@ -1,12 +1,14 @@
 # Memory reclamation
 
+## What is memory reclamation?
+
 "reclamation"的意思是"回收"。
 
-在[libcds](https://github.com/khizmax/libcds)的readme中，提及了memory reclamation
+在[libcds](https://github.com/khizmax/libcds)的readme中，提及了memory reclamation。
 
 
 
-## preshing [New Concurrent Hash Maps for C++](https://preshing.com/20160201/new-concurrent-hash-maps-for-cpp/) :
+### preshing [New Concurrent Hash Maps for C++](https://preshing.com/20160201/new-concurrent-hash-maps-for-cpp/) :
 
 ### Safe Memory Reclamation
 

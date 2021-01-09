@@ -1,0 +1,3 @@
+# [khizmax](https://github.com/khizmax)/**[libcds](https://github.com/khizmax/libcds)**
+
+The Concurrent Data Structures (CDS) library is a collection of concurrent containers that don't require external (manual) synchronization for shared access, and safe memory reclamation (SMR) algorithms like [Hazard Pointer](http://en.wikipedia.org/wiki/Hazard_pointer) and user-space [RCU](http://en.wikipedia.org/wiki/Read-copy-update) that is used as an epoch-based SMR.
