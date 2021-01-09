@@ -1,6 +1,26 @@
 # Read-copy-update
 
+## 总结
 
+RCU:
+
+一、multiple reader thread、single writer thread
+
+> NOTE: 关于这一点，参见:
+>
+> 1、lwn.net [What is RCU, Fundamentally?](https://lwn.net/Articles/262464/)
+>
+> 2、geeksforgeeks [Read-Copy Update (RCU)](https://www.geeksforgeeks.org/read-copy-update-rcu/)
+
+二、由于它只有single writer，因此它相对于MCVV就简单地很多:
+
+1、不需要考虑MVCC中，multiple version copy的问题
+
+2、可以认为，只有一份copy
+
+三、memory reclamation
+
+RCU中，需要考虑memory reclamation的问题
 
 ## wikipedia [Read-copy-update](https://en.wikipedia.org/wiki/Read-copy-update)
 
@@ -76,7 +96,7 @@ By early 2008, there were almost 2,000 uses of the RCU API within the Linux kern
 
 > NOTE: 这段总结非常好
 
-The ability to wait until all readers are done allows RCU readers to use much **lighter-weight synchronization**—in some cases, absolutely no synchronization at all. In contrast, in more conventional lock-based schemes, readers must use heavy-weight synchronization in order to prevent an updater from deleting the data structure out from under them. The reason is that lock-based updaters typically update data in place, and must therefore exclude readers. In contrast, RCU-based updaters typically take advantage of the fact that **writes to single aligned pointers are atomic on modern CPUs, allowing atomic insertion, removal, and replacement of data in a linked structure without disrupting readers**. Concurrent RCU readers can then continue accessing the old versions, and can dispense with(豁免，免除) the **atomic read-modify-write instructions**, memory barriers, and cache misses that are so expensive on modern [SMP](https://en.wikipedia.org/wiki/Symmetric_multiprocessing) computer systems, even in absence of lock contention.[[15\]](https://en.wikipedia.org/wiki/Read-copy-update#cite_note-17)[[16\]](https://en.wikipedia.org/wiki/Read-copy-update#cite_note-18) The lightweight nature of RCU's read-side primitives provides additional advantages beyond excellent performance, scalability, and real-time response. For example, they provide immunity to most deadlock and livelock conditions.[[note 3\]](https://en.wikipedia.org/wiki/Read-copy-update#cite_note-19)
+The ability to wait until all readers are done allows RCU readers to use much **lighter-weight synchronization**—in some cases, absolutely no synchronization at all. In contrast, in more conventional lock-based schemes, readers must use heavy-weight synchronization in order to prevent an updater from deleting the data structure out from under them. The reason is that lock-based updaters typically update data in place, and must therefore exclude readers. In contrast, RCU-based updaters typically take advantage of the fact that **writes to single aligned pointers are atomic on modern CPUs, allowing atomic insertion, removal, and replacement of data in a linked structure without disrupting readers**. Concurrent RCU readers can then continue accessing the old versions, and can dispense with(豁免，免除) the **atomic read-modify-write instructions**, memory barriers, and cache misses that are so expensive on modern [SMP](https://en.wikipedia.org/wiki/Symmetric_multiprocessing) computer systems, even in absence of lock contention.[[15\]](https://en.wikipedia.org/wiki/Read-copy-update#cite_note-17)[[16\]](https://en.wikipedia.org/wiki/Read-copy-update#cite_note-18) The lightweight nature of RCU's read-side primitives provides additional advantages beyond excellent performance, scalability, and real-time response. For example, they provide immunity(免疫、豁免) to most deadlock and livelock conditions.[[note 3\]](https://en.wikipedia.org/wiki/Read-copy-update#cite_note-19)
 
 > NOTE: 上述 **writes to single aligned pointers are atomic on modern CPUs, allowing atomic insertion, removal, and replacement of data in a linked structure without disrupting readers** 是非常重要的，需要注意的是，其中 pointer前面是有一个定语: "aligned"，关于此的解释参见工程hardware的`CPU\Memory-access\Memory-alignment`章节。
 >
@@ -96,9 +116,15 @@ Despite well over a decade of experience with RCU, the exact extent of its appli
 
 Typically, systems implement Atomicity by providing some mechanism to indicate which transactions have started and which finished; or by keeping a copy of the data before any changes occurred ([read-copy-update](https://en.wikipedia.org/wiki/Read-copy-update)).
 
+## lwn.net [What is RCU, Fundamentally?](https://lwn.net/Articles/262464/)
+
+Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing reads to occur concurrently with updates. In contrast with conventional locking primitives that ensure **mutual exclusion** among concurrent threads regardless of whether they be readers or updaters, or with **reader-writer locks** that allow concurrent reads but not in the presence of updates, RCU supports concurrency between a **single updater** and **multiple readers**. RCU ensures that reads are coherent(连贯) by maintaining multiple versions of objects and ensuring that they are not freed up until all pre-existing read-side critical sections complete. RCU defines and uses efficient and scalable mechanisms for publishing and reading new versions of an object, and also for deferring the collection of old versions. These mechanisms distribute the work among read and update paths in such a way as to make read paths extremely fast. In some cases (non-preemptable kernels), RCU's read-side primitives have zero overhead.
+
+
+
 ## TODO
 
-1) lwn.net [What is RCU, Fundamentally?](https://lwn.net/Articles/262464/)
+
 
 2) kernel [RCU concepts](https://www.kernel.org/doc/html/latest/RCU/index.html)
 
