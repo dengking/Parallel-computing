@@ -39,3 +39,7 @@ These papers relate to such concepts as [logical clocks](https://en.wikipedia.or
 3、the [Chandy-Lamport algorithm](https://en.wikipedia.org/wiki/Chandy-Lamport_algorithm) for the determination of consistent global states (snapshot), and
 
 4、the [Lamport signature](https://en.wikipedia.org/wiki/Lamport_signature), one of the prototypes of the digital signature.
+
+
+
+## [LESLIE  LAMPORT'S  HOME  PAGE](http://lamport.org/)
