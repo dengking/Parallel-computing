@@ -19,3 +19,9 @@ Optimize的目的是提高**并发**。
 ## 降低lock的粒度
 
 提高并发的直接做法是降低lock的粒度。
+
+
+
+## Thoughts
+
+为了性能，如果加锁的时间不长，可以使用spinning lock，不使用system lock，这样可以避免系统调用问题。
