@@ -1,5 +1,6 @@
 nav:
     - Concurrent-computing: index.md
+    
     - Multithread: Multithread
     - Concurrency-control: Concurrency-control
     - Books: Books.md
@@ -8,3 +9,5 @@ nav:
     - Concurrent-server: Concurrent-server
     - Design-pattern: Design-pattern
     - Liveness: Liveness
+    - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
+    - Expert-1024cores: Expert-1024cores

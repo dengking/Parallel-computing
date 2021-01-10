@@ -3,4 +3,5 @@ nav:
     - Library-cpp11-on-multicore: Library-cpp11-on-multicore
     - Performance: Performance
     - Multithread: Multithread
-    
+    - Hash-map: Hash-map
+    - Lock-Free-Programming: Lock-Free-Programming

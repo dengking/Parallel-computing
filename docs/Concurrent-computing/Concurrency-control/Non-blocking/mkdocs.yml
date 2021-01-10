@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
-    - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
-    - Expert-1024cores: Expert-1024cores
+
     - Atomic-instruction: Atomic-instruction
     - Memory-barrier: Memory-barrier
     - Memory-reclamation: Memory-reclamation
