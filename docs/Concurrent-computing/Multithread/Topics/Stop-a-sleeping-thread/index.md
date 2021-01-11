@@ -1,8 +1,6 @@
-[TOC]
-
 # 如何中断一个正在sleeping的thread
 
-## [how to terminate a sleeping thread in pthread?](https://stackoverflow.com/questions/4778361/how-to-terminate-a-sleeping-thread-in-pthread)
+## stackoverflow [how to terminate a sleeping thread in pthread?](https://stackoverflow.com/questions/4778361/how-to-terminate-a-sleeping-thread-in-pthread)
 
 I have thread which sleeps for a long time, then wakes up to do something, then sleep again, like this:
 
@@ -48,7 +46,7 @@ What is the difference between using `pthread_cond_timedwait` with 1000ms timeou
 
 
 
-## [How can I kill a thread? without using stop();](https://stackoverflow.com/questions/5915156/how-can-i-kill-a-thread-without-using-stop)
+## stackoverflow [How can I kill a thread? without using stop();](https://stackoverflow.com/questions/5915156/how-can-i-kill-a-thread-without-using-stop)
 
 I'm wanting a reasonably reliable threaded timer, so I've written a timer object that fires a `std::function` on a thread. I would like to give this timer the ability to **stop** before it gets to the next tick; something you can't do with `::sleep` (at least I don't think you can).
 
@@ -251,7 +249,7 @@ Here's the code fixed. Notice that the mutex protects `stop`, and `stop` is the 
 
 
 
-## [Stopping long-sleep threads](https://stackoverflow.com/questions/29775153/stopping-long-sleep-threads)
+## stackoverflow [Stopping long-sleep threads](https://stackoverflow.com/questions/29775153/stopping-long-sleep-threads)
 
 Let's suppose I have a thread which should perform some task periodically but this period is ~~6 times each hour~~ 12 times each hour (every 5 minutes), I've often seen code which controls the thread loop with a *is_running* flag which is checked every loop, like this:
 
@@ -308,8 +306,17 @@ Is there a less-dirty and more straightforward way to achieve this?
 
 
 
-## [Can't kill a sleeping process](https://superuser.com/questions/539920/cant-kill-a-sleeping-process)
+## superuser [Can't kill a sleeping process](https://superuser.com/questions/539920/cant-kill-a-sleeping-process)
 
 
 
-## [Can a signal in one thread, interrupt sleep period of another thread of the same process in linux](https://unix.stackexchange.com/questions/516696/can-a-signal-in-one-thread-interrupt-sleep-period-of-another-thread-of-the-same)
+## stackexchange [Can a signal in one thread, interrupt sleep period of another thread of the same process in linux](https://unix.stackexchange.com/questions/516696/can-a-signal-in-one-thread-interrupt-sleep-period-of-another-thread-of-the-same)
+
+
+
+
+
+## TODO
+
+### how to interrupt a sleeping thread
+https://www.codeproject.com/Questions/619339/How-to-interpt-the-Sleeping-thread-in-cplusplus
