@@ -3,4 +3,5 @@ nav:
     - Execute-once: Execute-once
     - Timer: Timer
     - Stop-a-blocked-thread: Stop-a-blocked-thread
+    - Wait-VS-sleep: Wait-VS-sleep
     - Stop-a-sleeping-thread: Stop-a-sleeping-thread

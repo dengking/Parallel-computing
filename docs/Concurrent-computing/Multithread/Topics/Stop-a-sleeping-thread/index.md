@@ -1,5 +1,9 @@
 # 如何中断一个正在sleeping的thread
 
+## Summary
+
+总的来说，目前知道的是两种方案，这两种方案在 stackoverflow [Stopping long-sleep threads](https://stackoverflow.com/questions/29775153/stopping-long-sleep-threads) 中都提出来了。
+
 ## stackoverflow [how to terminate a sleeping thread in pthread?](https://stackoverflow.com/questions/4778361/how-to-terminate-a-sleeping-thread-in-pthread)
 
 I have thread which sleeps for a long time, then wakes up to do something, then sleep again, like this:
@@ -565,7 +569,7 @@ Alternately you could `poll` on a pipe with your sleep as a timeout instead of o
 
 
 
-
+### stackoverflow [How to wake a std::thread while it is sleeping](https://stackoverflow.com/questions/52610776/how-to-wake-a-stdthread-while-it-is-sleeping)
 
 ## TODO
 
