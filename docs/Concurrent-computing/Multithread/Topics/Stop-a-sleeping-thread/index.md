@@ -26,7 +26,7 @@ Just a note - `pthread_kill` does not kill a thread. It sends a **signal** to a 
 
 Why did you say that the thread could not exit quickly ? I tried this and the thread canceled immediately upon `thread_cancel`. And I was able to `pthread_join` without delay. – [user1502776](https://stackoverflow.com/users/1502776/user1502776) [Jun 7 at 8:15](https://stackoverflow.com/questions/4778361/how-to-terminate-a-sleeping-thread-in-pthread#comment99569913_4778361)
 
-***SUMMARY*** : 关于`pthread_cancel`参见[`pthread_cancel`](http://man7.org/linux/man-pages/man3/pthread_cancel.3.html) ，其中提及`sleep`是一个cancel point
+> NOTE: 关于`pthread_cancel`参见[`pthread_cancel`](http://man7.org/linux/man-pages/man3/pthread_cancel.3.html) ，其中提及`sleep`是一个cancel point
 
 ### [A](https://stackoverflow.com/a/4778415)
 
@@ -300,11 +300,252 @@ void thread_function()
 
 Is there a less-dirty and more straightforward way to achieve this?
 
+### Comments
+
+[ en.cppreference.com/w/cpp/thread/condition_variable](http://en.cppreference.com/w/cpp/thread/condition_variable), see first sentence there. Instead of sleeping for a fixed amount of time, you enter a signallable wait state for that amount of time so other threads can still interrupt you – [stijn](https://stackoverflow.com/users/128384/stijn) [Apr 21 '15 at 14:40](https://stackoverflow.com/questions/29775153/stopping-long-sleep-threads#comment47681120_29775153) 
+
+Another option is [boost::basic_waitable_timer](http://www.boost.org/doc/libs/1_49_0/doc/html/boost_asio/reference/basic_waitable_timer.html). – [tenfour](https://stackoverflow.com/users/402169/tenfour) [Apr 21 '15 at 14:46](https://stackoverflow.com/questions/29775153/stopping-long-sleep-threads#comment47681359_29775153) 
 
 
 
+### [A](https://stackoverflow.com/a/29775639)
 
+Use a condition variable. You wait on the condition variable *or* 5 minutes passing. Remember to check for spurious wakeups.
 
+[cppreference](http://en.cppreference.com/w/cpp/thread/condition_variable)
+
+I cannot find a good stack overflow post on how to use a condition variable in a minute or two of google searching. The tricky part is realizing that the `wait` can wake up with neither 5 minutes passing, nor a signal being sent. The cleanest way to handle this is to use the wait methods with a lambda that double-checks that the wakeup was a "good" one.
+
+> NOTE: double check来避免**spurious wakeup**
+
+[here](http://en.cppreference.com/w/cpp/thread/condition_variable/wait_until) is some sample code over at cppreference that uses `wait_until` with a lambda. (`wait_for` with a lambda is equivalent to `wait_until` with a lambda). I modified it slightly.
+
+Here is an version:
+
+```cpp
+#include <iostream>
+#include <thread>
+#include <condition_variable>
+#include <mutex>
+#include <future>
+#include <chrono>
+#include <iostream>
+#include <vector>
+
+using namespace std::literals::chrono_literals;
+
+struct timer_killer
+{
+	// returns false if killed:
+	template<class R, class P>
+	bool wait_for(std::chrono::duration<R, P> const &time)
+	{
+		std::unique_lock<std::mutex> lock(m);
+		return !cv.wait_for(lock, time, [&]
+		{	return terminate;});
+	}
+	void kill()
+	{
+		std::unique_lock<std::mutex> lock(m);
+		terminate=true;
+		cv.notify_all();
+	}
+private:
+	std::condition_variable cv;
+	std::mutex m;
+	bool terminate = false;
+};
+
+timer_killer bob;
+
+int main()
+{
+	std::vector<std::future<void> > tasks;
+	tasks.push_back(std::async(std::launch::async, []
+	{
+		while(bob.wait_for(500ms))
+		{
+			std::cout << "thread 1 says hi\n";
+		}
+		std::cout << "thread 1 dead\n";
+	}));
+	bob.wait_for(250ms);
+	tasks.push_back(std::async(std::launch::async, []
+	{
+		while(bob.wait_for(500ms))
+		{
+			std::cout << "thread 2 says hi\n";
+		}
+		std::cout << "thread 2 dead\n";
+	}));
+	bob.wait_for(1000ms);
+	std::cout << "killing threads\n";
+	bob.kill();
+	for (auto &&f : tasks)
+		f.wait();
+	std::cout << "done\n";
+	// your code goes here
+	return 0;
+}
+// g++ -std=c++17 -O2 -Wall -pedantic -pthread main.cpp && ./a.out
+```
+
+> NOTE: 上述程序是非常值得学习的，为了使程序的效果更加显著，可以使用下面的版本:
+>
+> ```C++
+> #include <iostream>
+> #include <thread>
+> #include <condition_variable>
+> #include <mutex>
+> #include <future>
+> #include <chrono>
+> #include <iostream>
+> #include <vector>
+> 
+> using namespace std::literals::chrono_literals;
+> 
+> struct timer_killer
+> {
+> 	// returns false if killed:
+> 	template<class R, class P>
+> 	bool wait_for(std::chrono::duration<R, P> const &time)
+> 	{
+> 		std::unique_lock<std::mutex> lock(m);
+> 		return !cv.wait_for(lock, time, [&]
+> 		{	return terminate;});
+> 	}
+> 	void kill()
+> 	{
+> 		std::unique_lock<std::mutex> lock(m);
+> 		terminate=true;
+> 		cv.notify_all();
+> 	}
+> private:
+> 	std::condition_variable cv;
+> 	std::mutex m;
+> 	bool terminate = false;
+> };
+> 
+> timer_killer bob;
+> 
+> int main()
+> {
+> 	std::vector<std::future<void> > tasks;
+> 	tasks.push_back(std::async(std::launch::async, []
+> 	{
+> 		while(bob.wait_for(50ms))
+> 		{
+> 			std::cout << "thread 1 says hi\n";
+> 		}
+> 		std::cout << "thread 1 dead\n";
+> 	}));
+> 	bob.wait_for(250ms);
+> 	tasks.push_back(std::async(std::launch::async, []
+> 	{
+> 		while(bob.wait_for(50ms))
+> 		{
+> 			std::cout << "thread 2 says hi\n";
+> 		}
+> 		std::cout << "thread 2 dead\n";
+> 	}));
+> 	bob.wait_for(1000ms);
+> 	std::cout << "killing threads\n";
+> 	bob.kill();
+> 	for (auto &&f : tasks)
+> 		f.wait();
+> 	std::cout << "done\n";
+> 	// your code goes here
+> 	return 0;
+> }
+> // g++ -std=c++17 -O2 -Wall -pedantic -pthread main.cpp && ./a.out
+> ```
+>
+> 在 `bob.kill();` 执行之前，`asynchronous task` 会重复执行多次；
+>
+> 下面是C++11版本的
+>
+> ```C++
+> #include <iostream>
+> #include <thread>
+> #include <condition_variable>
+> #include <mutex>
+> #include <future>
+> #include <chrono>
+> #include <iostream>
+> #include <vector>
+> 
+> struct timer_killer
+> {
+> 	// returns false if killed:
+> 	template<class R, class P>
+> 	bool wait_for(std::chrono::duration<R, P> const &time) const
+> 	{
+> 		std::unique_lock<std::mutex> lock(m);
+> 		return !cv.wait_for(lock, time, [&]
+> 		{	return terminate;});
+> 	}
+> 	void kill()
+> 	{
+> 		std::unique_lock<std::mutex> lock(m);
+> 		terminate=true; // should be modified inside mutex lock
+> 		cv.notify_all();// it is safe, and *sometimes* optimal, to do this outside the lock
+> 	}
+> 	// I like to explicitly delete/default special member functions:
+> 	timer_killer() = default;
+> 	timer_killer(timer_killer&&)=delete;
+> 	timer_killer(timer_killer const&)=delete;
+> 	timer_killer& operator=(timer_killer&&)=delete;
+> 	timer_killer& operator=(timer_killer const&)=delete;
+> private:
+> 	mutable std::condition_variable cv;
+> 	mutable std::mutex m;
+> 	bool terminate = false;
+> };
+> timer_killer bob;
+> 
+> int main()
+> {
+> 	std::vector<std::future<void> > tasks;
+> 	tasks.push_back(std::async(std::launch::async, []
+> 	{
+> 		while(bob.wait_for(std::chrono::milliseconds(50)))
+> 		{
+> 			std::cout << "thread 1 says hi\n";
+> 		}
+> 		std::cout << "thread 1 dead\n";
+> 	}));
+> 	bob.wait_for(std::chrono::milliseconds(250));
+> 	tasks.push_back(std::async(std::launch::async, []
+> 	{
+> 		while(bob.wait_for(std::chrono::milliseconds(50)))
+> 		{
+> 			std::cout << "thread 2 says hi\n";
+> 		}
+> 		std::cout << "thread 2 dead\n";
+> 	}));
+> 	bob.wait_for(std::chrono::milliseconds(1000));
+> 	std::cout << "killing threads\n";
+> 	bob.kill();
+> 	for (auto &&f : tasks)
+> 		f.wait();
+> 	std::cout << "done\n";
+> 	// your code goes here
+> 	return 0;
+> }
+> // g++ --std=c++11 test.cpp -lpthread
+> ```
+>
+> 
+
+[live example](http://coliru.stacked-crooked.com/a/66f8b2ee5f9d55e8) (coliru).
+
+You create a `timer_killer` in a shared spot. Client threads can `wait_for( time )`. If it returns false, it means you where killed before your wait was complete.
+
+The controlling thread just calls `kill()` and everyone doing a `wait_for` gets a `false` return.
+
+Note that there is some **contention** (locking of the mutex), so this isn't suitable for infinite threads (but few things are). Consider using a scheduler if you need to have an unbounded number of tasks that are run with arbitrary delays instead of a full thread per delayed repeating task -- each real thread is upwards of a megabyte of system address space used (just for the stack).
+
+> NOTE: 需要理解上述  **contention** 的含义: `std::async(std::launch::async)` 表示每个asynchronous task都有一个对应的thread，因此，在上述程序中，将由多个线程竞争`timer_killer::m`
 
 ## superuser [Can't kill a sleeping process](https://superuser.com/questions/539920/cant-kill-a-sleeping-process)
 
