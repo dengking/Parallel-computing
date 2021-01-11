@@ -2,3 +2,5 @@ nav:
     - Sleep-forever: Sleep-forever
     - Execute-once: Execute-once
     - Timer: Timer
+    - Stop-a-blocked-thread: Stop-a-blocked-thread
+    - Stop-a-sleeping-thread: Stop-a-sleeping-thread
