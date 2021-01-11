@@ -547,6 +547,16 @@ Note that there is some **contention** (locking of the mutex), so this isn't sui
 
 > NOTE: 需要理解上述  **contention** 的含义: `std::async(std::launch::async)` 表示每个asynchronous task都有一个对应的thread，因此，在上述程序中，将由多个线程竞争`timer_killer::m`
 
+### [A](https://stackoverflow.com/a/29775578)
+
+There are two traditional ways you could do this.
+
+You could use a **timed wait on a condition variable**, and have the other thread signal your periodic thread to wake up and die when it's time.
+
+Alternately you could `poll` on a pipe with your sleep as a timeout instead of of sleeping. Then you just write a byte to the pipe and the thread wakes up and can exit.
+
+> NOTE: 在Linux APUE上有提出过类似的方法，这种方法简记为: poll-on-a-pipe-with-timeout
+
 ## superuser [Can't kill a sleeping process](https://superuser.com/questions/539920/cant-kill-a-sleeping-process)
 
 
