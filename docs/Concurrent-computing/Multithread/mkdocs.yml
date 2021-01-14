@@ -2,4 +2,6 @@ nav:
     - Introduction: index.md
     - Thread-safety: Thread-safety
     - Race: Race
-    
+    - Lifetime: Lifetime
+    - Topics: Topics
+    - Condition-variables-VS-mutex: Condition-variables-VS-mutex
