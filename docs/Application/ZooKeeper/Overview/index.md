@@ -28,7 +28,7 @@ The servers that make up the ZooKeeper service must all know about each other.
 
 ZooKeeper stamps(它的含义非常类似于timestamp) each update with a number that reflects the order of all ZooKeeper transactions. Subsequent operations can use the order to implement higher-level abstractions, such as synchronization primitives.
 
-> NOTE: 这种技术叫什么名称？
+> NOTE: 这种技术叫什么名称？非常类似于MVCC
 >
 > 上述update具体是指什么？
 
@@ -36,7 +36,9 @@ ZooKeeper stamps(它的含义非常类似于timestamp) each update with a number
 
 It is especially fast in "read-dominant" workloads.
 
-> NOTE: 为什么是"read"？
+> NOTE: 这让我想到了:
+>
+> 1、RCU
 
 ## Data model and the hierarchical namespace
 
@@ -66,37 +68,45 @@ ZooKeeper also has the notion of ephemeral nodes. These znodes exists as long as
 
 ZooKeeper supports the concept of *watches*. Clients can set a watch on a znode.
 
-
+> NOTE: 和redis非常类似
 
 ## Guarantees
 
 These are:
 
-- Sequential Consistency - Updates from a client will be applied in the order that they were sent.
+1、Sequential Consistency - Updates from a client will be applied in the order that they were sent.
 
-  > NOTE: 关于Sequential Consistency ，参见`Theory\CAP\Consistency`章节
+> NOTE: 关于Sequential Consistency ，参见`Theory\CAP\Consistency`章节
 
-- Atomicity - Updates either succeed or fail. No partial results.
+2、Atomicity - Updates either succeed or fail. No partial results.
 
-- Single System Image - A client will see the same view of the service regardless of the server that it connects to. i.e., a client will never see an older view of the system even if the client fails over to a different server with the same session.
+3、Single System Image - A client will see the same view of the service regardless of the server that it connects to. i.e., a client will never see an older view of the system even if the client fails over to a different server with the same session.
 
-- Reliability - Once an update has been applied, it will persist from that time forward until a client overwrites the update.
+4、Reliability - Once an update has been applied, it will persist from that time forward until a client overwrites the update.
 
-- Timeliness - The clients view of the system is guaranteed to be up-to-date within a certain time bound.
+> NOTE: 一旦应用了更新，它将从那时开始持续存在，直到客户机覆盖该更新
 
-  > NOTE: 及时性
+5、Timeliness - The clients view of the system is guaranteed to be up-to-date within a certain time bound.
+
+> NOTE: 及时性
 
 ## Simple API
 
 One of the design goals of ZooKeeper is providing a very simple programming interface. As a result, it supports only these operations:
 
-- *create* : creates a node at a location in the tree
-- *delete* : deletes a node
-- *exists* : tests if a node exists at a location
-- *get data* : reads the data from a node
-- *set data* : writes data to a node
-- *get children* : retrieves a list of children of a node
-- *sync* : waits for data to be propagated
+1、*create* : creates a node at a location in the tree
+
+2、*delete* : deletes a node
+
+3、*exists* : tests if a node exists at a location
+
+4、*get data* : reads the data from a node
+
+5、*set data* : writes data to a node
+
+6、*get children* : retrieves a list of children of a node
+
+7、*sync* : waits for data to be propagated
 
 > NOTE: 就是对tree  node的操作，基本上都是"增删改查"
 

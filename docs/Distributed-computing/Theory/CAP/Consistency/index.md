@@ -12,7 +12,7 @@ multiple的各个entity之间保持consistency，在computer science中，主要
 
 ### Memory and database
 
-在 [Generic: Change the Way You Write Exception-Safe Code — Forever](https://www.drdobbs.com/cpp/generic-change-the-way-you-write-excepti/184403758) 中描述了这样的情况:
+在drdobbs [Generic: Change the Way You Write Exception-Safe Code — Forever](https://www.drdobbs.com/cpp/generic-change-the-way-you-write-excepti/184403758) 中描述了这样的情况:
 
 ```C++
 void User::AddFriend(User& newFriend)
