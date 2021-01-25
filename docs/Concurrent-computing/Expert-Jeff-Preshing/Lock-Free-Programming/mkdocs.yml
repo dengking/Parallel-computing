@@ -1,5 +1,17 @@
 nav:
     - Introduction: index.md
-    - Atomic-vs-Non-Atomic-Operations: Atomic-vs-Non-Atomic-Operations
-    - preshing-Acquire-and-Release-Semantics: preshing-Acquire-and-Release-Semantics
+    - 02-preshing-Memory-Reordering-Caught-in-the-Act: 02-preshing-Memory-Reordering-Caught-in-the-Act
+    - 03-preshing-An-Introduction-to-Lock-Free-Programming: 03-preshing-An-Introduction-to-Lock-Free-Programming
+    - 04-preshing-Memory-Ordering-at-Compile-Time: 04-preshing-Memory-Ordering-at-Compile-Time
+    - 05-preshing-Memory-Barriers-Are-Like-Source-Control-Operations: 05-preshing-Memory-Barriers-Are-Like-Source-Control-Operations
+    - 06-preshing-Acquire-and-Release-Semantics: 06-preshing-Acquire-and-Release-Semantics
+    - 07-preshing-Weak-vs-Strong-Memory-Models: 07-preshing-Weak-vs-Strong-Memory-Models
+    - 08-This-Is-Why-They-Call-It-a-Weakly-Ordered-CPU: 08-This-Is-Why-They-Call-It-a-Weakly-Ordered-CPU
+    - 09-preshing-Atomic-vs-Non-Atomic-Operations: 09-preshing-Atomic-vs-Non-Atomic-Operations
+    - 10-The-Happens-Before-Relation: 10-The-Happens-Before-Relation
+    - 11-The-Synchronizes-With-Relation: 11-The-Synchronizes-With-Relation
+    - 12-Acquire-and-Release-Fences: 12-Acquire-and-Release-Fences
+    - 13-Double-Checked-Locking-is-Fixed-In-C++11: 13-Double-Checked-Locking-is-Fixed-In-C++11
+    - 14-Acquire-and-Release-Fences-Don’t-Work-the-Way-You’d-Expect: 14-Acquire-and-Release-Fences-Don’t-Work-the-Way-You’d-Expect
+    - 15-The-Purpose-of-memory_order_consume-in-C++11: 15-The-Purpose-of-memory_order_consume-in-C++11
     
