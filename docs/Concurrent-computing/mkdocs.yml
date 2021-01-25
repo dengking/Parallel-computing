@@ -1,13 +1,17 @@
 nav:
     - Concurrent-computing: index.md
-    
-    - Multithread: Multithread
+    # 先描述 理论知识
     - Concurrency-control: Concurrency-control
+    # 专家和经典书籍
     - Books: Books.md
-    - Classic-problem: Classic-problem
-    - Concurrent-data-structure: Concurrent-data-structure
-    - Concurrent-server: Concurrent-server
-    - Design-pattern: Design-pattern
-    - Liveness: Liveness
     - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
     - Expert-1024cores: Expert-1024cores
+    # 总结经典问题
+    - Classic-problem: Classic-problem
+    # 描述具体application
+    - Concurrent-data-structure: Concurrent-data-structure
+    - Concurrent-server: Concurrent-server
+    # 总结设计模式
+    - Design-pattern: Design-pattern
+    # 最最典型的concurrency模式   
+    - Multithread: Multithread
