@@ -12,7 +12,9 @@ redis IO thread
 
 spdlog
 
-## 如何实现精准的时间控制？
+## Example
+
+### 如何实现精准的时间控制？
 
 线程调度时间也包括在内
 
@@ -33,3 +35,9 @@ https://stackoverflow.com/questions/12823598/effect-of-usleep0-in-c-on-linux
 
 
 bit mask需要进行总结
+
+
+
+### spinlock VS mutex
+
+参见 modernescpp [The Atomic Flag](https://www.modernescpp.com/index.php/the-atomic-flag)。

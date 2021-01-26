@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Busy-waiting: Busy-waiting
+    - Polling-and-notify: Polling-and-notify.md
