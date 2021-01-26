@@ -1,0 +1,3 @@
+# preshing [The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/)
+
+In an earlier post, I explained how [atomic operations](http://preshing.com/20130618/atomic-vs-non-atomic-operations) let you manipulate shared variables concurrently without any torn reads or torn writes. Quite often, though, a thread only modifies a shared variable when there are no concurrent readers or writers. In such cases, atomic operations are unnecessary. We just need a way to safely propagate modifications from one thread to another once they’re complete. That’s where the ***synchronizes-with*** relation comes in.

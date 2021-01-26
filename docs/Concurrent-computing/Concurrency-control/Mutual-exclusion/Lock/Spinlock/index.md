@@ -34,6 +34,6 @@ Here is a question on SO addressing that: [Spinlocks, How Useful Are They?](http
 
 
 
-# Implementation
+## Implementation
 
 stackoverflow [x86 spinlock using cmpxchg](https://stackoverflow.com/questions/6935442/x86-spinlock-using-cmpxchg)
