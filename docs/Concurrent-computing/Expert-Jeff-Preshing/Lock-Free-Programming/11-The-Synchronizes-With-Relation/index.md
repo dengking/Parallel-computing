@@ -1,10 +1,22 @@
 # preshing [The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/)
 
+> NOTE: 按照 cppreference [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order) 章节中的说法:
+>
+> > #### Inter-thread happens-before
+> >
+> > Between threads, evaluation A *inter-thread happens before* evaluation B if any of the following is true
+> >
+> > 1) A *synchronizes-with* B
+>
+> 显然 本节介绍的 synchronization-with是inter-thread happens-before的一种。
+>
+> 本文侧重于介绍如何实现"synchronizes-with relation"。
+
 ## What is and why need ”*Synchronizes-with*”?
 
 > NOTE: 
 >
-> 这段话解释了为什么需要"synchronizes-with"
+> 这段话解释了为什么需要"synchronizes-with"，其实这是老调常谈的问题，在 preshing [The Happens-Before Relation](https://preshing.com/20130702/the-happens-before-relation/) 中已经讨论了这个话题；
 
 In an earlier post, I explained how [atomic operations](http://preshing.com/20130618/atomic-vs-non-atomic-operations) let you manipulate shared variables concurrently without any torn reads or torn writes. Quite often, though, a thread only modifies a shared variable when there are no concurrent readers or writers. In such cases, atomic operations are unnecessary. We just need a way to safely propagate modifications from one thread to another once they’re complete. That’s where the ***synchronizes-with*** relation comes in.
 
@@ -32,9 +44,15 @@ Now let’s look at a familiar example using C++11 atomics.
 
 ## A Write-Release Can *Synchronize-With* a Read-Acquire
 
+> NOTE: 本节介绍的例子本质上和上一篇中的例子相同，我们使用上一篇的例子，能够轻松地理解下面的例子:
+>
+> 1、它所面临的问题
+>
+> 2、解决方法
+
 Suppose we have a `Message` structure which is produced by one thread and consumed by another. It has the following fields:
 
-```
+```C++
 struct Message
 {
     clock_t     tick;
@@ -45,13 +63,13 @@ struct Message
 
 We’ll pass an instance of `Message` between threads by placing it in a shared global variable. This shared variable acts as the payload.
 
-```
+```C++
 Message g_payload;
 ```
 
 Now, there’s no portable way to fill in `g_payload` using a single atomic operation. So we won’t try. Instead, we’ll define a separate atomic variable, `g_guard`, to indicate whether `g_payload` is ready. As you might guess, `g_guard` acts as our guard variable. The guard variable *must* be manipulated using [atomic operations](http://preshing.com/20130618/atomic-vs-non-atomic-operations), since two threads will operate on it concurrently, and one of those threads performs a write.
 
-```
+```C++
 std::atomic<int> g_guard(0);
 ```
 
@@ -93,7 +111,7 @@ bool TryReceiveMessage(Message& result)
 }
 ```
 
-> NOTE: 这个例子基本上和上一篇中的例子类似
+
 
 If you’ve been following this blog for a while, you already know that this example works reliably (though it’s only capable of passing a single message). I’ve already explained how [acquire and release semantics](http://preshing.com/20120913/acquire-and-release-semantics) introduce memory barriers, and given [a detailed example](http://preshing.com/20121019/this-is-why-they-call-it-a-weakly-ordered-cpu) of acquire and release semantics in a working C++11 application.
 
@@ -103,17 +121,25 @@ The C++11 standard, on the other hand, doesn’t explain anything. That’s beca
 
 It’s worth breaking this down. In our example:
 
-- *Atomic operation A* is the write-release performed in `SendTestMessage`.
-- *Atomic object M* is the guard variable, `g_guard`.
-- *Atomic operation B* is the read-acquire performed in `TryReceiveMessage`.
+1、*Atomic operation A* is the write-release performed in `SendTestMessage`.
 
-As for the condition that the read-acquire must “take its value from any side effect” – let’s just say it’s sufficient for the read-acquire to read the value written by the write-release. If that happens, the *synchronized-with* relationship is complete, and we’ve achieved the coveted *happens-before* relationship between threads. Some people like to call this a *synchronize-with* or *happens-before* “edge”.
+2、*Atomic object M* is the guard variable, `g_guard`.
+
+3、*Atomic operation B* is the read-acquire performed in `TryReceiveMessage`.
+
+### 非常好的解释
+
+As for the condition that the **read-acquire** must “take its value from any side effect” – let’s just say it’s sufficient for the read-acquire to read the value written by the write-release. If that happens, the *synchronized-with* relationship is complete, and we’ve achieved the coveted(梦寐以求的) *happens-before* relationship between threads. Some people like to call this a *synchronize-with* or *happens-before* “edge”.
 
 ![img](https://preshing.com/images/two-cones.png)
 
 Most importantly, the standard guarantees (in [§1.10.11-12](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf)) that whenever there’s a *synchronizes-with* edge, the *happens-before* relationship extends to neighboring operations, too. This includes all operations *before* the edge in Thread 1, and all operations *after* the edge in Thread 2. In the example above, it ensures that all the modifications to `g_payload` are visible by the time the other thread reads them.
 
-Compiler vendors, if they wish to claim C++11 compliance, must adhere to this guarantee. At first, it might seem mysterious how they do it. But in fact, compilers fulfill this promise using the same old tricks which programmers technically had to use long before C++11 came along. For example, in [this post](http://preshing.com/20121019/this-is-why-they-call-it-a-weakly-ordered-cpu), we saw how an ARMv7 compiler implements these operations using a pair of `dmb` instructions. A PowerPC compiler could implement them using `lwsync`, while an x86 compiler could simply use a compiler barrier, thanks to x86’s relatively [strong hardware memory model](http://preshing.com/20120930/weak-vs-strong-memory-models).
+### Compiler implementation
+
+Compiler vendors, if they wish to claim C++11 compliance, must adhere(遵循) to this guarantee. At first, it might seem mysterious how they do it. But in fact, compilers fulfill this promise using the same old tricks which programmers technically had to use long before C++11 came along. For example, in [this post](http://preshing.com/20121019/this-is-why-they-call-it-a-weakly-ordered-cpu), we saw how an ARMv7 compiler implements these operations using a pair of `dmb` instructions. A PowerPC compiler could implement them using `lwsync`, while an x86 compiler could simply use a compiler barrier, thanks to x86’s relatively [strong hardware memory model](http://preshing.com/20120930/weak-vs-strong-memory-models).
+
+### Java `volatile`
 
 Of course, acquire and release semantics are not unique to C++11. For example, in Java version 5 onward, every store to a `volatile` variable is a write-release, while every load from a `volatile` variable is a read-acquire. Therefore, any `volatile` variable in Java can act as a guard variable, and can be used to propagate a payload of any size between threads. Jeremy Manson explains this in his blog post on [volatile variables in Java](http://jeremymanson.blogspot.ca/2008/11/what-volatile-means-in-java.html). He even uses a diagram very similar to the one shown above, calling it the “two cones” diagram.
 
