@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - 01-Locks-Aren't-Slow;Lock-Contention-Is: 01-Locks-Aren't-Slow;Lock-Contention-Is
+    - 01-Locks-Aren't-Slow-Lock-Contention-Is: 01-Locks-Aren't-Slow-Lock-Contention-Is
     - 02-Always-Use-a-Lightweight-Mutex: 02-Always-Use-a-Lightweight-Mutex
     - 03-A-C++Profiling-Module-for-Multithreaded-APIs: 03-A-C++Profiling-Module-for-Multithreaded-APIs
     - 04-A-Look-Back-at-Single-Threaded-CPU-Performance: 04-A-Look-Back-at-Single-Threaded-CPU-Performance

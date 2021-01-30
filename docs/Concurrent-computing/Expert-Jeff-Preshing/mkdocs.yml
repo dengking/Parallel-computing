@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Library-cpp11-on-multicore: Library-cpp11-on-multicore
+
     - Performance: Performance
     - Multithread: Multithread
     - Hash-map: Hash-map
@@ -8,4 +8,5 @@ nav:
 
     - TODO-Preshing-Safe-Bitfields-in-C++: TODO-Preshing-Safe-Bitfields-in-C++
     - TODO-Preshing-Semaphores-are-Surprisingly-Versatile: TODO-Preshing-Semaphores-are-Surprisingly-Versatile
+    - Library-cpp11-on-multicore: Library-cpp11-on-multicore
     
