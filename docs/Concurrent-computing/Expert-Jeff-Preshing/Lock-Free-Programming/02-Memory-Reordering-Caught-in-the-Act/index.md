@@ -110,7 +110,7 @@ void *thread1Func(void *param)
 
 A short, random delay is added before each transaction in order to stagger(交错安排) the timing of the thread. Remember, there are two worker threads, and we’re trying to get their instructions to overlap. The random delay is achieved using the same `MersenneTwister` implementation I’ve used in previous posts, such as when [measuring lock contention](http://preshing.com/20111118/locks-arent-slow-lock-contention-is) and when [validating that the recursive Benaphore worked](http://preshing.com/20120305/implementing-a-recursive-mutex).
 
-### `asm volatile` 
+### Explicit Compiler Barrier: `asm volatile` 
 
 > NOTE: 
 >
@@ -137,6 +137,8 @@ The main thread source code is shown below. It performs all the administrative w
 #### Semaphores give us [acquire and release semantics](http://preshing.com/20120913/acquire-and-release-semantics) on every platform
 
 Pay particular attention to the way all writes to shared memory occur before `sem_post`, and all reads from shared memory occur after `sem_wait`. The same rules are followed in the worker threads when communicating with the main thread. Semaphores give us [acquire and release semantics](http://preshing.com/20120913/acquire-and-release-semantics) on every platform. That means we are guaranteed that the initial values of `X = 0` and `Y = 0` will propagate completely to the worker threads, and that the resulting values of `r1` and `r2` will propagate fully back here. In other words, the semaphores prevent memory reordering issues in the framework, allowing us to focus entirely on the experiment itself!
+
+> NOTE: 这段关于 semaphore 的 acquire and release semantic 的描述是非常好的，能够非常好的解释问题。
 
 ```C++
 int main()
@@ -203,7 +205,7 @@ On a related note, I compiled and ran this sample on Playstation 3, and no memor
 
 Another way to prevent memory reordering in this sample is to introduce a CPU barrier between the two instructions. Here, we’d like to prevent the effective reordering of a store followed by a load. In common barrier parlance, we need a **StoreLoad** barrier.
 
-> NOTE: 此处的store然后load指的是先store X、Y的值，然后load它们的值；
+> NOTE: 此处的store然后load指的是先store X、Y的值，然后load它们的值；显然，**StoreLoad** barrier实现: store happens-before load
 
 On x86/64 processors, there is no specific instruction which acts *only* as a StoreLoad barrier, but there are several instructions which do that and more. The `mfence` instruction is a full memory barrier, which prevents memory reordering of any kind. In GCC, it can be implemented as follows:
 
@@ -224,7 +226,7 @@ On x86/64 processors, there is no specific instruction which acts *only* as a St
 
 Again, you can verify its presence by looking at the assembly code listing.
 
-```C++
+```assembly
     ...
     mov    DWORD PTR _X, 1
     mfence

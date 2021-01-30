@@ -1,16 +1,89 @@
 # preshing [An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming/)
 
+I was fortunate in that my first introduction to lock-free (also known as lockless) programming was Bruce Dawson’s excellent and comprehensive white paper, [Lockless Programming Considerations](http://msdn.microsoft.com/en-us/library/windows/desktop/ee418650(v=vs.85).aspx). And like many, I’ve had the occasion to put Bruce’s advice into practice developing and debugging lock-free code on platforms such as the Xbox 360.
+
+> NOTE:  [Lockless Programming Considerations](http://msdn.microsoft.com/en-us/library/windows/desktop/ee418650(v=vs.85).aspx) 所链接的文章收录在 "microsoft-Lockless-Programming-Considerations-for-Xbox-360-and-Microsoft-Windows" 章节
+
 ## What Is It?
+
+People often describe lock-free programming as programming without mutexes, which are also referred to as [locks](http://preshing.com/20111118/locks-arent-slow-lock-contention-is). That’s true, but it’s only part of the story. The generally accepted definition, based on academic literature, is a bit more broad. At its essence, lock-free is a property used to describe some code, without saying too much about how that code was actually written.
+
+> NOTE: "At its essence, lock-free is a property used to describe some code, without saying too much about how that code was actually written." 这段话的意思是: lock-free 所描述的是 property，它的definition并不涉及实现，因此我们在理解lock free的时候，应该是从性质入手，而不是从实现入手
+
+Basically, if some part of your program satisfies the following conditions, then that part can rightfully be considered lock-free. Conversely, if a given part of your code doesn’t satisfy these conditions, then that part is not lock-free.
 
 ![img](https://preshing.com/images/its-lock-free.png)
 
+> NOTE: "can the threads block each other?"的注释 "is there some way to schedule the threads which would lock up indefinitely?" 的字面意思是: 是否有一些方法来调度那些将被无限期锁定的线程，那它要如何理解？
+
+### lock 的含义
+
+> NOTE: lock的含义是: "the possibility of “locking up” the entire application in some way, whether it’s deadlock, livelock – or even due to hypothetical thread scheduling decisions made by your worst enemy"
+>
+> 因此，lock-less中的lock，除了包括 mutexes，还包括下面的"Example "章节中的例子
+
+In this sense, the *lock* in lock-free does not refer directly to mutexes, but rather to the possibility of “locking up” the entire application in some way, whether it’s deadlock, livelock – or even due to hypothetical thread scheduling decisions made by your worst enemy(下面的"Example"章节中的例子就是对此的说明). That last point sounds funny, but it’s key. Shared mutexes are ruled out(排除) trivially, because as soon as one thread obtains the mutex, your worst enemy could simply never schedule that thread again. Of course, real operating systems don’t work that way – we’re merely defining terms.
+
+### Example 
+
+Here’s a simple example of an operation which contains no mutexes, but is still not lock-free. Initially, `X = 0`. As an exercise for the reader, consider how two threads could be scheduled in a way such that neither thread exits the loop.
+
+```C++
+while (X == 0)
+{
+    X = 1 - X;
+}
+```
+
+> NOTE: 可能导致"“locking up” the entire application"的调度策略是:
+>
+> 1、两个thread同时进入`while`
+>
+> 2、此时`X`为0，第一个thread执行`X = 1 - X;`，则`X`为1；
+>
+> 3、此时`X`为1，第二个thread执行`X = 1 - X;`，则`X`为0，显然此时回到了原点
+>
+> 4、按照1-3执行，则永远陷入这个死循环
+
+---
+
+Nobody expects a large application to be entirely lock-free. Typically, we identify a specific set of lock-free operations out of the whole codebase. For example, in a lock-free queue, there might be a handful of lock-free operations such as `push`, `pop`, perhaps `isEmpty`, and so on.
+
+### Definition  by Herlihy & Shavit, authors of [The Art of Multiprocessor Programming](http://www.amazon.com/gp/product/0123973376/ref=as_li_ss_tl?ie=UTF8&tag=preshonprogr-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0123973376)
+
+> NOTE: 由Herlihy & Shavit给出的lock free的定义
+
+[![img](https://preshing.com/images/art-of-multiprocessor.png)](http://www.amazon.com/gp/product/0123973376/ref=as_li_ss_tl?ie=UTF8&tag=preshonprogr-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0123973376)
+
+
+
+Herlihy & Shavit, authors of [The Art of Multiprocessor Programming](http://www.amazon.com/gp/product/0123973376/ref=as_li_ss_tl?ie=UTF8&tag=preshonprogr-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0123973376), tend to express such operations as class methods, and offer the following succinct definition of lock-free (see [slide 150](https://docs.google.com/viewer?a=v&q=cache:HaWgz4g5e7QJ:www.elsevierdirect.com/companions/9780123705914/Lecture%20Slides/05~Chapter_05.ppt+&hl=en&gl=ca&pid=bl&srcid=ADGEESghbD6JBTSkCnlPP8ZjPwxS2kM6bbvEGUJaHozCN1CGYW0hnR0WkwmG7LvVj5BUOYZTfTXUClM7uXmr-nXPYlOvZulPJMgYXHaXqqo_m9qkn38gw8qMn01tFoxTmTkvjalHzQOB&sig=AHIEtbRChU00kpYARLAr5Cv5Z5aB2NLo5w)): “In an infinite execution, infinitely often some method call finishes.” In other words, as long as the program is able to keep *calling* those lock-free operations, the number of *completed* calls keeps increasing, no matter what. It is algorithmically impossible for the system to lock up during those operations.
+
+> NOTE: 字面意思: Herlihy & Shavit，《多处理器编程的艺术》的作者，倾向于将这些操作表示为类方法，并提供了以下无锁的简洁定义(见幻灯片150):“在无限执行中，一些方法调用总是无限地结束。
+> 换句话说，只要程序能够继续*调用*这些无锁操作，*完成的*调用的数量就会不断增加，无论发生什么。
+> 在这些操作期间，系统在算法上是不可能锁定的。
+
+### Consequence of lock-free programming 
+
+> NOTE: lock-free programming 的性性质的一些应用场景
+
+One important consequence of lock-free programming is that if you suspend a single thread, it will never prevent other threads from making progress, as a group, through their own lock-free operations. This hints(暗示) at the value of lock-free programming when writing interrupt handlers and real-time systems, where certain tasks must complete within a certain time limit, no matter what state the rest of the program is in.
+
+A final precision: Operations that are *designed* to block do not disqualify the algorithm. For example, a queue’s pop operation may intentionally block when the queue is empty. The remaining codepaths can still be considered lock-free.
+
+> NOTE: 这一段的字面意思: 最终精度:被设计为阻塞的操作不会取消算法的资格。例如，当队列为空时，队列的pop操作可能会故意阻塞。其余的代码路径仍然可以认为是无锁的。
+>
+> 含义是: blocking operation并不会使得使用它的algorithm成为非lock-free的
+
 ## Lock-Free Programming Techniques
+
+So how do these techniques relate to one another? To illustrate, I’ve put together the following flowchart. I’ll elaborate on each one below.
 
 ![img](https://preshing.com/images/techniques.png)
 
 ### Atomic Read-Modify-Write Operations
 
-Atomic operations are ones which manipulate memory in a way that appears indivisible: No thread can observe the operation half-complete. On modern processors, lots of operations are already atomic. For example, aligned reads and writes of simple types are usually atomic.
+Atomic operations are ones which manipulate memory in a way that appears indivisible: No thread can observe the operation half-complete. On modern processors, lots of operations are already atomic. For example, **aligned reads and writes of simple types are usually atomic**.
 
 ![img](https://preshing.com/images/rmw-turnstile-2.png)
 
@@ -70,11 +143,11 @@ void LockFreeQueue::push(Node* newHead)
 >
 > `_InterlockedCompareExchange` does an atomic comparison of the `Destination` value with the `Comparand` value. If the `Destination` value is equal to the `Comparand` value, the `Exchange` value is stored in the address specified by `Destination`. Otherwise, does no operation.
 
-Such loops still qualify as lock-free, because if the test fails for one thread, it means it must have succeeded for another – though some architectures offer a [weaker variant of CAS](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html) where that’s not necessarily true. Whenever implementing a CAS loop, special care must be taken to avoid the [ABA problem](http://en.wikipedia.org/wiki/ABA_problem).
+Such loops still qualify(有资格) as lock-free, because if the test fails for one thread, it means it must have succeeded for another – though some architectures offer a [weaker variant of CAS](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2748.html) where that’s not necessarily true. Whenever implementing a CAS loop, special care must be taken to avoid the [ABA problem](http://en.wikipedia.org/wiki/ABA_problem).
 
 ### Sequential Consistency
 
-Sequential consistency means that all threads agree on the order in which memory operations occurred, and that order is consistent with the order of operations in the program source code. Under sequential consistency, it’s impossible to experience memory reordering shenanigans like [the one I demonstrated in a previous post](http://preshing.com/20120515/memory-reordering-caught-in-the-act).
+Sequential consistency means that all threads agree on the order in which memory operations occurred, and that order is consistent with the order of operations in the program source code. Under sequential consistency, it’s impossible to experience memory reordering shenanigans(恶作剧) like [the one I demonstrated in a previous post](http://preshing.com/20120515/memory-reordering-caught-in-the-act).
 
 A simple (but obviously impractical) way to achieve sequential consistency is to disable compiler optimizations and force all your threads to run on a single processor. A processor never sees its own memory effects out of order, even when threads are pre-empted and scheduled at arbitrary times.
 
@@ -99,7 +172,7 @@ void thread2()
 
 > NOTE: 这个例子是sequential consistency的典型例子
 
-Because the C++11 atomic types guarantee sequential consistency, the outcome r1 = r2 = 0 is impossible. To achieve this, the compiler outputs additional instructions behind the scenes – typically memory fences and/or RMW operations. Those additional instructions may make the implementation less efficient compared to one where the programmer has dealt with memory ordering directly.
+Because the C++11 atomic types guarantee sequential consistency, the outcome `r1 = r2 = 0` is impossible. To achieve this, the compiler outputs additional instructions behind the scenes – typically memory fences and/or RMW operations. Those additional instructions may make the implementation less efficient compared to one where the programmer has dealt with memory ordering directly.
 
 ### Memory Ordering
 
@@ -107,9 +180,11 @@ As the flowchart suggests, any time you do lock-free programming for multicore (
 
 On today’s architectures, the tools to enforce correct memory ordering generally fall into three categories, which prevent both [compiler reordering](http://preshing.com/20120625/memory-ordering-at-compile-time) and [processor reordering](http://preshing.com/20120710/memory-barriers-are-like-source-control-operations):
 
-- A lightweight sync or fence instruction, which I’ll talk about in [future posts](http://preshing.com/20120913/acquire-and-release-semantics);
-- A full memory fence instruction, which I’ve [demonstrated previously](http://preshing.com/20120522/lightweight-in-memory-logging);
-- Memory operations which provide **acquire or release semantics**.
+1、A lightweight sync or fence instruction, which I’ll talk about in [future posts](http://preshing.com/20120913/acquire-and-release-semantics);
+
+2、A full memory fence instruction, which I’ve [demonstrated previously](http://preshing.com/20120522/lightweight-in-memory-logging);
+
+3、Memory operations which provide **acquire or release semantics**.
 
 Acquire semantics prevent memory reordering of operations which follow it in program order, and release semantics prevent memory reordering of operations preceding it. These semantics are particularly suitable in cases when there’s a producer/consumer relationship, where one thread publishes some information and the other reads it. I’ll also talk about this more in a [future post](http://preshing.com/20120913/acquire-and-release-semantics).
 
