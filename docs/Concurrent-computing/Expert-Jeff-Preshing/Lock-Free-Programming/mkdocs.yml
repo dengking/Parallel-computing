@@ -14,4 +14,4 @@ nav:
     - 13-Double-Checked-Locking-is-Fixed-In-C++11: 13-Double-Checked-Locking-is-Fixed-In-C++11
     - 14-Acquire-and-Release-Fences-Don’t-Work-the-Way-You’d-Expect: 14-Acquire-and-Release-Fences-Don’t-Work-the-Way-You’d-Expect
     - 15-The-Purpose-of-memory_order_consume-in-C++11: 15-The-Purpose-of-memory_order_consume-in-C++11
-    
+    - 16-You-Can-Do-Any-Kind-of-Atomic-Read-Modify-Write-Operation: 16-You-Can-Do-Any-Kind-of-Atomic-Read-Modify-Write-Operation

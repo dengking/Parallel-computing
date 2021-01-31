@@ -10,11 +10,13 @@
 
 在 preshing [An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming/) 综述 lock-free programming的技术；
 
-在下面两篇文章中描述底层的、控制memory ordering的技术:
+在下面两篇文章中描述各种可能的memory reordering，底层的、控制memory ordering的技术:
 
 1、 compile-time: preshing [Memory Ordering at Compile Time](https://preshing.com/20120625/memory-ordering-at-compile-time/)
 
 2、runtime: preshing [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)
+
+在 preshing [Weak vs. Strong Memory Models](https://preshing.com/20120930/weak-vs-strong-memory-models/) 中，讨论了hardware memory model，它决定了runtime memory ordering。
 
 
 
@@ -58,13 +60,19 @@ memory barrier 会产生 compiler barrier的效果，它们是 Implied Compiler 
 
 
 
-## 基本的规律
+#### Memory barrier and memory reordering
+
+这篇文章所总结的四种memory barrier分别对应了四种memory reordering。
 
 
 
-## Memory model of CPU
+## Memory reordering的基本原则
 
-这是作者的系列文章都会涉及到的一个问题。
+compiler、CPU进行memory reordering的基本原则
+
+## Memory model of CPU/hardware memory model
+
+这是作者的系列文章都会涉及到的一个问题。主要是在文章 preshing [Weak vs. Strong Memory Models](https://preshing.com/20120930/weak-vs-strong-memory-models/) 中进行了讨论。
 
 ## 控制memory ordering
 
