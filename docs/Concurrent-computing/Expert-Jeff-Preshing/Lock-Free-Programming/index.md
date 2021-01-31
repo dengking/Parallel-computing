@@ -4,6 +4,20 @@
 
 ## 文章总结
 
+作者的写作思路: 先抛出问题，然后概述技术图景，然后自底向上地描述各种技术；
+
+在 preshing [Memory Reordering Caught in the Act](https://preshing.com/20120515/memory-reordering-caught-in-the-act/) 中，抛出问题；
+
+在 preshing [An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming/) 综述 lock-free programming的技术；
+
+在下面两篇文章中描述底层的、控制memory ordering的技术:
+
+1、 compile-time: preshing [Memory Ordering at Compile Time](https://preshing.com/20120625/memory-ordering-at-compile-time/)
+
+2、runtime: preshing [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)
+
+
+
 ### preshing [Memory Reordering Caught in the Act](https://preshing.com/20120515/memory-reordering-caught-in-the-act/)
 
 结合具体的例子来说明 memory reordering的存在，显然memory reordering是编写lock-free concurrent program的挑战、
@@ -20,17 +34,37 @@
 
 介绍了lock-free programming的技术总览
 
+### preshing [Memory Ordering at Compile Time](https://preshing.com/20120625/memory-ordering-at-compile-time/)
 
+介绍了compiler barrier，以及memory barrier 和 compiler barrier的关系。
+
+#### Memory barrier 和 compiler barrier的关系
+
+memory barrier 会产生 compiler barrier的效果，它们是 Implied Compiler Barriers。
+
+关于这一点，在 preshing [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/) 中也有总结: 
+
+> any operation which acts as a memory barrier also prevents [compiler reordering](http://preshing.com/20120625/memory-ordering-at-compile-time).
 
 ### preshing [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)
 
 介绍各种memory barrier，我们使用memory barrier的目的是: "You can enforce correct memory ordering on the processor by issuing any instruction which acts as a **memory barrier**. "
 
-在高级programming language，比如C++中，各种memory semantic其实最终都是依赖于这些memory barrier来实现的。
+在高级programming language，比如C++中，各种memory semantic其实最终都是依赖于这些memory barrier instruction来实现的，关于这一点，在:
+
+1、在 preshing [Acquire and Release Semantics](https://preshing.com/20120913/acquire-and-release-semantics/) 中，有这样的介绍: 
+
+> it’s not hard to see that acquire and release semantics can be achieved using simple combinations of the memory barrier types I [described at length in my previous post](http://preshing.com/20120710/memory-barriers-are-like-source-control-operations). 
+
+
 
 ## 基本的规律
 
 
+
+## Memory model of CPU
+
+这是作者的系列文章都会涉及到的一个问题。
 
 ## 控制memory ordering
 
@@ -71,8 +105,6 @@ preshing [Memory Ordering at Compile Time](https://preshing.com/20120625/memory-
 
 
 
-## 经典例子
+## Fence VS atomic variable
 
-[Memory Reordering Caught in the Act](https://preshing.com/20120515/memory-reordering-caught-in-the-act/)
-
-其中的例子非常经典
+在 preshing [Acquire and Release Semantics](https://preshing.com/20120913/acquire-and-release-semantics/) # Without Fences in Portable C++11 中，对这个话题进行了讨论。

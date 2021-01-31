@@ -141,6 +141,8 @@ int tryRecvValue()
 }
 ```
 
+## CPU fence instruction
+
 As I mentioned, compiler barriers are sufficient to prevent memory reordering on a single-processor system. But it’s 2012, and these days, multicore computing is the norm. If we want to ensure our interactions happen in the desired order in a multiprocessor environment, and on any CPU architecture, then a compiler barrier is not enough. We need either to issue a CPU fence instruction, or perform any operation which acts as a memory barrier at runtime. I’ll write more about those in the next post, [Memory Barriers Are Like Source Control Operations](http://preshing.com/20120710/memory-barriers-are-like-source-control-operations).
 
 The Linux kernel exposes several CPU fence instructions through preprocessor macros such as `smb_rmb`, and those macros are [reduced to simple compiler barriers](http://lxr.free-electrons.com/source/arch/powerpc/include/asm/barrier.h#L40) when compiling for a single-processor system.

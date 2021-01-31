@@ -6,11 +6,7 @@ Generally speaking, in [lock-free programming](http://preshing.com/20120612/an-i
 
 2、they can pass information co-operatively from one thread to another. 
 
-> NOTE:
->
-> 1、对应的是lock-based
->
-> 2、对应的是lock-free
+
 
 **Acquire and release semantics** are crucial(至关重要的) for the latter: reliable passing of information between threads. 
 
@@ -22,7 +18,7 @@ In fact, I would venture(冒进的) to guess that incorrect or missing acquire a
 
 In this post, I’ll demonstrate various ways to achieve **acquire and release semantics** in C++. I’ll touch upon the C++11 atomic library standard in an introductory way, so you don’t already need to know it. And to be clear from the start, the information here pertains(适合、属于) to lock-free programming *without* [sequential consistency](http://preshing.com/20120612/an-introduction-to-lock-free-programming#sequential-consistency). We’re dealing directly with memory ordering in a multicore or multiprocessor environment.
 
-Unfortunately, the terms *acquire and release semantics* appear to be in even worse shape than the term *lock-free*, in that the more you scour the web, the more seemingly contradictory definitions you’ll find. Bruce Dawson offers a couple of good definitions (credited to Herb Sutter) about halfway through [this white paper](http://msdn.microsoft.com/en-us/library/windows/desktop/ee418650.aspx). I’d like to offer a couple of definitions of my own, staying close to the principles behind C++11 atomics:
+Unfortunately, the terms *acquire and release semantics* appear to be in even worse shape than the term *lock-free*, in that the more you scour(搜索) the web, the more seemingly contradictory(矛盾的) definitions you’ll find. Bruce Dawson offers a couple of good definitions (credited to Herb Sutter) about halfway through [this white paper](http://msdn.microsoft.com/en-us/library/windows/desktop/ee418650.aspx). I’d like to offer a couple of definitions of my own, staying close to the principles behind C++11 atomics:
 
 ## Definition 
 
@@ -42,7 +38,7 @@ Unfortunately, the terms *acquire and release semantics* appear to be in even wo
 >
 > "**Acquire semantics** prevent memory reordering of the **read-acquire** with any read or write operation that **follows** it in program order."
 >
-> 下面是write-release依次类推
+> 下面的write-release依次类推
 
 ### Release semantics
 
@@ -62,9 +58,9 @@ Once you digest the above definitions, it’s not hard to see that acquire and r
 
 > NOTE: 上面这张图要如何来理解？
 >
-> acquire semantic: 使用 loadload、loadstore 
+> acquire semantic: 使用 loadload、loadstore，因为: "**Acquire semantics** prevent memory reordering of the **read-acquire** with any read or write operation that **follows** it in program order."
 >
-> release semantic: 使用loadstore、storestore
+> release semantic: 使用loadstore、storestore，因为: "**Release semantics** prevent memory reordering of the **write-release** with any read or write operation that **precedes** it in program order."
 
 What’s cool is that neither acquire nor release semantics requires the use of a `#StoreLoad` barrier, which is often a more expensive memory barrier type. For example, on PowerPC, the `lwsync` (short for “lightweight sync”) instruction acts as all three `#LoadLoad`, `#LoadStore` and `#StoreStore` barriers at the same time, yet is less expensive than the `sync` instruction, which includes a `#StoreLoad` barrier. 
 
@@ -80,6 +76,8 @@ One way to obtain the desired memory barriers is by issuing explicit fence instr
 
 If we let both threads run and find that `r1 == 1`, that serves as confirmation that the value of `A` assigned in Thread 1 was passed successfully to Thread 2. As such, we are guaranteed that `r2 == 42`. In my previous post, I already [gave a lengthy analogy](http://preshing.com/20120710/memory-barriers-are-like-source-control-operations) for `#LoadLoad` and `#StoreStore` to illustrate how this works, so I won’t rehash that explanation here.
 
+#### *synchronized-with*
+
 In formal terms, we say that the store to `Ready` *synchronized-with* the load. I’ve written a separate post about *synchronizes-with* [here](http://preshing.com/20130823/the-synchronizes-with-relation). For now, suffice to say that for this technique to work in general, **the acquire and release semantics must apply to the same variable** – in this case, `Ready` – and both the load and store must be atomic operations. Here, `Ready` is a simple aligned `int`, so the operations are already atomic on PowerPC.
 
 > NOTE: 这段解释非常好，结合前面的内容，我们可以总结实现:
@@ -94,6 +92,8 @@ In formal terms, we say that the store to `Ready` *synchronized-with* the load. 
 
 The above example is compiler- and processor-specific. One approach for supporting multiple platforms is to convert the code to C++11. All C++11 identifiers exist in the `std` namespace, so to keep the following examples brief, let’s assume the statement `using namespace std;` was placed somewhere earlier in the code.
 
+#### `atomic_thread_fence`
+
 C++11’s atomic library standard defines a portable function `atomic_thread_fence()` that takes a single argument to specify the type of fence. There are several possible values for this argument, but the values we’re most interested in here are `memory_order_acquire` and `memory_order_release`. We’ll use this function in place of `__lwsync()`.
 
 There’s one more change to make before this example is complete. On PowerPC, we knew that both operations on `Ready` were atomic, but we can’t make that assumption about every platform. To ensure atomicity on all platforms, we’ll change the type of `Ready` from `int` to `atomic<int>`. I know, it’s kind of a silly change, considering that aligned loads and stores of `int` are already atomic on every modern CPU that exists today. I’ll write more about this in the post on [*synchronizes-with*](http://preshing.com/20130823/the-synchronizes-with-relation), but for now, let’s do it for the warm fuzzy feeling of 100% correctness in theory. No changes to `A` are necessary.
@@ -101,6 +101,8 @@ There’s one more change to make before this example is complete. On PowerPC, w
 ![img](https://preshing.com/images/cpp11-fences.png)
 
 The `memory_order_relaxed` arguments above mean “ensure these operations are atomic, but don’t impose any ordering constraints/memory barriers that aren’t already there.”
+
+#### Implementation
 
 Once again, both of the above `atomic_thread_fence()` calls can be (and hopefully are) implemented as `lwsync` on PowerPC. Similarly, they could both emit a `dmb` instruction on ARM, which I believe is at least as effective as PowerPC’s `lwsync`. On x86/64, both `atomic_thread_fence()` calls can simply be implemented as [compiler barriers](http://preshing.com/20120625/memory-ordering-at-compile-time), since *usually*, every load on x86/64 already implies **acquire semantics** and every store implies **release semantics**. This is why x86/64 is often said to be [strongly ordered](http://preshing.com/20120930/weak-vs-strong-memory-models).
 
@@ -117,6 +119,12 @@ Think of it as rolling each fence instruction into the operations on `Ready` the
 This is actually the preferred way to express **acquire and release semantics** in C++11. In fact, the `atomic_thread_fence()` function used in the previous example was [added relatively late](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2008/n2633.html) in the creation of the standard.
 
 ## Acquire and Release While Locking
+
+> NOTE: 这段总结了:
+>
+> 1、Acquire and Release 命名的来源和 mutex 之间的关联
+>
+> 2、mutex 的 实现
 
 As you can see, none of the examples in this post took advantage of the `#LoadStore` barriers provided by acquire and release semantics. Really, only the `#LoadLoad` and `#StoreStore` parts were necessary. That’s just because in this post, I chose a simple example to let us focus on API and syntax.
 

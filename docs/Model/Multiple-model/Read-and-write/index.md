@@ -38,3 +38,8 @@ consistent model也是基于read、write而建立的:
 参见 工程hardware的 `CPU-memory-access` 章节。
 
 1、memory ordering是基于read、write来建立的
+
+## Read and write tradeoff
+
+根据Read and write来进行tradeoff，从而选择合适的concurrency技术，参见`Concurrent-computing\Concurrency-control\How-to-optimize` 章节。
+
