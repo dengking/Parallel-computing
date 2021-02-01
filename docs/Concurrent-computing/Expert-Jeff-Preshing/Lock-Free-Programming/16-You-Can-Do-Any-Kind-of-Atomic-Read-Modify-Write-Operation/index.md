@@ -95,7 +95,7 @@ This is obviously a synthetic(合成的) example. A more practical example can b
 
 So far, we’ve only looked at examples that perform an atomic operation on a single shared variable. What if we want to perform an atomic operation on multiple variables? Normally, we’d protect those variables using a mutex:
 
-```
+```C++
 std::mutex mutex;
 uint32_t x;
 uint32_t y;
@@ -133,7 +133,9 @@ void atomicFibonacciStep()
 }
 ```
 
-Is *this* operation lock-free? Now we’re venturing into dicey territory. As I wrote at the start, C++11 atomic operations are designed take advantage of lock-free CPU instructions “whenever possible” – admittedly a loose definition. In this case, we’ve wrapped `std::atomic<>` around a struct, `Terms`. Let’s see how GCC 4.9.2 compiles it for x64:
+Is *this* operation lock-free? Now we’re venturing(冒险) into dicey territory(领土). As I wrote at the start, C++11 atomic operations are designed take advantage of lock-free CPU instructions “whenever possible” – admittedly(公认的) a loose definition. In this case, we’ve wrapped `std::atomic<>` around a struct, `Terms`. Let’s see how GCC 4.9.2 compiles it for x64:
+
+> NOTE: 现在我们正在冒险进入一个危险的领域。
 
 ![img](https://preshing.com/images/atomic-terms-rmw.png)
 
@@ -141,13 +143,17 @@ We got lucky. The compiler was clever enough to see that `Terms` fits inside a s
 
 This brings up an interesting point: In general, the C++11 standard does *not* guarantee that atomic operations will be lock-free. There are simply too many CPU architectures to support and too many ways to specialize the `std::atomic<>` template. You need to [check with your compiler](http://en.cppreference.com/w/cpp/atomic/atomic/is_lock_free) to make absolutely sure. In practice, though, it’s pretty safe to assume that atomic operations are lock-free when all of the following conditions are true:
 
-1. The compiler is a recent version MSVC, GCC or Clang.
-2. The target processor is x86, x64 or ARMv7 (and possibly others).
-3. The atomic type is `std::atomic<uint32_t>`, `std::atomic<uint64_t>` or `std::atomic<T*>` for some type `T`.
+1、The compiler is a recent version MSVC, GCC or Clang.
+
+2、The target processor is x86, x64 or ARMv7 (and possibly others).
+
+3、The atomic type is `std::atomic<uint32_t>`, `std::atomic<uint64_t>` or `std::atomic<T*>` for some type `T`.
 
 As a personal preference, I like to hang my hat on that third point, and limit myself to specializations of the `std::atomic<>` template that use explicit integer or pointer types. The [safe bitfield technique](http://preshing.com/20150324/safe-bitfields-in-cpp) I described in the previous post gives us a convenient way to rewrite the above function using an explicit integer specialization, `std::atomic<uint64_t>`:
 
-```
+> NOTE: 作为个人偏好，我喜欢强调第三点，并将自己限制在使用显式整数或指针类型的' `std::atomic<>` '模板的专门化中。
+
+```c++
 BEGIN_BITFIELD_TYPE(Terms, uint64_t)
     ADD_BITFIELD_MEMBER(x, 0, 32)
     ADD_BITFIELD_MEMBER(y, 32, 32)
@@ -170,8 +176,9 @@ void atomicFibonacciStep()
 
 Some real-world examples where we pack several values into an atomic bitfield include:
 
-- Implementing tagged pointers as a [workaround for the ABA problem](http://en.wikipedia.org/wiki/ABA_problem#Tagged_state_reference).
-- Implementing a lightweight read-write lock, which I touched upon briefly [in a previous post](http://preshing.com/20150316/semaphores-are-surprisingly-versatile).
+1、Implementing tagged pointers as a [workaround for the ABA problem](http://en.wikipedia.org/wiki/ABA_problem#Tagged_state_reference).
+
+2、Implementing a lightweight read-write lock, which I touched upon briefly [in a previous post](http://preshing.com/20150316/semaphores-are-surprisingly-versatile).
 
 In general, any time you have a small amount of data protected by a mutex, and you can pack that data entirely into a 32- or 64-bit integer type, you can always convert your mutex-based operations into lock-free RMW operations, no matter what those operations actually do! That’s the principle I exploited in my [Semaphores are Surprisingly Versatile](http://preshing.com/20150316/semaphores-are-surprisingly-versatile) post, to implement a bunch of lightweight synchronization primitives.
 
