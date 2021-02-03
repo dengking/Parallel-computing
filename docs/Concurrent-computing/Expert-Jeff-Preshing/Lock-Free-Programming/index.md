@@ -74,6 +74,8 @@ compiler、CPU进行memory reordering的基本原则
 
 这是作者的系列文章都会涉及到的一个问题。主要是在文章 preshing [Weak vs. Strong Memory Models](https://preshing.com/20120930/weak-vs-strong-memory-models/) 中进行了讨论。
 
+
+
 ## 控制memory ordering
 
 ### 控制runtime memory ordering
