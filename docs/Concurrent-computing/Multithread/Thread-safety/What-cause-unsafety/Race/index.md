@@ -34,6 +34,8 @@ the one是many 可以 operate的target，它可能是一个variable，file，也
 
 4、在执行中途被Preemped了，则导致了各种问题
 
+
+
 ## 出现race condition的情况
 
 通过上述总结可以看出，会出现race condition的情况是非常之多的；
