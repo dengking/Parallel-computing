@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    
+    - Race: Race
+    - Memory-ordering: Memory-ordering
