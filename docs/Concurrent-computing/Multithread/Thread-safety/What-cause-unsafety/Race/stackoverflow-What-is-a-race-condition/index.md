@@ -1,4 +1,4 @@
-# [What is a race condition?](https://stackoverflow.com/questions/34510/what-is-a-race-condition)
+# stackoverflow [What is a race condition?](https://stackoverflow.com/questions/34510/what-is-a-race-condition)
 
 When writing multi-threaded applications, one of the most common problems experienced are **race conditions**.
 
@@ -8,7 +8,7 @@ What is a race condition? How do you detect them? How do you handle them? Finall
 
 
 
-***COMMENTS*** : 
+## ***COMMENTS*** : 
 
 There is a great chapter in the [Secure Programming for Linux HOWTO](http://www.dwheeler.com/secure-programs/Secure-Programs-HOWTO/avoid-race.html) that describes what they are, and how to avoid them. – [Craig H](https://stackoverflow.com/users/2328/craig-h) [Aug 29 '08 at 15:59](https://stackoverflow.com/questions/34510/what-is-a-race-condition#comment56911256_34510)
 
@@ -104,8 +104,6 @@ Here, the answer comes out as 50,000,000 every time.
 For more on locking, search for: mutex, semaphore, critical section, shared resource.
 
 
-
-***SUMMARY*** :
 
 ```c
 #include <pthread.h>

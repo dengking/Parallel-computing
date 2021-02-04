@@ -4,10 +4,3 @@ For our purposes, a **race condition** occurs when multiple processes are trying
 
 
 
-
-# 相关
-
-## wikipedia race condition
-在本地的：
-`youdao note/computer science/Computer-errors-and-security/race-condition`转换后有收录此文章 
-
