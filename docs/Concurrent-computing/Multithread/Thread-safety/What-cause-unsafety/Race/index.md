@@ -72,6 +72,8 @@ programmer应该根据avoid race 发生的范围采取合适的方法 to avoid i
 
 比如在[Wikipedia Race condition](https://en.wikipedia.org/wiki/Race_condition)的[example](https://en.wikipedia.org/wiki/Race_condition#Example)中，通过 [mutually exclusive](https://en.wikipedia.org/wiki/Mutually_exclusive) 来避免这种会造成错误的操作方式；
 
+
+
 ### Atomic
 
 多个thread同时对原子变量进行操作，原子变量能够保证原子性，即没有中间状态，从而保证了线程安全；
@@ -80,21 +82,15 @@ programmer应该根据avoid race 发生的范围采取合适的方法 to avoid i
 
 
 
+## draft
+
 ### 不使用async-signal unsafe function
 
 当然有些情况下的race condition是通过OS提供的各种方法是无法avoid，比如在APUE 的10.6 Reentrant Functions章节介绍的情况，这种情况下，就只有不使用这些async-signal unsafe function才能够彻底规避；
 
 > 思考:原子操作有哪些优良性质
 
-哪些情况下会出现重入？
 
-– 调用signal handler，而中断正在执行的函数，在signal handler中调用与被中断函数相同的函数，这就是重入
-
-– 多个线程在相同的时刻，调用同一个函数
-
-
-
-12.5节对线程安全函数和异步信号安全函数进行了非常好的比较。显然两种安全的定义都和重入有关，都是指在发生重入的时候
 
 
 
