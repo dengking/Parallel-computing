@@ -12,23 +12,11 @@
 
 ### Out of order execution(主要是memory ordering)
 
-由于Out of order execution(主要是memory reordering)也会对导致shared data线程不安全。
-
-关于Out of order execution(主要是memory ordering)，参见下面章节:
-
-1、`Concurrent-computing\Expert-Jeff-Preshing\Lock-Free-Programming`
-
-2、工程hardware的如下章节:
-
-a、`CPU\Execution-of-instruction`
-
-b、`CPU-memory-access\Memory-ordering`
-
-
+这在 "Out-of-order-execution-and-memory-reordering" 章节进行了讨论。
 
 ## How to solve?
 
-需要对shared data进行concurrency control；显然各种concurrency control中，都需要解决前面描述的cause，典型的例子就是C++ atomic library。
+需要对shared data进行concurrency control；显然各种concurrency control中，都需要解决前面描述的cause，典型的例子就是C++ atomic library，参见下面"Implementation: C++ atomic library"段。
 
 
 

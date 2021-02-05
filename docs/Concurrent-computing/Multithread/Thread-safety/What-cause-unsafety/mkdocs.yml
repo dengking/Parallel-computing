@@ -1,4 +1,6 @@
 nav:
     - Introduction: index.md
     - Race: Race
-    - Memory-ordering: Memory-ordering
+    - Time-of-check-to-time-of-use: Time-of-check-to-time-of-use
+    - Out-of-order-execution: Out-of-order-execution
+    

@@ -54,13 +54,13 @@ In this case, the final value is 1 instead of the expected result of 2. This occ
 
 Many software race conditions have associated [computer security](https://en.wikipedia.org/wiki/Computer_security) implications. A race condition allows an attacker with access to a shared resource to cause other actors（参与者） that utilize that resource to malfunction, resulting in effects including [denial of service](https://en.wikipedia.org/wiki/Denial-of-service_attack)[[5\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-CVE-2015-8461-5) and [privilege escalation](https://en.wikipedia.org/wiki/Privilege_escalation).[[6\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-CVE-2017-6512-6)[[7\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-lighttpd-issue-2724-7)
 
-***TRANSLATION*** : 许多软件竞争条件都与计算机安全性有关。 竞争条件允许攻击者访问共享资源，导致其他使用该资源的参与者出现故障，从而导致包括拒绝服务[5]和权限提升等影响。
+> NOTE : 许多软件竞争条件都与计算机安全性有关。 竞争条件允许攻击者访问共享资源，导致其他使用该资源的参与者出现故障，从而导致包括拒绝服务[5]和权限提升等影响。
 
 A specific kind of race condition involves checking for a predicate (e.g. for [authentication](https://en.wikipedia.org/wiki/Authentication)), then acting on the predicate, while the state can change between the *time of check* and the *time of use*. When this kind of [bug](https://en.wikipedia.org/wiki/Computer_bug) exists in security-sensitive code, a [security vulnerability](https://en.wikipedia.org/wiki/Security_vulnerability) called a [time-of-check-to-time-of-use](https://en.wikipedia.org/wiki/Time-of-check-to-time-of-use) (*TOCTTOU*) bug is created.
 
 Race conditions are also intentionally used to create [hardware random number generators](https://en.wikipedia.org/wiki/Hardware_random_number_generator) and [physically unclonable functions](https://en.wikipedia.org/wiki/Physically_unclonable_function).[[8\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-8)[*citation needed*] PUFs can be created by designing circuit topologies with identical paths to a node and relying on manufacturing variations to randomly determine which paths will complete first. By measuring each manufactured circuit's specific set of race condition outcomes, a profile can be collected for each circuit and kept secret in order to later verify a circuit's identity.
 
-***SUMMARY*** : 上面这段话涉及到circuit的知识，非software领域知识；
+> NOTE : 上面这段话涉及到circuit的知识，非software领域知识；
 
 ### File systems
 
@@ -70,7 +70,7 @@ Two or more programs may collide in their attempts to modify or access a file sy
 
 A different form of **race condition** exists in file systems where unrelated programs may affect each other by suddenly using up(耗尽) available resources such as disk space, memory space, or processor cycles. Software not carefully designed to anticipate and handle this race situation may then become unpredictable. Such a risk may be overlooked(忽视) for a long time in a system that seems very reliable. But eventually enough data may accumulate or enough other software may be added to critically destabilize many parts of a system. An example of this occurred with the near loss of the [Mars Rover "Spirit"](https://en.wikipedia.org/wiki/Spirit_(rover)#Sol_17_(January_21,_2004)_flash_memory_management_anomaly) not long after landing. A solution is for software to request and reserve all the resources it will need before beginning a task; if this request fails then the task is postponed（推迟）, avoiding the many points where failure could have occurred. Alternatively, each of those points can be equipped with **error handling**, or the success of the entire task can be verified afterwards, before continuing. A more common approach is to simply verify that enough system resources are available before starting a task; however, this may not be adequate because in complex systems the actions of other running programs can be unpredictable.
 
-***SUMMARY*** : 文件系统中存在不同形式的竞争条件，其中不相关的程序可能通过突然耗尽可用资源（例如磁盘空间，内存空间或处理器周期）而相互影响。未经过精心设计以预测和处理这种竞争情况的软件可能会变得无法预测。在一个看起来非常可靠的系统中，这种风险可能会长期被忽视。但最终可能会累积足够的数据，或者可能会添加足够的其他软件来严重破坏系统的许多部分的稳定性。这种情况的一个例子发生在着陆后不久，火星探测器“精神”几乎失去了。解决方案是软件在开始任务之前请求并保留所需的所有资源;如果此请求失败，则该任务将被推迟，从而避免可能发生故障的许多点。或者，这些点中的每一个都可以配备错误处理，或者在继续之前可以在之后验证整个任务的成功。更常见的方法是在开始任务之前简单地验证有足够的系统资源可用;但是，这可能不够，因为在复杂系统中，其他正在运行的程序的操作可能是不可预测的。
+> NOTE : 文件系统中存在不同形式的竞争条件，其中不相关的程序可能通过突然耗尽可用资源（例如磁盘空间，内存空间或处理器周期）而相互影响。未经过精心设计以预测和处理这种竞争情况的软件可能会变得无法预测。在一个看起来非常可靠的系统中，这种风险可能会长期被忽视。但最终可能会累积足够的数据，或者可能会添加足够的其他软件来严重破坏系统的许多部分的稳定性。这种情况的一个例子发生在着陆后不久，火星探测器“精神”几乎失去了。解决方案是软件在开始任务之前请求并保留所需的所有资源;如果此请求失败，则该任务将被推迟，从而避免可能发生故障的许多点。或者，这些点中的每一个都可以配备错误处理，或者在继续之前可以在之后验证整个任务的成功。更常见的方法是在开始任务之前简单地验证有足够的系统资源可用;但是，这可能不够，因为在复杂系统中，其他正在运行的程序的操作可能是不可预测的。
 
 ### Networking
 
@@ -78,11 +78,11 @@ In networking, consider a distributed chat network like [IRC](https://en.wikiped
 
 In this case of a race condition, the concept of the "[shared resource](https://en.wikipedia.org/wiki/Shared_resource)" covers the state of the network (what channels exist, as well as what users started them and therefore have what privileges), which each server can freely change as long as it signals the other servers on the network about the changes so that they can update their conception of the state of the network. However, the [latency](https://en.wikipedia.org/wiki/Latency_(engineering)) across the network makes possible the kind of **race condition** described. In this case, heading off(阻止) **race conditions** by imposing a form of control over access to the shared resource—say, appointing one server to control who holds what privileges—would mean turning the **distributed network** into a **centralized one** (at least for that one part of the network operation).
 
-***SUMMARY*** : 这段关于distributed network和centralized one的阐述是非常好的；
+> NOTE: 这段关于distributed network和centralized one的阐述是非常好的；
 
 **Race conditions** can also exist when a computer program is written with [non-blocking sockets](https://en.wikipedia.org/wiki/Berkeley_sockets#Blocking_vs._non-blocking_mode), in which case the performance of the program can be dependent on the speed of the network link.
 
-***TRANSLATION*** : 在网络中，考虑像IRC这样的分布式聊天网络，其中启动频道的用户自动获取频道操作员权限。如果位于同一网络不同端的不同服务器上的两个用户尝试同时启动同名通道，则每个用户的相应服务器将为每个用户授予通道操作员权限，因为两个服务器都没有收到其他服务器已分配该通道的信号。 （这个问题已经在很大程度上通过各种IRC服务器实现来解决。）
+> NOTE : 在网络中，考虑像IRC这样的分布式聊天网络，其中启动频道的用户自动获取频道操作员权限。如果位于同一网络不同端的不同服务器上的两个用户尝试同时启动同名通道，则每个用户的相应服务器将为每个用户授予通道操作员权限，因为两个服务器都没有收到其他服务器已分配该通道的信号。 （这个问题已经在很大程度上通过各种IRC服务器实现来解决。）
 
 在这种竞争条件的情况下，“共享资源”的概念涵盖了网络的状态（存在哪些信道，以及用户启动它们因此具有哪些特权），每个服务器可以自由更改，只要它向网络上的其他服务器发出关于变化的信号，以便他们可以更新他们对网络状态的概念。但是，网络上的延迟使得所描述的竞争条件成为可能。在这种情况下，通过对共享资源的访问实施一种控制形式来控制竞争条件 - 例如，指定一个服务器来控制谁拥有什么特权 - 意味着将分布式网络转变为集中式网络（至少对于那个部分）网络运营）。
 
@@ -106,7 +106,9 @@ Thread Safety Analysis is a static analysis tool for annotation-based intra-proc
 
 Dynamic analysis tools include:
 
-- [Intel Inspector](https://en.wikipedia.org/wiki/Intel_Inspector), a memory and thread checking and debugging tool to increase the reliability, security, and accuracy of C/C++ and Fortran applications; [Intel Advisor](https://en.wikipedia.org/wiki/Intel_Advisor), a sampling based, SIMD vectorization optimization and shared memory threading assistance tool for C, C++, C#, and Fortran software developers and architects;
-- ThreadSanitizer, which uses binary ([Valgrind](https://en.wikipedia.org/wiki/Valgrind)-based) or source, [LLVM](https://en.wikipedia.org/wiki/LLVM)-based instrumentation, and supports PThreads);[[14\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-14)[*non-primary source needed*] and Helgrind, a [Valgrind](https://en.wikipedia.org/wiki/Valgrind) tool for detecting synchronisation errors in C, C++ and Fortran programs that use the POSIX pthreads threading primitives.[[15\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-15)[*non-primary source needed*]
-- Data Race Detector[[16\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-16) is designed to find data races in the Go Programming language.
+1、[Intel Inspector](https://en.wikipedia.org/wiki/Intel_Inspector), a memory and thread checking and debugging tool to increase the reliability, security, and accuracy of C/C++ and Fortran applications; [Intel Advisor](https://en.wikipedia.org/wiki/Intel_Advisor), a sampling based, SIMD vectorization optimization and shared memory threading assistance tool for C, C++, C#, and Fortran software developers and architects;
+
+2、ThreadSanitizer, which uses binary ([Valgrind](https://en.wikipedia.org/wiki/Valgrind)-based) or source, [LLVM](https://en.wikipedia.org/wiki/LLVM)-based instrumentation, and supports PThreads);[[14\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-14)[*non-primary source needed*] and Helgrind, a [Valgrind](https://en.wikipedia.org/wiki/Valgrind) tool for detecting synchronisation errors in C, C++ and Fortran programs that use the POSIX pthreads threading primitives.[[15\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-15)[*non-primary source needed*]
+
+3、Data Race Detector[[16\]](https://en.wikipedia.org/wiki/Race_condition#cite_note-16) is designed to find data races in the Go Programming language.
 
