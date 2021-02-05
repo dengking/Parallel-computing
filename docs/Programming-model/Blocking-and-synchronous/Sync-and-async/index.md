@@ -59,3 +59,36 @@ https://en.wikipedia.org/wiki/Asynchronous_method_invocation
 6) Asynchronous IO
 
 参见工程Linux-OS的`Programming\IO\IO-model`章节。
+
+
+
+## Async to sync
+
+本段的意思是: 将asynchronous API转换为synchronous API，因为在一些情况下，基于asynchronous + callback的模式是不方便使用的，
+
+### Examples
+
+下面是我遇到的一些将asynchronous operation转换为synchronize operation的例子: 
+
+1、amust API，使用promise-future、condition variable
+
+
+
+2、[tgockel](https://github.com/tgockel)/**[zookeeper-cpp](https://github.com/tgockel/zookeeper-cpp)**
+
+> ### Synchronous API
+>
+> The C library offers both a synchronous and an asynchronous API. This library offers only an asynchronous version. If you prefer a synchronous API, call `get()` on the returned `future` to block until you receive the response.
+
+
+
+3、[yyzybb537](https://github.com/yyzybb537)/**[libgo](https://github.com/yyzybb537/libgo)**
+
+> Provide golang's General powerful protocol, write code based on coroutine, can write simple code in a synchronous manner, while achieving asynchronous performance.
+
+
+
+### Blocking with timeout
+
+显然，在没有收到响应之前，需要将caller阻塞，因此需要考虑的一个问题是: blocking with timeout，因为有可能一直无法收到响应，因此需要设置一个超时时间。
+
