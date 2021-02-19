@@ -1,6 +1,6 @@
 # Inter-thread communication
 
-标题的含义是: "线程间通信"。
+标题的含义是: "线程间通信"。这个名称是这样得来的: 
 
 1、在阅读 cppreference [std::condition_variable](https://en.cppreference.com/w/cpp/thread/condition_variable) 时，其中提及了  "**inter-thread communication**"
 
