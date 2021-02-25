@@ -1,6 +1,8 @@
 # preshing [The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/)
 
-> NOTE: 按照 cppreference [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order) 章节中的说法:
+> NOTE: 
+>
+> 1、按照 cppreference [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order) 章节中的说法:
 >
 > > #### Inter-thread happens-before
 > >
@@ -11,6 +13,8 @@
 > 显然 本节介绍的 synchronization-with是inter-thread happens-before的一种。
 >
 > 本文侧重于介绍如何实现"synchronizes-with relation"。
+>
+> 2、在 "csdn [在 C++ memory order循序渐进（二）—— C++ memory order基本定义和形式化描述所需术语关系详解](https://blog.csdn.net/wxj1992/article/details/103656486)   2.5 Synchronizes-with" 中，引用了这篇文章，其中对这篇文章的内容进行了一些注解，这是有助于理解本文的内容的
 
 ## What is and why need ”*Synchronizes-with*”?
 
