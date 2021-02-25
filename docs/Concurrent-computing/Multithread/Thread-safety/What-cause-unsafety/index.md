@@ -22,12 +22,4 @@
 
 ## Implementation: C++ atomic library
 
-前面总结了导致非线程安全的两个原因，这让我想到了C++ atomic library，显然C++ atomic library提供了对这两个cause的控制:
-
-1、`std::atomic`: 避免了 Race condition
-
-2、`std::memory_ordering`: 对memory ordering进行控制
-
-> 多个thread同时对原子变量进行操作，原子变量能够保证原子性，即没有中间状态，使用原子变量进行lockless programming还需要克服的一个问题是：memory reordering，因此，还需要对memory order进行控制。
-
-更多详细的信息，参见工程programming language的 `C++\Guide\Memory-model\Atomic-operations-library\Design-and-implementation` 章节。
+参见工程programming language的 `C++\Guide\Memory-model` 章节。
