@@ -28,6 +28,10 @@ b、`CPU-memory-access\Memory-ordering`
 
 收录在工程programming language的`Release-acquire` 章节中，这篇文章非常好。
 
+7、cppreference [std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order) # Explanation # Relaxed ordering
+
+其中给出了example，非常好。
+
 ## Order of write to shared data may be different among different threads
 
 这是在阅读一篇文章时，其中提出的一个观点，我觉得这个观点比较好，在下面文章中，描述了相关的例子:
