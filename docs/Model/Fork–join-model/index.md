@@ -2,13 +2,34 @@
 
 
 
-## 维基百科[Fork–join model](https://en.wikipedia.org/wiki/Fork%E2%80%93join_model)
+## wikipedia [Fork–join model](https://en.wikipedia.org/wiki/Fork%E2%80%93join_model)
 
+In [parallel computing](https://en.wikipedia.org/wiki/Parallel_computing), the **fork–join model** is a way of setting up and executing parallel programs, such that execution branches off in parallel at designated points in the program, **to "join" (merge)** at a subsequent point and resume sequential execution. Parallel sections may fork [recursively](https://en.wikipedia.org/wiki/Recursion_(computer_science)) until a certain task granularity is reached. Fork–join can be considered a parallel [design pattern](https://en.wikipedia.org/wiki/Design_pattern).[[1\]](https://en.wikipedia.org/wiki/Fork–join_model#cite_note-spp-1):209 ff. It was formulated as early as 1963.[[2\]](https://en.wikipedia.org/wiki/Fork–join_model#cite_note-2)[[3\]](https://en.wikipedia.org/wiki/Fork–join_model#cite_note-3)
 
+> NOTE: 上面提到的 "**to "join" (merge)** " 非常适合使用barrier来实现。
+
+By nesting fork–join computations recursively, one obtains a parallel version of the [divide and conquer](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms) paradigm, expressed by the following generic [pseudocode](https://en.wikipedia.org/wiki/Pseudocode):[[4\]](https://en.wikipedia.org/wiki/Fork–join_model#cite_note-lea-4)
+
+```C++
+solve(problem):
+    if problem is small enough:
+        solve problem directly (sequential algorithm)
+    else:
+        for part in subdivide(problem)
+            fork subtask to solve(part)
+        join all subtasks spawned in previous loop
+        return combined results
+```
+
+> NOTE: 
+>
+> 1、在APUE中，有这样的例子，其中是使用的`pthread_barrier`
+>
+> 2、后续将这种用法称为fork-join-parallel-divide-and-conquer
 
 ## Summary
 
-### Fork-join model in OS
+### Fork-join model in OS 
 
 #### Process/thread
 
