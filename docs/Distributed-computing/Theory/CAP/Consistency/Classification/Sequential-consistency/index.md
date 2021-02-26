@@ -28,12 +28,13 @@ Constrain: 实际的运行结果能够使用下面描述的方式进行**模拟*
 
 有多少种可能的组合？在下面这些文章中，给出了类似的分析: 
 
-#### [Sequential Consistency in Distributed Systems](https://stackoverflow.com/questions/30734060/sequential-consistency-in-distributed-systems) # [A](https://stackoverflow.com/a/32272780)
+#### stackoverflow [Sequential Consistency in Distributed Systems](https://stackoverflow.com/questions/30734060/sequential-consistency-in-distributed-systems) # [A](https://stackoverflow.com/a/32272780)
 
 An execution `e` of operations is sequentially consistent if and only if it can be **permutated** into a sequence `s` of these operations such that:
 
-- the sequence `s` respects the program order of each process. That is, for any two operations `o1` and `o2` which are of the same process and if `o1` precedes `o2` in `e`, then `o1` should be placed before `o2` in `s`;
-- in the sequence `s`, each read operation returns the value of the last preceding write operation over the same variable.
+1、the sequence `s` respects the program order of each process. That is, for any two operations `o1` and `o2` which are of the same process and if `o1` precedes `o2` in `e`, then `o1` should be placed before `o2` in `s`;
+
+2、in the sequence `s`, each read operation returns the value of the last preceding write operation over the same variable.
 
 ------
 
