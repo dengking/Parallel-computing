@@ -16,6 +16,8 @@
 
 In my last post, I wrote about [memory ordering at compile time](http://preshing.com/20120625/memory-ordering-at-compile-time), which forms one half of the memory ordering puzzle. This post is about the other half: memory ordering at runtime, on the processor itself. Like compiler reordering, processor reordering is invisible to a single-threaded program. It only becomes apparent when [lock-free techniques](http://preshing.com/20120612/an-introduction-to-lock-free-programming) are used – that is, when shared memory is manipulated without any mutual exclusion between threads. However, unlike compiler reordering, the effects of processor reordering are [only visible in multicore and multiprocessor systems](http://preshing.com/20120515/memory-reordering-caught-in-the-act).
 
+> NOTE: 最后一段话是有误的，在一些文章中支持，在单核system中，也可能会出现
+
 ## What is memory barrier?
 
 You can enforce correct memory ordering on the processor by issuing any instruction which acts as a **memory barrier**. In some ways, this is the only technique you need to know, because when you use such instructions, compiler ordering is taken care of automatically. Examples of instructions which act as memory barriers include (but are not limited to) the following:
@@ -39,6 +41,12 @@ To begin with, consider the architecture of a typical multicore system. Here’s
 ![img](https://preshing.com/images/cpu-diagram.png)
 
 ### 类比/比喻
+
+> NOTE: 
+>
+> 1、RAM对应的是central repository
+>
+> 2、cache对应的是local repository
 
 A multicore system is a bit like a group of programmers collaborating on a project using a bizarre kind of source control strategy. For example, the above dual-core system corresponds to a scenario with just two programmers. Let’s name them Larry and Sergey.
 
@@ -69,6 +77,21 @@ Think of `X` and `Y` as files which exist on Larry’s working copy of the repos
 ![img](https://preshing.com/images/iriw-state.png)
 
 ## Types of Memory Barrier
+
+> NOTE:
+>
+> 在工程hardware的`Memory-ordering`中给出的总结如下:
+>
+> | reordering               | 含义 | memory barrier/fence               |
+> | ------------------------ | ---- | ---------------------------------- |
+> | load-load(read-read)     |      | acquire semantic                   |
+> | store-store(write-write) |      | release semantic                   |
+> | load-store               |      | release semantic、acquire semantic |
+> | store-load               |      | sequential consistency             |
+>
+> 1、含义这一列省略了，参见 preshing [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)，其中有非常好的描述。
+>
+> 2、最后一列的含义是: 对于每一种reordering，都有对应的memory barrier来阻止它，添加了对应的memory barrier，就能够保证对应的semantic。
 
 ### Fence instructions, which act as memory barriers
 
