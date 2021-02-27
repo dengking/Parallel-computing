@@ -14,6 +14,8 @@
 
 这在 "Out-of-order-execution-and-memory-reordering" 章节进行了讨论。
 
+
+
 ## How to solve?
 
 需要对shared data进行concurrency control；显然各种concurrency control中，都需要解决前面描述的cause，典型的例子就是C++ atomic library，参见下面"Implementation: C++ atomic library"段。
