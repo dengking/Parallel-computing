@@ -4,25 +4,25 @@
 
 In the last decade we have seen many interesting developments in databases, in distributed systems, and in the ways we build applications on top of them. There are various driving forces for these developments:
 
-- Internet companies such as Google, Yahoo!, Amazon, Facebook, LinkedIn, Microsoft, and Twitter are handling huge volumes of data and traffic, forcing them to create new tools that enable them to efficiently handle such scale.
+1、Internet companies such as Google, Yahoo!, Amazon, Facebook, LinkedIn, Microsoft, and Twitter are handling huge volumes of data and traffic, forcing them to create new tools that enable them to efficiently handle such scale.
 
-  > NOTE: 数据爆炸
+> NOTE: 数据爆炸
 
-- Businesses need to be agile, test hypotheses cheaply, and respond quickly to new market insights by keeping development cycles short and data models flexible.
+2、Businesses need to be agile, test hypotheses cheaply, and respond quickly to new market insights by keeping development cycles short and data models flexible.
 
-  > NOTE: 业务需要灵活，测试假设成本低，通过保持开发周期短和数据模型灵活，对新的市场洞察做出快速响应。
+> NOTE: 业务需要灵活，测试假设成本低，通过保持开发周期短和数据模型灵活，对新的市场洞察做出快速响应。
 
-- Free and open source software has become very successful and is now preferred to commercial or bespoke in-house software in many environments.
+3、Free and open source software has become very successful and is now preferred to commercial or bespoke in-house software in many environments.
 
-- CPU clock speeds are barely increasing, but multi-core processors are standard, and networks are getting faster. This means parallelism is only going to increase.
+4、CPU clock speeds are barely increasing, but multi-core processors are standard, and networks are getting faster. This means parallelism is only going to increase.
 
-  > NOTE: CPU clock speed几乎不增加，multi-core processors被广泛采用，网络越来越快，这些都意味着“parallelism”将会增加。
+> NOTE: CPU clock speed几乎不增加，multi-core processors被广泛采用，网络越来越快，这些都意味着“parallelism”将会增加。
 
-- Even if you work on a small team, you can now build systems that are distributed across many machines and even multiple geographic regions, thanks to infrastructure as a service (IaaS) such as Amazon Web Services.
+5、Even if you work on a small team, you can now build systems that are distributed across many machines and even multiple geographic regions, thanks to infrastructure as a service (IaaS) such as Amazon Web Services.
 
-- Many services are now expected to be highly available; extended downtime due to outages or maintenance is becoming increasingly unacceptable.
+6、Many services are now expected to be highly available; extended downtime due to outages or maintenance is becoming increasingly unacceptable.
 
-  > NOTE: HA
+> NOTE: HA
 
 *Data-intensive applications* are pushing the boundaries of what is possible by making use of these technological developments. We call an application *data-intensive* if data is its primary challenge—the quantity of data, the complexity of data, or the speed at which it is changing—as opposed to *compute-intensive*, where CPU cycles are the bottleneck.
 
