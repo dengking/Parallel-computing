@@ -1,4 +1,4 @@
 nav:
     - Introduction: index.md
-    - Multiversion-concurrency-control: Multiversion-concurrency-control.md
+    - MVCC: MVCC
     - Timestamp-based concurrency-control: Timestamp-based concurrency-control.md

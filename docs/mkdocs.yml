@@ -1,4 +1,4 @@
-4nav:
+nav:
     - Home: index.md
     - Parallel-computing: Parallel-computing.md
     - Concurrent-computing: Concurrent-computing
@@ -6,5 +6,4 @@
     - Model: Model
     - Programming-model: Programming-model
     - Application: Application
-    - TODO: TODO
     - Ordering-in-parallel-computing: Ordering-in-parallel-computing.md

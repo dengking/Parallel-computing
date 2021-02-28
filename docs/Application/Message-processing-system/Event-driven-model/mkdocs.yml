@@ -3,7 +3,7 @@ nav:
     # 如何监控？
     - Event-loop: Event-loop
     # 如何传输message？
-    - Event-message-passing: Event-message-passing.md
+    - Event-message-passing: Event-message-passing
      # event library
     - Library: Library
     - Event-VS-exception-VS-signal: Event-VS-exception-VS-signal.md

@@ -1,7 +1,6 @@
 nav:
     - PART-II-Distributed-Data: PART-II-Distributed-Data.md
     - CHAPTER-5-Replication: CHAPTER-5-Replication
-    - CHAPTER-6-Partitioning: CHAPTER-6-Partitioning
-    - CHAPTER-7-Transactions: CHAPTER-7-Transactions
+
+
     - CHAPTER-8-The-Trouble-with-Distributed-Systems: CHAPTER-8-The-Trouble-with-Distributed-Systems
-    - CHAPTER-9-Consistency-and-Consensus: CHAPTER-9-Consistency-and-Consensus

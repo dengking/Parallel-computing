@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Mutex: Mutex
+    - TODO-Mutex: TODO-Mutex
     - Seqlock: Seqlock
     - Read–write-lock: Read–write-lock
     - Spinlock: Spinlock

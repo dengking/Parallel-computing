@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [C10k problem](https://en.wikipedia.org/wiki/C10k_problem)
+# wikipedia [C10k problem](https://en.wikipedia.org/wiki/C10k_problem)
 
 The **C10k problem** is the problem of optimising [network sockets](https://en.wikipedia.org/wiki/Network_socket) to handle a large number of clients at the same time.[[1\]](https://en.wikipedia.org/wiki/C10k_problem#cite_note-C10K-1) The name C10k is a [numeronym](https://en.wikipedia.org/wiki/Numeronym) for [concurrently](https://en.wikipedia.org/wiki/Concurrent_computing) handling ten thousand connections.[[2\]](https://en.wikipedia.org/wiki/C10k_problem#cite_note-Liu-Deters-2) Note that concurrent connections are not the same as [requests per second](https://en.wikipedia.org/wiki/Requests_per_second), though they are similar: handling many requests per second requires high throughput (processing them quickly), while high number of concurrent connections requires efficient scheduling of connections. In other words, handling many requests per second is concerned with the speed of handling requests, whereas a system capable of handling a high number of concurrent connections does not necessarily have to be a fast system, only one where each request will deterministically return a response within a (not necessarily fixed) finite amount of time.
 

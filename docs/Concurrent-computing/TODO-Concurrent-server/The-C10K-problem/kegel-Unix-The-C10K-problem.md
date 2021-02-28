@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [The C10K problem](http://www.kegel.com/c10k.html)
+# kegel [The C10K problem](http://www.kegel.com/c10k.html)
 
 [[Help save the best Linux news source on the web -- subscribe to Linux Weekly News!](http://www.lwn.net/)]
 
@@ -689,7 +685,7 @@ I also have [a few old notes about comparing thttpd to Apache](http://www.alumni
 
 IBM has an excellent paper titled [Java server benchmarks](http://www.research.ibm.com/journal/sj/391/baylor.html) [Baylor et al, 2000]. It's worth a read.
 
-# Examples
+## Examples
 
 [Nginx](http://nginx.org/) is a web server that uses whatever high-efficiency network event mechanism is available on the target OS. It's getting popular; there are even  about it (and since this page was originally written, many more, including a  of that book.)
 
@@ -708,26 +704,26 @@ IBM has an excellent paper titled [Java server benchmarks](http://www.research.i
 - [Medusa](http://www.nightmare.com/medusa/medusa.html) - a server-writing toolkit in Python that tries to deliver very high performance.
 - [userver](http://www.hpl.hp.com/research/linux/userver/) - a small http server that can use select, poll, epoll, or sigio
 
-## Interesting /dev/poll-based servers
+### Interesting /dev/poll-based servers
 
 - *N. Provos, C. Lever*, ["Scalable Network I/O in Linux,"](http://www.citi.umich.edu/techreports/reports/citi-tr-00-4.pdf) May, 2000. [FREENIX track, Proc. USENIX 2000, San Diego, California (June, 2000).] Describes a version of thttpd modified to support /dev/poll. Performance is compared with phhttpd.
 
-## Interesting epoll-based servers
+### Interesting epoll-based servers
 
 - [ribs2](https://github.com/Adaptv/ribs2)
 - [cmogstored](http://bogomips.org/cmogstored/README) - uses epoll/kqueue for most networking, threads for disk and accept4
 
-## Interesting kqueue()-based servers
+### Interesting kqueue()-based servers
 
 - [thttpd](http://www.acme.com/software/thttpd/) (as of version 2.21?)
 - Adrian Chadd says "I'm doing a lot of work to make squid actually LIKE a kqueue IO system"; it's an official Squid subproject; seehttp://squid.sourceforge.net/projects.html#commloops. (This is apparently newer than [Benno](http://www.advogato.org/person/benno/)'s [patch](http://netizen.com.au/~benno/squid-select.tar.gz).)
 
-## Interesting realtime signal-based servers
+### Interesting realtime signal-based servers
 
 - Chromium's X15. This uses the 2.4 kernel's SIGIO feature together with sendfile() and TCP_CORK, and reportedly achieves higher speed than even TUX. The [source is available](http://www.chromium.com/cgi-bin/crosforum/YaBB.pl) under a community source (not open source) license. See [the original announcement](http://boudicca.tux.org/hypermail/linux-kernel/2001week21/1624.html) by Fabio Riccardi.
 - Zach Brown's [phhttpd](http://www.zabbo.net/phhttpd/) - "a quick web server that was written to showcase the sigio/siginfo event model. consider this code highly experimental and yourself highly mental if you try and use it in a production environment." Uses the [siginfo](http://www.kegel.com/c10k.html#nb.sigio) features of 2.3.21 or later, and includes the needed patches for earlier kernels. Rumored to be even faster than khttpd. See [his post of 31 May 1999](http://www.cs.helsinki.fi/linux/linux-kernel/Year-1999/1999-22/0453.html) for some notes.
 
-## Interesting thread-based servers
+### Interesting thread-based servers
 
 - [Hoser FTPD](http://www.zabbo.net/hftpd/). See their [benchmark page](http://www.zabbo.net/hftpd/bench.html).
 - [Peter Eriksson's phttpd](http://ca.us.mirrors.freshmeat.net/appindex/1999/02/06/918317238.html) and
@@ -735,12 +731,12 @@ IBM has an excellent paper titled [Java server benchmarks](http://www.research.i
 - The Java-based servers listed at http://www.acme.com/software/thttpd/benchmarks.html
 - Sun's [Java Web Server](http://jserv.javasoft.com/) (which has been [reported to handle 500 simultaneous clients](http://archives.java.sun.com/cgi-bin/wa?A2=ind9901&L=jserv-interest&F=&S=&P=47739))
 
-## Interesting in-kernel servers
+### Interesting in-kernel servers
 
 - [khttpd](http://www.fenrus.demon.nl/)
 - ["TUX" (Threaded linUX webserver)](http://slashdot.org/comments.pl?sid=00/07/05/0211257&cid=218) by Ingo Molnar et al. For 2.4 kernel.
 
-## Other interesting links
+### Other interesting links
 
 - [Jeff Darcy's notes on high-performance server design](http://pl.atyp.us/content/tech/servers.html)
 - [Ericsson's ARIES project](http://www2.linuxjournal.com/lj-issues/issue91/4752.html) -- benchmark results for Apache 1 vs. Apache 2 vs. Tomcat on 1 to 12 processors
@@ -748,6 +744,6 @@ IBM has an excellent paper titled [Java server benchmarks](http://www.research.i
 - [Novell's FastCache](http://www.novell.com/bordermanager/ispcon4.html) -- claims 10000 hits per second. Quite the pretty performance graph.
 - Rik van Riel's [Linux Performance Tuning site](http://linuxperf.nl.linux.org/)
 
-## Translations
+### Translations
 
 [Belorussian translation](http://ucallweconn.net/be/c10k-be) provided by Patric Conrad at 

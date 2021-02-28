@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
-    - Active-object: Active-object
+
     - Actor: Actor
     - Proactor: Proactor
     - Reactor: Reactor
