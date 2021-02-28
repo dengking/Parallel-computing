@@ -2,13 +2,13 @@
 
 polling是active，即主动；
 
-notify是inactive，即被动；
+notify是passive，即被动；
 
 ## Active polling example
 
 redis IO thread 
 
-## Inactive notify example
+## Passive notify example
 
 spdlog
 
