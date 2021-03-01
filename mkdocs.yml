@@ -136,6 +136,7 @@ nav:
       - Introduction: Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/index.md
       - 02-Memory-Reordering-Caught-in-the-Act:
         - Introduction: Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/02-Memory-Reordering-Caught-in-the-Act/index.md
+        - gcc-source-code: Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/02-Memory-Reordering-Caught-in-the-Act/gcc-source-code.md
       - 03-An-Introduction-to-Lock-Free-Programming:
         - Introduction: Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/03-An-Introduction-to-Lock-Free-Programming/index.md
       - 04-Memory-Ordering-at-Compile-Time:
@@ -227,8 +228,9 @@ nav:
     - Asynchronous-method-dispatch: Concurrent-computing/TODO-Concurrent-server/Asynchronous-method-dispatch.md
   - Design-pattern:
     - Introduction: Concurrent-computing/Design-pattern/index.md
-    - Active-object:
-      - Active-object: Concurrent-computing/Design-pattern/Active-object/Active-object.md
+    - TODO-Active-object:
+      - Introduction: Concurrent-computing/Design-pattern/TODO-Active-object/index.md
+      - rosettacode-Active-object: Concurrent-computing/Design-pattern/TODO-Active-object/rosettacode-Active-object.md
   - Multithread:
     - Introduction: Concurrent-computing/Multithread/index.md
     - Thread-safety:
@@ -266,8 +268,8 @@ nav:
         - Introduction: Concurrent-computing/Multithread/Topics/Sleep-forever/index.md
       - Execute-once:
         - Introduction: Concurrent-computing/Multithread/Topics/Execute-once/index.md
-      - Timer:
-        - Introduction: Concurrent-computing/Multithread/Topics/Timer/index.md
+      - TODO-Timer:
+        - Introduction: Concurrent-computing/Multithread/Topics/TODO-Timer/index.md
       - Stop-a-blocked-thread:
         - Introduction: Concurrent-computing/Multithread/Topics/Stop-a-blocked-thread/index.md
       - Wait-VS-sleep:
@@ -299,6 +301,14 @@ nav:
           - CHAPTER-5-Replication: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-5-Replication/CHAPTER-5-Replication.md
         - CHAPTER-8-The-Trouble-with-Distributed-Systems:
           - CHAPTER-8-The-Trouble-with-Distributed-Systems: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-8-The-Trouble-with-Distributed-Systems/index.md
+    - book-Distributed-operating-systems:
+      - Introduction: Distributed-computing/Theory/book-Distributed-operating-systems/index.md
+      - 6-Distributed-Shared-Memory:
+        - 6.3-Consistency-model: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3-Consistency-model.md
+        - 6.3.1-Strict-Consistency: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.1-Strict-Consistency.md
+        - 6.3.2-Sequential-Consistency:
+          - Introduction: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.2-Sequential-Consistency/index.md
+        - 6.3.8-Summary-of-Consistency-Models: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.8-Summary-of-Consistency-Models.md
     - CAP:
       - Introduction: Distributed-computing/Theory/CAP/index.md
       - CAP:
@@ -335,6 +345,7 @@ nav:
     - Consensus:
       - Consensus: Distributed-computing/Theory/Consensus/index.md
       - Leader-election: Distributed-computing/Theory/Consensus/Leader-election.md
+      - VS-consensus-VS-consistency: Distributed-computing/Theory/Consensus/VS-consensus-VS-consistency.md
     - Partitioning:
       - Introduction: Distributed-computing/Theory/Partitioning/index.md
     - Replication:
@@ -348,6 +359,14 @@ nav:
         - Lamport-timestamps: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/Lamport-timestamps.md
       - Happened-before:
         - Introduction: Distributed-computing/Theory/Logical-clock/Happened-before/index.md
+  - Technique:
+    - Introduction: Distributed-computing/Technique/index.md
+    - Quorum:
+      - Introduction: Distributed-computing/Technique/Quorum/index.md
+    - Heartbeat:
+      - Introduction: Distributed-computing/Technique/Heartbeat/index.md
+    - Transaction:
+      - Introduction: Distributed-computing/Technique/Transaction/index.md
   - Architecture:
     - Introduction: Distributed-computing/Architecture/index.md
     - "Client\u2013server-architecture": "Distributed-computing/Architecture/Client\u2013\
@@ -405,6 +424,7 @@ nav:
     - Cilk:
       - Introduction: Programming-model/API/Cilk/index.md
 - Application:
+  - Introduction: Application/index.md
   - Message-processing-system:
     - Introduction: Application/Message-processing-system/index.md
     - Event-driven-model:
@@ -429,9 +449,9 @@ nav:
           - Proactor:
             - vanderbilt.edu-Proactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor/vanderbilt.edu-Proactor.md
             - wikipedia-Proactor-pattern: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor/wikipedia-Proactor-pattern.md
-          - Reactor:
-            - vanderbilt.edu-Reactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Reactor/vanderbilt.edu-Reactor.md
-            - wikipedia-Reactor-pattern: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Reactor/wikipedia-Reactor-pattern.md
+          - TODO-Reactor:
+            - vanderbilt.edu-Reactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/TODO-Reactor/vanderbilt.edu-Reactor.md
+            - wikipedia-Reactor-pattern: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/TODO-Reactor/wikipedia-Reactor-pattern.md
           - Proactor-and-Reactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor-and-Reactor.md
         - Message-queue:
           - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/index.md
@@ -442,6 +462,11 @@ nav:
               - AMQP-0-9-1-Model-Explained: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Rabbitmq/AMQP-0-9-1-Model-Explained.md
     - Stream-based-message-processing-system:
       - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/index.md
+      - Implementation:
+        - Flink:
+          - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/Implementation/Flink/index.md
+        - Kafka:
+          - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/Implementation/Kafka/index.md
     - Distributed-log-system:
       - Introduction: Application/Message-processing-system/Distributed-log-system/index.md
   - Parallel-numeric-processing-system:
@@ -453,6 +478,8 @@ nav:
     - Version: Application/Data-system/Version.md
     - Schema:
       - Introduction: Application/Data-system/Schema/index.md
+    - Redo-log: Application/Data-system/Redo-log.md
+    - Transaction-log: Application/Data-system/Transaction-log.md
   - Blockchain:
     - Blockchain: Application/Blockchain/Blockchain.md
     - Is-git-a-block-chain: Application/Blockchain/Is-git-a-block-chain.md

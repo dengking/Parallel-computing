@@ -1,7 +1,7 @@
 nav:
     - Sleep-forever: Sleep-forever
     - Execute-once: Execute-once
-    - Timer: Timer
+    - TODO-Timer: TODO-Timer
     - Stop-a-blocked-thread: Stop-a-blocked-thread
     - Wait-VS-sleep: Wait-VS-sleep
     - Stop-a-sleeping-thread: Stop-a-sleeping-thread

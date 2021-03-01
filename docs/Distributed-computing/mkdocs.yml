@@ -1,5 +1,6 @@
 nav:
     - Distributed-computing: index.md
     - Theory: Theory
+    - Technique: Technique
     - Architecture: Architecture
     - Expert-Leslie-Lamport: Expert-Leslie-Lamport
