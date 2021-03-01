@@ -5,6 +5,7 @@ nav:
     - Abstraction: Abstraction    
     - Design-goal-of-distributed-systems: Design-goal-of-distributed-systems.md
     - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    - book-Distributed-operating-systems: book-Distributed-operating-systems
     # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
 
     - CAP: CAP

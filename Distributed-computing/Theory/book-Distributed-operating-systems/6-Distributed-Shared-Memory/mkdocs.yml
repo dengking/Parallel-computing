@@ -1,5 +1,5 @@
 nav:
     - 6.3-Consistency-model: 6.3-Consistency-model.md
     - 6.3.1-Strict-Consistency: 6.3.1-Strict-Consistency.md
-    - 6.3.2-Sequential-Consistency: 6.3.2-Sequential-Consistency.md
+    - 6.3.2-Sequential-Consistency: 6.3.2-Sequential-Consistency
     - 6.3.8-Summary-of-Consistency-Models: 6.3.8-Summary-of-Consistency-Models.md

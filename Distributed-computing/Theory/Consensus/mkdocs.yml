@@ -1,3 +1,4 @@
 nav:
     - Consensus: index.md
     - Leader-election: Leader-election.md
+    - VS-consensus-VS-consistency: VS-consensus-VS-consistency.md
