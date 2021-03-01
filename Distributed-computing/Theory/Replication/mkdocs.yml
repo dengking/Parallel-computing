@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - CRDT: CRDT.md
+    - State-machine-replication: State-machine-replication.md

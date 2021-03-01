@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Primer: Primer
+    - Classification: Classification
+    - Data-consistency: Data-consistency
+    - Consistency-protocol: Consistency-protocol

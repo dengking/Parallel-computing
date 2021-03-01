@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - Hash-Collision-Probabilities: Hash-Collision-Probabilities
+    - Hash-Table-Performance-Tests: Hash-Table-Performance-Tests

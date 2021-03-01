@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://dist-prog-book.com/chapter/1/rpc.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>RPC is Not Dead: Rise, Fall and the Rise of Remote Procedure Calls</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <!-- jquery js -->
+  <script src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/jquery-1.11.0.min.js.下载" type="text/javascript"></script>
+
+  <!-- retina js -->
+  <script src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/retina.js.下载" type="text/javascript"></script>
+
+  <!-- Bootstrap JS and CSS -->
+  <!-- <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" media="screen, print"/> -->
+  <link rel="stylesheet" href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.css">
+  <script src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/bootstrap.min.js.下载" type="text/javascript"></script>
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.js"></script>
+
+  <link rel="stylesheet" href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/fira.css">
+  <link href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/css" rel="stylesheet">
+  <link href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/css(1)" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/css(2)" rel="stylesheet">
+  <link href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/css(3)" rel="stylesheet" type="text/css">
+  <link href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/css(4)" rel="stylesheet" type="text/css">
+
+  <!-- MathJax -->
+  <script src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/MathJax.js.下载" id=""></script>
+
+  <!-- <link rel="stylesheet" href="/resources/css/tufte.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/custom.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/github.css"/> -->
+
+  <link rel="stylesheet" href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/latex.css">
+  <link rel="stylesheet" href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/entypo.css" type="text/css">
+  <link rel="stylesheet" href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/prettify.css" type="text/css">
+  <!-- <link rel="stylesheet" href="/resources/css/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/blog.css" type="text/css">
+
+  <!-- Custom javascript -->
+  <script src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/main.js.下载" type="text/javascript"></script>
+
+  <!-- <link rel="canonical" href="http://yourdomain.com/chapter/1/rpc.html"> -->
+  <link rel="alternate" type="application/rss+xml" title="Programming Models for Distributed Computing" href="http://yourdomain.com/feed.xml">
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body data-spy="scroll" data-target="#toc"><div id="MathJax_Message" style="display: none;"></div>
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <div class="logo-wrap">
+            <a href="http://dist-prog-book.com/">
+              <svg class="logo" width="100" height="100">
+                <circle cx="50" cy="50" r="35" stroke-width="6" stroke="#fff" fill="#b3c7cf"></circle>
+                <circle cx="50" cy="50" r="20" fill="#92adb9"></circle>
+                <circle cx="50" cy="50" r="14" fill="#7499AA"></circle>
+              </svg>
+              <div class="book-title">
+                <div class="prog-mod">Programming Models for</div>
+                <div class="dist-comp">Distributed Computing</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-md visible-lg">
+          <div class="navbar-wrap">
+            <ul class="navbar">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-sm visible-xs">
+          <div id="burger" data-toggle="collapse" data-target="#navbar-responsive-wrap">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="navbar-responsive-wrap navbar-static-top navbar-collapse collapse" id="navbar-responsive-wrap">
+            <ul class="navbar-responsive">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container blog">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        
+        <div class="category"></div>
+        <h1 class="page-title">RPC is Not Dead: Rise, Fall and the Rise of Remote Procedure Calls</h1>
+        <div class="author">By Muzammil Abdul Rehman and Paul Grosu</div>
+        <div class="subtitle">
+          
+            <span class="minutes">(45 min read)</span>
+          
+        </div>
+        <div class="dash">—</div>
+        <!-- <article> -->
+
+  <!-- <h1 class="post-title">RPC is Not Dead: Rise, Fall and the Rise of Remote Procedure Calls</h1> -->
+  <!-- <div class="author">By Muzammil Abdul Rehman and Paul Grosu</div> -->
+
+    <h2 id="introduction">Introduction</h2>
+
+<p><em>Remote Procedure Call</em> (RPC) is a design <em>paradigm</em> that allow two entities to communicate over a communication channel in a general request-response mechanism. The definition of RPC has mutated and evolved significantly over the past three decades, and therefore the RPC <em>paradigm</em> is a broad classifying term which refers to all RPC-esque systems that have arisen over the past four decades. The <em>definition</em> of RPC has evolved over the decades. It has moved on from a simple <em>client-server</em> design to a group of inter-connected <em>services</em>. While the initial RPC <em>implementations</em> were designed as tools for outsourcing computation to a server in a distributed system, RPC has evolved over the years to build a language-agnostic ecosystem of applications. The RPC <em>paradigm</em> has been part of the driving force in creating truly revolutionary distributed systems and has given rise to various communication schemes and protocols between diverse systems.</p>
+
+<p>The RPC <em>paradigm</em> has been used to implement our every-day systems. From lower level applications like Network File Systems <a href="http://dist-prog-book.com/chapter/1/rpc.html#sunnfs">(Sandberg, Goldberg, Kleiman, Walsh, &amp; Lyon, 1985)</a> and Remote Direct Memory Access <a href="http://dist-prog-book.com/chapter/1/rpc.html#rpcoverrdma">(Kalia, Kaminsky, &amp; Andersen, n.d.)</a> to access protocols to developing an ecosystem of microservices, RPC has been used everywhere. RPC has a diversity of applications – SunNFS <a href="http://dist-prog-book.com/chapter/1/rpc.html#sunnfs">(Sandberg, Goldberg, Kleiman, Walsh, &amp; Lyon, 1985)</a>, Twitter’s Finagle <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a>, Apache Thrift <a href="http://dist-prog-book.com/chapter/1/rpc.html#thrift">(Prunicki, 2009)</a>, Java RMI <a href="http://dist-prog-book.com/chapter/1/rpc.html#rmipaper">(Wollrath, Riggs, &amp; Waldo, 1996)</a>, SOAP, CORBA <a href="http://dist-prog-book.com/chapter/1/rpc.html#corba">(Group, 1991)</a> and Google’s gRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpc">(Google, n.d.)</a> to name a few.</p>
+
+<p>RPC has evolved over the years. Starting off as a synchronous, insecure, request-response system, RPC has evolved into a secure, asynchronous, resilient <em>paradigm</em> that has influenced protocols and programming designs like HTTP, REST, and just about anything with a request-response system. It has transitioned to an asynchronous, bidirectional, communication mechanism for connecting services and devices across the internet. The initial RPC implementations mainly focused on a local, private network with multiple clients communicating with a server, synchronously waiting for the response from the server. Modern RPC systems have <em>endpoints</em> communicating with each other, asynchronously passing arguments and processing responses, as well as having two-way request-response streams (from client to server, and also from server to client). RPC has influenced various design paradigms and communication protocols.</p>
+
+<h2 id="remote-procedure-calls">Remote Procedure Calls</h2>
+
+<p>The <em>Remote Procedure Call paradigm</em> can be defined, at a high level, as a set of two communication <em>endpoints</em> connected over a network with one endpoint sending a request and the other endpoint generating a response based on that request. In the simplest terms, it’s a request-response paradigm where the two <em>endpoints</em>/hosts have different <em>address spaces</em>. The endpoint that requests a remote procedure can be referred to as <em>caller</em> and the endpoint that responds to this can be referred to as <em>callee</em>.</p>
+
+<p>The <em>endpoints</em> in the RPC can either be a client and a server, two nodes in a peer-to-peer network, two hosts in a grid computation system, or even two microservices. The RPC communication is not limited to two hosts, rather could have multiple hosts or <em>endpoints</em> involved <a href="http://dist-prog-book.com/chapter/1/rpc.html#anycastrpc">(Bergstrom &amp; Pandey, 2007)</a>.</p>
+
+<p align="center">
+[ Image Source: <a href="http://dist-prog-book.com/chapter/1/rpc.html#rpcimage">(Taing, n.d.)</a>]
+</p>
+<figure>
+  <img src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/rpc_chapter_1_ycog_10_steps.png" alt="RPC in 10 Steps.">
+<p>Figure 1 - Remote Procedure Call.</p>
+</figure>
+
+<p>The simplest RPC implementation looks like Figure 1. In this case, the <em>client</em> (or <em>caller</em>) and the <em>server</em> (or <em>callee</em>) are separated by a physical network. The main components of the system are the client routine/program, the client stub, the server routine/program, the server stub, and the network routines. A <em>stub</em> is a small program that is generally used as a stand-in (or an interface) for a larger program <a href="http://dist-prog-book.com/chapter/1/rpc.html#stubrpc">(Rouse, n.d.)</a>. A <em>client stub</em> exposes the functionality provided by the server routine to the client routine while the server stub provides a client-like program to the server routine <a href="http://dist-prog-book.com/chapter/1/rpc.html#rpcimage">(Taing, n.d.)</a>. The client stub takes the input arguments from the client program and returns the result, while the server stub provides input arguments to the server program and gets the results. The client program can only interact with the client stub that provides the interface of the remote server to the client. This stub also serializes input arguments sent to the stub by the client routine. Similarly, the server stub provides a client interface to the server routines as well handling serialization of data sent to the client.</p>
+
+<p>When a client routine performs a <em>remote procedure</em>, it calls the client stub, which serializes the input arguments. This serialized data is sent to the server using OS network routines (TCP/IP) <a href="http://dist-prog-book.com/chapter/1/rpc.html#rpcimage">(Taing, n.d.)</a>. The data is then deserialized by the server stub and presented to the server routines with the given arguments. The return value from the server routines is serialized again and sent over the network back to the client where it’s deserialized by the client stub and presented to the client routine. This <em>remote procedure</em> is generally hidden from the client routine and it appears as a <em>local procedure</em> to the client. RPC services also require a discovery service/host-resolution mechanism to bootstrap the communication between the client and the server.</p>
+
+<p>One important feature of RPC is different <em>address space</em> <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a> for all the endpoints, however, passing the locations to a global storage (Amazon S3, Microsoft Azure, Google Cloud Store) is not impossible. In RPC, all the hosts have separate <em>address spaces</em>. They can’t share pointers or references to a memory location in one host. This <em>address space</em> isolation means that all the information is passed in the messages between the host communicating as a value (objects or variables) but not by reference. Since RPC is a <em>remote</em> procedure call, the values sent to the <em>remote</em> host cannot be pointers or references to a <em>local</em> memory. However, passing links to a global shared memory location is not impossible but rather dependent on the type of system (see <em>Applications</em> section for detail).</p>
+
+<p>Originally, RPC was developed as a synchronous request-response mechanism, tied to a specific programming language implementation, with a custom network protocol to outsource computation <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a>. It had a registry system to register all the servers. One of the earliest RPC-based system <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a> was implemented in the Cedar programming language in early 1980’s. The goal of this system was to provide similar programming semantics to local procedure calls. It was developed for a LAN network with an inefficient network protocol and a <em>serialization</em> scheme to transfer information using the said network protocol, this system aimed at executing a <em>procedure</em> (also referred as a <em>method</em> or a <em>function</em>) in a remote <em>address space</em>. The single-threaded synchronous client and the server were accompanied by a registry system used by the servers to <em>bind</em> (or register) their procedures. Clients used this registry system to find a specific server to execute their <em>remote</em> procedures on. This RPC implementation <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a> had a very specific use-case. It was built specifically for outsourcing computation between a “Xerox research internetwork”, which was a small, closed, ethernet network with 16-bit addresses <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a>.</p>
+
+<p>Modern RPC-based systems are language-agnostic, asynchronous, load-balanced systems. Authentication and authorization to these systems have been added as needed along with other security features. Most of these systems have fault-handling built into them as modules and the systems are generally spread all across the internet.</p>
+
+<p>RPC programs operate across a network (or communication channel), therefore they need to handle remote errors and be able to communicate information successfully. Error handling generally varies and is categorized as <em>remote-host</em> or <em>network</em> failure handling. Depending on the type of the system, and the error, the caller (or the callee) returns an error and these errors can be handled accordingly. For asynchronous RPC calls, it’s possible to specify events to ensure progress.</p>
+
+<p>RPC implementations use a <em>serialization</em> (also referred to as <em>marshalling</em> or <em>pickling</em>) scheme on top of an underlying communication protocol (traditionally TCP over IP). These <em>serialization</em> schemes allow both the caller <em>caller</em> and <em>callee</em> to become language agnostic allowing both these systems to be developed in parallel without any language restrictions. Some examples of serialization schemes are JSON, XML, or Protocol Buffers <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpc">(Google, n.d.)</a>.</p>
+
+<p>Modern RPC systems allow different components of a larger system to be developed independently of one another. The language-agnostic nature combined with a decoupling of some parts of the system allows the two components (caller and callee) to scale separately and add new functionalities. This independent scaling of the system might lead to a mesh of interconnected RPC <em>services</em> facilitating one another.</p>
+
+<h3 id="examples-of-rpc">Examples of RPC</h3>
+
+<p>RPC has become very predominant in modern systems. Google even performs orders of 10^10 RPC calls per second <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpcpersec">(Mandel, n.d.)</a>. That’s <em>tens of trillions</em> of RPC calls <em>every second</em>. It’s more than the <em>annual GDP of United States</em> <a href="http://dist-prog-book.com/chapter/1/rpc.html#usgdp">(InsideGov, n.d.)</a>.</p>
+
+<p>In the simplest RPC systems, a client connects to a server over a network connection and performs a <em>procedure</em>. This procedure could be as simple as <code class="highlighter-rouge">return "Hello World"</code> in your favorite programming language. However, the complexity of the of this remote procedure has no upper bound.</p>
+
+<p>An example of a simple RPC server, written in Python 3, is shown below.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="kn">from</span> <span class="nn">xmlrpc.server</span> <span class="kn">import</span> <span class="n">SimpleXMLRPCServer</span>
+
+<span class="c"># a simple RPC function that returns "Hello World!"</span>
+<span class="k">def</span> <span class="nf">remote_procedure</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">"Hello World!"</span>
+
+<span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s">"localhost"</span><span class="p">,</span> <span class="mi">8080</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"RPC Server listening on port 8080..."</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">remote_procedure</span><span class="p">,</span> <span class="s">"remote_procedure"</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>This code for a simple RPC client for the above server, written in Python 3, is as follows.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="kn">import</span> <span class="nn">xmlrpc.client</span>
+
+<span class="k">with</span> <span class="n">xmlrpc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s">"http://localhost:8080/"</span><span class="p">)</span> <span class="k">as</span> <span class="n">proxy</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">remote_procedure</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<p>In the above example, we create a simple function called <code class="highlighter-rouge">remote_procedure</code> and <em>bind</em> it to port <code class="highlighter-rouge">8080</code> on <code class="highlighter-rouge">localhost</code>. The RPC client then connects to the server and <em>requests</em> the <code class="highlighter-rouge">remote_procedure</code> with no input arguments. The server then <em>responds</em> with the return value returned from executing <code class="highlighter-rouge">remote_procedure</code>.</p>
+
+<p>One can even view the <em>three-way handshake</em> as an example of RPC paradigm. The  <em>three-way handshake</em> is most commonly used in establishing a TCP connection. Here, a server-side application <em>binds</em> to a port on the server, and adds a hostname resolution entry is added to a DNS server (can be seen as a <em>registry</em> in RPC). Now, when the client has to connect to the server, it requests a DNS server to resolve the hostname to an IP address and the client sends a SYN packet. This SYN packet can be seen as a <em>request</em> to another <em>address space</em>. The server, upon receiving this, returns a SYN-ACK packet. This SYN-ACK packet from the server can be seen as <em>response</em> from the server, as well as a <em>request</em> to establish the connection. The client then <em>responds</em> with an ACK packet.</p>
+
+<h2 id="evolution-of-rpc">Evolution of RPC</h2>
+
+<p>RPC paradigm was first proposed in 1980’s and still continues as a relevant model of performing distributed computation, which was initially developed for a LAN and now can be implemented on open networks, as web services across the internet. It has had a long and arduous journey to its current state. Here are the three main (overlapping) stages that RPC went through.</p>
+
+<h3 id="the-rise-all-hail-rpc-early-1970s---mid-1980s">The Rise: All Hail RPC (Early 1970’s - Mid 1980’s)</h3>
+
+<p>RPC started off strong. With RFC 674 <a href="http://dist-prog-book.com/chapter/1/rpc.html#rfc674">(Postel &amp; White, 1974)</a> and RFC 707 <a href="http://dist-prog-book.com/chapter/1/rpc.html#rfc674">(Postel &amp; White, 1974; White, 1975)</a> coming out and specifying the design of Remote Procedure Calls, followed by Nelson et. al <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a> coming up with a first RPC implementation for the Cedar programming language, RPC revolutionized systems in general and gave rise to one of the earliest distributed systems.</p>
+
+<p>With these early achievements, people started using RPC as the defacto design choice. It became a Holy Grail in the systems community for a few years after the first implementation.</p>
+
+<h3 id="the-fall-rpc-is-dead-late-1970s---late-1990s">The Fall: RPC is Dead (Late 1970’s - Late 1990’s)</h3>
+
+<p>RPC, despite being an initial success, wasn’t without flaws. Within a year of its inception, the limitations of RPC started to catch up to it. RFC 684 criticized RPC for latency, failures, and overhead cost. It also focussed on message-passing systems as an alternative to RPC design. In 1988, Tenenbaum et. al presented similar concerns with RPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#critiqueofrpc">(Tanenbaum &amp; van Renesse, 1987)</a>. This talked about problems with heterogeneous devices, message passing as an alternative, packet loss, network failure, RPC’s synchronous nature, and highlighted that RPC is not a one-size-fits-all model.</p>
+
+<p>In 1994, <em>A Note on Distributed Computing</em> was published. This paper claimed RPC to be “fundamentally flawed” <a href="http://dist-prog-book.com/chapter/1/rpc.html#notedistributed">(Waldo, Wyant, Wollrath, &amp; Kendall, 1997)</a>. It talked about a unified object view and cited four main problems with dividing these objects for distributed computing in RPC: communication latency, address space separation, partial failures and concurrency issues (resulting from accessing same remote object by two concurrent client requests). Most of these problems (except partial failures) were inherently associated with distributed computing itself, but partial failures for RPC systems meant that progress might not always be possible in an RPC system.</p>
+
+<p>This era wasn’t a dead end for RPC, though. Some of the preliminary designs for modern RPC systems were introduced in this era. Perhaps, the earliest system in this era was SunRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#sunnfs">(Sandberg, Goldberg, Kleiman, Walsh, &amp; Lyon, 1985)</a> used for the Sun Network File System (NFS). Soon to follow SunRPC was CORBA <a href="http://dist-prog-book.com/chapter/1/rpc.html#corba">(Group, 1991)</a> which was followed by Java RMI <a href="http://dist-prog-book.com/chapter/1/rpc.html#rmipaper">(Wollrath, Riggs, &amp; Waldo, 1996)</a>.</p>
+
+<p>However, the initial implementations of these systems were riddled with various issues and design flaws. For instance, Java RMI didn’t handle network failures and assumed a reliable network with zero-latency <a href="http://dist-prog-book.com/chapter/1/rpc.html#rmipaper">(Wollrath, Riggs, &amp; Waldo, 1996)</a>.</p>
+
+<h3 id="the-rise-again-long-live-rpc-late-1990s---today">The Rise, Again: Long Live RPC (Late 1990’s - Today)</h3>
+
+<p>Despite facing problems in its early days, RPC withstood the test of time. Researchers realized the limitations of RPC and focussed on rectifying and instead of enforcing RPC, they started to use RPC in applications where it was needed. Implementers of RPC systems started adding exception-handling, asyncronous processing, network failure handling, and support for heterogeneity between different languages/devices to RPC.</p>
+
+<p>In this era, SunRPC went through various additions and became came to be known as Open Network Computing RPC (ONC RPC). CORBA and RMI have also undergone various modifications as internet standards were set.</p>
+
+<p>A new breed of RPC also started in this era, Async (asynchronous) RPC, giving rise to systems that use <em>futures</em> and <em>promises</em>, like Finagle <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a> and Cap’n Proto (post-2010).</p>
+
+<p align="center">
+[ Image Source: <a href="http://dist-prog-book.com/chapter/1/rpc.html#norman">(Norman, 2015)</a>]
+</p>
+<figure>
+  <img src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/rpc_chapter_1_syncrpc.jpg" alt="RPC in 10 Steps.">
+<p>Figure 2 - Synchronous RPC.</p>
+</figure>
+
+<p align="center">
+[ Image Source: <a href="http://dist-prog-book.com/chapter/1/rpc.html#norman">(Norman, 2015)</a>]
+</p>
+<figure>
+  <img src="./RPC is Not Dead_ Rise, Fall and the Rise of Remote Procedure Calls_files/rpc_chapter_1_asyncrpc.jpg" alt="RPC in 10 Steps.">
+<p>Figure 3 - Asynchronous RPC.</p>
+</figure>
+
+<p>A traditional, synchronous RPC is a <em>blocking</em> operation while an asynchronous RPC is a <em>non-blocking</em> operation <a href="http://dist-prog-book.com/chapter/1/rpc.html#dewan">(Dewan, 2006)</a>. Figure 2 shows a synchronous RPC call while Figure 3 shows an asynchronous RPC call. In synchronous RPC, the client sends a request to the server and then blocks waiting for the server to perform its computation and return the result. The client is only able to proceed after getting the result from the server. In an asynchronous RPC, the client performs a request to the server and waits only for the acknowledgment of the delivery of input parameters/arguments. After this, the client proceeds onwards and when the server is finished processing, it sends an interrupt to the client. The client receives this message from the server, receives the results, and continues.</p>
+
+<p>Asynchronous RPC makes it possible to separate the remote call from the return value, making it possible to write a single-threaded client to handle multiple RPC calls at the specific intervals it needs to process <a href="http://dist-prog-book.com/chapter/1/rpc.html#async">(“Asynchronous RPC,” 2006)</a>. It also allows for easier handling of slow clients/servers as well as transferring large data easily (due to their incremental nature) <a href="http://dist-prog-book.com/chapter/1/rpc.html#async">(“Asynchronous RPC,” 2006)</a>.</p>
+
+<p>In the post-2000 era, MAUI <a href="http://dist-prog-book.com/chapter/1/rpc.html#maui">(Cuervo et al., 2010)</a>, Cap’n Proto <a href="http://dist-prog-book.com/chapter/1/rpc.html#capnprotosecure">(Kenton, n.d.)</a>, gRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpc">(Google, n.d.)</a>, Thrift <a href="http://dist-prog-book.com/chapter/1/rpc.html#thrift">(Prunicki, 2009)</a> and Finagle <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a> have been released, which have significantly boosted the widespread use of RPC.</p>
+
+<p>Most of these newer systems include Interface Description Languages (IDLs). These IDLs specify the common protocols and interfacing languages that can be used to transfer information between clients and servers written in different programming languages, making these RPC implementations language-agnostic. Some of the most common IDLs are JSON, XML, and ProtoBufs.</p>
+
+<p>A high-level overview of some of the most important RPC implementation is as follows.</p>
+
+<h4 id="java-remote-method-invocation">Java Remote Method Invocation</h4>
+
+<p>Java RMI (Java Remote Method Invocation) <a href="http://dist-prog-book.com/chapter/1/rpc.html#rmibook">(Pitt &amp; McNiff, 2001)</a> is a Java implementation for performing RPC (Remote Procedure Calls) between a client and a server. The client using a stub passes via a socket connection the information over the network to the server that contains remote objects. The Remote Object Registry (ROR) <a href="http://dist-prog-book.com/chapter/1/rpc.html#rmipaper">(Wollrath, Riggs, &amp; Waldo, 1996)</a> on the server contains the references to objects that can be accessed remotely and through which the client will connect to. The client can then request the invocation of methods on the server which responds with an answer.</p>
+
+<p>RMI provides some security by being encoded but not encrypted, though that can be augmented by tunneling over a secure connection or other methods. Moreover, RMI is very specific to Java. It cannot be used to take advantage of the language-independence feature that is inherent to most RPC implementations. Perhaps the main problem with RMI is that it doesn’t provide <em>access transparency</em>. This means that a programmer (not the client program) cannot distinguish between the local objects or the remote objects making it relatively difficult handle partial failures in the network <a href="http://dist-prog-book.com/chapter/1/rpc.html#roi">(Setia, n.d.)</a>.</p>
+
+<h4 id="corba">CORBA</h4>
+
+<p>CORBA (Common Object Request Broker Architecture) <a href="http://dist-prog-book.com/chapter/1/rpc.html#corba">(Group, 1991)</a> was created by the Object Management Group <a href="http://dist-prog-book.com/chapter/1/rpc.html#corbasite">(CORBA, n.d.)</a> to allow for language-agnostic communication among multiple computers. It is an object-oriented model defined via an Interface Definition Language (IDL) and the communication is managed through an Object Request Broker (ORB). This ORB acts as a broker for objects. CORBA can be viewed as a language-independent RMI system where each client and server have an ORB by which they communicate. The benefits of CORBA is that it allows for multi-language implementations that can communicate with each other, but much of the criticism around CORBA relates to poor consistency among implementations and it’s relatively outdated by now. Moreover, CORBA suffers from same access transparency issues as Java RMI.</p>
+
+<h4 id="xml-rpc-and-soap">XML-RPC and SOAP</h4>
+
+<p>The XML-RPC specifications <a href="http://dist-prog-book.com/chapter/1/rpc.html#Wiener">(Weiner, 1999)</a> performs an HTTP Post request to a server formatted as XML composed of a <em>header</em> and <em>payload</em> that calls only one method. It was originally released in the late 1990’s and unlike RMI, it provides transparency by using HTTP as a transparent mechanism.</p>
+
+<p>The header has to provide the basic information, like user agent and the size of the payload. The payload has to initiate a <code class="highlighter-rouge">methodCall</code> structure by specifying the name via <code class="highlighter-rouge">methodName</code> and associated parameter values.  Parameters for the method can be scalar, structures or (recursive) arrays.  The types of scalar can be one of <code class="highlighter-rouge">i4</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">boolean</code>, <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">double</code>, <code class="highlighter-rouge">dateTime.iso8601</code> or <code class="highlighter-rouge">base64</code>. The scalars are used to create more complex structures and arrays.</p>
+
+<p>Below is an example as provided by the XML-RPC documentation <a href="http://dist-prog-book.com/chapter/1/rpc.html#Wiener">(Weiner, 1999)</a>:</p>
+
+<pre><code class="language-XML prettyprint lang-">POST /RPC2 HTTP/1.0
+User-Agent: Frontier/5.1.2 (WinNT)
+Host: betty.userland.com
+Content-Type: text/xml
+Content-length: 181
+
+&lt;?xml version="1.0"?&gt;
+&lt;methodCall&gt;
+  &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;
+  &lt;params&gt;
+    &lt;param&gt;
+      &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;
+    &lt;/param&gt;
+  &lt;/params&gt;
+&lt;/methodCall&gt;
+</code></pre>
+
+<p>The response to a request will have the <code class="highlighter-rouge">methodResponse</code> with <code class="highlighter-rouge">params</code> and values, or a <code class="highlighter-rouge">fault</code> with the associated <code class="highlighter-rouge">faultCode</code> in the case of an error <a href="http://dist-prog-book.com/chapter/1/rpc.html#Wiener">(Weiner, 1999)</a>:</p>
+
+<pre><code class="language-XML prettyprint lang-">HTTP/1.1 200 OK
+Connection: close
+Content-Length: 158
+Content-Type: text/xml
+Date: Fri, 17 Jul 1998 19:55:08 GMT
+Server: UserLand Frontier/5.1.2-WinNT
+
+&lt;?xml version="1.0"?&gt;
+&lt;methodResponse&gt;
+  &lt;params&gt;
+    &lt;param&gt;
+      &lt;value&gt;&lt;string&gt;South Dakota&lt;/string&gt;&lt;/value&gt;
+    &lt;/param&gt;
+  &lt;/params&gt;
+&lt;/methodResponse&gt;
+</code></pre>
+
+<p>SOAP (Simple Object Access Protocol) is a successor of XML-RPC as a web-services protocol for communicating between a client and server. It was initially designed by a group at Microsoft <a href="http://dist-prog-book.com/chapter/1/rpc.html#soaparticle1">(Ferguson, n.d.)</a>. The SOAP message is an XML-formatted message composed of an envelope inside which a header and a payload are provided(just like XML-RPC). The payload of the message contains the request and response of the message, which is transmitted over HTTP or SMTP (unlike XML-RPC).</p>
+
+<p>SOAP can be viewed as the superset of XML-RPC that provides support for more complex authentication schemes <a href="http://dist-prog-book.com/chapter/1/rpc.html#soapvsxml">(Jones, 2014)</a> as well as its support for WSDL (Web Services Description Language), allowing easier discovery and integration with remote web services <a href="http://dist-prog-book.com/chapter/1/rpc.html#soapvsxml">(Jones, 2014)</a>.</p>
+
+<p>The benefit of SOAP is that it provides the flexibility for transmission over multiple transport protocols. The XML-based messages allow SOAP to become language agnostic, though parsing such messages could become a bottleneck.</p>
+
+<h4 id="thrift">Thrift</h4>
+
+<p>Thrift is an <em>asynchronous</em> RPC system created by Facebook which is now part of the Apache Foundation <a href="http://dist-prog-book.com/chapter/1/rpc.html#thrift">(Prunicki, 2009)</a>. It is a language-agnostic Interface Description Language (IDL) by which one generates the code for the client and server. It provides the opportunity for compressed serialization by customizing the protocol and the transport after the description file has been processed.</p>
+
+<p>Perhaps, the biggest advantage of Thrift is that its binary data format has a very low overhead. It has a relatively lower transmission cost (compared to other alternatives like SOAP) <a href="http://dist-prog-book.com/chapter/1/rpc.html#thrifttut">(Maheshwar, 2013)</a> making it very efficient for large amounts of data transfer.</p>
+
+<h4 id="finagle">Finagle</h4>
+
+<p>Finagle is a fault-tolerant, protocol-agnostic runtime for doing RPC and high-level API calls for composing futures (see Async RPC section), with RPC calls generated under the hood. It was created by Twitter and is written in Scala to run on the JVM. It is based on three object types: Service objects, Filter objects, and Future objects <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a>.</p>
+
+<p>Future objects act by asynchronously requesting computation that would return a response at some time in the future. These Future objects are the main communication mechanism in Finagle. All the inputs and the output are represented as Future objects.</p>
+
+<p>Service objects endpoints that return a Future upon processing a request. These Service objects can be viewed as the interfaces used to implement a client or a server.</p>
+
+<p>A sample Finagle server that reads a request and returns the version of the request is shown below. This example is taken from the Finagle documentation <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagletut">(Twitter, 2016)</a></p>
+
+<pre><code class="language-Scala prettyprint lang-">import com.twitter.finagle.{Http, Service}
+import com.twitter.finagle.http
+import com.twitter.util.{Await, Future}
+
+object Server extends App {
+  val service = new Service[http.Request, http.Response] {
+    def apply(req: http.Request): Future[http.Response] =
+      Future.value(
+        http.Response(req.version, http.Status.Ok)
+      )
+  }
+  val server = Http.serve(":8080", service)
+  Await.ready(server)
+}
+</code></pre>
+
+<p>A Filter object transforms requests for further processing in case additional customization is required from a request. These provide program-independent operations like, timeouts, etc. They take in a Service and provide a new Service object with the applied Filter. Aggregating multiple Filters is also possible in Finagle.</p>
+
+<p>A sample timeout Filter that takes in a service and creates a new service with timeouts is shown below. This example is taken from the Finagle documentation <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagletut">(Twitter, 2016)</a></p>
+
+<pre><code class="language-Scala prettyprint lang-">import com.twitter.finagle.{Service, SimpleFilter}
+import com.twitter.util.{Duration, Future, Timer}
+
+class TimeoutFilter[Req, Rep](timeout: Duration, timer: Timer)
+  extends SimpleFilter[Req, Rep] {
+
+  def apply(request: Req, service: Service[Req, Rep]): Future[Rep] = {
+    val res = service(request)
+    res.within(timer, timeout)
+  }
+}
+</code></pre>
+
+<h4 id="open-network-computing-rpc-onc-rpc">Open Network Computing RPC (ONC RPC)</h4>
+
+<p>ONC was originally introduced as SunRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#sunnfs">(Sandberg, Goldberg, Kleiman, Walsh, &amp; Lyon, 1985)</a> for the Sun NFS. The Sun NFS system had a stateless server, with client-side caching, unique file handlers, and supported NFS read, write, truncate, unlink, etc operations. However, SunRPC was later revised as ONC in 1995 <a href="http://dist-prog-book.com/chapter/1/rpc.html#rfc1831">(Srinivasan, 1995)</a> and then in 2009 <a href="http://dist-prog-book.com/chapter/1/rpc.html#rfc5531">(Thurlow, 2009)</a>. The IDL used in ONC (and SunRPC) is External Data Representation (XDR), a serialization mechanism specific to networks communication and therefore, ONC is limited to applications like Network File Systems.</p>
+
+<h4 id="mobile-assistance-using-infrastructure-maui">Mobile Assistance Using Infrastructure (MAUI)</h4>
+
+<p>The MAUI project <a href="http://dist-prog-book.com/chapter/1/rpc.html#maui">(Cuervo et al., 2010)</a>, developed by Microsoft is a computation offloading system for mobile systems. It’s an automated system that offloads a mobile code to a dedicated infrastructure in order to increase the battery life of the mobile device, minimize the load on the programmer, and perform any complex computations offsite. MAUI uses RPC as the communication protocol between the mobile and the infrastructure.</p>
+
+<h4 id="grpc">gRPC</h4>
+
+<p>gRPC is a multiplexed, bi-directional streaming RPC protocol developed Google and Square. The IDL for gRPC is Protocol Buffers (also referred as ProtoBuf) and is meant as a public replacement fro Stubby, ARCWire, and Sake <a href="http://dist-prog-book.com/chapter/1/rpc.html#Apigee">(Surtani &amp; Ho, n.d.)</a>. More details on Protocol Buffers, Stubby, ARCWire, and Sake are available in our gRPC chapter <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpcchapter">(Grosu, Abdul Rehman, Anderson, Pai, &amp; Miller, n.d.)</a>.</p>
+
+<p>gRPC provides a platform for scalable, bi-directional streaming using both synchronized and asynchronous communication.</p>
+
+<p>In a general RPC mechanism, the client initiates a connection to the server and only the client can <em>request</em> while the server can only <em>respond</em> to the incoming requests. However, in bi-directional gRPC streams, although the initial connection is initiated by the client (call it <em>endpoint 1</em>), once the connection is established, both the server (call it <em>endpoint 2</em>) and the <em>endpoint 1</em> can send <em>requests</em> and receive <em>responses</em>. This significantly eases the development where both <em>endpoints</em> are communicating with each other (like, grid computing). It also saves the hassle of creating two separate connections between the endpoints (one from <em>endpoint 1</em> to <em>endpoint 2</em> and another from <em>endpoint 2</em> to <em>endpoint 1</em>) since both streams are independent.</p>
+
+<p>gRPC multiplexes the requests over a single connection using header compression. This makes it possible for gRPC to be used for mobile clients where battery life and data usage are important.
+The core library is in C – except for Java and Go – and surface APIs are implemented for all the other languages connecting through it <a href="http://dist-prog-book.com/chapter/1/rpc.html#CoreSurfaceAPIs">(Google, n.d.)</a>.</p>
+
+<p>Since Protocol Buffers have been utilized by many individuals and companies, gRPC makes it natural to extend their RPC ecosystems via gRPC. Companies like Cisco, Juniper, and Netflix <a href="http://dist-prog-book.com/chapter/1/rpc.html#gRPCCompanies">(Google, n.d.)</a> have found it practical to adopt it. A majority of the Google Public APIs, like their places and maps APIs, have been ported to gRPC ProtoBuf <a href="http://dist-prog-book.com/chapter/1/rpc.html#gRPCProtos">(Google, n.d.)</a> as well.</p>
+
+<p>More details about gRPC and bi-directional streaming can be found in our gRPC chapter <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpcchapter">(Grosu, Abdul Rehman, Anderson, Pai, &amp; Miller, n.d.)</a></p>
+
+<h4 id="capn-proto">Cap’n Proto</h4>
+
+<p>CapnProto <a href="http://dist-prog-book.com/chapter/1/rpc.html#capnprotosecure">(Kenton, n.d.)</a> is a data interchange RPC system that bypasses the data-encoding step to significantly improve the performance of calls. It is developed by the original author of gRPC’s ProtoBuf, but since it uses bytes (binary data) for encoding/decoding, it outperforms gRPC’s ProtoBuf. It uses futures and promises to combine various remote operations into a single operation to save on transportation round-trips. This means if an client calls a function <code class="highlighter-rouge">foo</code> and then calls another function <code class="highlighter-rouge">bar</code> on the output of <code class="highlighter-rouge">foo</code>, Cap’n Proto will aggregate these two operations into a single <code class="highlighter-rouge">bar(foo(x))</code> where <code class="highlighter-rouge">x</code> is the input to the function <code class="highlighter-rouge">foo</code> <a href="http://dist-prog-book.com/chapter/1/rpc.html#capnprotosecure">(Kenton, n.d.)</a>. This saves multiple roundtrips, especially in object-oriented programs.</p>
+
+<h3 id="the-heir-to-the-throne-grpc-or-thrift">The Heir to the Throne: gRPC or Thrift</h3>
+
+<p>Although there are many candidates to be considered as top contenders for RPC throne, most of these are targeted for a specific type of application. ONC is generally specific to the Network File System (though it’s being pushed as a standard), Cap’n Proto is relatively new and untested, MAUI is specific to mobile systems, the open-source Finagle is primarily being used at Twitter (not widespread), and the Java RMI simply doesn’t even come close due to its transparency issues.</p>
+
+<p>Probably, the most powerful, and practical systems out there are Apache Thrift and Google’s gRPC, primarily because these two systems cater to a large number of programming languages, have a significant performance benefit over other techniques, and are being actively developed.</p>
+
+<p>Thrift was actually released a few years ago, while the first stable release for gRPC came out in August 2016. However, despite being released for some time, Thrift is currently less popular than gRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#trendrpcthrift">(Trends, n.d.)</a>.</p>
+
+<p>gRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#gRPCLanguages">(Google, n.d.)</a> and Thrift, both, support most of the popular languages, including Java, C/C++, and Python. Thrift supports other languages, like Ruby, Erlang, Perl, Javascript, Node.js and OCaml while gRPC currently supports Node.js and Go.</p>
+
+<p>The gRPC core is written in C (with the exception of Java and Go) and wrappers are written in other languages to communicate with the core, while the Thrift core is written in C++.</p>
+
+<p>gRPC also provides easier bidrectional streaming communication between the caller and callee. The client generally initiates the communication <a href="http://dist-prog-book.com/chapter/1/rpc.html#gRPCLanguages">(Google, n.d.)</a> and once the connection is established the client and the server can perform reads and writes independently of each other. However, bi-directional streaming in Thrift might be a little difficult to handle, since it focuses explicitly on a client-server model. To enable bidirectional, async streaming, one may have to run two separate systems <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpcbetter">(Google, n.d.)</a>.</p>
+
+<p>Thrift provides exception-handling as a message while the programmer has to handle exceptions in gRPC. In Thrift, exceptions can be returned built into the message, while in gRPC, the programmer explicitly defines this behavior. This Thrift exception-handling makes it easier to write client-side applications.</p>
+
+<p>Although custom authentication mechanisms can be implemented in both these system, gRPC comes with Google-backed authentication using SSL/TLS and Google Tokens <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpcauth">(Google, n.d.)</a>.</p>
+
+<p>Moreover, gRPC-based network communication is done using HTTP/2. HTTP/2 makes it feasible for communicating parties to multiplex network connections using the same port. This is more efficient (in terms of memory usage) as compared to HTTP/1.1. Since gRPC communication is done HTTP/2, it means that gRPC can easily multiplex different services. As for Thrift, multiplexing services is possible, however, due to lack of support from underlying transport protocol, it is performed using a <code class="highlighter-rouge">TMultiplexingProcessor</code> class (in code) <a href="http://dist-prog-book.com/chapter/1/rpc.html#multiplexingthrift">(Yu, n.d.)</a>.</p>
+
+<p>However, both gRPC and Thrift allow async RPC calls. This means that a client can send a request to the server and continue with its execution and the response from the server is processed it arrives.</p>
+
+<p>The major comparison between gRPC and Thrift can be summed in this table.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comparison</th>
+      <th>Thrift</th>
+      <th>gRPC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>License</td>
+      <td>Apache2</td>
+      <td>BSD</td>
+    </tr>
+    <tr>
+      <td>Sync/Async RPC</td>
+      <td>Both</td>
+      <td>Both</td>
+    </tr>
+    <tr>
+      <td>Supported Languages</td>
+      <td>C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCaml</td>
+      <td>C/C++, Python, Go, Java, Ruby, PHP, C#, Node.js, Objective-C</td>
+    </tr>
+    <tr>
+      <td>Core Language</td>
+      <td>C++</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Exceptions</td>
+      <td>Allows being built in the message</td>
+      <td>Implemented by the programmer</td>
+    </tr>
+    <tr>
+      <td>Authentication</td>
+      <td>Custom</td>
+      <td>Custom + Google Tokens</td>
+    </tr>
+    <tr>
+      <td>Bi-Directionality</td>
+      <td>Not straightforward</td>
+      <td>Straightforward</td>
+    </tr>
+    <tr>
+      <td>Multiplexing</td>
+      <td>Possible via <code class="highlighter-rouge">TMultiplexingProcessor</code> class</td>
+      <td>Possible via HTTP/2</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Although, it’s difficult to specifically choose one over the other, with the increasing popularity of gRPC, and the fact that it’s still in early stages of development, the general trend <a href="http://dist-prog-book.com/chapter/1/rpc.html#trendrpcthrift">(Trends, n.d.)</a> over the past year has started to shift in favor of gRPC and it’s giving Thrift a run for its money. It may not be a useful metric, but on average gRPC was searched for three times more frequently than Thrift <a href="http://dist-prog-book.com/chapter/1/rpc.html#trendrpcthrift">(Trends, n.d.)</a>.</p>
+
+<p><strong>Note:</strong> This comparison was performed in December 2016 so the results are expected to change over time.</p>
+
+<h2 id="applications">Applications</h2>
+
+<p>Since its inception, various papers have been published on applying the RPC paradigm to different domains, as well as using RPC implementations to create new systems. Here are some of applications and systems that incorporate RPC.</p>
+
+<h4 id="shared-state-and-persistence-layer">Shared State and Persistence Layer</h4>
+
+<p>One major limitation (and advantage) of RPC is considered the separate <em>address space</em> of all the machines in the network. This means that <em>pointers</em> or <em>references</em> to a data object cannot be passed between the caller and the callee. Therefore, Interweave <a href="http://dist-prog-book.com/chapter/1/rpc.html#interweave2">(Chen, Dwarkadas, Parthasarathy, Pinheiro, &amp; Scott, 2000; Tang, Chen, Dwarkadas, &amp; Scott, 2004; Chen, Tang, Chen, Dwarkadas, &amp; Scott, 2002)</a> is a <em>middleware</em> system that allows scalable sharing of arbitrary datatypes and language-independent processes running on heterogeneous hardware. Interweave is specifically designed and is compatible with RPC-based systems and allows easier access to the shared resources between different applications using memory blocks and locks.</p>
+
+<p>Although research has been done in order to ensure a global shared state for an RPC-based system, these systems tend to take away the sense of independence and modularity between the <em>caller</em> and the <em>callee</em> by using a shared storage instead of a separate <em>address space</em>.</p>
+
+<h4 id="gridrpc">GridRPC</h4>
+
+<p>Grid computing is one of the most widely used applications of the RPC paradigm. At a high level, it can be seen as a mesh (or a network) of computers connected with each other to form a <em>grid</em> such that each system can leverage resources from any other system in the network.</p>
+
+<p>In the GridRPC paradigm, each computer in the network can act as the <em>caller</em> or the <em>callee</em> depending on the amount of resources required <a href="http://dist-prog-book.com/chapter/1/rpc.html#grid1">(Caniou et al., 2008)</a>. It’s also possible for the same computer to act as the <em>caller</em> as well as the <em>callee</em> for <em>different</em> computations.</p>
+
+<p>Some of the most popular implementations that allow one to have GridRPC-compliant middleware are GridSolve <a href="http://dist-prog-book.com/chapter/1/rpc.html#gridsolve1">(YarKhan, Dongarra, &amp; Seymour, 2007; Hardt, Seymour, Dongarra, Zapf, &amp; Ruitter, 2012)</a> and Ninf-G <a href="http://dist-prog-book.com/chapter/1/rpc.html#ninf">(Tanaka, Nakada, Sekiguchi, Suzumura, &amp; Matsuoka, 2003)</a>. Ninf is relatively older than GridSolve and was first published in the late 1990’s. It’s a simple RPC layer that also provides authentication and secure communication between the two parties. GridSolve, on the other hand, is relatively complex and provides a middleware for the communications using a client-agent-server model.</p>
+
+<h4 id="mobile-systems-and-computation-offloading">Mobile Systems and Computation Offloading</h4>
+
+<p>Mobile systems have become very powerful these days. With multi-core processors and gigabytes of RAM, they can undertake relatively complex computations without a hassle. Due to this advancement, they consume a larger amount of energy and hence, their batteries, despite becoming larger, drain quickly with usage. Moreover, mobile data (network bandwidth) is still limited and expensive. Due to these requirements, it’s better to offload mobile computations from mobile systems when possible. RPC plays an important role in the communication for this <em>computation offloading</em>. Some of these services use Grid RPC technologies to offload this computation. Whereas, other technologies use an RMI (Remote Method Invocation) system for this.</p>
+
+<p>The Ibis Project <a href="http://dist-prog-book.com/chapter/1/rpc.html#ibis">(Ibis, n.d.)</a> builds an RMI (similar to JavaRMI) and GMI (Group Method Invocation) model to facilitate outsourcing computation. Cuckoo <a href="http://dist-prog-book.com/chapter/1/rpc.html#cuckoo">(Zhou, Zhang, Ye, &amp; Du, 2016)</a> uses this Ibis communication middleware to offload computation from applications (built using Cuckoo) running on Android smartphones to remote Cuckoo servers.</p>
+
+<p>The Microsoft’s MAUI Project <a href="http://dist-prog-book.com/chapter/1/rpc.html#maui">(Cuervo et al., 2010)</a> uses RPC communication and allows partitioning of .NET applications and “fine-grained code offload to maximize energy savings with minimal burden on the programmer”. MAUI decides the methods to offload to the external MAUI server at runtime.</p>
+
+<h4 id="async-rpc-futures-and-promises">Async RPC, Futures and Promises</h4>
+
+<p>Remote Procedure Calls can be asynchronous. Not only that but these async RPCs play in integral role in the <em>futures</em> and <em>promises</em>. <em>Futures</em> and <em>promises</em> are programming constructs that where a <em>future</em> is seen as variable/data/return type/error while a <em>promise</em> is seen as a <em>future</em> that doesn’t have a value, yet. We follow Finagle’s <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a> definition of <em>futures</em> and <em>promises</em>, where the <em>promise</em> of a <em>future</em> (an empty <em>future</em>) is considered as a <em>request</em> while the async fulfillment of this <em>promise</em> by a <em>future</em> is seen as the <em>response</em>. This construct is primarily used for asynchronous programming.</p>
+
+<p>Perhaps the most renowned systems using this type of RPC model are Twitter’s Finagle <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a> and Cap’n Proto <a href="http://dist-prog-book.com/chapter/1/rpc.html#capnprotosecure">(Kenton, n.d.)</a>.</p>
+
+<h4 id="rpc-in-microservices-ecosystem">RPC in Microservices Ecosystem</h4>
+
+<p>RPC implementations have moved from a one-server model to multiple servers and on to dynamically-created, load-balanced microservices. RPC started as separate implementations of REST, Streaming RPC, MAUI, gRPC, Cap’n Proto, and has now made it possible for integration of all these implementations as a single abstraction as a user <em>endpoint</em>. The endpoints are the building blocks of <em>microservices</em>. A <em>microservice</em> is usually <em>service</em> with a very simple, well-defined purpose, written in almost any language that interacts with other microservices to give the feel of one large monolithic <em>service</em>. These microservices are language-agnostic. One <em>microservice</em> for airline tickets written in C/C++, might be communicating with a number of other microservices for individual airlines written in different languages (Python, C++, Java, Node.js) using a language-agnostic, asynchronous, RPC framework like gRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpc">(Google, n.d.)</a> or Thrift <a href="http://dist-prog-book.com/chapter/1/rpc.html#thrift">(Prunicki, 2009)</a>.</p>
+
+<p>The use of RPC has allowed us to create new microservices on-the-fly. The microservices can not only created and bootstrapped at runtime but also have inherent features like load-balancing and failure-recovery. This bootstrapping might occur on the same machine, adding to a Docker container <a href="http://dist-prog-book.com/chapter/1/rpc.html#docker">(Merkel, 2014)</a>, or across a network (using any combination of DNS, NATs or other mechanisms).</p>
+
+<p>RPC can be defined as the “glue” that holds all the microservices together <a href="http://dist-prog-book.com/chapter/1/rpc.html#microservices1rpc">(Mueller, 2015)</a>. This means that RPC is one of the primary communication mechanism between different microservices running on different systems. A microservice requests another microservice to perform an operation/query. The other microservice, upon receiving such request, performs an operation and returns a response. This operation could vary from a simple computation to invoking another microservice creating a series of RPC events to creating new microservices on the fly to dynamically load balance the microservices system.  These microservices are language-agnostic. One <em>microservice</em> could be written in C/C++, another one could be in different languages (Python, C++, Java, Node.js) and they all might be communicating with each other using a language-agnostic, asynchronous, performant RPC framework like gRPC <a href="http://dist-prog-book.com/chapter/1/rpc.html#grpc">(Google, n.d.)</a> or Thrift <a href="http://dist-prog-book.com/chapter/1/rpc.html#thrift">(Prunicki, 2009)</a>.</p>
+
+<p>An example of a microservices ecosystem that uses futures/promises is Finagle <a href="http://dist-prog-book.com/chapter/1/rpc.html#finagle">(Eriksen, 2013)</a> at Twitter.</p>
+
+<h2 id="security-in-rpc">Security in RPC</h2>
+
+<p>The initial RPC implementation <a href="http://dist-prog-book.com/chapter/1/rpc.html#implementingrpc">(Birrell &amp; Nelson, 1984)</a> was developed for an isolated LAN network and didn’t focus much on security. There’re various attack surfaces in that model, from the malicious registry to a malicious server, to a client targeting for Denial-of-Service to Man-in-the-Middle attack between client and server.</p>
+
+<p>As time progressed and internet evolved, new standards came along, and RPC implementations became much more secure. Security, in RPC, is generally added as a <em>module</em> or a <em>package</em>. These modules have libraries for authentication and authorization of the communication services (caller and callee). These modules are not always bug-free and it’s possible to gain unauthorized access to the system. Efforts are being made to rectify these situations by the security in general, using code inspection and bug bounty programs to catch these bugs beforehand. However, with time new bugs arise and this cycle continues. It’s a vicious cycle between attackers and security experts, both of whom tries to outdo their opponent.</p>
+
+<p>For example, the Oracle Network File System uses <em>Secure RPC</em> <a href="http://dist-prog-book.com/chapter/1/rpc.html#oraclenfs">(Oracle, n.d.)</a> to perform authentication in the NFS. This <em>Secure RPC</em> uses a Diffie-Hellman authentication mechanism with DES encryption to allow only authorized users to access the NFS. Similarly, Cap’n Proto <a href="http://dist-prog-book.com/chapter/1/rpc.html#capnprotosecure">(Kenton, n.d.)</a> claims that it is resilient to memory leaks, segfaults, and malicious inputs and can be used between mutually untrusting parties. However, in Cap’n Proto “the RPC layer is not robust against resource exhaustion attacks, possibly allowing denials of service”, nor has it undergone any formal verification <a href="http://dist-prog-book.com/chapter/1/rpc.html#capnprotosecure">(Kenton, n.d.)</a>.</p>
+
+<p>Although, it’s possible to come up with a <em>Threat Model</em> that would make an RPC implementation insecure to use, one has to understand that using any distributed system increases the attack surface anyways and claiming one <em>paradigm</em> to be more secure than another would be a biased statement, since <em>paradigms</em> are generally an idea and it depends on different system designers to use these <em>paradigms</em> to build their systems and take care of features specific to real systems, like security and load-balancing. There’s always a possibility of rerouting a request to a malicious server (if the registry gets hacked), or there’s no trust between the <em>caller</em> and <em>callee</em>. However, we maintain that RPC <em>paradigm</em> is not secure or insecure (for that matter), and that the most secure systems are the ones that are in an isolated environment, disconnected from the public internet with a self-destruct mechanism <a href="http://dist-prog-book.com/chapter/1/rpc.html#selfdest">(Sarma, Weis, &amp; Engels, 2002)</a> in place, in an impenetrable bunker, and guarded by the Knights Templar (<em>they don’t exist! Well, maybe Fort Meade comes close</em>).</p>
+
+<h2 id="discussion">Discussion</h2>
+
+<p>The RPC <em>paradigm</em> shines the most in <em>request-response</em> mechanisms. Futures and Promises also appear to a new breed of RPC. This leads one to question, as to whether every <em>request-response</em> system is a modified implementation to of the RPC <em>paradigm</em>, or does it actually bring anything new to the table? These modern communication protocols, like HTTP and REST, might just be a different flavor of RPC. In HTTP, a client <em>requests</em> a web page (or some other content), the server then <em>responds</em> with the required content. The dynamics of this communication might be slightly different from your traditional RPC, however, an HTTP Stateless server adheres to most of the concepts behind the RPC <em>paradigm</em>. Similarly, consider sending a request to your favorite Google API. Say, you want to translate your latitude/longitude to an address using their Reverse Geocoding API, or maybe want to find out a good restaurant in your vicinity using their Places API, you’ll send a <em>request</em> to their server to perform a <em>procedure</em> that would take a few input arguments, like the coordinates, and return the result. Even though these APIs follow a RESTful design, it appears to be an extension to the RPC <em>paradigm</em>.</p>
+
+<p>The RPC paradigm has evolved over time. It has evolved to the extent that, currently, it’s become very difficult differentiate RPC from non-RPC. With each passing year, the restrictions and limitations of RPC evolve. Current RPC implementations even have the support for the server to <em>request</em> information from the client to <em>respond</em> to these requests and vice versa (bidirectionality). This <em>bidirectional</em> nature of RPCs have transitioned RPC from simple <em>client-server</em> model to a set of <em>endpoints</em> communicating with each other.</p>
+
+<p>For the past four decades, researchers and industry leaders have tried to come up with <em>their</em> definition of RPC. The proponents of RPC paradigm view every <em>request-response</em> communication as an implementation the RPC paradigm while those against RPC try to explicitly enumerate the limitations of RPC. These limitations, however, seem to slowly vanish as new RPC models are introduced with time. RPC supporters consider it as the Holy Grail of distributed systems. They view it as the foundation of modern distributed communication. From Apache Thrift and ONC to HTTP and REST, they advocate it all as RPC while REST developers have strong opinions against RPC.</p>
+
+<p>Moreover, with modern global storage mechanisms, the need for RPC systems to have a separate <em>address space</em> seems to be slowly dissolving and disappearing into thin air. So, the question remains what <em>is</em> RPC and what <em>is not</em> RPC? This is an open-ended question. There is no unanimous agreement about what RPC should look like, except that it has communication between two <em>endpoints</em>. What we think of RPC is:</p>
+
+<p><em>In the world of distributed systems, where every individual component of a system, be it a hard disk, a multi-core processor, or a microservice, is an extension of the RPC, it’s difficult to come with a concrete definition of the RPC paradigm. Therefore, anything loosely associated with a request-response mechanism can be considered as RPC.</em></p>
+
+<blockquote>
+<p align="center">
+<em>**RPC is not dead, long live RPC!**</em>
+</p>
+</blockquote>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="sunnfs">Sandberg, R., Goldberg, D., Kleiman, S., Walsh, D., &amp; Lyon, B. (1985). Design and implementation of the Sun network filesystem. In <i>Proceedings of the Summer USENIX conference</i> (pp. 119–130).</span></li>
+<li><span id="rpcoverrdma">Kalia, A., Kaminsky, M., &amp; Andersen, D. G. FaSST: Fast, Scalable and Simple Distributed Transactions with Two-Sided (RDMA) Datagram RPCs. In <i>12th USENIX Symposium on Operating Systems Design and Implementation (OSDI 16)</i> (pp. 185–201). USENIX Association.</span></li>
+<li><span id="finagle">Eriksen, M. (2013). Your server as a function. In <i>Proceedings of the Seventh Workshop on Programming Languages and Operating Systems</i> (p. 5). ACM.</span></li>
+<li><span id="thrift">Prunicki, A. (2009). Apache Thrift.</span></li>
+<li><span id="rmipaper">Wollrath, A., Riggs, R., &amp; Waldo, J. (1996). A Distributed Object Model for the Java\^ T\^ M System.</span></li>
+<li><span id="corba">Group, O. M. (1991). The Common Object Request Broker: Architecture and Specification. <i>OMG Document Number 91.12.1</i>.</span></li>
+<li><span id="grpc">Google. gRPC. Retrieved from http://www.grpc.io/</span></li>
+<li><span id="anycastrpc">Bergstrom, E., &amp; Pandey, R. (2007). Anycast-RPC for Wireless Sensor Networks. In <i>2007 IEEE International Conference on Mobile Adhoc and Sensor Systems</i> (pp. 1–8). IEEE.</span></li>
+<li><span id="rpcimage">Taing, N. Remote Procedure Call (RPC). Retrieved from http://lycog.com/distributed-systems/remote-procedure-call/</span></li>
+<li><span id="stubrpc">Rouse, M. stub. WhatIs. Retrieved from http://whatis.techtarget.com/definition/stub</span></li>
+<li><span id="implementingrpc">Birrell, A. D., &amp; Nelson, B. J. (1984). Implementing remote procedure calls. <i>ACM Transactions on Computer Systems (TOCS)</i>, <i>2</i>(1), 39–59.</span></li>
+<li><span id="grpcpersec">Mandel, M. Scalable Realtime Microservices with Kubernetes and gRPC. YouTube. Retrieved from https://www.youtube.com/watch?v=xb8u2s7cxzg&amp;t=486s</span></li>
+<li><span id="usgdp">InsideGov. 2016 United States Budget Estimate. InsideGov. Retrieved from http://federal-budget.insidegov.com/l/119/2016-Estimate</span></li>
+<li><span id="rfc674">Postel, J., &amp; White, J. E. (1974). <i>RFC 674: Procedure call documents: Version 2</i>.</span></li>
+<li><span id="rfc707">White, J. E. (1975). RFC 707: A high-level framework for network-based resource sharing. December.</span></li>
+<li><span id="critiqueofrpc">Tanenbaum, A. S., &amp; van Renesse, R. (1987). <i>A critique of the remote procedure call paradigm</i>.</span></li>
+<li><span id="notedistributed">Waldo, J., Wyant, G., Wollrath, A., &amp; Kendall, S. (1997). A note on distributed computing. In <i>Mobile Object Systems Towards the Programmable Internet</i> (pp. 49–64). Springer.</span></li>
+<li><span id="norman">Norman, S. (2015). Communication Fundamentals. SlideShare. Retrieved from http://slideplayer.com/slide/8555756/</span></li>
+<li><span id="dewan">Dewan, P. (2006). Synchronous vs Asynchronous. UNC. Retrieved from http://www.cs.unc.edu/&nbsp;dewan/242/s07/notes/ipc/node9.html</span></li>
+<li><span id="async">Asynchronous RPC. (2006). Microsoft. Retrieved from https://msdn.microsoft.com/en-us/library/windows/desktop/aa373550(v=vs.85).aspx</span></li>
+<li><span id="maui">Cuervo, E., Balasubramanian, A., Cho, D.-ki, Wolman, A., Saroiu, S., Chandra, R., &amp; Bahl, P. (2010). MAUI: making smartphones last longer with code offload. In <i>Proceedings of the 8th international conference on Mobile systems, applications, and services</i> (pp. 49–62). ACM.</span></li>
+<li><span id="capnprotosecure">Kenton. Is Cap’n Proto Secure? Retrieved from https://capnproto.org/faq.html#is-capn-proto-secure</span></li>
+<li><span id="rmibook">Pitt, E., &amp; McNiff, K. (2001). <i>Java. rmi: The Remote Method Invocation Guide</i>. Addison-Wesley Longman Publishing Co., Inc.</span></li>
+<li><span id="roi">Setia, S. Remote Object Invocation. QMU. Retrieved from https://cs.gmu.edu/&nbsp;setia/cs707/slides/rmi-imp.pdf</span></li>
+<li><span id="corbasite">CORBA. CORBA-OMG. Retrieved from http://www.corba.org/</span></li>
+<li><span id="Wiener">Weiner, D. (1999). XML-RPC. QMU. Retrieved from http://xmlrpc.scripting.com/spec.html</span></li>
+<li><span id="soaparticle1">Ferguson, D. Exclusive .NET Developer’s Journal "Indigo" Interview with Microsoft’s Don Box. Retrieved from http://dotnet.sys-con.com/node/45908</span></li>
+<li><span id="soapvsxml">Jones, M. (2014). XML-RPC. Quora. Retrieved from https://www.quora.com/What-is-the-difference-between-xml-rpc-and-soap</span></li>
+<li><span id="thrifttut">Maheshwar, C. (2013). Apache THRIFT: A Much Needed Tutorial. Digital Madness. Retrieved from http://digital-madness.in/blog/wp-content/uploads/2012/11/BSD_08_2013.8-18.pdf</span></li>
+<li><span id="finagletut">Twitter. (2016). Finagle-Quickstart. Twitter. Retrieved from https://twitter.github.io/finagle/guide/Quickstart.html</span></li>
+<li><span id="rfc1831">Srinivasan, R. (1995). <i>RFC 1831: RPC: Remote Procedure Call Protocol Specification Version 2</i>.</span></li>
+<li><span id="rfc5531">Thurlow, R. (2009). <i>RFC 5531: RPC: Remote Procedure Call Protocol Specification Version 2</i>.</span></li>
+<li><span id="Apigee">Surtani, M., &amp; Ho, A. gRPC: The Story of Microservices at Square. Retrieved from https://www.youtube.com/watch?v=-2sWDr3Z0Wo</span></li>
+<li><span id="grpcchapter">Grosu, P., Abdul Rehman, M., Anderson, E., Pai, V., &amp; Miller, H. gRPC. <i>Programming Models for Distributed Computation</i>. Github. Retrieved from http://dist-prog-book.com/chapter/1/gRPC.html</span></li>
+<li><span id="CoreSurfaceAPIs">Google. gRPC core APIs. Retrieved from https://github.com/grpc/grpc/tree/master/src/core</span></li>
+<li><span id="gRPCCompanies">Google. About gRPC. Retrieved from http://www.grpc.io/about/</span></li>
+<li><span id="gRPCProtos">Google. Google APIs. Retrieved from https://github.com/googleapis/googleapis/</span></li>
+<li><span id="trendrpcthrift">Trends, G. Remote Procedure Call (RPC). Retrieved from https://www.google.com/trends/explore?cat=31&amp;date=today%2012-m&amp;q=apache%20thrift,grpc&amp;hl=en-US</span></li>
+<li><span id="gRPCLanguages">Google. gRPC Documentation. Retrieved from http://www.grpc.io/docs/</span></li>
+<li><span id="grpcbetter">Google. GRPC Authentication. Quora. Retrieved from https://www.quora.com/Is-GRPC-better-than-Thrift</span></li>
+<li><span id="grpcauth">Google. GRPC Authentication. Retrieved from http://www.grpc.io/docs/guides/auth.html</span></li>
+<li><span id="multiplexingthrift">Yu, L. Added service multiplexing support. Github. Retrieved from https://github.com/eleme/thriftpy/pull/88/commits/0877531f9246ca993c1d9af5d29cd009ee6ec7d4</span></li>
+<li><span id="interweave2">Chen, D. Q., Dwarkadas, S., Parthasarathy, S., Pinheiro, E., &amp; Scott, M. L. (2000). Interweave: A middleware system for distributed shared state. In <i>International Workshop on Languages, Compilers, and Run-Time Systems for Scalable Computers</i> (pp. 207–220). Springer.</span></li>
+<li><span id="interweave1">Tang, C., Chen, D. Q., Dwarkadas, S., &amp; Scott, M. L. (2004). Integrating remote invocation and distributed shared state. In <i>Parallel and Distributed Processing Symposium, 2004. Proceedings. 18th International</i> (p. 30). IEEE.</span></li>
+<li><span id="interweave3">Chen, D. Q., Tang, C., Chen, X., Dwarkadas, S., &amp; Scott, M. L. (2002). Multi-level shared state for distributed systems. In <i>Parallel Processing, 2002. Proceedings. International Conference on</i> (pp. 131–140). IEEE.</span></li>
+<li><span id="grid1">Caniou, Y., Caron, E., Desprez, F., Nakada, H., Tanaka, Y., &amp; Seymour, K. (2008). High performance GridRPC middleware. <i>Recent Developments in Grid Technology and Applications, Nova Science Publishers</i>, 141–181.</span></li>
+<li><span id="gridsolve1">YarKhan, A., Dongarra, J., &amp; Seymour, K. (2007). Gridsolve: The evolution of a network enabled solver. In <i>Grid-Based Problem Solving Environments</i> (pp. 215–224). Springer.</span></li>
+<li><span id="gridsolve2">Hardt, M., Seymour, K., Dongarra, J., Zapf, M., &amp; Ruitter, N. V. (2012). Interactive Grid-access using Gridsolve and giggle. <i>Computing and Informatics</i>, <i>27</i>(2), 233–248.</span></li>
+<li><span id="ninf">Tanaka, Y., Nakada, H., Sekiguchi, S., Suzumura, T., &amp; Matsuoka, S. (2003). Ninf-G: A reference implementation of RPC-based programming middleware for Grid computing. <i>Journal of Grid Computing</i>, <i>1</i>(1), 41–51.</span></li>
+<li><span id="ibis">Ibis. Ibis Communication middleware. Retrieved from https://www.cs.vu.nl/ibis/rmi.html</span></li>
+<li><span id="cuckoo">Zhou, Z., Zhang, H., Ye, L., &amp; Du, X. (2016). Cuckoo: flexible compute-intensive task offloading in mobile cloud computing. <i>Wireless Communications and Mobile Computing</i>.</span></li>
+<li><span id="docker">Merkel, D. (2014). Docker: lightweight linux containers for consistent development and deployment. <i>Linux Journal</i>, <i>2014</i>(239), 2.</span></li>
+<li><span id="microservices1rpc">Mueller, J. (2015). Delving Into the Microservices Architecture. Retrieved from http://blog.smartbear.com/microservices/delving-into-the-microservices-architecture/</span></li>
+<li><span id="oraclenfs">Oracle. Overview of Secure RPC. Retrieved from https://docs.oracle.com/cd/E23823_01/html/816-4557/auth-2.html</span></li>
+<li><span id="selfdest">Sarma, S. E., Weis, S. A., &amp; Engels, D. W. (2002). RFID systems and security and privacy implications. In <i>International Workshop on Cryptographic Hardware and Embedded Systems</i> (pp. 454–469). Springer.</span></li></ol>
+
+
+<!-- </article> -->
+
+      </div>
+      <div class="col-sm-3">
+        <nav id="toc" class="hidden-print hidden-xs" data-spy="affix" data-toggle="toc"><div class="toc-header" data-spy="affix"><span class="toc-contents">Contents</span></div><span class="toc-hide">Hide</span><span class="toc-expand">Expand</span></nav>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        <div class="footer-links">
+          
+          
+          
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+
+  <script>
+
+      $( ".toc-hide" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+        $(".toc-contents").toggleClass( "lighter" );
+
+        if ($(this).text() == 'Hide') {
+          $(this).text("Show");
+        } else {
+          $(this).text("Hide");
+        }
+        // toggle visibility of contents, and expand button
+        $(".nav").toggle();
+        $(".toc-expand").toggle();
+      });
+
+      $( ".toc-expand" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+
+        if ($(this).text() == 'Expand') {
+          $(this).text("Compact");
+          $(".nav").css('display', 'block');
+        } else {
+          $(this).text("Expand");
+          $(".nav .nav").css('display', 'none');
+        }
+      });
+
+      // get current year and put it in span
+      var currYear = new Date().getFullYear()
+      $(".current-year").text(currYear);
+  </script>
+
+
+
+
+</body></html>

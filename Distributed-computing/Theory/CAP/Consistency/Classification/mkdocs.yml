@@ -1,0 +1,7 @@
+nav:
+    - Strong-consistency: Strong-consistency
+    - Linearizability: Linearizability
+    - TODO-Sequential-consistency-VS-linearizability: TODO-Sequential-consistency-VS-linearizability.md    
+    - Sequential-consistency: Sequential-consistency
+    
+    - Weak-consistency: Weak-consistency

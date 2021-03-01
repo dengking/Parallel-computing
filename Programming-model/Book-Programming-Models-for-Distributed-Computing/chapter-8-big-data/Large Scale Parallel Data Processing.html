@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://dist-prog-book.com/chapter/8/big-data.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Large Scale Parallel Data Processing</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <!-- jquery js -->
+  <script src="./Large Scale Parallel Data Processing_files/jquery-1.11.0.min.js.下载" type="text/javascript"></script>
+
+  <!-- retina js -->
+  <script src="./Large Scale Parallel Data Processing_files/retina.js.下载" type="text/javascript"></script>
+
+  <!-- Bootstrap JS and CSS -->
+  <!-- <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" media="screen, print"/> -->
+  <link rel="stylesheet" href="./Large Scale Parallel Data Processing_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.css">
+  <script src="./Large Scale Parallel Data Processing_files/bootstrap.min.js.下载" type="text/javascript"></script>
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.js"></script>
+
+  <link rel="stylesheet" href="./Large Scale Parallel Data Processing_files/fira.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:100,700i,900" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800,600,700,400" rel="stylesheet" type="text/css">
+
+  <!-- MathJax -->
+  <script src="./Large Scale Parallel Data Processing_files/MathJax.js.下载" id=""></script>
+
+  <!-- <link rel="stylesheet" href="/resources/css/tufte.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/custom.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/github.css"/> -->
+
+  <link rel="stylesheet" href="./Large Scale Parallel Data Processing_files/latex.css">
+  <link rel="stylesheet" href="./Large Scale Parallel Data Processing_files/entypo.css" type="text/css">
+  <link rel="stylesheet" href="./Large Scale Parallel Data Processing_files/prettify.css" type="text/css">
+  <!-- <link rel="stylesheet" href="/resources/css/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="./Large Scale Parallel Data Processing_files/blog.css" type="text/css">
+
+  <!-- Custom javascript -->
+  <script src="./Large Scale Parallel Data Processing_files/main.js.下载" type="text/javascript"></script>
+
+  <!-- <link rel="canonical" href="http://yourdomain.com/chapter/8/big-data.html"> -->
+  <link rel="alternate" type="application/rss+xml" title="Programming Models for Distributed Computing" href="http://yourdomain.com/feed.xml">
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax_LineBox {display: table!important}
+.MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.1') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body data-spy="scroll" data-target="#toc"><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <div class="logo-wrap">
+            <a href="http://dist-prog-book.com/">
+              <svg class="logo" width="100" height="100">
+                <circle cx="50" cy="50" r="35" stroke-width="6" stroke="#fff" fill="#b3c7cf"></circle>
+                <circle cx="50" cy="50" r="20" fill="#92adb9"></circle>
+                <circle cx="50" cy="50" r="14" fill="#7499AA"></circle>
+              </svg>
+              <div class="book-title">
+                <div class="prog-mod">Programming Models for</div>
+                <div class="dist-comp">Distributed Computing</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-md visible-lg">
+          <div class="navbar-wrap">
+            <ul class="navbar">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-sm visible-xs">
+          <div id="burger" data-toggle="collapse" data-target="#navbar-responsive-wrap">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="navbar-responsive-wrap navbar-static-top navbar-collapse collapse" id="navbar-responsive-wrap">
+            <ul class="navbar-responsive">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container blog">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        
+        <div class="category"></div>
+        <h1 class="page-title">Large Scale Parallel Data Processing</h1>
+        <div class="author">By Jingjing and Abhilash Mysore Somashekar</div>
+        <div class="subtitle">
+          
+            <span class="minutes">(67 min read)</span>
+          
+        </div>
+        <div class="dash">—</div>
+        <!-- <article> -->
+
+  <!-- <h1 class="post-title">Large Scale Parallel Data Processing</h1> -->
+  <!-- <div class="author">By Jingjing and Abhilash Mysore Somashekar</div> -->
+
+    <h2 id="introduction">Introduction</h2>
+
+<p>The growth of Internet has generated so-called big data (terabytes or petabytes). It is not possible to fit this data onto a single machine or process it with one single program in a reasonable timeframe. Often the computation has to be done fast enough to provide practical services. A common approach taken by tech giants like Google, Yahoo, Facebook is to process big data across clusters of commodity machines. Many of the computations are conceptually straightforward, and Google proposed the MapReduce framework, which separates the programming logic and underlying execution details (data distribution, fault tolerance, and scheduling). The model has been proved to be simple and powerful, and from then on, the idea inspired many other programming models.</p>
+
+<p>This chapter covers the original idea of MapReduce framework, split into two sections: the programming model and the execution model. For each section, we first introduce the original design for MapReduce and its limitations. Then we present follow-up models (e.g. FlumeJava) to either work around these limitations or other models (e.g. Dryad, Spark) which take alternative designs to circumvent inabilities of MapReduce. We also review declarative programming interfaces (Pig, Hive, and SparkSQL) built on top of MapReduce frameworks to provide programming efficiency and optimization benefits. In the last section, we briefly outline the ecosystem of Hadoop and Spark.</p>
+
+<p>Outline</p>
+<ol>
+  <li>Programming Models
+    <ul>
+      <li>1.1 Data parallelism: MapReduce, FlumeJava, Dryad, Spark</li>
+      <li>1.2 Querying: Hive/HiveQL, Pig Latin, SparkSQL</li>
+      <li>1.3 Large-scale parallelism on Graph: BSP, GraphX</li>
+    </ul>
+  </li>
+  <li>Execution Models
+    <ul>
+      <li>2.1 MapReduce execution model</li>
+      <li>2.2 Spark execution model</li>
+      <li>2.3 Hive execution model</li>
+      <li>2.4 SparkSQL execution model</li>
+    </ul>
+  </li>
+  <li>Big Data Ecosystem:
+    <ul>
+      <li>3.1 Hadoop ecosystem</li>
+      <li>3.2 Spark ecosystem</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="programming-models">Programming Models</h2>
+
+<h3 id="data-parallelism">Data parallelism</h3>
+
+<p><em>Data parallelism</em> is, given a dataset, the simultaneous execution on multiple machines or threads of the same function across groups of elements of a dataset. Data parallelism can also be thought of as a subset of SIMD (“single instruction, multiple data”) execution, a class of parallel execution in Flynn’s taxonomy. Comparably, one could think a sequential computation as <em>“for all elements in the dataset, do operation A”</em> on a single big dataset, whose size can reach to terabytes or petabytes. The challenges to doing this sequential computation in a parallelized manner include how to abstract the different types of computations in a simple and correct way, how to distribute the data to hundreds/thousands of machines or clusters, and how to schedule tasks and handle failures.</p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/data-parallelism.png" alt="Data Parallelism">
+</figure>
+
+<p><strong>MapReduce</strong> <a href="http://dist-prog-book.com/chapter/8/big-data.html#dean2008mapreduce">(Dean &amp; Ghemawat, 2008)</a> is a programming model proposed by Google to initially satisfy their demand of large-scale indexing for web search service. It provides a simple user program interface: <em>map</em> and <em>reduce</em> functions and automatically handles the parallelization and distribution. The underlying execution systems can provide fault tolerance and scheduling.</p>
+
+<p>The MapReduce model is simple and powerful and quickly becomes very popular among developers. However, when developers start writing real-world applications, they often end up writing many pieces of boilerplate code and chaining together these stages. Moreover, The pipeline of MapReduce forces them to write additional coordinating codes, i.e., the development style goes backward from simple logic computation abstraction to lower-level coordination management. As we will discuss in <em>section 2 execution model</em>, MapReduce writes all data into disk after each stage, which causes severe delays. Programmers need to do manual optimizations for targeted performance, and this again requires them to understand the underlying execution model. The whole process soon becomes cumbersome. The <strong>FlumeJava</strong> <a href="http://dist-prog-book.com/chapter/8/big-data.html#chambers2010flumejava">(Chambers et al., 2010)</a> library intends to provide support for developing data-parallel pipelines by abstracting away the complexity involved in data representation and implicitly handling the optimizations. It defers the evaluation, constructs an execution plan from parallel collections, optimizes the plan, and then executes underlying MR primitives. The optimized execution is comparable with hand-optimized pipelines, thus there is no much need to write raw MR programs directly.</p>
+
+<p>After MapReduce, Microsoft proposed their counterpart data parallelism model, <strong>Dryad</strong> <a href="http://dist-prog-book.com/chapter/8/big-data.html#isard2007dryad">(Isard, Budiu, Yu, Birrell, &amp; Fetterly, 2007)</a>, which abstracts individual computational tasks as vertices, and constructs a communication graph between those vertices. What programmers need to do is to describe this DAG and let the Dryad execution engine construct the execution plan and manage scheduling and optimization. One of the advantages of Dryad over MapReduce is that Dryad vertices can process an arbitrary number of inputs and outputs, while MR only supports a single input and a single output for each vertex. Besides the flexibility of computations, Dryad also supports different types of communication channel: file, TCP pipe, and shared-memory FIFO. The programming model is less elegant than MapReduce, as programmers are not meant to interact with it directly. Instead, they are expected to use the high-level programming interface DryadLinq <a href="http://dist-prog-book.com/chapter/8/big-data.html#yu2008dryadlinq">(Yu et al., 2008)</a>, which is more expressive and better embedded within the .NET framework. We can see some examples later in the section devote to Dryad.</p>
+
+<p>Dryad expresses computation as acyclic data flows, which might be too expensive for some complex applications e.g. iterative machine learning algorithms. <strong>Spark</strong> <a href="http://dist-prog-book.com/chapter/8/big-data.html#zaharia2010spark">(Zaharia, Chowdhury, Franklin, Shenker, &amp; Stoica, 2010)</a> is a framework that uses functional programming and pipelining to provide such support. Spark is largely inspired by MapReduce’s model and builds upon the ideas behind using DAGs and lazy evaluation found in DryadLinq. Instead of writing data to disk for each job as MapReduce does Spark can cache the results across jobs. Spark explicitly caches computational data in memory through specialized immutable data structure named Resilient Distributed Sets (RDD) and reuse the same dataset across multiple parallel operations. The Spark builds upon RDDs to achieve fault tolerance by reusing the lineage information of the lost RDD. This results in less overhead than what is seen in fault tolerance achieved by using checkpoints in Distributed Shared Memory systems. Moreover, Spark is the underlying framework upon which many very different systems are built e.g. Spark SQL &amp; DataFrames, GraphX, Streaming Spark, which makes it easy to mix and match the use of these systems all in the same application. These features make Spark the best fit for iterative jobs and interactive analytics and also help it to provide better performance.</p>
+
+<p>The following four sections discuss the programming models of MapReduce, FlumeJava, Dryad, and Spark.</p>
+
+<h4 id="mapreduce">MapReduce</h4>
+<p>In this model, parallelizable computations are abstracted into map and reduce functions. The computation accepts a set of key/value pairs as input and produces a set of key/value pairs as output. The process involves two phases:</p>
+<ul>
+  <li><strong>Map</strong>, written by the user, accepts a set of key/value pairs (a “record”) as input, applies <em>map</em> operation on each record, and computes a set of intermediate key/value pairs as output.</li>
+  <li><strong>Reduce</strong>, also written by the user, accepts an intermediate key and a set of values associated with that key, operates on them, and produces zero or one output value.</li>
+</ul>
+
+<p>Note: there is also a <em>Shuffle</em> phase between <em>Map</em> and <em>Reduce</em>, provided by MapReduce library, which groups all the intermediate values of the same key together and passes them to the <em>Reduce</em> function. This is discussed more in the section on Execution Models.</p>
+
+<p>Conceptually, the map and reduce functions have associated <strong>types</strong>:</p>
+
+<p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x2192;&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" style="width: 13.835em; display: inline-block;"><span style="display: inline-block; position: relative; width: 11.324em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1011.22em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-2"><span class="mi" id="MathJax-Span-3" style="font-family: MathJax_Math-italic;">m</span><span class="mi" id="MathJax-Span-4" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-5" style="font-family: MathJax_Math-italic;">p</span><span class="mo" id="MathJax-Span-6" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-7" style="font-family: MathJax_Math-italic;">k</span><span class="mn" id="MathJax-Span-8" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-9" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-10" style="font-family: MathJax_Math-italic; padding-left: 0.156em;">v</span><span class="mn" id="MathJax-Span-11" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-12" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-13" style="font-family: MathJax_Main; padding-left: 0.259em;">→</span><span class="mi" id="MathJax-Span-14" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">l</span><span class="mi" id="MathJax-Span-15" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-16" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-17" style="font-family: MathJax_Math-italic;">t</span><span class="mo" id="MathJax-Span-18" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-19" style="font-family: MathJax_Math-italic;">k</span><span class="mn" id="MathJax-Span-20" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-21" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-22" style="font-family: MathJax_Math-italic; padding-left: 0.156em;">v</span><span class="mn" id="MathJax-Span-23" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-24" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>m</mi><mi>a</mi><mi>p</mi><mo stretchy="false">(</mo><mi>k</mi><mn>1</mn><mo>,</mo><mi>v</mi><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">→</mo><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo stretchy="false">(</mo><mi>k</mi><mn>2</mn><mo>,</mo><mi>v</mi><mn>2</mn><mo stretchy="false">)</mo></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-1">map (k1,v1) \rightarrow  list(k2,v2)</script></p>
+
+<p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><div class="MathJax_Display" style="text-align: center;"><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" style="text-align: center; position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x2192;&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;v&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-25" style="width: 16.037em; display: inline-block;"><span style="display: inline-block; position: relative; width: 13.117em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1013.01em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-26"><span class="mi" id="MathJax-Span-27" style="font-family: MathJax_Math-italic;">r</span><span class="mi" id="MathJax-Span-28" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-29" style="font-family: MathJax_Math-italic;">d<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-30" style="font-family: MathJax_Math-italic;">u</span><span class="mi" id="MathJax-Span-31" style="font-family: MathJax_Math-italic;">c</span><span class="mi" id="MathJax-Span-32" style="font-family: MathJax_Math-italic;">e</span><span class="mo" id="MathJax-Span-33" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-34" style="font-family: MathJax_Math-italic;">k</span><span class="mn" id="MathJax-Span-35" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-36" style="font-family: MathJax_Main;">,</span><span class="mi" id="MathJax-Span-37" style="font-family: MathJax_Math-italic; padding-left: 0.156em;">l</span><span class="mi" id="MathJax-Span-38" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-39" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-40" style="font-family: MathJax_Math-italic;">t</span><span class="mo" id="MathJax-Span-41" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-42" style="font-family: MathJax_Math-italic;">v</span><span class="mn" id="MathJax-Span-43" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-44" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-45" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-46" style="font-family: MathJax_Main; padding-left: 0.259em;">→</span><span class="mi" id="MathJax-Span-47" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">l</span><span class="mi" id="MathJax-Span-48" style="font-family: MathJax_Math-italic;">i</span><span class="mi" id="MathJax-Span-49" style="font-family: MathJax_Math-italic;">s</span><span class="mi" id="MathJax-Span-50" style="font-family: MathJax_Math-italic;">t</span><span class="mo" id="MathJax-Span-51" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-52" style="font-family: MathJax_Math-italic;">v</span><span class="mn" id="MathJax-Span-53" style="font-family: MathJax_Main;">2</span><span class="mo" id="MathJax-Span-54" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML MJX_Assistive_MathML_Block" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mi>r</mi><mi>e</mi><mi>d</mi><mi>u</mi><mi>c</mi><mi>e</mi><mo stretchy="false">(</mo><mi>k</mi><mn>2</mn><mo>,</mo><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo stretchy="false">(</mo><mi>v</mi><mn>2</mn><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">→</mo><mi>l</mi><mi>i</mi><mi>s</mi><mi>t</mi><mo stretchy="false">(</mo><mi>v</mi><mn>2</mn><mo stretchy="false">)</mo></math></span></span></div><script type="math/tex; mode=display" id="MathJax-Element-2">reduce (k2,list(v2)) \rightarrow list(v2)</script></p>
+
+<p>The input keys and values are drawn from a different domain than the output keys and values. The intermediate keys and values are from the same domain as the output keys and values.</p>
+
+<p>As an example, we can consider the problem of counting the number of occurrences of each word in a large collection of documents. This could be modeled as a <code class="highlighter-rouge">map</code> function that emits a word plus its count <code class="highlighter-rouge">1</code> and a <code class="highlighter-rouge">reduce</code> function which sums together all the counts emitted for the same word. Pseudocode of the map and reduce phases to solve this problem is given below.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">map(String key, String value):
+  // key: document name
+  // value: document contents
+  for each word in value:
+    EmitIntermediate(word, "1");
+
+reduce(String key, Iterator values):
+  // key: a word
+  // values: a list of counts
+  int result = 0;
+  for each value in values:
+    result += ParseInt(value);
+  Emit(AsString(result));
+</code></pre>
+</div>
+
+<p>During execution, the MapReduce library assigns a master node to manage data partition and scheduling. Other nodes can serve as workers to run either <em>map</em> or <em>reduce</em> operations on demand. More details of the execution model are discussed later. Here, it’s worth mentioning that the intermediate results output by the map phase are written to disk and the reduce operation then reads its input from disk. This is crucial for fault tolerance.</p>
+
+<p><em>Fault Tolerance</em></p>
+
+<p>MapReduce runs on hundreds or thousands of unreliable commodity machines, so the library must provide fault tolerance. The library assumes that master node will not fail, and it monitors worker failures. If no status update is received from a worker on timeout, the master will mark it as failed. Then the master may schedule the associated task to other workers depending on task type and status. The commits of <em>map</em> and <em>reduce</em> task outputs are atomic, where the in-progress task writes data into private temporary files, and then once the task succeeds, it negotiates with the master and renames files to complete the task. In the case of failure, the worker discards those temporary files. This guarantees that if the computation is deterministic, the distributed implementation should produce the same outputs as a failure-free sequential execution.</p>
+
+<p><em>Limitations</em></p>
+
+<p>Many analytics workloads like K-means, logistic regression, graph processing applications like PageRank, and shortest path using parallel breadth-first search require multiple stages of MapReduce jobs. In a regular MapReduce framework like Hadoop, this requires the developer to manually handle the iterations in the driver code. At every iteration, the result of each stage T is written to HDFS and loaded back again at stage T+1 causing a performance bottleneck. The reason for this is waste of network bandwidth, CPU resources, and primarily inherently slow disk I/O operations. In order to address such challenges in iterative workloads on MapReduce, frameworks like Haloop <a href="http://dist-prog-book.com/chapter/8/big-data.html#bu2010haloop">(Bu, Howe, Balazinska, &amp; Ernst, 2010)</a>, Twister <a href="http://dist-prog-book.com/chapter/8/big-data.html#ekanayake2010twister">(Ekanayake et al., 2010)</a>, and iMapReduce <a href="http://dist-prog-book.com/chapter/8/big-data.html#zhang2012imapreduce">(Zhang, Gao, Gao, &amp; Wang, 2012)</a> adopt special techniques like caching the data between iterations and keeping the mapper and reducer alive across the iterations.</p>
+
+<h4 id="flumejava">FlumeJava</h4>
+
+<p>FlumeJava <a href="http://dist-prog-book.com/chapter/8/big-data.html#chambers2010flumejava">(Chambers et al., 2010)</a> was introduced to make it easy to develop, test, and run efficient data-parallel pipelines. FlumeJava represents each dataset as an object and transformation is invoked by applying methods on these objects. It constructs an efficient internal execution plan from a pipeline of MapReduce jobs, uses deferred evaluation and optimizes based on plan structures. The debugging ability allows programmers to run on their local machine first and then deploy their job to large clusters.</p>
+
+<p><em>Core Abstractions</em></p>
+
+<ul>
+  <li><code class="highlighter-rouge">PCollection&lt;T&gt;</code>, a immutable bag of elements of type <code class="highlighter-rouge">T</code>, which can be created from an in-memory Java <code class="highlighter-rouge">Collection&lt;T&gt;</code> or from reading a file with encoding specified by <code class="highlighter-rouge">recordOf</code>.</li>
+  <li><code class="highlighter-rouge">recordOf(...)</code>, specifies the encoding of the instance</li>
+  <li><code class="highlighter-rouge">PTable&lt;K, V&gt;</code>, a subclass of <code class="highlighter-rouge">PCollection&lt;Pair&lt;K,V&gt;&gt;</code>, an immutable multi-map with keys of type <code class="highlighter-rouge">K</code> and values of type <code class="highlighter-rouge">V</code></li>
+  <li><code class="highlighter-rouge">parallelDo()</code>, can express both the map and reduce parts of MapReduce</li>
+  <li><code class="highlighter-rouge">groupByKey()</code>, same as shuffle step of MapReduce</li>
+  <li><code class="highlighter-rouge">combineValues()</code>, semantically a special case of <code class="highlighter-rouge">parallelDo()</code>, a combination of a MapReduce combiner and a MapReduce reducer, which is more efficient than doing all the combining in the reducer.</li>
+  <li><code class="highlighter-rouge">flatten</code>, takes a list of <code class="highlighter-rouge">PCollection&lt;T&gt;</code>s and returns a single <code class="highlighter-rouge">PCollection&lt;T&gt;</code>.</li>
+</ul>
+
+<p>An example implemented using FlumeJava:</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="n">PTable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">wordsWithOnes</span> <span class="o">=</span>
+  <span class="n">words</span><span class="o">.</span><span class="na">parallelDo</span><span class="o">(</span>
+    <span class="k">new</span> <span class="n">DoFn</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Pair</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="o">()</span> <span class="o">{</span>
+      <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="n">String</span> <span class="n">word</span><span class="o">,</span>
+                   <span class="n">EmitFn</span><span class="o">&lt;</span><span class="n">Pair</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">emitFn</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">emitFn</span><span class="o">.</span><span class="na">emit</span><span class="o">(</span><span class="n">Pair</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="mi">1</span><span class="o">));</span>
+      <span class="o">}</span>
+    <span class="o">},</span> <span class="n">tableOf</span><span class="o">(</span><span class="n">strings</span><span class="o">(),</span> <span class="n">ints</span><span class="o">()));</span>
+<span class="n">PTable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Collection</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span>
+  <span class="n">groupedWordsWithOnes</span> <span class="o">=</span> <span class="n">wordsWithOnes</span><span class="o">.</span><span class="na">groupByKey</span><span class="o">();</span>
+<span class="n">PTable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">wordCounts</span> <span class="o">=</span>
+  <span class="n">groupedWordsWithOnes</span><span class="o">.</span><span class="na">combineValues</span><span class="o">(</span><span class="n">SUM_INTS</span><span class="o">);</span>
+</code></pre>
+</div>
+
+<p><em>Deferred Evaluation &amp; Optimization</em></p>
+
+<p>One of the merits of using FlumeJava to pipeline MapReduce jobs is that it enables optimization automatically, by executing parallel operations lazily using <em>deferred evaluation</em>. The state of each <code class="highlighter-rouge">PCollection</code> object is either <em>deferred</em> (not yet computed) and <em>materialized</em> (computed). When the program invokes a <code class="highlighter-rouge">parallelDo()</code>, it creates an operation pointer to the actual deferred operation object. These operations form a directed acyclic graph called execution plan. The execution plan doesn’t get evaluated until <code class="highlighter-rouge">run()</code> is called. This will cause optimization of the execution plan and evaluation in forward topological order. These optimization strategies for transferring the modular execution plan into an efficient one include:</p>
+
+<ul>
+  <li><strong>Fusion</strong>: <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;=&amp;gt;&lt;/mo&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mo&gt;&amp;#x2218;&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-55" style="width: 10.402em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.507em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1008.4em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-56"><span class="mi" id="MathJax-Span-57" style="font-family: MathJax_Math-italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-58" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-59" style="font-family: MathJax_Math-italic;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-60" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-61" style="font-family: MathJax_Math-italic;">x</span><span class="mo" id="MathJax-Span-62" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-63" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-64" style="font-family: MathJax_Main; padding-left: 0.259em;">=<span style="font-family: MathJax_Main;">&gt;</span></span><span class="mi" id="MathJax-Span-65" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-66" style="font-family: MathJax_Main; padding-left: 0.207em;">∘</span><span class="mi" id="MathJax-Span-67" style="font-family: MathJax_Math-italic; padding-left: 0.207em;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-68" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-69" style="font-family: MathJax_Math-italic;">x</span><span class="mo" id="MathJax-Span-70" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>f</mi><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>=&gt;</mo><mi>g</mi><mo>∘</mo><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-3">f(g(x)) => g \circ f(x)</script>, which is essentially function composition. This usually help reduce the number of steps need for a given job by combining multiple composable steps into one.</li>
+  <li><strong>MapShuffleCombineReduce (MSCR) Operation</strong>: a combination of ParallelDo, <code class="highlighter-rouge">GroupByKey</code>, <code class="highlighter-rouge">CombineValues</code> and <code class="highlighter-rouge">Flatten</code> into one MapReduce job. This extends MapReduce to accept multiple inputs and multiple outputs. Following figure illustrates the case a MSCR operation with 3 input channels, 2 grouping (<code class="highlighter-rouge">GroupByKey</code>) output channels and 1 pass-through output channel.</li>
+</ul>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/mscr.png" alt="A MapShuffleCombineReduce operation with 3 input channels">
+</figure>
+
+<p>An overall optimizer strategy involves a sequence of optimization actions with the ultimate goal to produce the fewest, most efficient MSCR operations:</p>
+
+<ol>
+  <li>Sink Flatten: <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;&amp;#x2192;&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-71" style="width: 18.394em; display: inline-block;"><span style="display: inline-block; position: relative; width: 15.064em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1014.96em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-72"><span class="mi" id="MathJax-Span-73" style="font-family: MathJax_Math-italic;">h</span><span class="mo" id="MathJax-Span-74" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-75" style="font-family: MathJax_Math-italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-76" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-77" style="font-family: MathJax_Math-italic;">a</span><span class="mo" id="MathJax-Span-78" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-79" style="font-family: MathJax_Main; padding-left: 0.207em;">+</span><span class="mi" id="MathJax-Span-80" style="font-family: MathJax_Math-italic; padding-left: 0.207em;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-81" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-82" style="font-family: MathJax_Math-italic;">b</span><span class="mo" id="MathJax-Span-83" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-84" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-85" style="font-family: MathJax_Main; padding-left: 0.259em;">→</span><span class="mi" id="MathJax-Span-86" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">h</span><span class="mo" id="MathJax-Span-87" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-88" style="font-family: MathJax_Math-italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-89" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-90" style="font-family: MathJax_Math-italic;">a</span><span class="mo" id="MathJax-Span-91" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-92" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-93" style="font-family: MathJax_Main; padding-left: 0.207em;">+</span><span class="mi" id="MathJax-Span-94" style="font-family: MathJax_Math-italic; padding-left: 0.207em;">h</span><span class="mo" id="MathJax-Span-95" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-96" style="font-family: MathJax_Math-italic;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-97" style="font-family: MathJax_Main;">(</span><span class="mi" id="MathJax-Span-98" style="font-family: MathJax_Math-italic;">b</span><span class="mo" id="MathJax-Span-99" style="font-family: MathJax_Main;">)</span><span class="mo" id="MathJax-Span-100" style="font-family: MathJax_Main;">)</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>h</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo>+</mo><mi>g</mi><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">→</mo><mi>h</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><mi>a</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo>+</mo><mi>h</mi><mo stretchy="false">(</mo><mi>g</mi><mo stretchy="false">(</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></math></span></span><script type="math/tex" id="MathJax-Element-4">h(f(a)+g(b)) \rightarrow h(f(a)) + h(g(b))</script></li>
+  <li>Lift combineValues operations: If a <code class="highlighter-rouge">CombineValues</code> operation immediately follows a <code class="highlighter-rouge">GroupByKey</code> operation, the <code class="highlighter-rouge">GroupByKey</code> records the fact and original <code class="highlighter-rouge">CombineValues</code> is left in place, which can be treated as normal <code class="highlighter-rouge">ParallelDo</code> operation and subject to ParallelDo fusions.</li>
+  <li>Insert fusion blocks:</li>
+  <li>Fuse <code class="highlighter-rouge">ParallelDo</code>s</li>
+  <li>Fuse MSCRs: create MSCR operations, and convert any remaining unfused ParallelDo operations into trivial MSCRs.</li>
+</ol>
+
+<p>The SiteData example <a href="http://dist-prog-book.com/chapter/8/big-data.html#chambers2010flumejava">(Chambers et al., 2010)</a> shows that 16 data-parallel operations can be optimized into two MSCR operations in the final execution plan (refer to Figure 5 in the original paper). One limitation of the optimizer is that all these optimizations are based on the structures of the execution plan, FlumeJava doesn’t analyze the contents of user-defined functions.</p>
+
+<h4 id="dryad">Dryad</h4>
+
+<p>Dryad is a general-purpose data-parallel execution engine that allows developers to <em>explicitly</em> specify an arbitrary directed acyclic graph (DAG) for computations, where each vertex is a computation task and the edges represent communication channels (file, TCP pipe, or shared-memory FIFI) between tasks.</p>
+
+<p>A Dryad job is a logic computation graph that is automatically mapped to physical resources at runtime. From a programmer’s point of view, the channels produce or consume heap objects and the type of data channel makes no difference when reading or writing these objects. In the Dryad system, a process called a “job manager” connects to the cluster network and is responsible for scheduling jobs by consulting the name server (NS) and delegating commands to the daemon (D) running on each computer in the cluster.</p>
+
+<p><em>Writing a program</em></p>
+
+<p>The Dryad library is written in C++ and it uses a mixture of method calls and operator overloading. It describes a Dryad graph as <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;&amp;#x27E8;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;&amp;#x27E9;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-101" style="width: 11.273em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.224em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1009.12em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-102"><span class="mi" id="MathJax-Span-103" style="font-family: MathJax_Math-italic;">G</span><span class="mo" id="MathJax-Span-104" style="font-family: MathJax_Main; padding-left: 0.259em;">=</span><span class="mo" id="MathJax-Span-105" style="font-family: MathJax_Main; padding-left: 0.259em;">⟨</span><span class="msubsup" id="MathJax-Span-106"><span style="display: inline-block; position: relative; width: 1.232em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-107" style="font-family: MathJax_Math-italic;">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.207em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.566em;"><span class="mi" id="MathJax-Span-108" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-109" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-110" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-111" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="mi" id="MathJax-Span-112" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-113" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-114" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.51em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-115" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.464em;"><span class="mi" id="MathJax-Span-116" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-117" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-118" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.72em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-119" style="font-family: MathJax_Math-italic;">O</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.771em;"><span class="mi" id="MathJax-Span-120" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-121" style="font-family: MathJax_Main;">⟩</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>G</mi><mo>=</mo><mo fence="false" stretchy="false">⟨</mo><msub><mi>V</mi><mi>G</mi></msub><mo>,</mo><msub><mi>E</mi><mi>G</mi></msub><mo>,</mo><msub><mi>I</mi><mi>G</mi></msub><mo>,</mo><msub><mi>O</mi><mi>G</mi></msub><mo fence="false" stretchy="false">⟩</mo></math></span></span><script type="math/tex" id="MathJax-Element-5">G=\langle V_G, E_G, I_G, O_G \rangle</script>, where <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-6-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-122" style="width: 1.539em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.232em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1001.23em, 2.513em, -999.997em); top: -2.2em; left: 0em;"><span class="mrow" id="MathJax-Span-123"><span class="msubsup" id="MathJax-Span-124"><span style="display: inline-block; position: relative; width: 1.232em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-125" style="font-family: MathJax_Math-italic;">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.207em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.566em;"><span class="mi" id="MathJax-Span-126" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>V</mi><mi>G</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-6">V_G</script> is a sequences of vertices, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-7-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-127" style="width: 1.693em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1001.39em, 2.513em, -999.997em); top: -2.2em; left: 0em;"><span class="mrow" id="MathJax-Span-128"><span class="msubsup" id="MathJax-Span-129"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-130" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="mi" id="MathJax-Span-131" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>E</mi><mi>G</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-7">E_G</script> is a set of directed edges, <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-8-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-132" style="width: 1.335em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1001.08em, 2.513em, -999.997em); top: -2.2em; left: 0em;"><span class="mrow" id="MathJax-Span-133"><span class="msubsup" id="MathJax-Span-134"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.51em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-135" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.464em;"><span class="mi" id="MathJax-Span-136" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>I</mi><mi>G</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-8">I_G</script> and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-9-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;G&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-137" style="width: 1.693em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1001.39em, 2.513em, -999.997em); top: -2.2em; left: 0em;"><span class="mrow" id="MathJax-Span-138"><span class="msubsup" id="MathJax-Span-139"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.72em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-140" style="font-family: MathJax_Math-italic;">O</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.771em;"><span class="mi" id="MathJax-Span-141" style="font-size: 70.7%; font-family: MathJax_Math-italic;">G</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>O</mi><mi>G</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-9">O_G</script> represent vertices for <em>inputs</em> and <em>outputs</em>.</p>
+
+<ul>
+  <li><em>Creating new vertices</em> The library calls static program factory to create a graph vertex and it also provides <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-10-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;merror&gt;&lt;mtext&gt;^&lt;/mtext&gt;&lt;/merror&gt;&lt;/math&gt;" role="presentation"><span class="math" id="MathJax-Span-142" aria-hidden="true" style=""><span class="noError" id="MathJax-Span-143" style="display: inline-block;">^</span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><merror><mtext>^</mtext></merror></math></span></span><script type="math/tex" id="MathJax-Element-10">^</script> operator to clone a graph and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-11-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x2297;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-144" style="width: 0.976em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.771em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.539em, 1000.72em, 2.513em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-145"><span class="mo" id="MathJax-Span-146" style="font-family: MathJax_Main;">⊗</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.184em; border-left: 0px solid; width: 0px; height: 0.941em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>⊗</mo></math></span></span><script type="math/tex" id="MathJax-Element-11">\otimes</script> to concatenate sequences.</li>
+  <li><em>Adding graph edges</em> <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-12-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2218;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-147" style="width: 5.535em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.511em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1004.51em, 2.41em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-148"><span class="mi" id="MathJax-Span-149" style="font-family: MathJax_Math-italic;">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-150" style="font-family: MathJax_Main; padding-left: 0.259em;">=</span><span class="mi" id="MathJax-Span-151" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">A</span><span class="mo" id="MathJax-Span-152" style="font-family: MathJax_Main; padding-left: 0.207em;">∘</span><span class="mi" id="MathJax-Span-153" style="font-family: MathJax_Math-italic; padding-left: 0.207em;">B</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 1.003em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mo>=</mo><mi>A</mi><mo>∘</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-12">C=A\circ B</script> creates a new graph <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;&amp;#x27E8;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x2297;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x222A;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x222A;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;&amp;#x27E9;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-154" style="width: 20.751em; display: inline-block;"><span style="display: inline-block; position: relative; width: 17.011em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1016.91em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-155"><span class="mi" id="MathJax-Span-156" style="font-family: MathJax_Math-italic;">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-157" style="font-family: MathJax_Main; padding-left: 0.259em;">=</span><span class="mo" id="MathJax-Span-158" style="font-family: MathJax_Main; padding-left: 0.259em;">⟨</span><span class="msubsup" id="MathJax-Span-159"><span style="display: inline-block; position: relative; width: 1.181em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-160" style="font-family: MathJax_Math-italic;">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.207em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.566em;"><span class="mi" id="MathJax-Span-161" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-162" style="font-family: MathJax_Main; padding-left: 0.207em;">⊗</span><span class="msubsup" id="MathJax-Span-163" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.181em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-164" style="font-family: MathJax_Math-italic;">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.207em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.566em;"><span class="mi" id="MathJax-Span-165" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-166" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-167" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.335em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-168" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="mi" id="MathJax-Span-169" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-170" style="font-family: MathJax_Main; padding-left: 0.207em;">∪</span><span class="msubsup" id="MathJax-Span-171" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.335em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-172" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="mi" id="MathJax-Span-173" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-174" style="font-family: MathJax_Main; padding-left: 0.207em;">∪</span><span class="msubsup" id="MathJax-Span-175" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 2.052em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-176" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="texatom" id="MathJax-Span-177"><span class="mrow" id="MathJax-Span-178"><span class="mi" id="MathJax-Span-179" style="font-size: 70.7%; font-family: MathJax_Math-italic;">n</span><span class="mi" id="MathJax-Span-180" style="font-size: 70.7%; font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-181" style="font-size: 70.7%; font-family: MathJax_Math-italic;">w</span></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-182" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-183" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.027em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.51em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-184" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.464em;"><span class="mi" id="MathJax-Span-185" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-186" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-187" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.72em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-188" style="font-family: MathJax_Math-italic;">O</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.771em;"><span class="mi" id="MathJax-Span-189" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-190" style="font-family: MathJax_Main;">⟩</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mo>=</mo><mo fence="false" stretchy="false">⟨</mo><msub><mi>V</mi><mi>A</mi></msub><mo>⊗</mo><msub><mi>V</mi><mi>B</mi></msub><mo>,</mo><msub><mi>E</mi><mi>A</mi></msub><mo>∪</mo><msub><mi>E</mi><mi>B</mi></msub><mo>∪</mo><msub><mi>E</mi><mrow class="MJX-TeXAtom-ORD"><mi>n</mi><mi>e</mi><mi>w</mi></mrow></msub><mo>,</mo><msub><mi>I</mi><mi>A</mi></msub><mo>,</mo><msub><mi>O</mi><mi>B</mi></msub><mo fence="false" stretchy="false">⟩</mo></math></span></span><script type="math/tex" id="MathJax-Element-13">C=\langle V_A \otimes V_B, E_A \cup E_B \cup E_{new}, I_A, O_B \rangle</script>. The composition of set of edges are defined by two types:<br>
+  1) <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;gt;=&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-191" style="width: 4.408em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.589em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1003.59em, 2.462em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-192"><span class="mi" id="MathJax-Span-193" style="font-family: MathJax_Math-italic;">A</span><span class="mo" id="MathJax-Span-194" style="font-family: MathJax_Main; padding-left: 0.259em;">&gt;<span style="font-family: MathJax_Main;">=</span></span><span class="mi" id="MathJax-Span-195" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">B</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.122em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo>&gt;=</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-14">A>=B</script> pointwise composition<br>
+  2) and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-15-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;gt;&amp;gt;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-196" style="width: 4.408em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.589em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1003.59em, 2.462em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-197"><span class="mi" id="MathJax-Span-198" style="font-family: MathJax_Math-italic;">A</span><span class="mo" id="MathJax-Span-199" style="font-family: MathJax_Main; padding-left: 0.259em;">&gt;<span style="font-family: MathJax_Main;">&gt;</span></span><span class="mi" id="MathJax-Span-200" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">B</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.122em; border-left: 0px solid; width: 0px; height: 1.066em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>A</mi><mo>&gt;&gt;</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-15">A>>B</script> complete bipartite graph between <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-16-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-201" style="width: 1.693em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1001.39em, 2.513em, -999.997em); top: -2.2em; left: 0em;"><span class="mrow" id="MathJax-Span-202"><span class="msubsup" id="MathJax-Span-203"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.72em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-204" style="font-family: MathJax_Math-italic;">O</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.771em;"><span class="mi" id="MathJax-Span-205" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>O</mi><mi>A</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-16">O_A</script> and <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-17-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-206" style="width: 1.335em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.386em, 1001.08em, 2.513em, -999.997em); top: -2.2em; left: 0em;"><span class="mrow" id="MathJax-Span-207"><span class="msubsup" id="MathJax-Span-208"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.51em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-209" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.464em;"><span class="mi" id="MathJax-Span-210" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.205em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.247em; border-left: 0px solid; width: 0px; height: 1.128em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><msub><mi>I</mi><mi>B</mi></msub></math></span></span><script type="math/tex" id="MathJax-Element-17">I_B</script>.</li>
+  <li><em>Merging two graphs</em> <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-18-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;mo&gt;&amp;#x2223;&amp;#x2223;&lt;/mo&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-211" style="width: 5.689em; display: inline-block;"><span style="display: inline-block; position: relative; width: 4.664em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1004.66em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-212"><span class="mi" id="MathJax-Span-213" style="font-family: MathJax_Math-italic;">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-214" style="font-family: MathJax_Main; padding-left: 0.259em;">=</span><span class="mi" id="MathJax-Span-215" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">A</span><span class="mo" id="MathJax-Span-216" style="font-family: MathJax_Main; padding-left: 0.259em;">∣<span style="font-family: MathJax_Main;">∣</span></span><span class="mi" id="MathJax-Span-217" style="font-family: MathJax_Math-italic; padding-left: 0.259em;">B</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mo>=</mo><mi>A</mi><mo>∣∣</mo><mi>B</mi></math></span></span><script type="math/tex" id="MathJax-Element-18">C=A \mid\mid B</script> creates a new graph <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-19-Frame" tabindex="0" style="position: relative;" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mi&gt;C&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;&amp;#x27E8;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;msup&gt;&lt;mo&gt;&amp;#x2297;&lt;/mo&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;/msup&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;&amp;#x222A;&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;msup&gt;&lt;mo&gt;&amp;#x222A;&lt;/mo&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;/msup&gt;&lt;msub&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;A&lt;/mi&gt;&lt;/msub&gt;&lt;msup&gt;&lt;mo&gt;&amp;#x222A;&lt;/mo&gt;&lt;mo&gt;&amp;#x2217;&lt;/mo&gt;&lt;/msup&gt;&lt;msub&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mi&gt;B&lt;/mi&gt;&lt;/msub&gt;&lt;mo fence=&quot;false&quot; stretchy=&quot;false&quot;&gt;&amp;#x27E9;&lt;/mo&gt;&lt;/math&gt;" role="presentation"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-218" style="width: 24.132em; display: inline-block;"><span style="display: inline-block; position: relative; width: 19.777em; height: 0px; font-size: 122%;"><span style="position: absolute; clip: rect(1.335em, 1019.67em, 2.666em, -999.997em); top: -2.252em; left: 0em;"><span class="mrow" id="MathJax-Span-219"><span class="mi" id="MathJax-Span-220" style="font-family: MathJax_Math-italic;">C<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span class="mo" id="MathJax-Span-221" style="font-family: MathJax_Main; padding-left: 0.259em;">=</span><span class="mo" id="MathJax-Span-222" style="font-family: MathJax_Main; padding-left: 0.259em;">⟨</span><span class="msubsup" id="MathJax-Span-223"><span style="display: inline-block; position: relative; width: 1.181em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-224" style="font-family: MathJax_Math-italic;">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.207em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.566em;"><span class="mi" id="MathJax-Span-225" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-226" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.232em; height: 0px;"><span style="position: absolute; clip: rect(3.281em, 1000.72em, 4.255em, -999.997em); top: -3.993em; left: 0em;"><span class="mo" id="MathJax-Span-227" style="font-family: MathJax_Main;">⊗</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -4.352em; left: 0.771em;"><span class="mo" id="MathJax-Span-228" style="font-size: 70.7%; font-family: MathJax_Main;">∗</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-229" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.181em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-230" style="font-family: MathJax_Math-italic;">V<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.207em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.566em;"><span class="mi" id="MathJax-Span-231" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-232" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-233" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.335em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-234" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="mi" id="MathJax-Span-235" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-236" style="font-family: MathJax_Main; padding-left: 0.207em;">∪</span><span class="msubsup" id="MathJax-Span-237" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.335em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.77em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-238" style="font-family: MathJax_Math-italic;">E<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.72em;"><span class="mi" id="MathJax-Span-239" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-240" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-241" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.027em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.51em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-242" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.464em;"><span class="mi" id="MathJax-Span-243" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-244" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px;"><span style="position: absolute; clip: rect(3.23em, 1000.62em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mo" id="MathJax-Span-245" style="font-family: MathJax_Main;">∪</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -4.352em; left: 0.669em;"><span class="mo" id="MathJax-Span-246" style="font-size: 70.7%; font-family: MathJax_Main;">∗</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-247" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px;"><span style="position: absolute; clip: rect(3.179em, 1000.51em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-248" style="font-family: MathJax_Math-italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.054em;"></span></span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.464em;"><span class="mi" id="MathJax-Span-249" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-250" style="font-family: MathJax_Main;">,</span><span class="msubsup" id="MathJax-Span-251" style="padding-left: 0.156em;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.72em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-252" style="font-family: MathJax_Math-italic;">O</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.771em;"><span class="mi" id="MathJax-Span-253" style="font-size: 70.7%; font-family: MathJax_Math-italic;">A</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-254" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.078em; height: 0px;"><span style="position: absolute; clip: rect(3.23em, 1000.62em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mo" id="MathJax-Span-255" style="font-family: MathJax_Main;">∪</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -4.352em; left: 0.669em;"><span class="mo" id="MathJax-Span-256" style="font-size: 70.7%; font-family: MathJax_Main;">∗</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="msubsup" id="MathJax-Span-257" style="padding-left: 0.207em;"><span style="display: inline-block; position: relative; width: 1.386em; height: 0px;"><span style="position: absolute; clip: rect(3.128em, 1000.72em, 4.152em, -999.997em); top: -3.993em; left: 0em;"><span class="mi" id="MathJax-Span-258" style="font-family: MathJax_Math-italic;">O</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span><span style="position: absolute; top: -3.84em; left: 0.771em;"><span class="mi" id="MathJax-Span-259" style="font-size: 70.7%; font-family: MathJax_Math-italic;">B</span><span style="display: inline-block; width: 0px; height: 3.998em;"></span></span></span></span><span class="mo" id="MathJax-Span-260" style="font-family: MathJax_Main;">⟩</span></span><span style="display: inline-block; width: 0px; height: 2.257em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi><mo>=</mo><mo fence="false" stretchy="false">⟨</mo><msub><mi>V</mi><mi>A</mi></msub><msup><mo>⊗</mo><mo>∗</mo></msup><msub><mi>V</mi><mi>B</mi></msub><mo>,</mo><msub><mi>E</mi><mi>A</mi></msub><mo>∪</mo><msub><mi>E</mi><mi>B</mi></msub><mo>,</mo><msub><mi>I</mi><mi>A</mi></msub><msup><mo>∪</mo><mo>∗</mo></msup><msub><mi>I</mi><mi>B</mi></msub><mo>,</mo><msub><mi>O</mi><mi>A</mi></msub><msup><mo>∪</mo><mo>∗</mo></msup><msub><mi>O</mi><mi>B</mi></msub><mo fence="false" stretchy="false">⟩</mo></math></span></span><script type="math/tex" id="MathJax-Element-19">C=\langle V_A \otimes^* V_B, E_A \cup E_B, I_A \cup^* I_B, O_A\cup^* O_B \rangle</script>.</li>
+</ul>
+
+<p>Following is an example graph builder program.</p>
+<div class="language-c highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="n">GraphBuilder</span> <span class="n">XSet</span> <span class="o">=</span> <span class="n">moduleX</span><span class="o">^</span><span class="n">N</span><span class="p">;</span>
+<span class="n">GraphBuilder</span> <span class="n">DSet</span> <span class="o">=</span> <span class="n">moduleD</span><span class="o">^</span><span class="n">N</span><span class="p">;</span>
+<span class="n">GraphBuilder</span> <span class="n">MSet</span> <span class="o">=</span> <span class="n">moduleM</span><span class="o">^</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="mi">4</span><span class="p">);</span>  
+<span class="n">GraphBuilder</span> <span class="n">SSet</span> <span class="o">=</span> <span class="n">moduleS</span><span class="o">^</span><span class="p">(</span><span class="n">N</span><span class="o">*</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">GraphBuilder</span> <span class="n">YSet</span> <span class="o">=</span> <span class="n">moduleY</span><span class="o">^</span><span class="n">N</span><span class="p">;</span>
+<span class="n">GraphBuilder</span> <span class="n">HSet</span> <span class="o">=</span> <span class="n">moduleH</span><span class="o">^</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="n">GraphBuilder</span> <span class="n">XInputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">ugriz1</span> <span class="o">&gt;=</span> <span class="n">XSet</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="n">neighbor</span> <span class="o">&gt;=</span> <span class="n">XSet</span><span class="p">);</span>
+<span class="n">GraphBuilder</span> <span class="n">YInputs</span> <span class="o">=</span> <span class="n">ugriz2</span> <span class="o">&gt;=</span> <span class="n">YSet</span><span class="p">;</span>
+
+<span class="n">GraphBuilder</span> <span class="n">XToY</span> <span class="o">=</span> <span class="n">XSet</span> <span class="o">&gt;=</span> <span class="n">DSet</span> <span class="o">&gt;&gt;</span> <span class="n">MSet</span> <span class="o">&gt;=</span> <span class="n">SSet</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="o">*</span><span class="mi">4</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">XToY</span> <span class="o">=</span> <span class="n">XToY</span> <span class="o">||</span> <span class="p">(</span><span class="n">SSet</span><span class="p">.</span><span class="n">GetVertex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">YSet</span><span class="p">.</span><span class="n">GetVertex</span><span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">4</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="n">GraphBuilder</span> <span class="n">YToH</span> <span class="o">=</span> <span class="n">YSet</span> <span class="o">&gt;=</span> <span class="n">HSet</span><span class="p">;</span>
+<span class="n">GraphBuilder</span> <span class="n">HOutputs</span> <span class="o">=</span> <span class="n">HSet</span> <span class="o">&gt;=</span> <span class="n">output</span><span class="p">;</span>
+
+<span class="n">GraphBuilder</span> <span class="n">final</span> <span class="o">=</span> <span class="n">XInputs</span> <span class="o">||</span> <span class="n">YInputs</span> <span class="o">||</span> <span class="n">XToY</span> <span class="o">||</span> <span class="n">YToH</span> <span class="o">||</span> <span class="n">HOutputs</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>Developers are not expected to write raw Dryad programs as complex as the one shown above. Instead, Microsoft introduced a querying model called DryadLINQ <a href="http://dist-prog-book.com/chapter/8/big-data.html#yu2008dryadlinq">(Yu et al., 2008)</a> which is more declarative. We will discuss querying models and their power to express complex operations like join in <em>section 1.2 Querying</em>. Here we just show a glimpse of querying example in DryadLINQ (who is compiled into Dryad jobs and executed in Dryad execution engine):</p>
+
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="c1">// SQL-style syntax to join two input sets:
+// scoreTriples and staticRank
+</span><span class="kt">var</span> <span class="n">adjustedScoreTriples</span> <span class="p">=</span>
+  <span class="k">from</span> <span class="n">d</span> <span class="k">in</span> <span class="n">scoreTriples</span>
+  <span class="k">join</span> <span class="n">r</span> <span class="k">in</span> <span class="n">staticRank</span> <span class="k">on</span> <span class="n">d</span><span class="p">.</span><span class="n">docID</span> <span class="k">equals</span> <span class="n">r</span><span class="p">.</span><span class="n">key</span>
+  <span class="k">select</span> <span class="k">new</span> <span class="nf">QueryScoreDocIDTriple</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">rankedQueries</span> <span class="p">=</span>
+  <span class="k">from</span> <span class="n">s</span> <span class="k">in</span> <span class="n">adjustedScoreTriples</span>
+  <span class="k">group</span> <span class="n">s</span> <span class="k">by</span> <span class="n">s</span><span class="p">.</span><span class="n">query</span> <span class="k">into</span> <span class="n">g</span>
+  <span class="k">select</span> <span class="nf">TakeTopQueryResults</span><span class="p">(</span><span class="n">g</span><span class="p">);</span>
+
+<span class="c1">// Object-oriented syntax for the above join
+</span><span class="kt">var</span> <span class="n">adjustedScoreTriples</span> <span class="p">=</span>
+  <span class="n">scoreTriples</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="n">staticRank</span><span class="p">,</span>
+    <span class="n">d</span> <span class="p">=&gt;</span> <span class="n">d</span><span class="p">.</span><span class="n">docID</span><span class="p">,</span> <span class="n">r</span> <span class="p">=&gt;</span> <span class="n">r</span><span class="p">.</span><span class="n">key</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nf">QueryScoreDocIDTriple</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">r</span><span class="p">));</span>
+<span class="kt">var</span> <span class="n">groupedQueries</span> <span class="p">=</span>
+  <span class="n">adjustedScoreTriples</span><span class="p">.</span><span class="nf">GroupBy</span><span class="p">(</span><span class="n">s</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">query</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">rankedQueries</span> <span class="p">=</span>
+  <span class="n">groupedQueries</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span>
+    <span class="n">g</span> <span class="p">=&gt;</span> <span class="nf">TakeTopQueryResults</span><span class="p">(</span><span class="n">g</span><span class="p">));</span>
+</code></pre>
+</div>
+
+<p><em>Fault tolerance policy</em></p>
+
+<p>The communication graph is acyclic, so if given immutable inputs, the computation result should remain same regardless of the sequence of failures. When a vertex fails, the job manager will either get notified or receive a heartbeat timeout and then the job manager will immediately schedule to re-execute the vertex.</p>
+
+<p><em>Comparison with FlumeJava</em></p>
+
+<p>Both support multiple inputs/outputs for the computation nodes. The big difference is that FlumeJava still exploits the MapReduce approach to reading from/writing to disks between stages, where Dryad has the option to do in-memory transmission. This leaves Dryad a good position to do optimization like re-using in-memory data. In the other hand, Dryad has no optimizations on the graph itself.</p>
+
+<h4 id="spark">Spark</h4>
+
+<p>Spark&nbsp;<a href="http://dist-prog-book.com/chapter/8/big-data.html#zaharia2010spark">(Zaharia, Chowdhury, Franklin, Shenker, &amp; Stoica, 2010)</a> is a fast, in-memory data processing engine with an elegant and expressive development interface which enables developers to efficiently execute machine learning, SQL or streaming workloads&nbsp;that require fast iterative access to datasets. It is a functional style programming model (similar to DryadLINQ) where a developer can create acyclic data flow graphs and transform a set of input data through a map - reduce like operators. Spark provides two main abstractions: distributed in-memory storage (RDD) and parallel operations (based on Scala’s collection API) on data sets with high-performance processing, scalability, and fault tolerance.&nbsp;</p>
+
+<p><em>Distributed in-memory storage - Resilient Distributed Data sets</em></p>
+
+<p>A RDD is a partitioned, read-only collection of objects which can be created from data in stable storage or by transforming other RDD. It can be distributed across multiple nodes (parallelize) in a cluster and is fault tolerant(resilient). If a node fails, an RDD can always be recovered using its lineage; the DAG of computations performed on the source dataset. An RDD is stored in memory (as much as it can fit and rest is spilled to disk) and is immutable - It can only be transformed to a new RDD. These transformations are deferred; that means they are built up and staged and are not actually applied until an action is performed on an RDD. Thus, it is important to note that while one might have applied many transformations to a given RDD, some resulting transformed RDD may not be materialized even though one may hold a reference to it.</p>
+
+<p>The properties that power RDD with the above-mentioned features:</p>
+<ul>
+  <li>A list of dependencies on other RDD’s.</li>
+  <li>An array of partitions that a dataset is divided into.</li>
+  <li>A compute function to do a computation on partitions.</li>
+  <li>Optionally, a Partitioner for key-value RDDs (e.g. to say that the RDD is hash-partitioned)</li>
+  <li>Optional preferred locations (aka locality info), (e.g. block locations for an HDFS file)</li>
+</ul>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/spark_pipeline.png" alt="Spark pipeline">
+</figure>
+
+<p>Spark API provide two kinds of operations on an RDD:</p>
+
+<ul>
+  <li>Transformations - lazy operations that return another RDD.
+    <ul>
+      <li><code class="highlighter-rouge">map (f : T =&gt; U) : RDD[T] ⇒ RDD[U]</code>  Return a MappedRDD[U] by applying function f to each element</li>
+      <li><code class="highlighter-rouge">flatMap( f : T ⇒ Seq[U]) : RDD[T] ⇒ RDD[U]</code>  Return a new FlatMappedRDD[U] by first applying a function to all elements&nbsp;    and then flattening the results.</li>
+      <li><code class="highlighter-rouge">filter(f:T⇒Bool) : RDD[T] ⇒ RDD[T]</code>  Return a FilteredRDD[T] having elemnts that f return true</li>
+      <li><code class="highlighter-rouge">groupByKey()</code> Being called on (K,V) Rdd, return a new RDD[([K],&nbsp;Iterable[V])]</li>
+      <li><code class="highlighter-rouge">reduceByKey(f: (V, V) =&gt; V)</code> : Being called on (K, V) Rdd, return a new RDD[(K, V)] by aggregating values using eg: reduceByKey(<em>+</em>)</li>
+      <li><code class="highlighter-rouge">join((RDD[(K, V)], RDD[(K, W)]) ⇒ RDD[(K, (V, W))]</code> Being called on (K,V) Rdd, return a new&nbsp;RDD[(K, (V, W))] by joining them by key K.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Actions - operations that trigger computation on an RDD and return values.</p>
+
+    <ul>
+      <li><code class="highlighter-rouge">reduce(f:(T,T)⇒T) : RDD[T] ⇒ T</code> Return T by reducing the elements using specified commutative and associative binary operator</li>
+      <li><code class="highlighter-rouge">collect()</code>  Return an Array[T] containing all elements</li>
+      <li><code class="highlighter-rouge">count()</code>  Return the number of elements</li>
+    </ul>
+  </li>
+</ul>
+
+<p>RDDs by default are discarded after use. However, Spark provides two explicit operations: <code class="highlighter-rouge">persist()</code> and <code class="highlighter-rouge">cache()</code> to ensure RDDs are persisted in memory once the RDD has been computed for the first time.</p>
+
+<p><em>Why RDD, not Distributed Shared memory (DSM) ?</em></p>
+
+<p>RDDs are immutable and can only be created through coarse-grained transformations while DSM allows fine-grained read and write operations to each memory location. Since RDDs are immutable and can be derived from their lineages, they do not require checkpointing at all. Hence RDDs do not incur the overhead of checkpointing as DSM does. Additionally, in DSM, any failure requires the whole program to be restored. In the case of RDDs, only the lost RDD partitions need to be recovered. This recovery happens parallelly on the affected nodes. RDDs are immutable and hence a straggler (slow node) can be replaced with a backup copy as in MapReduce. This is hard to implement in DSM as two copies point to the same location and can interfere the update with one another.</p>
+
+<p><strong><em>Challenges in Spark</em></strong> <a href="http://dist-prog-book.com/chapter/8/big-data.html#armbrust2015scaling">(Armbrust et al., 2015)</a></p>
+
+<ul>
+  <li>
+    <p><em>Functional API semantics</em> The <code class="highlighter-rouge">GroupByKey</code> operator is costly in terms of performance. In that it returns a distributed collection of (key, list of value) pairs to a single machine and then an aggregation on individual keys is performed on the same machine resulting in computation overhead. Spark does provide <code class="highlighter-rouge">reduceByKey</code> operator which does a partial aggregation on individual worker nodes before returning the distributed collection. However, developers who are not aware of such a functionality can unintentionally choose <code class="highlighter-rouge">groupByKey</code>. The reason being functional programmers (Scala developers) tend to think more declaratively about the problem and only see the end result of the <code class="highlighter-rouge">groupByKey</code> operator. They may not be necessarily trained on how <code class="highlighter-rouge">groupByKey</code> is implemented atop of the cluster. Therefore, to use Spark, unlike functional programming languages, one needs to understand how the underlying cluster is going to execute the code. The burden of saving performance is then left to the programmer, who is expected to understand the underlying execution model of Spark, and to know when to use <code class="highlighter-rouge">reduceByKey</code> over <code class="highlighter-rouge">groupByKey</code>.</p>
+  </li>
+  <li>
+    <p><em>Debugging and profiling</em> There is no availability of debugging tools and developers find it hard to realize if a computation is happening more on a single machine or if the data-structure they used were inefficient.</p>
+  </li>
+</ul>
+
+<h3 id="querying-declarative-interfaces">Querying: declarative interfaces</h3>
+
+<p>MapReduce takes care of all the processing over a cluster, failure and recovery, data partitioning etc. However, the framework suffers from rigidity with respect to its one-input data format (key/value pair) and two-stage data flow. Several important patterns like equi-joins and theta-joins <a href="http://dist-prog-book.com/chapter/8/big-data.html#okcan2011processing">(Okcan &amp; Riedewald, 2011)</a> which could be highly complex depending on the data, require programmers to implement by hand. Hence, MapReduce lacks many such high level abstractions  requiring programmers to be well versed with several of the design patterns like map-side joins, reduce-side equi-join etc. Also, java based code (like in Hadoop framework) in MapReduce can sometimes become repetitive when the programmer wants to implement most common operations like projection, filtering etc. A simple word count program as shown below, can span up to 63 lines.</p>
+
+<p><em>Complete code for Word count in Hadoop (Java based implementation of MapReduce)</em></p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.fs.Path</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.conf.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.io.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapreduce.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapreduce.lib.input.FileInputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapreduce.lib.input.TextInputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapreduce.lib.output.FileOutputFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.hadoop.mapreduce.lib.output.TextOutputFormat</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordCount</span>
+<span class="o">{</span>
+   <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Map</span> <span class="kd">extends</span> <span class="n">Mapper</span><span class="o">&lt;</span><span class="n">LongWritable</span><span class="o">,</span> <span class="n">Text</span><span class="o">,</span> <span class="n">Text</span><span class="o">,</span>  <span class="n">IntWritable</span><span class="o">&gt;</span>
+   <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">IntWritable</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IntWritable</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+    <span class="kd">private</span> <span class="n">Text</span> <span class="n">word</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Text</span><span class="o">();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">map</span><span class="o">(</span><span class="n">LongWritable</span> <span class="n">key</span><span class="o">,</span> <span class="n">Text</span> <span class="n">value</span><span class="o">,</span> <span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">InterruptedException</span>
+    <span class="o">{</span>
+     <span class="n">String</span> <span class="n">line</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+     <span class="n">StringTokenizer</span> <span class="n">tokenizer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringTokenizer</span><span class="o">(</span><span class="n">line</span><span class="o">);</span>
+     <span class="k">while</span> <span class="o">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="na">hasMoreTokens</span><span class="o">())</span>
+     <span class="o">{</span>
+        <span class="n">word</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">tokenizer</span><span class="o">.</span><span class="na">nextToken</span><span class="o">());</span>
+        <span class="n">context</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">word</span><span class="o">,</span> <span class="n">one</span><span class="o">);</span>
+     <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Reduce</span> <span class="kd">extends</span> <span class="n">Reducer</span><span class="o">&lt;</span><span class="n">Text</span><span class="o">,</span> <span class="n">IntWritable</span><span class="o">,</span> <span class="n">Text</span><span class="o">,</span> <span class="n">IntWritable</span><span class="o">&gt;</span>
+  <span class="o">{</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">reduce</span><span class="o">(</span><span class="n">Text</span> <span class="n">key</span><span class="o">,</span> <span class="n">Iterable</span><span class="o">&lt;</span><span class="n">IntWritable</span><span class="o">&gt;</span> <span class="n">values</span><span class="o">,</span> <span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">InterruptedException</span>
+   <span class="o">{</span>
+     <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+     <span class="k">for</span> <span class="o">(</span><span class="n">IntWritable</span> <span class="n">val</span> <span class="o">:</span> <span class="n">values</span><span class="o">)</span>
+     <span class="o">{</span>
+       <span class="n">sum</span> <span class="o">+=</span> <span class="n">val</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+     <span class="o">}</span>
+     <span class="n">context</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">key</span><span class="o">,</span> <span class="k">new</span> <span class="n">IntWritable</span><span class="o">(</span><span class="n">sum</span><span class="o">));</span>
+   <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span>
+  <span class="o">{</span>
+    <span class="n">Configuration</span> <span class="n">conf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Configuration</span><span class="o">();</span>
+    <span class="n">Job</span> <span class="n">job</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Job</span><span class="o">(</span><span class="n">conf</span><span class="o">,</span> <span class="s">"wordcount"</span><span class="o">);</span>
+    <span class="n">job</span><span class="o">.</span><span class="na">setOutputKeyClass</span><span class="o">(</span><span class="n">Text</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">job</span><span class="o">.</span><span class="na">setOutputValueClass</span><span class="o">(</span><span class="n">IntWritable</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">job</span><span class="o">.</span><span class="na">setMapperClass</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">job</span><span class="o">.</span><span class="na">setReducerClass</span><span class="o">(</span><span class="n">Reduce</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">job</span><span class="o">.</span><span class="na">setInputFormatClass</span><span class="o">(</span><span class="n">TextInputFormat</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">job</span><span class="o">.</span><span class="na">setOutputFormatClass</span><span class="o">(</span><span class="n">TextOutputFormat</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="n">FileInputFormat</span><span class="o">.</span><span class="na">addInputPath</span><span class="o">(</span><span class="n">job</span><span class="o">,</span> <span class="k">new</span> <span class="n">Path</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">]));</span>
+    <span class="n">FileOutputFormat</span><span class="o">.</span><span class="na">setOutputPath</span><span class="o">(</span><span class="n">job</span><span class="o">,</span> <span class="k">new</span> <span class="n">Path</span><span class="o">(</span><span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]));</span>
+  <span class="o">}</span>
+
+  <span class="n">job</span><span class="o">.</span><span class="na">waitForCompletion</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p><em>Why SQL over MapReduce ?</em></p>
+
+<p>SQL already provides several operations like join, group by, sort which can be mapped to the above mentioned MapReduce operations. Also, by leveraging SQL like interface, it becomes easy for non MapReduce experts/non-programmers like data scientists to focus more on logic than hand coding complex operations <a href="http://dist-prog-book.com/chapter/8/big-data.html#armbrust2015scaling">(Armbrust et al., 2015)</a>. Such an high level declarative language can easily express their task while leaving all of the execution optimization details to the backend engine.</p>
+
+<p>SQL also lessens the amount of code (code examples can be seen in individual model’s section) and significantly reduces the development time.</p>
+
+<p>Most importantly, as you will read further in this section, frameworks like Pig, Hive, Spark SQL take advantage of these declarative queries by realizing them as a DAG upon which the compiler can apply transformation if an optimization rule is satisfied. Spark which does provide high level abstraction unlike MapReduce, lacks this very optimization resulting in several human errors as discussed in the Spark’s data-parallel section.</p>
+
+<p>Sawzall <a href="http://dist-prog-book.com/chapter/8/big-data.html#pike2005interpreting">(Pike, Dorward, Griesemer, &amp; Quinlan, 2005)</a> is a programming language built on top of MapReduce. It consists of a <em>filter</em> phase (map) and an <em>aggregation</em> phase (reduce). User program only need to specify the filter function, and emit the intermediate pairs to external pre-built aggregators. This largely eliminates the trouble for programmers put into having to write reducers, just the following example shows, programmers can use built-in reducer supports to do the a reducing job. The serialization of the data uses Google’s <em>protocol buffers</em>, which can produce <em>meta-data</em> file for the declared scheme, but the scheme is not used for any optimization purpose per se. Sawzall is good for most of the straightforward processing on large dataset, but it does not support more complex and still common operations like <em>join</em>. The pre-built aggregators are limited and it is non-trivial to add more supports.</p>
+
+<ul>
+  <li><em>Word count implementation in Sawzall</em></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">result: table sum of int;
+total: table sum of float;
+x: float = input;
+emit count &lt;- 1;
+emit total &lt;- x;
+</code></pre>
+</div>
+
+<p>Apart from Sawzall, Pig  <a href="http://dist-prog-book.com/chapter/8/big-data.html#olston2008pig">(Olston, Reed, Srivastava, Kumar, &amp; Tomkins, 2008)</a> and Hive  <a href="http://dist-prog-book.com/chapter/8/big-data.html#thusoo2009hive">(Thusoo et al., 2009)</a> are the other major components that sit on top of Hadoop framework for processing large data sets without the users having to write Java based MapReduce code. Both support more complex operations than Sawzall: e.g. database join.</p>
+
+<p>Hive is built by Facebook to organize dataset in structured formats and still utilize the benefit of MapReduce framework. It has its own SQL-like language: HiveQL <a href="http://dist-prog-book.com/chapter/8/big-data.html#thusoo2010hive">(Thusoo et al., 2010)</a> which is easy for anyone who understands SQL. Hive reduces code complexity and eliminates lots of boiler plate that would otherwise be an overhead with Java based MapReduce approach.</p>
+
+<ul>
+  <li><em>Word count implementation in Hive</em></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">CREATE TABLE docs (line STRING);
+LOAD DATA INPATH 'docs' OVERWRITE INTO TABLE docs;
+CREATE TABLE word_counts AS
+SELECT word, count(1) AS count FROM
+(SELECT explode(split(line, '\\s')) AS word FROM docs) w
+GROUP BY word
+ORDER BY word;
+</code></pre>
+</div>
+
+<p>Pig Latin by Yahoo aims at a sweet spot between declarative and procedural programming. For advanced programmers, SQL is unnatural to implement program logic and Pig Latin wants to dissemble the set of data transformation into a sequence of steps. This makes Pig more verbose than Hive. Unlike Hive, Pig Latin does not persist metadata, instead it has better interoperability to work with other applications in Yahoo’s data ecosystem.</p>
+
+<ul>
+  <li><em>Word count implementation in PIG</em></li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">lines = LOAD 'input_fule.txt' AS (line:chararray);
+words = FOREACH lines GENERATE FLATTEN(TOKENIZE(line)) as word;
+grouped = GROUP words BY word;
+wordcount = FOREACH grouped GENERATE group, COUNT(words);
+DUMP wordcount;
+</code></pre>
+</div>
+
+<p>SparkSQL though has the same goals as that of Pig, is better given the Spark exeuction engine, efficient fault tolerance mechanism of Spark and specialized data structure called Dataset.</p>
+
+<ul>
+  <li><em>Word count example in SparkSQL</em></li>
+</ul>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">val</span> <span class="n">ds</span> <span class="k">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">text</span><span class="o">(</span><span class="s">"input_file"</span><span class="o">).</span><span class="n">as</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span>
+<span class="k">val</span> <span class="n">result</span> <span class="k">=</span> <span class="n">ds</span>
+  <span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">" "</span><span class="o">))</span>              
+  <span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="k">_</span> <span class="o">!=</span> <span class="s">""</span><span class="o">)</span>                    
+  <span class="o">.</span><span class="n">toDF</span><span class="o">()</span>                             
+  <span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="n">$</span><span class="s">"value"</span><span class="o">)</span>                 
+  <span class="o">.</span><span class="n">agg</span><span class="o">(</span><span class="n">count</span><span class="o">(</span><span class="s">"*"</span><span class="o">)</span> <span class="n">as</span> <span class="s">"count"</span><span class="o">)</span>
+  <span class="o">.</span><span class="n">orderBy</span><span class="o">(</span><span class="n">$</span><span class="s">"count"</span> <span class="n">desc</span><span class="o">)</span>   
+</code></pre>
+</div>
+
+<p>The following subsections will discuss Hive, Pig Latin, SparkSQL in details.</p>
+
+<h4 id="hivehiveql">Hive/HiveQL</h4>
+
+<p>Hive <a href="http://dist-prog-book.com/chapter/8/big-data.html#thusoo2010hive">(Thusoo et al., 2010)</a> is a data-warehousing&nbsp;infrastructure built on top of the MapReduce framework - Hadoop. The primary responsibility of Hive is to provide data summarization, query, and analysis.&nbsp;It supports analysis of large datasets stored in Hadoop’s HDFS <a href="http://dist-prog-book.com/chapter/8/big-data.html#shvachko2010hadoop">(Shvachko, Kuang, Radia, &amp; Chansler, 2010)</a>. It supports SQL-Like access to structured data which is known as HiveQL (or HQL) as well as big data analysis with the help of MapReduce. These SQL queries can be compiled into MapReduce jobs that can be executed be executed on Hadoop. It drastically brings down the development time in writing and maintaining Hadoop jobs.</p>
+
+<p>Data in Hive is organized into three different formats:</p>
+
+<p><code class="highlighter-rouge">Tables</code>: Like RDBMS tables Hive contains rows and tables and every table can be mapped to HDFS directory. All the data in the table is serialized and stored in files under the corresponding directory. Hive is extensible to accept user-defined data formats, customized serialize and de-serialize methods. It also supports external tables stored in other native file systems like HDFS, NFS or local directories.</p>
+
+<p><code class="highlighter-rouge">Paritions</code>:  Distribution of data in sub directories of table directory is determined by one or more partitions. A table can be further partitioned on columns.</p>
+
+<p><code class="highlighter-rouge">Buckets</code>: Data in each partition can be further divided into buckets on the basis on hash of a column in a table. Each bucket is stored as a file in the partition directory.</p>
+
+<p><strong><em>HiveSQL</em></strong>: The Hive query language consists of a subset of SQL along with some extensions. The language is very SQL-like and supports features like subqueries, joins, cartesian product, group by, aggregation, describe and more. MapReduce programs can also be used in Hive queries. A sample query using MapReduce would look like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">FROM (
+    MAP inputdata USING 'python mapper.py' AS (word, count)
+    FROM inputtable
+    CLUSTER BY word
+    )
+    REDUCE word, count USING 'python reduce.py';
+</code></pre>
+</div>
+
+<p><em>Example from <a href="http://dist-prog-book.com/chapter/8/big-data.html#thusoo2010hive">(Thusoo et al., 2010)</a></em></p>
+
+<p>This query uses mapper.py for transforming inputdata into (word, count) pair, distributes data to reducers by hashing on word column (given by CLUSTER) and uses reduce.py.</p>
+
+<p><strong><em>Serialization/Deserialization</em></strong></p>
+
+<p>Hive implements the LazySerDe as the default SerDe interface. A SerDe is a combination of serialization and deserialization which helps developers instruct Hive on how their records should be processed. The Deserializer interface translates rows into internal objects lazily so that the cost of Deserialization of a column is incurred only when it is needed. The Serializer, however, converts a Java object into a format that Hive can write to HDFS or another supported system. Hive also provides a RegexSerDe which allows the use of regular expressions to parse columns out from a row.</p>
+
+<h4 id="pig-latin">Pig Latin</h4>
+
+<p>Pig Latin <a href="http://dist-prog-book.com/chapter/8/big-data.html#olston2008pig">(Olston, Reed, Srivastava, Kumar, &amp; Tomkins, 2008)</a> is a programming model built on top of MapReduce to provide a declarative description. Different from Hive, who has SQL-like syntax, the goal of Pig Latin is to attract experienced programmers to perform ad-hoc analysis on big data and allow programmers to write execution logic by a sequence of steps. For example, suppose we have a table URLs: <code class="highlighter-rouge">(url, category, pagerank)</code>. The following is a simple SQL query that finds, for each sufficiently large category, the average pagerank of high-pagerank URLs in that category.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">SELECT category, AVG(pagerank)  
+FROM urls WHERE pagerank &gt; 0.2  
+GROUP BY category HAVING COUNT(*) &gt; 106  
+</code></pre>
+</div>
+
+<p>And Pig Latin provides an alternative to carrying out the same operations in the way programmers can reason more easily:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">good_urls = FILTER urls BY pagerank &gt; 0.2;
+groups = GROUP good_urls BY category;
+big_groups = FILTER groups BY COUNT(good_urls)&gt;106;
+output = FOREACH big_groups GENERATE
+            category, AVG(good_urls.pagerank);
+</code></pre>
+</div>
+
+<p><em>Interoperability</em> Pig Latin is designed to support ad-hoc data analysis, which means the input only requires a function to parse the content of files into tuples. This saves the time-consuming import step. While as for the output, Pig provides freedom to convert tuples into byte sequence where the format can be defined by users. This allows Pig to interoperate with other existing applications in Yahoo’s ecosystem.</p>
+
+<p><em>Nested Data Model</em> Pig Latin has a flexible, fully nested data model, and allows complex, non-atomic data types such as set, map, and tuple to occur as fields of a table. The benefits include: closer to how programmer think; data can be stored in the same nested fashion to save recombining time; can have algebraic language; allow rich user defined functions.</p>
+
+<p><em>UDFs as First-Class Citizens</em> Pig Latin supports user-defined functions (UDFs) to support customized tasks for grouping, filtering, or per-tuple processing, which makes Pig Latin more declarative.</p>
+
+<p><em>Debugging Environment</em> Pig Latin has a novel interactive debugging environment that can generate a concise example data table to illustrate the output of each step.</p>
+
+<p><em>Limitations</em> The procedural design gives users more control over execution, but at same time the data schema is not enforced explicitly, so it much harder to utilize database-style optimization. Pig Latin has no control structures like loop or conditions, if needed, one has to embed it in Java like JDBC style, but this can easily fail without static syntax checking. It is also not easy to debug.</p>
+
+<h4 id="sparksql">SparkSQL</h4>
+
+<p>The major contributions of Spark SQL <a href="http://dist-prog-book.com/chapter/8/big-data.html#armbrust2015spark">(Armbrust et al., 2015)</a> are the Dataframe API and the Catalyst. Spark SQL intends to provide relational processing over native RDDs and on several external data sources, through a programmer friendly API, high performance through DBMS techniques, support semi-structured data and external databases, support for advanced analytical processing like machine learning algorithms and graph processing.</p>
+
+<p><strong><em>Programming API</em></strong></p>
+
+<p>Spark SQL runs on the top of Spark providing SQL interfaces. A user can interact with this interface through JDBC/ODBC, command line or Dataframe API.</p>
+
+<p>The Dataframe API lets users to intermix both relational and procedural code with ease. Dataframe is a collection of schema based rows of data and named columns on which relational operations can be performed with optimized execution. Unlike an RDD, Dataframe allows developers to define the structure for the data and can be related to tables in a relational database or R/Python’s Dataframe. Dataframe can be constructed from tables of external sources or existing native RDD’s. Dataframe is lazy and each object in it represents a logical plan which is not executed until an output operation like save or count is performed.
+Spark SQL supports all the major SQL data types including complex data types like arrays, maps, and unions. Some of the Dataframe operations include projection (select), filter(where), join and aggregations(groupBy).</p>
+
+<p>Illustrated below is an example of relational operations on employees data frame to compute the number of female employees in each department.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="n">employees</span><span class="o">.</span><span class="n">join</span><span class="o">(</span><span class="n">dept</span><span class="o">,</span> <span class="n">employees</span><span class="o">(</span><span class="s">"deptId"</span><span class="o">)</span> <span class="o">===</span> <span class="n">dept</span><span class="o">(</span><span class="s">"id"</span><span class="o">))</span>
+         <span class="o">.</span><span class="n">where</span><span class="o">(</span><span class="n">employees</span><span class="o">(</span><span class="s">"gender"</span><span class="o">)</span> <span class="o">===</span> <span class="s">"female"</span><span class="o">)</span>
+         <span class="o">.</span><span class="n">groupBy</span><span class="o">(</span><span class="n">dept</span><span class="o">(</span><span class="s">"id"</span><span class="o">),</span> <span class="n">dept</span><span class="o">(</span><span class="s">"name"</span><span class="o">))</span>
+         <span class="o">.</span><span class="n">agg</span><span class="o">(</span><span class="n">count</span><span class="o">(</span><span class="s">"name"</span><span class="o">))</span>
+</code></pre>
+</div>
+<p>Several of these operators like <code class="highlighter-rouge">===</code> for equality test, <code class="highlighter-rouge">&gt;</code> for greater than, arithmetic ones (<code class="highlighter-rouge">+</code>, <code class="highlighter-rouge">-</code>, etc) and aggregators transforms to an abstract syntax tree of the expression which can be passed to Catalyst for optimization.</p>
+
+<p>A <code class="highlighter-rouge">cache()</code> operation on the data frame helps Spark SQL store the data in memory so it can be used in iterative algorithms and for interactive queries. In the case of Spark SQL, memory footprint is considerably less as it applies columnar compression schemes like dictionary encoding / run-length encoding.</p>
+
+<p>The DataFrame API also supports inline UDF definitions without complicated packaging and registration. Because UDFs and queries are both expressed in the same general purpose language (Python or Scala), users can use standard debugging tools.</p>
+
+<p>However, a DataFrame lacks type safety. In the above example, attributes are referred to by string names. Hence, it is not possible for the compiler to catch any errors. If attribute names are incorrect then the error will only be detected at runtime, when the query plan is created.</p>
+
+<p>Also, Dataframe is both very brittle and very verbose as well, because the user has to cast each row and column to specific types before they can do anything on them. Naturally, this is very error-prone because one could accidentally choose the wrong index for a row/column and end up with a <code class="highlighter-rouge">ClassCastException</code>.</p>
+
+<p>Spark introduced an extension to Dataframe called <strong><em>Dataset</em></strong> to provide this compile type safety. It embraces object-oriented style for programming and has an additional feature termed Encoders. Encoders translate between JVM representations (objects) and Spark’s internal binary format. Spark has built-in encoders which are very advanced in that they generate bytecode to interact with off-heap data and provide on-demand access to individual attributes without having to de-serialize an entire object</p>
+
+<p>Winding up - we can compare SQL vs Dataframe vs Dataset as below:</p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/sql-vs-dataframes-vs-datasets.png" alt="SQL vs Dataframe vs Dataset">
+</figure>
+
+<p><em>Figure from the website :</em> https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html</p>
+
+<h3 id="large-scale-parallelism-on-graphs">Large-scale parallelism on graphs</h3>
+
+<p>MapReduce doesn’t scale easily for iterative / graph algorithms like page rank and machine learning algorithms. Iterative algorithms require a programmer to explicitly handle the intermediate results (writing to disks) resulting in a lot of boilerplate code. Hence, every iteration requires reading the input file and writing the results to the disk resulting in high disk I/O which is a performance bottleneck for any batch processing system.</p>
+
+<p>Also, graph algorithms require an exchange of messages between vertices. In a case of PageRank, every vertex requires the contributions from all its adjacent nodes to calculate its score. MapReduce currently lacks this model of message passing which makes it complex to reason about graph algorithms. One model that is commonly employed for implementing distributed graph processing is the graph parallel model.</p>
+
+<p>In the graph-parallel abstraction, a user-defined vertex program is instantiated concurrently for each vertex and interacts with adjacent vertex programs through messages or shared state. Each vertex program can read and modify its vertex property and in some cases adjacent vertex properties. When all vertex programs vote to halt the program terminates. The bulk-synchronous parallel (BSP) model <a href="http://dist-prog-book.com/chapter/8/big-data.html#valiant1990bridging">(Valiant, 1990)</a> is one of the most commonly used graph-parallel model.</p>
+
+<p>BSP was introduced in 1980 to represent the hardware design features of parallel computers. It gained popularity as an alternative for MapReduce since it addressed the above-mentioned issues with MapReduce
+BSP model is a message passing synchronous model where -</p>
+
+<ul>
+  <li>Computation consists of several steps called as super steps.</li>
+  <li>The processors involved have their own local memory and every processor is connected to other via a point-to-point communication.</li>
+  <li>At every super step, a processor receives input at the beginning, performs computation and outputs at the end.</li>
+  <li>A processor at super step S can send a message to another processor at super step S+1 and can as well receive a message from super step S-1.</li>
+  <li>Barrier synchronization syncs all the processors at the end of every super step.</li>
+  <li>A notable feature of the model is the complete control of data through communication between every processor at every super step. Though similar to MapReduce model, BSP preserves data in memory across super steps and helps in reasoning iterative graph algorithms.</li>
+</ul>
+
+<p>The graph-parallel abstractions allow users to succinctly describe graph algorithms, and provide a runtime engine to execute these algorithms in a distributed nature. They simplify the design, implementation, and application of sophisticated graph algorithms to large-scale real-world problems. Each of these frameworks presents a different view of graph computation, tailored to an originating domain or family of graph algorithms. However, these frameworks fail to address the problems of data preprocessing and construction, favor snapshot recovery over fault tolerance and lack support from distributed data flow frameworks. The data-parallel systems are well suited to the task of graph construction and are highly scalable. However, suffer from the very problems mentioned before for which the graph-parallel systems came into existence. GraphX <a href="http://dist-prog-book.com/chapter/8/big-data.html#xin2013graphx">(Xin, Gonzalez, Franklin, &amp; Stoica, 2013)</a> is a new computation system which builds upon the Spark’s Resilient Distributed Dataset (RDD) to form a new abstraction Resilient Distributed Graph (RDG) to represent records and their relations as vertices and edges respectively. RDG’s leverage the RDD’s fault tolerance mechanism and expressivity.</p>
+
+<p><strong><em>How does GraphX improve over the existing graph-parallel and data flow models?</em></strong></p>
+
+<p>Similar to the data flow model, GraphX moves away from the vertex-centric view and adopts transformations on graphs yielding a new graph. The RDGs in GraphX provides a set of elegant and expressive computational primitives to support graph transformations as well as enable many graph-parallel systems like Pregel <a href="http://dist-prog-book.com/chapter/8/big-data.html#malewicz2010pregel">(Malewicz et al., 2010)</a>, PowerGraph <a href="http://dist-prog-book.com/chapter/8/big-data.html#gonzalez2012powergraph">(Gonzalez, Low, Gu, Bickson, &amp; Guestrin, 2012)</a> to be easily expressed with minimal lines of code changes to Spark. GraphX simplifies the process of graph ETL and analysis through new operations like filter, view etc. It minimizes communication and storage overhead across the system by adopting vertex-cuts for effective partitioning.</p>
+
+<p><strong>GraphX</strong></p>
+
+<p>GraphX models graph as property graphs where vertices and edges can have properties. Property graphs are directed multigraph having multiple parallel edges with same source and destination to realize scenarios where multiple relationships could exist between two vertices. For example, in a social graph where every vertex represents a person, there could be a scenario where two people are both co-workers and a friend at the same time. A vertex is keyed by a unique 64-bit long identifier (Vertex ID) while edges contain the corresponding source and destination vertex identifiers.</p>
+
+<p>The GraphX API provides the below primitives for graph transformations (from: https://spark.apache.org/docs/2.0.0-preview/graphx-programming-guide.html):</p>
+
+<ul>
+  <li><code class="highlighter-rouge">graph</code> - constructs property graph given a collection of edges and vertices.</li>
+  <li><code class="highlighter-rouge">vertices: VertexRDD[VD]</code>, <code class="highlighter-rouge">edges: EdgeRDD[ED]</code>- decompose the graph into a collection of vertices or edges by extracting vertex or edge RDDs.</li>
+  <li><code class="highlighter-rouge">mapVertices(map: (Id,V)=&gt;(Id,V2)) =&gt; Graph[V2, E]</code>-  transform the vertex collection.</li>
+  <li><code class="highlighter-rouge">mapEdges(map: (Id, Id, E)=&gt;(Id, Id, E2))</code> -  transform the edge collection.</li>
+  <li><code class="highlighter-rouge">triplets RDD[EdgeTriplet[VD, ED]]</code> -returns collection of form ((i, j), (PV(i), PE(i, j), PV(j))). The operator essentially requires a multiway join between vertex and edge RDD. This operation is optimized by shifting the site of joins to edges, using the routing table, so that only vertex data needs to be shuffled.</li>
+  <li><code class="highlighter-rouge">leftJoin</code> - given a collection of vertices and a graph, returns a new graph which incorporates the property of matching vertices from the given collection into the given graph without changing the underlying graph structure.</li>
+  <li><code class="highlighter-rouge">subgraph</code> - Applies predicates to return a subgraph of the original graph by filtering all the vertices and edges that don’t satisfy the vertices and edges predicates respectively.</li>
+  <li><code class="highlighter-rouge">aggregateMessages (previously mapReduceTriplets) </code> - It takes two functions, sendMsg and mergeMsg. The sendMsg function maps over every edge triplet in the graph while the mergeMsg acts like a reduce function in MapReduce to aggregate those messages at their destination vertex. This is an important function which supports analytics tasks and iterative graph algorithms (eg., PageRank, Shortest Path) where individual vertices rely upon the aggregated properties of their neighbors.</li>
+  <li><code class="highlighter-rouge">filterVertices(f: (Id, V)=&gt;Bool): Graph[V, E]</code> - Filter the vertices by applying the predicate function f to return a new graph post filtering.</li>
+  <li><code class="highlighter-rouge">filterEdges(f: Edge[V, E]=&gt;Bool): Graph[V, E]</code> - Filter the edges by applying the predicate function f to return a new graph post filtering.</li>
+</ul>
+
+<p><strong><em>Why partitioning is important in graph computation systems ?</em></strong></p>
+
+<p>Graph-parallel computation requires every vertex or edge to be processed in the context of its neighborhood. Each transformation depends on the result of distributed joins between vertices and edges. This means that graph computation systems rely on graph partitioning (edge-cuts in most of the systems) and efficient storage to minimize communication and storage overhead and ensure balanced computation.</p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/edge-cut.png" alt="edge cuts">
+</figure>
+
+<p><em>Figure from <a href="http://dist-prog-book.com/chapter/8/big-data.html#xin2013graphx">(Xin, Gonzalez, Franklin, &amp; Stoica, 2013)</a></em></p>
+
+<p><strong><em>Why are Edge-cuts expensive ?</em></strong></p>
+
+<p>Edge-cuts for partitioning requires random assignment of vertices and edges across all the machines. Thus the communication and storage overhead is proportional to the number of edges cut, and this makes balancing the number of cuts a priority. For most real-world graphs, constructing an optimal edge-cut is cost prohibitive, and most systems use random edge-cuts which achieve appropriate work balance, but nearly worst-case communication overhead.</p>
+
+<p><strong><em>Vertex-cuts - GraphX’s solution to effective partitioning</em></strong></p>
+
+<p>An alternative approach which does the opposite of edge-cut — evenly assign edges to machines, but allow vertices to span multiple machines. The communication and storage overhead of a vertex-cut is directly proportional to the sum of the number of machines spanned by each vertex. Therefore, we can reduce communication overhead and ensure balanced computation by evenly assigning edges to machines in a way that minimizes the number of machines spanned by each vertex.</p>
+
+<p><strong><em>Implementation of Vertex-cut</em></strong></p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/vertex-cut-datastructure.png" alt="vertex-cut-implementation">
+</figure>
+
+<p><em>Figure from: https://spark.apache.org/docs/2.0.0-preview/graphx-programming-guide.html</em></p>
+
+<p>The GraphX RDG structure implements a vertex-cut representation of a graph using three unordered horizontally partitioned RDD tables. These three tables are as follows:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">EdgeTable(pid, src, dst, data)</code>: Stores adjacency structure and edge data.</li>
+  <li><code class="highlighter-rouge">VertexDataTable(id, data)</code>: Stores vertex data. Contains states associated with vertices that are changing in the course of graph computation</li>
+  <li><code class="highlighter-rouge">VertexMap/Routing Table(id, pid)</code>: Maps vertex ids to the partitions that contain their adjacent edges. Remains static as long as the graph structure doesn’t change.</li>
+</ul>
+
+<h2 id="execution-models">Execution Models</h2>
+
+<p>There are many possible implementations for those programming models. In this section, we will discuss a few different execution models, how the above programming interfaces exploit them, the benefits and limitations of each design and so on. At a very high level, MapReduce, its variants, and Spark all adopt the master/workers model, where the master (or driver in Spark) is responsible for managing data and dynamically scheduling tasks to workers. The master monitors workers’ status, and when failure happens, the master will reschedule the task to another idle worker. However, data in MapReduce (section 2.1) is distributed over clusters and needs to be moved in and out of the disk, and Spark (section 2.2) takes the in-memory processing approach. This practice saves significant I/O operations and thus is much faster than MapReduce. As for fault tolerance, MapReduce uses data persistence and Spark achieves it by using lineage (recomputation for failed task).</p>
+
+<p>As for more declarative querying models, the execution engine needs to take care of query compilation and in the meantime has the opportunity of optimizations. For example, Hive (section 2.3) not only needs a driver the way MapReduce and Spark do, but also has to manage the meta store as well to take advantage of optimization gains from a traditional database like design. SparkSQL (section 2.4) adopts Catalyst framework for SQL optimization which is rule-based and cost-based.</p>
+
+<h3 id="mapreduce-execution-model">MapReduce execution model</h3>
+
+<p>The original MapReduce model is implemented and deployed in Google infrastructure. As described in section 1.1.1, user program defines map and reduce functions and the underlying system manages data partition and schedules jobs across different nodes. Figure 2.1.1 shows the overall flow when the user program calls MapReduce function:</p>
+
+<ol>
+  <li>Split data. The input files are split into <em>M</em> pieces;</li>
+  <li>Copy processes. The user program creates a master process and the workers. The master picks idle workers to do either map or reduce task;</li>
+  <li>Map. The map worker reads corresponding splits and passes to the map function. The generated intermediate key/value pairs are buffered in memory;</li>
+  <li>Partition. The buffered pairs are written to local disk and partitioned to <em>R</em> regions periodically. Then the locations are passed back to the master;</li>
+  <li>Shuffle. The reduce worker reads from the local disks and groups together all occurrences of the same key together;</li>
+  <li>Reduce. The reduce worker iterates over the grouped intermediate data and calls reduce function on each key and its set of values. The worker appends the output to a final output file;</li>
+  <li>Wake up. When all tasks finish, the master wakes up the user program.</li>
+</ol>
+
+<figure class="fullwidth">
+  <img src="./Large Scale Parallel Data Processing_files/mapreduce-execution.png" alt="MapReduce Execution Overview">
+  <footer>Figure 2.1.1 Execution overview from original MapReduce paper <a href="http://dist-prog-book.com/chapter/8/big-data.html#dean2008mapreduce">(Dean &amp; Ghemawat, 2008)</a></footer>
+</figure>
+
+<p>At step 4 and 5, the intermediate dataset is written to the disk by map worker and then read from the disk by reducing worker. Transferring big data chunks over the network is expensive, so the data is stored on local disks of the cluster and the master tries to schedule the map task on the machine that contains the dataset or a nearby machine to minimize the network operation.</p>
+
+<h3 id="spark-execution-model">Spark execution model</h3>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/cluster-overview.png" alt="MapReduce Execution Overview">
+</figure>
+
+<p><em>Figure &amp; information (this section) from: http://spark.apache.org/docs/latest/cluster-overview.html</em></p>
+
+<p>The Spark driver defines SparkContext which is the entry point for any job that defines the environment/configuration and the dependencies of the submitted job. It connects to the cluster manager and requests resources for further execution of the jobs. The cluster manager manages and allocates the required system resources to the Spark jobs. Furthermore, it coordinates and keeps track of the live/dead nodes in a cluster. It enables the execution of jobs submitted by the driver on the worker nodes (also called Spark workers) and finally tracks and shows the status of various jobs running on the worker nodes. A Spark worker executes the business logic submitted by the user by way of the Spark driver. Spark workers are abstracted and are allocated dynamically by the cluster manager to the Spark driver for the execution of submitted jobs. The driver will listen for and accept incoming connections from its executors throughout its lifetime.</p>
+
+<p><strong><em>Job scheduler optimization</em></strong></p>
+
+<p>Spark’s job scheduler tracks the persistent RDD’s saved in memory. When an action (count or collect) is performed on an RDD, the scheduler first analyzes the lineage graph to build a DAG of stages to execute. These stages only contain the transformations having narrow dependencies. Outside these stages are the wider dependencies for which the scheduler has to fetch the missing partitions from other workers in order to build the target RDD. The job scheduler is highly performant. It assigns tasks to machines based on data locality or to the preferred machines in the contained RDD. If a task fails, the scheduler re-runs it on another node and also recomputes the stage’s parent is missing.</p>
+
+<p><strong><em>How are persistent RDD’s memory managed ?</em></strong></p>
+
+<p>Persistent RDDs are stored in memory as java objects (for performance) or in memory as serialized data (for less memory usage at cost of performance) or on disk. If the worker runs out of memory upon creation of a new RDD, Least Recently Used(LRU) policy is applied to evict the least recently accessed RDD unless its same as the new RDD. In that case, the old RDD is excluded from eviction given the fact that it may be reused again in future. Long lineage chains involving wide dependencies are checkpointed to reduce the time in recovering an RDD. However, since RDDs are read-only, checkpointing is still ok since consistency is not a concern and there is no overhead to manage the consistency as is seen in distributed shared memory.</p>
+
+<h3 id="hive-execution-model">Hive execution model</h3>
+
+<p>The Hive execution model <a href="http://dist-prog-book.com/chapter/8/big-data.html#thusoo2010hive">(Thusoo et al., 2010)</a> is composed of the following important components (and as shown in the below Hive architecutre diagram below):</p>
+
+<ul>
+  <li>
+    <p>Driver: Similar to the Drivers of Spark/MapReduce application, the driver in Hive handles query submission &amp; its flow across the system. It also manages the session and its statistics.</p>
+  </li>
+  <li>
+    <p>Metastore – A Hive meta store stores all information about the tables, their partitions, schemas, columns and their types, etc. enabling transparency of data format and its storage to the users.  It, in turn, helps in data exploration, query compilation, and optimization. Criticality of the Matastore for managing the structure of Hadoop files requires it to be updated on a regular basis.</p>
+  </li>
+  <li>Query Compiler – The Hive Query compiler is similar to any traditional database compilers. it processes the query in three steps:</li>
+  <li>Parse: In this phase, it uses Antlr (A parser generator tool) to generate the Abstract syntax tree (AST) of the query.</li>
+  <li>
+    <p>Transformation of AST to DAG (Directed acyclic graph): In this phase, it generates a logical plan and does a compile type checking. The logical plan is generated using the metadata (stored in Metastore) information of the required tables. It can flag errors if any issues found during the type checking.</p>
+  </li>
+  <li>Optimization: Optimization forms the core of any declarative interface. In the case of Hive, optimization happens through chains of transformation of DAG. A transformation could include even a user defined optimization and it applies an action on the DAG only if a rule is satisfied. Every node in the DAG implements a special interface called as Node interface which makes it easy for the manipulation of the operator DAG using other interfaces like GraphWalker, Dispatcher, Rule, and Processor. Hence, by transformation, we mean walking through a DAG and for every Node we encounter we perform a Rule satisfiability check. If a Rule is satisfied, a corresponding processor is invoked. A Dispatcher maintains a list of Rule to Processor mappings.</li>
+</ul>
+
+<figure class="main-container" align="center">
+  <img src="./Large Scale Parallel Data Processing_files/Hive-transformation.png" alt="Hive transformation">
+</figure>
+
+<p><em>Figure to depict the transformation flow during optimization, from:</em> <a href="http://dist-prog-book.com/chapter/8/big-data.html#thusoo2010hive">(Thusoo et al., 2010)</a></p>
+
+<ul>
+  <li>Execution Engine: Execution Engine finally executes the tasks in order of their dependencies. A MapReduce task first serializes its part of the plan into a <code class="highlighter-rouge">plan.xml</code> file. This file is then added to the job cache and mappers and reducers are spawned to execute relevant sections of the operator DAG. The final results are stored to a temporary location and then moved to the final destination (in the case of say an <code class="highlighter-rouge">INSERT INTO</code> query).</li>
+</ul>
+
+<p><strong><em>Summarizing the flow</em></strong></p>
+
+<p><em>Hive architecture diagram</em></p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/Hive-architecture.png" alt="Hive architecture">
+</figure>
+
+<p>The query is first submitted via CLI/the web UI/any other interface. The query undergoes all the compiler phases as explained above to form an optimized DAG of MapReduce and its tasks which the execution engine executes in its correct order using Hadoop.</p>
+
+<p>Some of the important optimization techniques in Hive are:</p>
+
+<ul>
+  <li>Column Pruning - Consider only the required columns needed in the query processing for projection.</li>
+  <li>Predicate Pushdown - Filter the rows as early as possible by pushing down the predicates. It is important that unnecessary records are filtered first and transformations are applied to only the needed ones.</li>
+  <li>Partition Pruning - Predicates on partitioned columns are used to prune out files of partitions that do not satisfy the predicate.</li>
+  <li>Map Side Joins - Smaller tables in the join operation can be replicated in all the mappers and the reducers.</li>
+  <li>Join Reordering - Reduce “reducer side” join operation memory by keeping only smaller tables in memory. Larger tables need not be kept in memory.</li>
+  <li>Repartitioning data to handle skew in GROUP BY processing can be achieved by performing GROUP BY in two MapReduce stages. In first stage data is distributed randomly to the reducers and partial aggregation is performed. In the second stage, these partial aggregations are distributed on GROUP BY columns to different reducers.</li>
+  <li>Similar to combiners in MapReduce, hash based partial aggregations in the mappers can be performed to reduce the data that is sent by the mappers to the reducers. This helps in reducing the amount of time spent in sorting and merging the resulting data.</li>
+</ul>
+
+<h3 id="sparksql-execution-model">SparkSQL execution model</h3>
+
+<p>SparkSQL <a href="http://dist-prog-book.com/chapter/8/big-data.html#armbrust2015spark">(Armbrust et al., 2015)</a> execution model leverages Catalyst framework for optimizing the SQL before submitting it to the Spark Core engine for scheduling the job. A Catalyst is a query optimizer. Query optimizers for MapReduce frameworks can greatly improve performance of the queries developers write and also significantly reduce the development time. A good query optimizer should be able to optimize user queries, extensible for user to provide information about the data and even dynamically include developer defined specific rules.</p>
+
+<p>Catalyst leverages the Scala’s functional language features like pattern matching and runtime meta programming to allow developers to concisely specify complex relational optimizations.</p>
+
+<p>Catalyst includes both rule-based and cost-based optimization. It is extensible to include new optimization techniques and features to Spark SQL and also let developers provide data source specific rules. Catalyst executes the rules on its data type Tree - a composition of node objects where each node has a node type (subclasses of TreeNode class in Scala) and zero or more children. Node objects are immutable and can be manipulated. The transform method of a Tree applies pattern matching to match a subset of all possible input trees on which the optimization rules needs to be applied.</p>
+
+<p>Hence, in Spark SQL, transformation of user queries happens in four phases:</p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/sparksql-data-flow.jpg" alt="SparkSQL optimization plan Overview">
+</figure>
+
+<p><em>Figure from: <a href="http://dist-prog-book.com/chapter/8/big-data.html#armbrust2015spark">(Armbrust et al., 2015)</a></em></p>
+
+<p><strong><em>Analyzing a logical plan to resolve references:</em></strong> In the analysis phase a relation either from the abstract syntax  tree (AST) returned by the SQL parser or from a DataFrame is analyzed to create a logical plan out of it, which is still unresolved (the columns referred may not exist or may be of wrong datatype). The logical plan is resolved using using the Catalyst’s Catalog object (tracks the table from all data sources) by mapping the named attributes to the input provided, looking up the relations by name from catalog, by propagating and coercing types through expressions.</p>
+
+<p><strong><em>Logical plan optimization:</em></strong> In this phase, several of the rules like constant folding, predicate push down, projection pruning, null propagation, boolean expression simplification are applied on the logical plan.</p>
+
+<p><strong><em>Physical planning:</em></strong> In this phase, Spark generates multiples physical plans out of the input logical plan and chooses the plan based on a cost model. The physical planner also performs rule-based physical optimizations, such as pipelining projections or filters into one Spark map operation. In addition, it can push operations from the logical plan into data sources that support predicate or projection pushdown.</p>
+
+<p><strong><em>Code Generation:</em></strong> The final phase generates the Java byte code that should run on each machine. Catalyst transforms the Tree which is an expression in SQL to an AST for Scala code to evaluate, compile and run the generated code. A special scala feature namely quasiquotes aid in the construction of abstract syntax tree (AST).</p>
+
+<h2 id="big-data-ecosystem">Big Data Ecosystem</h2>
+
+<h3 id="hadoop-ecosystem">Hadoop Ecosystem</h3>
+
+<p>Apache Hadoop is an open-sourced framework that supports distributed processing of large dataset. It involves dozens of projects, all of which are listed <a href="https://hadoopecosystemtable.github.io/">here</a>. In this section, it is also important to understand the key players in the system, namely two parts: the Hadoop Distributed File System (HDFS) and the open-sourced implementation of MapReduce model - Hadoop.</p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/hadoop-ecosystem.jpg" alt="Hadoop Ecosystem">
+</figure>
+
+<p><em>Figure from http://thebigdatablog.weebly.com/blog/the-hadoop-ecosystem-overview</em></p>
+
+<p>HDFS forms the data management layer, which is a distributed file system designed to provide reliable, scalable storage across large clusters of unreliable commodity machines. The idea was inspired by GFS <a href="http://dist-prog-book.com/chapter/8/big-data.html#ghemawat2003google">(Ghemawat, Gobioff, &amp; Leung, 2003)</a>. Unlike closed GFS, HDFS is open-sourced and provides various libraries and interfaces to support different file systems, like S3, KFS etc.</p>
+
+<p>To satisfy different needs, big companies like Facebook and Yahoo developed additional tools. Facebook’s Hive, as a warehouse system, can provide more declarative programming interface and translate to Hadoop jobs. Yahoo’s Pig platform is an ad-hoc analysis tool that can structurize HDFS objects and support operations like grouping, joining and filtering.</p>
+
+<h3 id="spark-ecosystem">Spark ecosystem</h3>
+
+<p>Apache Spark’s rich ecosystem benefits from other resource management systems like <a href="http://dist-prog-book.com/chapter/8/big-data.html#hindman2011mesos">(Hindman et al., 2011)</a>, Yarn <a href="http://dist-prog-book.com/chapter/8/big-data.html#vavilapalli2013apache">(Vavilapalli et al., 2013)</a>, and several major components that have been already discussed in this article like Spark-core, SparkSQL, GraphX.</p>
+
+<p>In this section we will discuss the remaining important libraries and systems which help Spark deliver high performance.</p>
+
+<figure class="main-container">
+  <img src="./Large Scale Parallel Data Processing_files/spark-ecosystem.png" alt="Spark ecosystem">
+</figure>
+
+<h4 id="spark-streaming---a-spark-component-for-streaming-workloads">Spark Streaming - A Spark component for streaming workloads</h4>
+
+<p>Spark achieves fault tolerant, high throughput data streaming workloads in real-time through a light weight Spark Streaming API. Spark streaming is based on Discretized Streams model. <a href="http://dist-prog-book.com/chapter/8/big-data.html#zaharia2012discretized">(Zaharia, Das, Li, Shenker, &amp; Stoica, 2012)</a> Spark Streaming processes streaming workloads as a series of small batch workloads by leveraging the fast scheduling capacity of Apache Spark Core and fault tolerance capabilities of a RDD. A RDD in here represents each batch of streaming data and transformations are applied on the same. Data source in Spark Streaming could be from many a live streams like Twitter, Apache Kafka <a href="http://dist-prog-book.com/chapter/8/big-data.html#kreps2011kafka">(Kreps, Narkhede, Rao, &amp; others, 2011)</a>, <a href="http://doc.akka.io/docs/akka/2.4.1/scala/actors.html">Akka Actors</a>, IoT Sensors, Apache <a href="https://flume.apache.org/FlumeUserGuide.html">Flume</a>, etc. Spark streaming also enables unification of batch and streaming workloads and hence developers can use the same code for both batch and streaming workloads. It supports the integration of streaming data with historical data.</p>
+
+<h4 id="apache-mesos">Apache Mesos</h4>
+
+<p>Apache Mesos <a href="http://dist-prog-book.com/chapter/8/big-data.html#hindman2011mesos">(Hindman et al., 2011)</a> is an open source heterogenous cluster/resource manager developed at the University of California, Berkley and used by companies such as Twitter, Airbnb, Netflix etc. for handling workloads in a distributed environment through dynamic resource sharing and isolation. It aids in the deployment and management of applications in large-scale clustered environments. Mesos abstracts node allocation by combining the existing resources&nbsp;of the machines/nodes in a cluster into a single pool and enabling fault-tolerant elastic distributed systems. Variety of workloads can utilize the nodes from this single pool voiding the need of allocating specific machines for different workloads. Mesos is highly scalable, achieves fault tolerance through Apache Zookeeper <a href="http://dist-prog-book.com/chapter/8/big-data.html#hunt2010zookeeper">(Hunt, Konar, Junqueira, &amp; Reed, 2010)</a> and is a efficient CPU and memory-aware resource scheduler.</p>
+
+<h4 id="alluxiotachyon">Alluxio/Tachyon</h4>
+
+<p>Alluxio/Tachyon <a href="http://dist-prog-book.com/chapter/8/big-data.html#li2014tachyon">(Li, Ghodsi, Zaharia, Shenker, &amp; Stoica, 2014)</a> is an open source memory-centric distributed storage system that provides high throughput writes and reads enabling reliable data sharing at memory-speed across cluster jobs. Tachyon can integrate with  different computation frameworks, such as Apache Spark and Apache MapReduce. In the big data ecosystem, Tachyon fits between computation frameworks or jobs like spark or mapreducce and various kinds of storage systems, such as Amazon S3, OpenStack Swift, GlusterFS, HDFS, or Ceph. It caches the frequently read datasets in memory, thereby avoiding going to disk to load every dataset. In Spark RDDs can automatically be stored inside Tachyon to make Spark more resilient and avoid GC overheads.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="armbrust2015scaling">Armbrust, M., Das, T., Davidson, A., Ghodsi, A., Or, A., Rosen, J., … Zaharia, M. (2015). Scaling spark in the real world: performance and usability. <i>Proceedings of the VLDB Endowment</i>, <i>8</i>(12), 1840–1843.</span></li>
+<li><span id="armbrust2015spark">Armbrust, M., Xin, R. S., Lian, C., Huai, Y., Liu, D., Bradley, J. K., … others. (2015). Spark sql: Relational data processing in spark. In <i>Proceedings of the 2015 ACM SIGMOD International Conference on Management of Data</i> (pp. 1383–1394). ACM.</span></li>
+<li><span id="bu2010haloop">Bu, Y., Howe, B., Balazinska, M., &amp; Ernst, M. D. (2010). HaLoop: efficient iterative data processing on large clusters. <i>Proceedings of the VLDB Endowment</i>, <i>3</i>(1-2), 285–296.</span></li>
+<li><span id="chambers2010flumejava">Chambers, C., Raniwala, A., Perry, F., Adams, S., Henry, R. R., Bradshaw, R., &amp; Weizenbaum, N. (2010). FlumeJava: easy, efficient data-parallel pipelines. In <i>ACM Sigplan Notices</i> (Vol. 45, pp. 363–375). ACM.</span></li>
+<li><span id="ching2015one">Ching, A., Edunov, S., Kabiljo, M., Logothetis, D., &amp; Muthukrishnan, S. (2015). One trillion edges: graph processing at Facebook-scale. <i>Proceedings of the VLDB Endowment</i>, <i>8</i>(12), 1804–1815.</span></li>
+<li><span id="dean2008mapreduce">Dean, J., &amp; Ghemawat, S. (2008). MapReduce: simplified data processing on large clusters. <i>Communications of the ACM</i>, <i>51</i>(1), 107–113.</span></li>
+<li><span id="ekanayake2010twister">Ekanayake, J., Li, H., Zhang, B., Gunarathne, T., Bae, S.-H., Qiu, J., &amp; Fox, G. (2010). Twister: a runtime for iterative mapreduce. In <i>Proceedings of the 19th ACM International Symposium on High Performance Distributed Computing</i> (pp. 810–818). ACM.</span></li>
+<li><span id="ghemawat2003google">Ghemawat, S., Gobioff, H., &amp; Leung, S.-T. (2003). The Google file system. In <i>ACM SIGOPS operating systems review</i> (Vol. 37, pp. 29–43). ACM.</span></li>
+<li><span id="gonzalez2012powergraph">Gonzalez, J. E., Low, Y., Gu, H., Bickson, D., &amp; Guestrin, C. (2012). Powergraph: Distributed graph-parallel computation on natural graphs. In <i>Presented as part of the 10th USENIX Symposium on Operating Systems Design and Implementation (OSDI 12)</i> (pp. 17–30).</span></li>
+<li><span id="hindman2011mesos">Hindman, B., Konwinski, A., Zaharia, M., Ghodsi, A., Joseph, A. D., Katz, R. H., … Stoica, I. (2011). Mesos: A Platform for Fine-Grained Resource Sharing in the Data Center. In <i>NSDI</i> (Vol. 11, pp. 22–22).</span></li>
+<li><span id="hunt2010zookeeper">Hunt, P., Konar, M., Junqueira, F. P., &amp; Reed, B. (2010). ZooKeeper: Wait-free Coordination for Internet-scale Systems. In <i>USENIX Annual Technical Conference</i> (Vol. 8, p. 9).</span></li>
+<li><span id="isard2007dryad">Isard, M., Budiu, M., Yu, Y., Birrell, A., &amp; Fetterly, D. (2007). Dryad: distributed data-parallel programs from sequential building blocks. In <i>ACM SIGOPS Operating Systems Review</i> (Vol. 41, pp. 59–72). ACM.</span></li>
+<li><span id="kreps2011kafka">Kreps, J., Narkhede, N., Rao, J., &amp; others. (2011). Kafka: A distributed messaging system for log processing. In <i>Proceedings of the NetDB</i> (pp. 1–7).</span></li>
+<li><span id="li2014tachyon">Li, H., Ghodsi, A., Zaharia, M., Shenker, S., &amp; Stoica, I. (2014). Tachyon: Reliable, memory speed storage for cluster computing frameworks. In <i>Proceedings of the ACM Symposium on Cloud Computing</i> (pp. 1–15). ACM.</span></li>
+<li><span id="malewicz2010pregel">Malewicz, G., Austern, M. H., Bik, A. J. C., Dehnert, J. C., Horn, I., Leiser, N., &amp; Czajkowski, G. (2010). Pregel: a system for large-scale graph processing. In <i>Proceedings of the 2010 ACM SIGMOD International Conference on Management of data</i> (pp. 135–146). ACM.</span></li>
+<li><span id="okcan2011processing">Okcan, A., &amp; Riedewald, M. (2011). Processing theta-joins using MapReduce. In <i>Proceedings of the 2011 ACM SIGMOD International Conference on Management of data</i> (pp. 949–960). ACM.</span></li>
+<li><span id="olston2008pig">Olston, C., Reed, B., Srivastava, U., Kumar, R., &amp; Tomkins, A. (2008). Pig latin: a not-so-foreign language for data processing. In <i>Proceedings of the 2008 ACM SIGMOD international conference on Management of data</i> (pp. 1099–1110). ACM.</span></li>
+<li><span id="pike2005interpreting">Pike, R., Dorward, S., Griesemer, R., &amp; Quinlan, S. (2005). Interpreting the data: Parallel analysis with Sawzall. <i>Scientific Programming</i>, <i>13</i>(4), 277–298.</span></li>
+<li><span id="shvachko2010hadoop">Shvachko, K., Kuang, H., Radia, S., &amp; Chansler, R. (2010). The hadoop distributed file system. In <i>2010 IEEE 26th symposium on mass storage systems and technologies (MSST)</i> (pp. 1–10). IEEE.</span></li>
+<li><span id="WinNT">Tarau, P. (2014). Bulk synchronous model. Retrieved from http://www.cse.unt.edu/&nbsp;tarau/teaching/parpro/papers/Bulk%20synchronous%20parallel.pdf</span></li>
+<li><span id="thusoo2009hive">Thusoo, A., Sarma, J. S., Jain, N., Shao, Z., Chakka, P., Anthony, S., … Murthy, R. (2009). Hive: a warehousing solution over a map-reduce framework. <i>Proceedings of the VLDB Endowment</i>, <i>2</i>(2), 1626–1629.</span></li>
+<li><span id="thusoo2010hive">Thusoo, A., Sarma, J. S., Jain, N., Shao, Z., Chakka, P., Zhang, N., … Murthy, R. (2010). Hive-a petabyte scale data warehouse using hadoop. In <i>2010 IEEE 26th International Conference on Data Engineering (ICDE 2010)</i> (pp. 996–1005). IEEE.</span></li>
+<li><span id="valiant1990bridging">Valiant, L. G. (1990). A bridging model for parallel computation. <i>Communications of the ACM</i>, <i>33</i>(8), 103–111.</span></li>
+<li><span id="vavilapalli2013apache">Vavilapalli, V. K., Murthy, A. C., Douglas, C., Agarwal, S., Konar, M., Evans, R., … others. (2013). Apache hadoop yarn: Yet another resource negotiator. In <i>Proceedings of the 4th annual Symposium on Cloud Computing</i> (p. 5). ACM.</span></li>
+<li><span id="xin2013graphx">Xin, R. S., Gonzalez, J. E., Franklin, M. J., &amp; Stoica, I. (2013). Graphx: A resilient distributed graph system on spark. In <i>First International Workshop on Graph Data Management Experiences and Systems</i> (p. 2). ACM.</span></li>
+<li><span id="yu2008dryadlinq">Yu, Y., Isard, M., Fetterly, D., Budiu, M., Erlingsson, Ú., Gunda, P. K., &amp; Currey, J. (2008). DryadLINQ: A System for General-Purpose Distributed Data-Parallel Computing Using a High-Level Language. In <i>OSDI</i> (Vol. 8, pp. 1–14).</span></li>
+<li><span id="zaharia2010spark">Zaharia, M., Chowdhury, M., Franklin, M. J., Shenker, S., &amp; Stoica, I. (2010). Spark: cluster computing with working sets. <i>HotCloud</i>, <i>10</i>, 10–10.</span></li>
+<li><span id="zaharia2012discretized">Zaharia, M., Das, T., Li, H., Shenker, S., &amp; Stoica, I. (2012). Discretized streams: an efficient and fault-tolerant model for stream processing on large clusters. In <i>Presented as part of the</i>.</span></li>
+<li><span id="zhang2012imapreduce">Zhang, Y., Gao, Q., Gao, L., &amp; Wang, C. (2012). imapreduce: A distributed computing framework for iterative computation. <i>Journal of Grid Computing</i>, <i>10</i>(1), 47–68.</span></li></ol>
+
+
+<!-- </article> -->
+
+      </div>
+      <div class="col-sm-3">
+        <nav id="toc" class="hidden-print hidden-xs affix" data-spy="affix" data-toggle="toc"><div class="toc-header affix" data-spy="affix"><span class="toc-contents">Contents</span></div><span class="toc-hide">Hide</span><span class="toc-expand">Expand</span></nav>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        <div class="footer-links">
+          
+          
+          
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+
+  <script>
+
+      $( ".toc-hide" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+        $(".toc-contents").toggleClass( "lighter" );
+
+        if ($(this).text() == 'Hide') {
+          $(this).text("Show");
+        } else {
+          $(this).text("Hide");
+        }
+        // toggle visibility of contents, and expand button
+        $(".nav").toggle();
+        $(".toc-expand").toggle();
+      });
+
+      $( ".toc-expand" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+
+        if ($(this).text() == 'Expand') {
+          $(this).text("Compact");
+          $(".nav").css('display', 'block');
+        } else {
+          $(this).text("Expand");
+          $(".nav .nav").css('display', 'none');
+        }
+      });
+
+      // get current year and put it in span
+      var currYear = new Date().getFullYear()
+      $(".current-year").text(currYear);
+  </script>
+
+
+
+
+<div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Main, sans-serif;"></div></div></body></html>

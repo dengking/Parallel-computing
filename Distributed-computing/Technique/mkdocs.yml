@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - Quorum: Quorum
+    - Heartbeat: Heartbeat
+    - Transaction: Transaction

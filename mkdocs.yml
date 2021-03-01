@@ -1,0 +1,9 @@
+nav:
+    - Home: index.md
+    - Parallel-computing: Parallel-computing.md
+    - Concurrent-computing: Concurrent-computing
+    - Distributed-computing: Distributed-computing
+    - Model: Model
+    - Programming-model: Programming-model
+    - Application: Application
+    - Ordering-in-parallel-computing: Ordering-in-parallel-computing.md

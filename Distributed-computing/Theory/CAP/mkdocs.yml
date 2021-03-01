@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - CAP: CAP
+    - Consistency: Consistency    

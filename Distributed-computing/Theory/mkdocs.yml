@@ -1,0 +1,15 @@
+nav:
+    - Introduction: index.md
+    
+    - Trouble-with-Distributed-Systems: Trouble-with-Distributed-Systems.md
+    - Abstraction: Abstraction    
+    - Design-goal-of-distributed-systems: Design-goal-of-distributed-systems.md
+    - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
+
+    - CAP: CAP
+    - High-availability: High-availability
+    - Consensus: Consensus
+    - Partitioning: Partitioning
+    - Replication: Replication
+    - Logical-clock: Logical-clock

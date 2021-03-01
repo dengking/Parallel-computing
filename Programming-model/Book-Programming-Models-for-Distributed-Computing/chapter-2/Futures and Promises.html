@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://dist-prog-book.com/chapter/2/futures.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Futures and Promises</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <!-- jquery js -->
+  <script src="./Futures and Promises_files/jquery-1.11.0.min.js.下载" type="text/javascript"></script>
+
+  <!-- retina js -->
+  <script src="./Futures and Promises_files/retina.js.下载" type="text/javascript"></script>
+
+  <!-- Bootstrap JS and CSS -->
+  <!-- <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" media="screen, print"/> -->
+  <link rel="stylesheet" href="./Futures and Promises_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.css">
+  <script src="./Futures and Promises_files/bootstrap.min.js.下载" type="text/javascript"></script>
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.js"></script>
+
+  <link rel="stylesheet" href="./Futures and Promises_files/fira.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:100,700i,900" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800,600,700,400" rel="stylesheet" type="text/css">
+
+  <!-- MathJax -->
+  <script src="./Futures and Promises_files/MathJax.js.下载" id=""></script>
+
+  <!-- <link rel="stylesheet" href="/resources/css/tufte.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/custom.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/github.css"/> -->
+
+  <link rel="stylesheet" href="./Futures and Promises_files/latex.css">
+  <link rel="stylesheet" href="./Futures and Promises_files/entypo.css" type="text/css">
+  <link rel="stylesheet" href="./Futures and Promises_files/prettify.css" type="text/css">
+  <!-- <link rel="stylesheet" href="/resources/css/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="./Futures and Promises_files/blog.css" type="text/css">
+
+  <!-- Custom javascript -->
+  <script src="./Futures and Promises_files/main.js.下载" type="text/javascript"></script>
+
+  <!-- <link rel="canonical" href="http://yourdomain.com/chapter/2/futures.html"> -->
+  <link rel="alternate" type="application/rss+xml" title="Programming Models for Distributed Computing" href="http://yourdomain.com/feed.xml">
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body data-spy="scroll" data-target="#toc"><div id="MathJax_Message" style="display: none;"></div>
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <div class="logo-wrap">
+            <a href="http://dist-prog-book.com/">
+              <svg class="logo" width="100" height="100">
+                <circle cx="50" cy="50" r="35" stroke-width="6" stroke="#fff" fill="#b3c7cf"></circle>
+                <circle cx="50" cy="50" r="20" fill="#92adb9"></circle>
+                <circle cx="50" cy="50" r="14" fill="#7499AA"></circle>
+              </svg>
+              <div class="book-title">
+                <div class="prog-mod">Programming Models for</div>
+                <div class="dist-comp">Distributed Computing</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-md visible-lg">
+          <div class="navbar-wrap">
+            <ul class="navbar">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-sm visible-xs">
+          <div id="burger" data-toggle="collapse" data-target="#navbar-responsive-wrap">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="navbar-responsive-wrap navbar-static-top navbar-collapse collapse" id="navbar-responsive-wrap">
+            <ul class="navbar-responsive">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container blog">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        
+        <div class="category">futures and promises</div>
+        <h1 class="page-title">Futures and Promises</h1>
+        <div class="author">By Kisalaya Prasad, Avanti Patil, and Heather Miller</div>
+        <div class="subtitle">Futures and promises are a popular abstraction for asynchronous programming, especially in the context of distributed systems. We'll cover the motivation for and history of these abstractions, and see how they have evolved over time. We’ll do a deep dive into their differing semantics, and various models of execution. This isn't only history and evolution; we’ll also dive into futures and promises most widely utilized today in languages like JavaScript, Scala, and C++.
+          
+            <span class="minutes">(55 min read)</span>
+          
+        </div>
+        <div class="dash">—</div>
+        <!-- <article> -->
+
+  <!-- <h1 class="post-title">Futures and Promises</h1> -->
+  <!-- <div class="author">By Kisalaya Prasad, Avanti Patil, and Heather Miller</div> -->
+
+    <h2 id="introduction">Introduction</h2>
+
+<p>As human beings we have the ability to multitask <em>i.e.</em> we can walk, talk, and eat at the same time except when sneezing. Sneezing is a blocking activity because it forces you to stop what you’re doing for a brief moment, and then you resume where you left off. One can think of the human sense of multitasking as multithreading in the context of computers.</p>
+
+<p>Consider for a moment a simple computer processor; no parallelism, just the ability to complete one task or process at a time. In this scenario, sometimes the processor is blocked when some blocking operation is called. Such blocking calls can include I/O operations like reading/writing to disk, or sending or receiving packets over the network. And as programmers, we know that blocking calls like I/O can take disproportionately more time than a typical CPU-bound task, like iterating over a list.</p>
+
+<p>The processor can handle blocking calls in two ways:</p>
+
+<ul>
+  <li><strong>Synchronously</strong>: the processor waits until the blocking call completes its task and returns the result. Afterwards, the processor will move on to processing the next task. <em>This can oftentimes be problematic because the CPU may not be utilized in an efficient manner; it may wait for long periods of time.</em></li>
+  <li><strong>Asynchronously</strong>: When tasks are processed  asynchronously, CPU time spent waiting in the synchronous case is instead spent processing some other task using a preemptive time sharing algorithm. That is, rather than wait, process some other task instead. Thus, the processor is never left waiting as long as there is more work that can be done.</li>
+</ul>
+
+<p>In the world of programming, many constructs have been introduced in order to help programmers reach ideal levels of resource utilization. Arguably one of the most widely-used of which are futures and/or promises.</p>
+
+<p>In this chapter, we’ll do a deep dive into futures and promises, a popular abstraction for doing both synchronous and asynchronous programming. We’ll go through the motivation for and history of these abstractions, understand what sort of scenarios they’re useful for, and cover how they have evolved over time. We’ll cover the various models of execution associated with these abstractions, and finally we’ll touch on the futures and promises most widely utilized today in different general purpose programming languages such as JavaScript, Scala, and C++.</p>
+
+<h2 id="the-basic-idea">The Basic Idea</h2>
+
+<p>As we’ll see in subsequent sections, what we choose to call this concept, and its precise definition tends to vary. We will start with the widest possible definition of the concept of a future/promise, and later zoom in and cover the many semantic differences between different languages’ interpretations of these constructs.</p>
+
+<p>In the broadest sense,</p>
+
+<blockquote>
+  <p>A <i>future or promise</i> can be thought of as a value that will <i>eventually</i> become available.</p>
+</blockquote>
+
+<p>Or said another way, it is an abstraction which encodes a notion of time. By choosing to use this construct, it is assumed that your value can now have many possible states, depending on the point in time which we request it. The simplest variation includes two time-dependent states; a future/promise is either:</p>
+
+<ol>
+  <li><strong><em>completed</em>/<em>determined</em></strong>: the computation is complete and the future/promise’s value is available.</li>
+  <li><strong><em>incomplete</em>/<em>undetermined</em></strong>: the computation is not yet complete.</li>
+</ol>
+
+<p>As we’ll later see, other states have been introduced in some variations of futures/promises to better support needs like error-handling and cancellation.</p>
+
+<p>Importantly, futures/promises typically enable some degree of concurrency. That is, in one of first defitions of futures:</p>
+
+<blockquote>
+  <p>The construct <code>( future X )</code> immediately returns a future for the value of the expression <code>X</code> and <strong>concurrently</strong> begins evaluating <code>X</code>. When the evaluation of <code>X</code> yields a value, that value replaces the future.</p>
+  <footer><a href="http://dist-prog-book.com/chapter/2/futures.html#Multilisp">(Halstead, 1985)</a></footer>
+</blockquote>
+
+<p>Some interpretations of futures/promises have a type associated with them, others not. Typically a future/promise is single-assignment; that is, it can only be written to once. Some interpretations are blocking (synchronous), others are completely non-blocking (asynchronous). Some interpretations must be explicitly <em>kicked off</em> (i.e. manually started), while in other interpretations, computation is started implicitly.</p>
+
+<p>Inspired by functional programming, one of the major distinctions between different interpretations of this construct have to do with <em>pipelineing</em> or <em>composition</em>. Some of the more popular interpretations of futures/promises make it possible to <em>chain</em> operations, or define a pipeline of operations to be invoked upon completion of the computation represented by the future/promise. This is in contrast to callback-heavy or more imperative direct blocking approaches.</p>
+
+<h2 id="motivation-and-uses">Motivation and Uses</h2>
+
+<p>The rise of promises and futures as a topic of relevance has for the most part occurred alongside of the rise of parallel and concurrent programming and distributed systems. This follows somewhat naturally, since, as an abstraction which encodes time, futures/promises introduce a nice way to reason about state changes when latency becomes an issue; a common concern faced by programmers when a node must communicate with another node in a distributed system.</p>
+
+<p>However promises and futures are considered useful in a number of other contexts as well, both distributed and not. Some such contexts include:</p>
+
+<ul>
+  <li><strong>Request-Response Patterns</strong>, such as web service calls over HTTP. A future may be used to represent the value of the response of the HTTP request.</li>
+  <li><strong>Input/Output</strong>, such as UI dialogs requiring user input, or operations such as reading large files from disk. A future may be used to represent the IO call and the resulting value of the IO (e.g., terminal input, array of bytes of a file that was read).</li>
+  <li><strong>Long-Running Computations</strong>. Imagine you would like the process which initiated a long-running computation, such as a complex numerical algorithm, not to wait on the completion of that long-running computation and to instead move on to process some other task. A future may be used to represent this long-running computation and the value of its result.</li>
+  <li><strong>Database Queries</strong>. Like long-running computations, database queries can be time-consuming. Thus, like above, it may be desirable to offload the work of doing the query to another process and move on to processing the next task. A future may be used to represent the query and resulting value of the query.</li>
+  <li><strong>RPC (Remote Procedure Call)</strong>. Network latency is typically an issue when making an RPC call to a server. Like above, it may be desirable to not have to wait on the result of the RPC invocation by instead offloading it to another process. A future may be used to represent the RPC call and its result; when the server responds with a result, the future is completed and its value is the server’s response.</li>
+  <li><strong>Reading Data from a Socket</strong> can be time-consuming particularly due to network latency. It may thus be desirable to not to have to wait on incoming data, and instead to offload it to another process. A future may be used to represent the reading operation and the resulting value of what it reads when the future is completed.</li>
+  <li><strong>Timeouts</strong>, such as managing timeouts in a web service. A future representing a timeout could simply return no result or some kind of empty result like the <code class="highlighter-rouge">Unit</code> type in typed programming languages.</li>
+</ul>
+
+<p>Many real world services and systems today make heavy use of futures/promises in popular contexts such as these, thanks to the notion of a future or a promise having been introduced in popular languages and frameworks such as JavaScript, Node.js, Scala, Java, C++, amongst many others. As we will see in further sections, this proliferation of futures/promises has resulted in futures/promises changing meanings and names over time and across languages.</p>
+
+<h2 id="diverging-terminology">Diverging Terminology</h2>
+
+<p><em>Future</em>, <em>Promise</em>, <em>Delay</em> or <em>Deferred</em> generally refer to roughly the same synchronization mechanism where an object acts as a proxy for as-of-yet unknown result. When the result is available, some other code then gets executed. Over the years, these terms have come to refer to slightly different semantic meanings between languages and ecosystems.</p>
+
+<p>Sometimes, a language may have <em>one</em> construct named future, promise, delay, deferred, etc.</p>
+
+<p>However, in other cases, a language may have <em>two</em> constructs, typically referred to as futures and promises. Languages like Scala, Java, and Dart fall into this category. In this case,</p>
+
+<ul>
+  <li>A <code class="highlighter-rouge">Future</code> is a read-only reference to a yet-to-be-computed value.</li>
+  <li>A <code class="highlighter-rouge">Promise</code> (or a <code class="highlighter-rouge">CompletableFuture</code>/<code class="highlighter-rouge">Completer</code>/etc.) is a single-assignment variable which the <code class="highlighter-rouge">Future</code> refers to.</li>
+</ul>
+
+<p>In other words, a future is a read-only window to a value written into a promise. You can get the <code class="highlighter-rouge">Future</code> associated with a <code class="highlighter-rouge">Promise</code> by calling the <code class="highlighter-rouge">future</code> method on it, but conversion in the other direction is not possible. Another way to look at it would be, if you <em>promise</em> something to someone, you are responsible for keeping it, but if someone else makes a <em>promise</em> to you, you expect them to honor it in the <em>future</em>.</p>
+
+<p>In Scala, they are defined as follows:</p>
+
+<blockquote>
+  <p>A future is a placeholder object for a result that does not yet exist.
+     A promise is a writable, single-assignment container, which completes a future. Promises can complete the future with a result to indicate success, or with an exception to indicate failure.
+  </p>
+  <footer><a href="http://dist-prog-book.com/chapter/2/futures.html#SIP14">(Haller et al., 2013)</a></footer>
+</blockquote>
+
+<p>An important difference between Scala and Java (6) futures is that Scala futures are asynchronous in nature. Java’s future, at least till Java 6, were blocking. Java 7 introduced asynchronous futures to great fanfare.</p>
+
+<p>In Java 8, the <code class="highlighter-rouge">Future&lt;T&gt;</code> interface has methods to check if the computation is complete, to wait for its completion, and to retrieve the result of the computation when it is complete. <code class="highlighter-rouge">CompletableFutures</code> can be thought of as a promise, since their value can be explicitly set. However, <code class="highlighter-rouge">CompletableFuture</code> also implements the <code class="highlighter-rouge">Future</code> interface allowing it to be used as a <code class="highlighter-rouge">Future</code> as well. Promises can be thought of as a future with a public set method which the caller (or anybody else) can use to set the value of the future.</p>
+
+<p>In the JavaScript world, JQuery introduces a notion of <code class="highlighter-rouge">Deferred</code> objects which are used to represent a unit of work which is not yet finished. The <code class="highlighter-rouge">Deferred</code> object contains a promise object which represents the result of that unit of work. Promises are values returned by a function. The deferred object can also be canceled by its caller.</p>
+
+<p>Like Scala and Java, C# also makes the distinction between the future and promise constructs described above. In C#, futures are called <code class="highlighter-rouge">Task&lt;T&gt;</code>s, and promises are called <code class="highlighter-rouge">TaskCompletionSource&lt;T&gt;</code>. The result of the future is available in the read-only property <code class="highlighter-rouge">Task&lt;T&gt;.Result</code> which returns <code class="highlighter-rouge">T</code>, and <code class="highlighter-rouge">TaskCompletionSource&lt;T&gt;.Task&lt;TResult&gt;</code> has methods to complete the <code class="highlighter-rouge">Task</code> object with a result of type <code class="highlighter-rouge">T</code> or with an exception or cancellation. Important to note; <code class="highlighter-rouge">Task</code>s are asynchronous in C#.</p>
+
+<p>And confusingly, the JavaScript community has standardized on a single construct known as a <code class="highlighter-rouge">Promise</code> which can be used like other languages’ notions of futures. The Promises specification <a href="http://dist-prog-book.com/chapter/2/futures.html#PromisesAPlus">(Promises/A+, 2013)</a> defines only a single interface and leaves the details of completing (or <em>fulfilling</em>) the promise to the implementer of the spec. Promises in JavaScript are also asynchronous and able to be pipelined. JavaScript promises are enabled by default in browsers that support ECMAScript 6 (EC6), or are available in a number of libraries such as <a href="http://bluebirdjs.com/docs/getting-started.html">Bluebird</a> and <a href="https://github.com/kriskowal/q">Q</a>.</p>
+
+<p>As we can see, concepts, semantics, and terminology seem to differ between languages and library implementations of futures/promises. These differences in terminology and semantics arise from the long history and independent language communities that have proliferated the use of futures/promises.</p>
+
+<h2 id="brief-history">Brief History</h2>
+
+<p>Here’s a brief glimpse at a timeline spanning the history of futures and promises as we know them today:</p>
+
+<figure style="margin-left: 0px; width: 105%;">
+  <img src="./Futures and Promises_files/1.png" alt="timeline">
+</figure>
+
+<p>The first concept which eventually led to futures/promises appeared in 1961, with so-called <em>thunks</em>. Thunks can be thought of as a primitive, sequential notion of a future or promise. According to its inventor P. Z. Ingerman, thunks are:</p>
+
+<blockquote>
+  <p>A piece of coding which provides an address</p>
+  <footer><a href="http://dist-prog-book.com/chapter/2/futures.html#Thunks">(Ingerman, 1961)</a></footer>
+</blockquote>
+
+<p>Thunks were designed as a way of binding actual parameters to their formal definitions in Algol-60 procedure calls. If a procedure is called with an expression in the place of a formal parameter, the compiler generates a thunk which computes the expression and leaves the address of the result in some standard location. Think of a thunk as a continuation or a function that was intended to be evaluated in a single-threaded environment.</p>
+
+<p>The first mention of Futures was by Baker and Hewitt in a paper on Incremental Garbage Collection of Processes <a href="http://dist-prog-book.com/chapter/2/futures.html#Hewitt77">(Baker &amp; Hewitt, 1977)</a>. They coined the term, <em>call-by-futures</em>, to describe a calling convention in which each formal parameter to a method is bound to a process which evaluates the expression in the parameter in parallel with other parameters. Before this paper, Algol 68 <strong>(missing reference)</strong> also presented a way to make this kind of concurrent parameter evaluation possible, using the collateral clauses and parallel clauses for parameter binding.</p>
+
+<p>In their paper, Baker and Hewitt introduced a notion of Futures as a 3-tuple representing an expression <code class="highlighter-rouge">E</code> consisting of:</p>
+
+<ol>
+  <li>A process which evaluates <code class="highlighter-rouge">E</code>,</li>
+  <li>A memory location where the result of <code class="highlighter-rouge">E</code> needs to be stored,</li>
+  <li>A list of processes which are waiting on <code class="highlighter-rouge">E</code>.</li>
+</ol>
+
+<p>Though importantly, the focus of their work was not on role of futures and the role they play in asynchronous distributed computing. Instead, it was focused on garbage collecting the processes which evaluate expressions that were not needed by the function.</p>
+
+<p>The Multilisp language <a href="http://dist-prog-book.com/chapter/2/futures.html#Multilisp">(Halstead, 1985)</a>, presented by Halestead in 1985 built upon this call-by-future with a future annotation. In Multilisp, binding a variable to a future expression would in turn create a new process which evaluates that expression and binds it to the variable reference which represents its (eventual) result. That is, Multilisp introduced a way to compute arbitrary expressions concurrently in a new process. This made it possible to move past the actual computation and continue processing without waiting for the future to complete. If the result value of the future is never used, the initiating process will not block, thus eliminating a potential source of deadlock. MultiLisp also included a lazy future variant, called <em>delay</em>, which would only be evaluated the first time the value is required elsewhere in the program.</p>
+
+<p>This design of futures in Multilisp in turn influenced a construct dubbed <em>promises</em> in the Argus programming language <a href="http://dist-prog-book.com/chapter/2/futures.html#Promises88">(Liskov &amp; Shrira, 1988; Liskov, 1988)</a> by Liskov and Shrira in 1988. Like futures in MultiLisp, promises in Argus intended to be a placeholder for the result of a value that will be available in the future. Unlike Multilisp which was focused on single-machine concurrency, however, Argus was designed to facilitate distributed programming, and in particular focused on promises as a way to integrate <em>asynchronous</em> RPC into the Argus programming language. Importantly, promises were extended beyond futures in Multilisp through the introduction of types to promises. Therefore, in Argus, when a call to <code class="highlighter-rouge">promise</code> is made, a promise is created which immediately returns, and a type-safe asynchronous RPC call is made in a new process. When the RPC completes, the returned value can be claimed by the caller.</p>
+
+<p>Argus also introduced call streams, which can be thought of as a way to enforce an ordering of concurrently executing calls. A sender and a receiver are connected by a stream, over which it is possible make normal (synchronous) RPC calls, or <em>stream calls</em>, in which the sender may make more calls before receiving the reply. The underlying runtime however ensures that, despite the non-blocking stream calls fired off, that all calls and subsequent replies happen in call order. That is, call-streams ensure exactly-once, ordered delivery. Argus also introduces constructs to <em>compose</em> call-streams, in order to build up pipelines of computation, or directed acyclic graphs (DAGs) of computation. These semantics are an early precursor to what we refer to today as <em>promise pipelining</em>.</p>
+
+<p>E is an object-oriented programming language for secure distributed computing <a href="http://dist-prog-book.com/chapter/2/futures.html#ELang">(Miller, Tribble, &amp; Shapiro, 2005)</a>, created by Mark S. Miller, Dan Bornstein, and others at Electric Communities in 1997. A major contribution of E is its interpretation and implementation of promises. It traces its routes to Joule <a href="http://dist-prog-book.com/chapter/2/futures.html#Joule">(Tribble, Miller, Hardy, &amp; Krieger, 1995)</a>, a dataflow programming language predecessor to E. Importantly, E introduced an <em>eventually</em> operator, <code class="highlighter-rouge">* &lt;- *</code> which enabled what is called an eventual send in E; that is, the program doesn’t wait for the operation to complete and moves to next sequential statement. This is in contrast to the expected semantics of an <em>immediate call</em> which looks like a normal method invocation in E. Eventual sends queue a pending delivery and complete immediately, returning a promise. A pending delivery includes a resolver for the promise. Subsequent messages can also be eventually sent to a promise before it is resolved. In this case, these messages are queued up and forwarded once the promise is resolved. That is, once we have a promise, we are able to chain make several pipelined eventual sends as if the initial promise was already resolved. This notion of <em>promise pipelining</em> <a href="http://dist-prog-book.com/chapter/2/futures.html#PromisePipe07">(Miller, Tribble, &amp; Jellinghaus, 2007)</a> has been adopted by a majority of contemporary futures/promises interpretations.</p>
+
+<p>Futures and promises remained primarily an academic fascination until the early 2000s, upon the rise of web application development, networked system development, and an increased need for responsive user interfaces.</p>
+
+<p>Among the mainstream programming languages, Python was perhaps the first, in 2002, to get a library which introduced a construct along the same lines as E’s promises in the Twisted library <a href="http://dist-prog-book.com/chapter/2/futures.html#Twisted">(Lefkowitz, 2002)</a>. Twisted introduced the notion of <em>Deferred</em> objects, are used to receive the result of an operation not yet completed. In Twisted, deferred objects are just like normal first-class objects; they can be passed along anywhere a normal object can, the only difference is that deferred objects don’t have values. Deferred objects support callbacks, which are called once the result of the operation is complete.</p>
+
+<p>Perhaps most famous in recent memory is that of promises in JavaScript. In 2007, inspired by Python’s Twisted library, the authors of the Dojo Toolkit came up a JavaScript implementation of Twisted’s deferred objects, known as <code class="highlighter-rouge">dojo.Deferred</code>. This in turn inspired Kris Zyp to propose the CommonJS Promises/A spec in 2009 <a href="http://dist-prog-book.com/chapter/2/futures.html#PromisesA">(Zyp, 2009)</a>. The same year, Ryan Dahl introduced Node.js. In it’s early versions, Node.js used promises in its non-blocking API. However, when Node.js moved away from promises to its now familiar error-first callback API (the first argument for the callback should be an error object), it left a void to fill for a promises API. <a href="https://github.com/kriskowal/q">Q.js</a> is an implementation of Promises/A spec by Kris Kowal around this time <a href="http://dist-prog-book.com/chapter/2/futures.html#Qjs">(Kowal, 2009)</a>. The <a href="https://github.com/FuturesJS/FuturesJS">FuturesJS</a> library by AJ O’Neal was another library which aimed to solve flow-control problems without using Promises in the strictest of senses. In 2011, JQuery v1.5 introduced Promises to its wider and ever-growing audience. However, JQuery’s promises API was subtly different than the Promises/A spec <a href="http://dist-prog-book.com/chapter/2/futures.html#JQueryPromises">(Gheri, 2013)</a>. With the rise of HTML5 and different APIs, there came a problem of different and messy interfaces which added to the already infamous callback hell. The Promises/A+ spec <a href="http://dist-prog-book.com/chapter/2/futures.html#PromisesAPlus">(Promises/A+, 2013)</a> aimed to solve this problem. Following the broad community acceptance of the Promises/A+ spec, promises were finally made a part of the ECMAScript® 2015 Language Specification <a href="http://dist-prog-book.com/chapter/2/futures.html#Ecmascript15">(ECMAScript, Association, &amp; others, 2015)</a>. However, a lack of backward compatibility and additional features missing in the Promises/A+ spec means that libraries like <a href="http://bluebirdjs.com/docs/getting-started.html">BlueBird</a> and <a href="https://github.com/kriskowal/q">Q.js</a> still have a place in the JavaScript ecosystem.</p>
+
+<h2 id="semantics-of-execution">Semantics of Execution</h2>
+
+<p>As architectures and runtimes have developed and changed over the years, so too have the techniques for implementing futures/promises such that the abstraction translates into efficient utilization of system resources. In this section, we’ll cover the three primary executions models upon which futures/promises are built on top of in popular languages and libraries. That is, we’ll see the different ways in which futures and promises actually get executed and resolved underneath their APIs.</p>
+
+<h3 id="thread-pools">Thread Pools</h3>
+
+<p>A thread pool is an abstraction that gives users access to a group of ready, idle threads which can be given work. Thread pool implementations take care of worker creation, management, and scheduling, which can easily become tricky and costly if not handled carefully. Thread pools come in many different flavors, with many different techniques for scheduling and executing tasks, and with fixed numbers of threads or the ability of the pool to dynamically resize itself depending on load.</p>
+
+<p>A classic thread pool implementation is Java’s <code class="highlighter-rouge">Executor</code>, which is an object which executes the <code class="highlighter-rouge">Runnable</code> tasks. <code class="highlighter-rouge">Executor</code>s provide a way of abstracting out how the details of how a task will actually run. These details, like selecting a thread to run the task, how the task is scheduled are managed by the underlying implementation of the <code class="highlighter-rouge">Executor</code> interface.</p>
+
+<p>Similar to <code class="highlighter-rouge">Executor</code>, Scala includes is a <code class="highlighter-rouge">ExecutionContext</code>s as part of the <code class="highlighter-rouge">scala.concurrent</code> package. The basic intent behind Scala’s <code class="highlighter-rouge">ExecutionContext</code> is the same as Java’s <code class="highlighter-rouge">Executor</code>; it is responsible for efficiently executing computations concurrently without requiring the user of the pool to have to worry about things like scheduling. Importantly, <code class="highlighter-rouge">ExecutionContext</code> can be thought of as an interface; that is, it is possible to <em>swap in</em> different underlying thread pool implementations and keep the same thread pool interface.</p>
+
+<p>While it’s possible to use different thread pool implementations, Scala’s default <code class="highlighter-rouge">ExecutionContext</code> implementation is backed by Java’s <code class="highlighter-rouge">ForkJoinPool</code>; a thread pool implementation that features a work-stealing algorithm in which idle threads pick up tasks previously scheduled to other busy threads. The <code class="highlighter-rouge">ForkJoinPool</code> is a popular thread pool implementation due to its improved performance over <code class="highlighter-rouge">Executor</code>s, its ability to better avoid pool-induced deadlock, and for minimizing the amount of time spent switching between threads.</p>
+
+<p>Scala’s futures (and promises) are based on this <code class="highlighter-rouge">ExecutionContext</code> interface to an underlying thread pool. While typically users use the underlying default <code class="highlighter-rouge">ExecutionContext</code> which is backed by a <code class="highlighter-rouge">ForkJoinPool</code>, users may also elect to provide (or implement) their own <code class="highlighter-rouge">ExecutionContext</code> if they need a specific behavior, like blocking futures.</p>
+
+<p>In Scala, every usage of a future or promise requires some kind of <code class="highlighter-rouge">ExecutionContext</code> to be passed along. This parameter is implicit, and is usually <code class="highlighter-rouge">ExecutionContext.global</code> (the default underlying <code class="highlighter-rouge">ForkJoinPool</code> <code class="highlighter-rouge">ExecutionContext</code>). For example, a creating and running a basic future:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">implicit</span> <span class="k">val</span> <span class="n">ec</span> <span class="k">=</span> <span class="nc">ExecutionContext</span><span class="o">.</span><span class="n">global</span>
+<span class="k">val</span> <span class="n">f</span> <span class="k">:</span> <span class="kt">Future</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Future</span> <span class="o">{</span> <span class="err">“</span><span class="n">hello</span> <span class="n">world</span><span class="err">”</span> <span class="o">}</span>
+</code></pre>
+</div>
+
+<p>In this example, the global execution context is used to asynchronously run the created future. As mentioned earlier, the <code class="highlighter-rouge">ExecutionContext</code> parameter to the <code class="highlighter-rouge">Future</code> is <em>implicit</em>. That means that if the compiler finds an instance of an <code class="highlighter-rouge">ExecutionContext</code> in so-called <em>implicit scope</em>, it is automatically passed to the call to <code class="highlighter-rouge">Future</code> without the user having to explicitly pass it. In the example above, <code class="highlighter-rouge">ec</code> is put into implicit scope through the use of the <code class="highlighter-rouge">implicit</code> keyword when declaring <code class="highlighter-rouge">ec</code>.</p>
+
+<p>As mentioned earlier, futures and promises in Scala are <em>asynchronous</em>, which is achieved through the use of callbacks. For example:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">implicit</span> <span class="k">val</span> <span class="n">ec</span> <span class="k">=</span> <span class="nc">ExecutionContext</span><span class="o">.</span><span class="n">global</span>
+
+<span class="k">val</span> <span class="n">f</span> <span class="k">=</span> <span class="nc">Future</span> <span class="o">{</span>
+  <span class="nc">Http</span><span class="o">(</span><span class="s">"http://api.fixed.io/latest?base=USD"</span><span class="o">).</span><span class="n">asString</span>
+<span class="o">}</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">onComplete</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nc">Success</span><span class="o">(</span><span class="n">response</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">response</span><span class="o">)</span>
+  <span class="k">case</span> <span class="nc">Failure</span><span class="o">(</span><span class="n">t</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">t</span><span class="o">.</span><span class="n">getMessage</span><span class="o">())</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>In this example, we first create a future <code class="highlighter-rouge">f</code>, and when it completes, we provide two possible expressions that can be invoked depending on whether the future was executed successfully or if there was an error. In this case, if successful, we get the result of the computation an HTTP string, and we print it. If an exception was thrown, we get the message string contained within the exception and we print that.</p>
+
+<p>So, how does it all work together?</p>
+
+<p>As we mentioned, Futures require an <code class="highlighter-rouge">ExecutionContext</code>, which is an implicit parameter to virtually all of the futures API. This <code class="highlighter-rouge">ExecutionContext</code> is used to execute the future. Scala is flexible enough to let users implement their own Execution Contexts, but let’s talk about the default <code class="highlighter-rouge">ExecutionContext</code>, which is a <code class="highlighter-rouge">ForkJoinPool</code>.</p>
+
+<p><code class="highlighter-rouge">ForkJoinPool</code> is ideal for many small computations that spawn off and then come back together. Scala’s <code class="highlighter-rouge">ForkJoinPool</code> requires the tasks submitted to it to be a <code class="highlighter-rouge">ForkJoinTask</code>. The tasks submitted to the global <code class="highlighter-rouge">ExecutionContext</code> is quietly wrapped inside a <code class="highlighter-rouge">ForkJoinTask</code> and then executed. <code class="highlighter-rouge">ForkJoinPool</code> also supports a possibly blocking task, using the <code class="highlighter-rouge">ManagedBlock</code> method which creates a spare thread if required to ensure that there is sufficient parallelism if the current thread is blocked. To summarize, <code class="highlighter-rouge">ForkJoinPool</code> is an really good general purpose <code class="highlighter-rouge">ExecutionContext</code>, which works really well in most of the scenarios.</p>
+
+<h3 id="event-loops">Event Loops</h3>
+
+<p>Modern platforms and runtimes typically rely on many underlying system layers to operate. For example, there’s an underlying file system, a database system, and other web services that may be relied on by a given language implementation, library, or framework. Interaction with these components typically involves a period where we’re doing nothing but waiting for the response. This can be a very large waste of computing resources.</p>
+
+<p>JavaScript is a single threaded asynchronous runtime. Now, conventionally async programming is generally associated with multi-threading, but we’re not allowed to create new threads in JavaScript. Instead, asynchronicity in JavaScript is achieved using an event-loop mechanism.</p>
+
+<p>JavaScript has historically been used to interact with the DOM and user interactions in the browser, and thus an event-driven programming model was a natural fit for the language. This has scaled up surprisingly well in high throughput scenarios in Node.js.</p>
+
+<p>The general idea behind event-driven programming model is that the logic flow control is determined by the order in which events are processed. This is underpinned by a mechanism which is constantly listening for events and fires a callback when it is detected. This is the JavaScript’s event loop in a nutshell.</p>
+
+<p>A typical JavaScript engine has a few basic components. They are :</p>
+<ul>
+  <li><strong>Heap</strong>
+Used to allocate memory for objects</li>
+  <li><strong>Stack</strong>
+Function call frames go into a stack from where they’re picked up from top to be executed.</li>
+  <li><strong>Queue</strong>
+  A message queue holds the messages to be processed.</li>
+</ul>
+
+<p>Each message has a callback function which is fired when the message is processed. These messages can be generated by user actions like button clicks or scrolling, or by actions like HTTP requests, request to a database to fetch records or reading/writing to a file.</p>
+
+<p>Separating when a message is queued from when it is executed means the single thread doesn’t have to wait for an action to complete before moving on to another. We attach a callback to the action we want to do, and when the time comes, the callback is run with the result of our action. Callbacks work good in isolation, but they force us into a continuation passing style of execution, what is otherwise known as Callback hell.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="nx">getData</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">param</span><span class="p">,</span> <span class="nx">callback</span><span class="p">){</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com/get/'</span><span class="o">+</span><span class="nx">param</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">responseText</span><span class="p">){</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">getData</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">){</span>
+  <span class="nx">getData</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">b</span><span class="p">){</span>
+    <span class="nx">getData</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span>
+      <span class="nx">getData</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">d</span><span class="p">){</span>
+        <span class="nx">getData</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+         <span class="c1">// ...</span>
+        <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<center><h4> VS </h4></center>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="nx">getData</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">param</span><span class="p">,</span> <span class="nx">callback</span><span class="p">){</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'http://example.com/get/'</span><span class="o">+</span><span class="nx">param</span><span class="p">,</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">responseText</span><span class="p">){</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="nx">responseText</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">getData</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">getData</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getData</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getData</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">getData</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <p><strong>Programs must be written for people to read, and only incidentally for machines to execute.</strong> - <em>Harold Abelson and Gerald Jay Sussman</em></p>
+</blockquote>
+
+<p>Promises are an abstraction which make working with async operations in JavaScript much more fun. Callbacks lead to inversion of control, which is difficult to reason about at scale. Moving on from a continuation passing style, where you specify what needs to be done once the action is done, the callee simply returns a Promise object. This inverts the chain of responsibility, as now the caller is responsible for handling the result of the promise when it is settled.</p>
+
+<p>The ES2015 spec specifies that “promises must not fire their resolution/rejection function on the same turn of the event loop that they are created on.” This is an important property because it ensures deterministic order of execution. Also, once a promise is fulfilled or failed, the promise’s value MUST not be changed. This ensures that a promise cannot be resolved more than once.</p>
+
+<p>Let’s take an example to understand the promise resolution workflow as it happens inside the JavaScript Engine.</p>
+
+<p>Suppose we execute a function, here <code class="highlighter-rouge">g()</code> which in turn, calls another function <code class="highlighter-rouge">f()</code>. Function <code class="highlighter-rouge">f</code> returns a promise, which, after counting down for 1000 ms, resolves the promise with a single value, true. Once <code class="highlighter-rouge">f</code> gets resolved, a value <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code> is alerted based on the value of the promise.</p>
+
+<figure>
+  <img src="./Futures and Promises_files/5.png" alt="timeline">
+</figure>
+
+<p>Now, JavaScript’s runtime is single threaded. This statement is true, and not true. The thread which executes the user code is single threaded. It executes what is on top of the stack, runs it to completion, and then moves onto what is next on the stack. But, there are also a number of helper threads which handle things like network or timer/settimeout type events. This timing thread handles the counter for setTimeout.</p>
+
+<figure>
+  <img src="./Futures and Promises_files/6.png" alt="timeline">
+</figure>
+
+<p>Once the timer expires, the timer thread puts a message on the message queue. The queued up messages are then handled by the event loop. The event loop as described above, is simply an infinite loop which checks if a message is ready to be processed, picks it up and puts it on the stack for it’s callback to be executed.</p>
+
+<figure>
+  <img src="./Futures and Promises_files/7.png" alt="timeline">
+</figure>
+
+<p>Here, since the future is resolved with a value of <code class="highlighter-rouge">true</code>, we are alerted with a value <code class="highlighter-rouge">true</code> when the callback is picked up for execution.</p>
+
+<figure>
+  <img src="./Futures and Promises_files/8.png" alt="timeline">
+</figure>
+
+<p>We’ve ignored the heap here, but all the functions, variables and callbacks are stored on heap.
+As we’ve seen here, even though JavaScript is said to be single threaded, there are number of helper threads to help main thread do things like timeout, UI, network operations, file operations etc.</p>
+
+<p>Run-to-completion helps us reason about the code in a nice way. Whenever a function starts, it needs to finish before yielding the main thread. The data it accesses cannot be modified by someone else. This also means every function needs to finish in a reasonable amount of time, otherwise the program seems hung. This makes JavaScript well suited for I/O tasks which are queued up and then picked up when finished, but not for data processing intensive tasks which generally take long time to finish.</p>
+
+<p>We haven’t talked about error handling, but it gets handled the same exact way, with the error callback being called with the error object the promise is rejected with.</p>
+
+<p>Event loops have proven to be surprisingly performant. When network servers are designed around multithreading, as soon as you end up with a few hundred concurrent connections, the CPU spends so much of its time task switching that you start to lose overall performance. Switching from one thread to another has overhead which can add up significantly at scale. Apache used to choke even as low as a few hundred concurrent users when using a thread per connection while Node.js can scale up to a 100,000 concurrent connections based on event loops and asynchronous IO.</p>
+
+<h3 id="thread-model">Thread Model</h3>
+
+<p>The Oz programming language introduced an idea of dataflow concurrency model. In Oz, whenever the program comes across an unbound variable, it waits for it to be resolved. This dataflow property of variables helps us write threads in Oz that communicate through streams in a producer-consumer pattern. The major benefit of dataflow based concurrency model is that it’s deterministic - same operation called with same parameters always produces the same result. It makes it a lot easier to reason about concurrent programs, if the code is side-effect free.</p>
+
+<p>Alice ML is a dialect of Standard ML with support for lazy evaluation, concurrent, distributed, and constraint programming. The early aim of Alice project was to reconstruct the functionalities of Oz programming language on top of a typed programming language. Building on the Standard ML dialect, Alice also provides concurrency features as part of the language through the use of a future type. Futures in Alice represent an undetermined result of a concurrent operation. Promises in Alice ML are explicit handles for futures.</p>
+
+<p>Any expression in Alice can be evaluated in it’s own thread using spawn keyword. Spawn always returns a future which acts as a placeholder for the result of the operation. Futures in Alice ML can be thought of as functional threads, in a sense that threads in Alice always have a result. A thread is said to be touching a future if it performs an operation that requires the value future is a placeholder for. All threads touching a future are blocked until the future is resolved. If a thread raises an exception, the future is failed and this exception is re-raised in the threads touching it. Futures can also be passed along as values. This helps us achieve the dataflow model of concurrency in Alice.</p>
+
+<p>Alice also allows for lazy evaluation of expressions. Expressions preceded with the lazy keyword are evaluated to a lazy future. The lazy future is evaluated when it is needed. If the computation associated with a concurrent or lazy future ends with an exception, it results in a failed future. Requesting a failed future does not block, it simply raises the exception that was the cause of the failure.</p>
+
+<h2 id="implicit-vs-explicit-promises">Implicit vs. Explicit Promises</h2>
+
+<p>We define implicit promises as ones where we don’t have to manually trigger the computation vs Explicit promises where we have to trigger the resolution of future manually, either by calling a start function or by requiring the value. This distinction can be understood in terms of what triggers the calculation: With implicit promises, the creation of a promise also triggers the computation, while with explicit futures, one needs to triggers the resolution of a promise. This trigger can in turn be explicit, like calling a start method, or implicit, like lazy evaluation where the first use of a promise’s value triggers its evaluation.</p>
+
+<p>The idea for explicit futures were introduced in the Baker and Hewitt paper. They’re a little trickier to implement, and require some support from the underlying language, and as such they aren’t that common. The Baker and Hewitt paper talked about using futures as placeholders for arguments to a function, which get evaluated in parallel, but when they’re needed. MultiLisp also had a mechanism to delay the evaluation of the future to the time when it’s value is first used, using the defer construct. Lazy futures in Alice ML have a similar explicit invocation mechanism, the first thread touching a future triggers its evaluation.</p>
+
+<p>An example of explicit futures would be (from AliceML):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">fun enum n = lazy n :: enum (n+1)
+</code></pre>
+</div>
+
+<p>This example generates an infinite stream of integers and if stated when it is created, will compete for the system resources.</p>
+
+<p>Implicit futures were introduced originally by Friedman and Wise in a paper in 1978. The ideas presented in that paper inspired the design of promises in MultiLisp. Futures are also implicit in Scala and JavaScript, where they’re supported as libraries on top of the core languages. Implicit futures can be implemented this way as they don’t require support from language itself. Alice ML’s concurrent futures are also an example of implicit invocation.</p>
+
+<p>In Scala, we can see an example of an implicit future when making an HTTP request.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">val</span> <span class="n">f</span> <span class="k">=</span> <span class="nc">Future</span> <span class="o">{</span>
+  <span class="nc">Http</span><span class="o">(</span><span class="s">"http://api.fixer.io/latest?base=USD"</span><span class="o">).</span><span class="n">asString</span>
+<span class="o">}</span>
+
+<span class="n">f</span> <span class="n">onComplete</span>  <span class="o">{</span>
+  <span class="k">case</span> <span class="nc">Success</span><span class="o">(</span><span class="n">response</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="o">)</span>
+  <span class="k">case</span> <span class="nc">Failure</span><span class="o">(</span><span class="n">t</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">println</span><span class="o">(</span><span class="n">t</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+<p>This sends the HTTP call as soon as it the Future is created. In Scala, although the futures are implicit, Promises can be used to have an explicit-like behavior. This is useful in a scenario where we need to stack up some computations and then resolve the Promise.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">val</span> <span class="n">p</span> <span class="k">=</span> <span class="nc">Promise</span><span class="o">[</span><span class="kt">Foo</span><span class="o">]()</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">map</span><span class="o">(</span> <span class="o">...</span> <span class="o">).</span><span class="n">filter</span><span class="o">(</span> <span class="o">...</span> <span class="o">)</span> <span class="n">foreach</span> <span class="n">println</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">complete</span><span class="o">(</span><span class="k">new</span> <span class="nc">Foo</span><span class="o">)</span>
+</code></pre>
+</div>
+
+<p>Here, we create a Promise, and complete it later. Between creation and completion we stack up a set of computations which then get executed once the promise is completed.</p>
+
+<h2 id="promise-pipelining">Promise Pipelining</h2>
+
+<p>One of the criticism of traditional RPC systems would be that they’re blocking. Imagine a scenario where you need to call an API ‘A’ and another API ‘B’, then aggregate the results of both the calls and use that result as a parameter to another API ‘C’. Now, the logical way to go about doing this would be to call A and B in parallel, then once both finish, aggregate the result and call C. Unfortunately, in a blocking system, the way to go about is call A, wait for it to finish, call B, wait, then aggregate and call C. This seems like a waste of time, but in absence of asynchronicity, it is impossible. Even with asynchronicity, it gets a little difficult to manage or scale up the system linearly. Fortunately, we have promises.</p>
+
+<figure>
+  <img src="./Futures and Promises_files/p-1.png" alt="timeline">
+</figure>
+
+<figure>
+  <img src="./Futures and Promises_files/p-2.png" alt="timeline">
+</figure>
+
+<p>Futures/Promises can be passed along, waited upon, or chained and joined together. These properties helps make life easier for the programmers working with them. This also reduces the latency associated with distributed computing. Promises enable dataflow concurrency, which is also deterministic, and easier to reason about.</p>
+
+<p>The history of promise pipelining can be traced back to the call-streams in Argus. In Argus, call-streams are a mechanism for communication between distributed components. The communicating entities, a sender and a receiver are connected by a stream, and sender can make calls to receiver over it. Streams can be thought of as RPC, except that these allow callers to run in parallel with the receiver while processing the call. When making a call in Argus, the caller receives a promise for the result. In the paper on Promises by Liskov and Shrira, they mention that having integrated Promises into call streams, next logical step would be to talk about stream composition. This means arranging streams into pipelines where output of one stream can be used as input of the next stream. They talk about composing streams using fork and coenter.</p>
+
+<p>Channels in Joule were a similar idea, providing a channel which connects an acceptor and a distributor. Joule was a direct ancestor to E language, and talked about it in more detail.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">t3 := (x &lt;- a()) &lt;- c(y &lt;- b())
+
+t1 := x &lt;- a()
+t2 := y &lt;- b()
+t3 := t1 &lt;- c(t2)
+</code></pre>
+</div>
+
+<p>Without pipelining in E, this call will require three round trips. First to send <code class="highlighter-rouge">a()</code> to <code class="highlighter-rouge">x</code>, then <code class="highlighter-rouge">b()</code> to <code class="highlighter-rouge">y</code> then finally <code class="highlighter-rouge">c</code> to the result <code class="highlighter-rouge">t1</code> with <code class="highlighter-rouge">t2</code> as an argument. But with pipelining, the later messages can be sent with promises as result of earlier messages as argument. This allowed sending all the messages together, thereby saving the costly round trips. This is assuming <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> are on the same remote machine, otherwise we can still evaluate <code class="highlighter-rouge">t1</code> and <code class="highlighter-rouge">t2</code> parallely.</p>
+
+<p>Notice that this pipelining mechanism is different from asynchronous message passing, as in asynchronous message passing, even if <code class="highlighter-rouge">t1</code> and <code class="highlighter-rouge">t2</code> get evaluated in parallel, to resolve <code class="highlighter-rouge">t3</code> we still wait for <code class="highlighter-rouge">t1</code> and <code class="highlighter-rouge">t2</code> to be resolved, and send it again in another call to the remote machine.</p>
+
+<p>Modern promise specifications, like one in JavaScript comes with methods which help working with promise pipelining easier. In JavaScript, a <code class="highlighter-rouge">Promise.all</code> method is provided, which takes in an iterable and returns a new <code class="highlighter-rouge">Promise</code> which gets resolved when all the promises in the iterable get resolved. There’s also a <code class="highlighter-rouge">Promise.race</code> method, which returns a promise which is resolved when the first promise in the iterable gets resolved. Examples using these methods are shown below.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">([</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="nx">values</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">);</span> <span class="c1">// [1,2]</span>
+<span class="p">});</span>
+
+<span class="nx">Promise</span><span class="p">.</span><span class="nx">race</span><span class="p">([</span><span class="nx">p1</span><span class="p">,</span> <span class="nx">p2</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>In Scala, futures have an <code class="highlighter-rouge">onSuccess</code> method which acts as a callback to when the future is complete. This callback itself can be used to sequentially chain futures together. But this results in bulkier code. Fortunately, the Scala API has combinators which allow for easier combination of results from futures. Examples of combinators are <code class="highlighter-rouge">map</code>, <code class="highlighter-rouge">flatMap</code>, <code class="highlighter-rouge">filter</code>, <code class="highlighter-rouge">withFilter</code>.</p>
+
+<h2 id="handling-errors">Handling Errors</h2>
+
+<p>If the world ran without errors we would rejoice in unison, but this is not the case in the programming world. When you run a program you either receive an expected output or an error. Error can be defined as wrong output or an exception. In a synchronous programming model, the most logical way of handling errors is a <code class="highlighter-rouge">try...catch</code> block.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">try</span> <span class="p">{</span>
+  <span class="k">do</span> <span class="nx">something1</span><span class="p">;</span>
+  <span class="k">do</span> <span class="nx">something2</span><span class="p">;</span>
+  <span class="k">do</span> <span class="nx">something3</span><span class="p">;</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">exception</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">HandleException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Unfortunately, the same thing doesn’t directly translate to asynchronous code.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="nx">foo</span> <span class="o">=</span> <span class="nx">doSomethingAsync</span><span class="p">();</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="nx">foo</span><span class="p">();</span>
+  <span class="c1">// This doesn’t work as the error might not have been thrown yet</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">exception</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">handleException</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Although most of the earlier papers did not talk about error handling, the Promises paper by Liskov and Shrira did acknowledge the possibility of failure in a distributed environment. To put this in Argus’s perspective, the ‘claim’ operation waits until the promise is ready. Then it returns normally if the call terminated normally, and otherwise it signals the appropriate ‘exception’, e.g.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">y: real := pt$claim(x)
+    except when foo: ...
+           when unavailable(s: string): .
+           when failure(s: string): . .
+    end
+</code></pre>
+</div>
+
+<p>Here x is a promise object of type pt; the form pi$claim illustrates the way Argus identifies an operation of a type by concatenating the type name with the operation name. When there are communication problems, RPCs in Argus terminate either with the ‘unavailable’ exception or the ‘failure’ exception.</p>
+
+<ul>
+  <li><strong>Unavailable</strong> means that the problem is temporary e.g. communication is impossible right now.</li>
+  <li><strong>Failure</strong> means that the problem is permanent e.g. the handler’s guardian does not exist.</li>
+</ul>
+
+<p>Thus stream calls (and sends) whose replies are lost because of broken streams will terminate with one of these exceptions. Both exceptions have a string argument that explains the reason for the failure, e.g., <code class="highlighter-rouge">future("handler does not exist")</code> or <code class="highlighter-rouge">unavailable("cannot communicate")</code>. Since any call can fail, every handler can raise the exceptions failure and unavailable. In this paper they also talked about propagation of exceptions from the called procedure to the caller. In the paper about the E language they talk about broken promises and setting a promise to the exception of broken references.</p>
+
+<h3 id="modern-languages">Modern Languages</h3>
+
+<p>In modern languages like Scala, Promises generally come with two callbacks. One to handle the success case and other to handle the failure. e.g.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="n">f</span> <span class="n">onComplete</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nc">Success</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">handleSuccess</span><span class="o">(</span><span class="n">data</span><span class="o">)</span>
+  <span class="k">case</span> <span class="nc">Failure</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">handleFailure</span><span class="o">(</span><span class="n">e</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>In Scala, the <code class="highlighter-rouge">Try</code> type represents a computation that may either result in an exception, or return a successfully computed value. For example, <code class="highlighter-rouge">Try[Int]</code> represents a computation which can either result in <code class="highlighter-rouge">Int</code> if it’s successful, or return a <code class="highlighter-rouge">Throwable</code> if something is wrong.</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">val</span> <span class="n">a</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">val</span> <span class="n">b</span><span class="k">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">def</span> <span class="n">divide</span><span class="k">:</span> <span class="kt">Try</span><span class="o">[</span><span class="kt">Int</span><span class="o">]</span> <span class="k">=</span> <span class="nc">Try</span><span class="o">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="o">)</span>
+
+<span class="n">divide</span> <span class="k">match</span> <span class="o">{</span>
+  <span class="k">case</span> <span class="nc">Success</span><span class="o">(</span><span class="n">v</span><span class="o">)</span> <span class="k">=&gt;</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">v</span><span class="o">)</span>
+  <span class="k">case</span> <span class="nc">Failure</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="k">=&gt;</span>
+    <span class="n">println</span><span class="o">(</span><span class="n">e</span><span class="o">)</span> <span class="c1">// java.lang.ArithmeticException: / by zero
+</span><span class="o">}</span>
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">Try</code> type can be pipelined, allowing for catching exceptions and recovering from them along the way.</p>
+
+<p>A similar pattern for handling exceptions can be seen in JavaScript.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="nx">promise</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// success callback</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// failure callback</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>Scala futures exception handling:</p>
+
+<p>When asynchronous computations throw unhandled exceptions, futures associated with those computations fail. Failed futures store an instance of <code class="highlighter-rouge">Throwable</code> instead of the result value. Futures provide the onFailure callback method, which accepts a PartialFunction to be applied to a <code class="highlighter-rouge">Throwable</code>. <code class="highlighter-rouge">TimeoutException</code>, <code class="highlighter-rouge">scala.runtime.NonLocalReturnControl[]</code> and <code class="highlighter-rouge">ExecutionException</code> exceptions are treated differently</p>
+
+<p>Scala promises exception handling:</p>
+
+<p>When failing a promise with an exception, three subtypes of <code class="highlighter-rouge">Throwable</code> are handled specially. If the <code class="highlighter-rouge">Throwable</code> used to break the promise is a <code class="highlighter-rouge">scala.runtime.NonLocalReturnControl</code>, then the promise is completed with the corresponding value. If the <code class="highlighter-rouge">Throwable</code> used to break the promise is an instance of <code class="highlighter-rouge">Error</code>, <code class="highlighter-rouge">InterruptedException</code>, or <code class="highlighter-rouge">scala.util.control.ControlThrowable</code>, the <code class="highlighter-rouge">Throwable</code> is wrapped as the cause of a new <code class="highlighter-rouge">ExecutionException</code> which, in turn, is failing the promise.</p>
+
+<p>To handle errors with asynchronous methods and callbacks, the error-first callback style (which we’ve seen before, and has also been adopted by Node.js) is the most common convention. Although this works, but it is not very composable, and eventually takes us back to what is called callback hell. Fortunately, Promises allow asynchronous code to apply structured error handling. The <code class="highlighter-rouge">Promises.then</code> method takes in two callbacks, a <code class="highlighter-rouge">onFulfilled</code> to handle when a promise is resolved successfully and a onRejected to handle if the promise is rejected.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">resolve</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">p</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> <span class="c1">// 100</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">err</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">reject</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span>
+    <span class="p">{</span><span class="s1">'message'</span><span class="p">:</span><span class="s1">'Divide by zero'</span><span class="p">}</span>
+  <span class="p">));</span>
+<span class="p">});</span>
+
+<span class="nx">q</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">err</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span> <span class="c1">// {'message':'Divide by zero'}</span>
+<span class="p">});</span>
+
+</code></pre>
+</div>
+
+<p>Promises also have a catch method, which work the same way as onFailure callback, but also help deal with errors in a composition. Exceptions in promises behave the same way as they do in a synchronous block of code : they jump to the nearest exception handler.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="kd">function</span> <span class="nx">work</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">data</span> <span class="o">+</span> <span class="s2">"1"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">(</span><span class="nx">data</span> <span class="o">+</span> <span class="s2">"2"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">handleError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">error</span> <span class="o">+</span> <span class="s2">"3"</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">work</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">work</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">work</span><span class="p">)</span> <span class="c1">// this will be skipped</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">work</span><span class="p">,</span> <span class="nx">handleError</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">check</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">check</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span> <span class="o">==</span> <span class="s2">"1123"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>The same behavior can be written using catch block.</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="nx">work</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">work</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">work</span><span class="p">)</span>
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">handleError</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">check</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">check</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span> <span class="o">==</span> <span class="s2">"1123"</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h2 id="futures-and-promises-in-action">Futures and Promises in Action</h2>
+
+<h3 id="twitter-finagle">Twitter Finagle</h3>
+
+<p>Finagle is a protocol-agnostic, asynchronous RPC system for the JVM that makes it easy to build robust clients and servers in Java, Scala, or any other JVM language. It uses Futures to encapsulate concurrent tasks. Finagle introduces two other abstractions built on top of Futures to reason about distributed software:</p>
+
+<ul>
+  <li>
+    <p><strong>Services</strong> are asynchronous functions which represent system boundaries.</p>
+  </li>
+  <li>
+    <p><strong>Filters</strong> are application-independent blocks of logic like handling timeouts and authentication.</p>
+  </li>
+</ul>
+
+<p>In Finagle, operations describe what needs to be done, while the actual execution is left to be handled by the runtime. The runtime comes with a robust implementation of connection pooling, failure detection and recovery and load balancers.</p>
+
+<p>An example of a <code class="highlighter-rouge">Service</code>:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">
+<span class="k">val</span> <span class="n">service</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Service</span><span class="o">[</span><span class="kt">HttpRequest</span>, <span class="kt">HttpResponse</span><span class="o">]</span> <span class="o">{</span>
+  <span class="k">def</span> <span class="n">apply</span><span class="o">(</span><span class="n">request</span><span class="k">:</span> <span class="kt">HttpRequest</span><span class="o">)</span> <span class="k">=</span>
+    <span class="nc">Future</span><span class="o">(</span><span class="k">new</span> <span class="nc">DefaultHttpResponse</span><span class="o">(</span><span class="nc">HTTP_1_1</span><span class="o">,</span> <span class="nc">OK</span><span class="o">))</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>A timeout filter can be implemented as:</p>
+
+<div class="language-scala highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-"><span class="k">def</span> <span class="n">timeoutFilter</span><span class="o">(</span><span class="n">d</span><span class="k">:</span> <span class="kt">Duration</span><span class="o">)</span> <span class="k">=</span> <span class="o">{</span> 
+  <span class="o">(</span><span class="n">req</span><span class="o">,</span> <span class="n">service</span><span class="o">)</span> <span class="k">=&gt;</span> <span class="n">service</span><span class="o">(</span><span class="n">req</span><span class="o">).</span><span class="n">within</span><span class="o">(</span><span class="n">d</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<h3 id="correctables">Correctables</h3>
+
+<p>Correctables were introduced by Rachid Guerraoui, Matej Pavlovic, and Dragos-Adrian Seredinschi at OSDI ‘16, in a paper titled Incremental Consistency Guarantees for Replicated Objects. As the title suggests, Correctables aim to solve the problems with consistency in replicated objects. They provide incremental consistency guarantees by capturing successive changes to the value of a replicated object. Applications can opt to receive a fast but possibly inconsistent result if eventual consistency is acceptable, or to wait for a strongly consistent result. Correctables API draws inspiration from, and builds on the API of Promises. Promises have a two state model to represent an asynchronous task, it starts in blocked state and proceeds to a ready state when the value is available. This cannot represent the incremental nature of correctables. Instead, Correctables have a updating state when they start. From there on, they remain in an updating state during intermediate updates, and when the final result is available, they transition to final state. If an error occurs in between, they move into an error state. Each state change triggers a callback.</p>
+
+<figure>
+  <img src="./Futures and Promises_files/15.png" alt="timeline">
+</figure>
+
+<h3 id="folly-futures">Folly Futures</h3>
+
+<p>Folly is a library by Facebook for asynchronous C++ inspired by the implementation of Futures by Twitter for Scala. It builds upon the Futures in the C++11 Standard. Like Scala’s futures, they also allow for implementing a custom executor which provides different ways of running a Future (thread pool, event loop etc).</p>
+
+<h3 id="nodejs-fibers">Node.js Fibers</h3>
+
+<p>Fibers provide coroutine support for V8 and Node.js. Applications can use Fibers to allow users to write code without using a ton of callbacks, without sacrificing the performance benefits of asynchronous IO.  Think of fibers as light-weight threads for Node.js where the scheduling is in the hands of the programmer. The node-fibers library doesn’t recommend using raw API and code together without any abstractions, and provides a Futures implementation which is ‘fiber-aware’.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="Uniqueness">Haller, P., &amp; Odersky, M. (2010). Capabilities for Uniqueness and Borrowing. In <i>ECOOP 2010, Maribor, Slovenia, June 21-25, 2010.</i> (pp. 354–378).</span></li>
+<li><span id="Elsman2005">Elsman, M. (2005). Type-specialized serialization with sharing. In <i>Trends in Functional Programming</i> (pp. 47–62).</span></li>
+<li><span id="Kennedy2004">Kennedy, A. (2004). Pickler combinators. <i>J. Funct. Program.</i>, <i>14</i>(6), 727–739.</span></li>
+<li><span id="Multilisp">Halstead, R. H., Jr. (1985). MULTILISP: A Language for Concurrent Symbolic Computation. <i>ACM Trans. Program. Lang. Syst.</i>, <i>7</i>(4), 501–538. http://doi.org/10.1145/4472.4478</span></li>
+<li><span id="Promises88">Liskov, B., &amp; Shrira, L. (1988). Promises: Linguistic Support for Efficient Asynchronous Procedure Calls in Distributed Systems. <i>SIGPLAN Not.</i>, <i>23</i>(7), 260–267. http://doi.org/10.1145/960116.54016</span></li>
+<li><span id="Argus88">Liskov, B. (1988). Distributed programming in Argus. <i>Communications of the ACM</i>, <i>31</i>(3), 300–312.</span></li>
+<li><span id="4">Eriksen, M. (2014). Your Server As a Function. <i>SIGOPS Oper. Syst. Rev.</i>, <i>48</i>(1), 51–57. http://doi.org/10.1145/2626401.2626413</span></li>
+<li><span id="5">Google. What are the differences between JavaScript Promise and a Java Future? Quora. Retrieved from https://www.quora.com/What-are-the-differences-between-JavaScript-Promise-and-a-Java-Future</span></li>
+<li><span id="6">Swenson-Healey, E. The JavaScript Event Loop: Explained. Retrieved from http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/</span></li>
+<li><span id="7">jQuery.Deferred(). Retrieved from https://api.jquery.com/jquery.deferred/</span></li>
+<li><span id="8">Eriksen, M. Effective Scala. Retrieved from http://twitter.github.io/effectivescala</span></li>
+<li><span id="9">MDN. Concurrency model and Event Loop. Retrieved from https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop</span></li>
+<li><span id="10">Stoyanov, N. Task vs Future vs Promise. Retrieved from http://www.nedstoyanov.com/promises-and-futures/</span></li>
+<li><span id="11">Futures and Promises - List of Implementations. Retrieved from http://www.liquisearch.com/futures_and_promises/list_of_implementations</span></li>
+<li><span id="12">Burnham, T. Promises and Deferreds. Retrieved from https://www.safaribooksonline.com/library/view/async-javascript/9781941222782/f_0028.html</span></li>
+<li><span id="13">Futures and Promises. Retrieved from http://www.seastar-project.org/futures-promises/</span></li>
+<li><span id="14">Why do Promise libraries use event loops? Retrieved from http://stackoverflow.com/questions/23447876/why-do-promise-libraries-use-event-loops</span></li>
+<li><span id="15">Why do Promise libraries use event loops? Retrieved from http://stackoverflow.com/questions/23447876/why-do-promise-libraries-use-event-loops</span></li>
+<li><span id="16">Archibald, J. Tasks, microtasks, queues and schedules. Retrieved from https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/</span></li>
+<li><span id="17">Denicola, D. You’re Missing the Point of Promises. Retrieved from https://blog.domenic.me/youre-missing-the-point-of-promises/</span></li>
+<li><span id="18">Dataflow Concurrency. Retrieved from http://doc.akka.io/docs/akka/2.3-M1/scala/dataflow.html</span></li>
+<li><span id="19">Webb, C. Promise &amp; Deferred objects in JavaScript Pt.1: Theory and Semantics. Retrieved from http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics</span></li>
+<li><span id="20">Webb, C. Promise &amp; Deferred objects in JavaScript Pt.1: Theory and Semantics. Retrieved from http://blog.mediumequalsmessage.com/promise-deferred-objects-in-javascript-pt1-theory-and-semantics</span></li>
+<li><span id="21">Lea, D. CompletableFuture. Retrieved from http://cs.oswego.edu/pipermail/concurrency-interest/2012-December/010423.html</span></li>
+<li><span id="22">Lea, D. CompletableFuture. Retrieved from http://cs.oswego.edu/pipermail/concurrency-interest/2012-December/010423.html</span></li>
+<li><span id="23">Difference between Future and Promise. Retrieved from http://stackoverflow.com/questions/14541975/difference-between-future-and-promise</span></li>
+<li><span id="whatisthis">Welcome to Thunk.org! Retrieved from https://thunk.org/</span></li>
+<li><span id="24">Lea, D. CompletableFuture. Retrieved from http://cs.oswego.edu/pipermail/concurrency-interest/2012-December/010423.html</span></li>
+<li><span id="25">james d bloom. JVM Internals. Retrieved from http://blog.jamesdbloom.com/JVMInternals.html</span></li>
+<li><span id="26">ExecutionContext. Retrieved from http://www.scala-lang.org/api/current/scala/concurrent/ExecutionContext.html</span></li>
+<li><span id="27">Kerr, J. ForkJoinPool: the Other ExecutorService. Retrieved from http://blog.jessitron.com/2014/02/forkjoinpool-other-executorservice.html</span></li>
+<li><span id="28">Kerr, J. Scala: the global ExecutionContext makes your life easier. Retrieved from http://blog.jessitron.com/2014/02/scala-global-executioncontext-makes.html</span></li>
+<li><span id="29">Montero, J. Learn implicits: Scala Futures. Retrieved from http://engineering.monsanto.com/2015/06/15/implicits-futures/</span></li>
+<li><span id="30">Alexander, A. Simple concurrency with Scala Futures (Futures tutorial). Retrieved from http://alvinalexander.com/scala/concurrency-with-scala-futures-tutorials-examples</span></li>
+<li><span id="31">OdeToCode. JavaScript Promises and Error Handling. Retrieved from http://odetocode.com/blogs/scott/archive/2015/10/01/javascript-promises-and-error-handling.aspx</span></li>
+<li><span id="32">Lea, D. (2000). A Java Fork/Join Framework. In <i>Proceedings of the ACM 2000 Conference on Java Grande</i> (pp. 36–43). New York, NY, USA: ACM. http://doi.org/10.1145/337449.337465</span></li>
+<li><span id="33">de Boer, F. S., Clarke, D., &amp; Johnsen, E. B. (2007). A Complete Guide to the Future. In <i>Proceedings of the 16th European Symposium on Programming</i> (pp. 316–330). Berlin, Heidelberg: Springer-Verlag. Retrieved from http://dl.acm.org/citation.cfm?id=1762174.1762205</span></li>
+<li><span id="34">de Boer, F. S., Clarke, D., &amp; Johnsen, E. B. (2007). A Complete Guide to the Future. In <i>Proceedings of the 16th European Symposium on Programming</i> (pp. 316–330). Berlin, Heidelberg: Springer-Verlag. Retrieved from http://dl.acm.org/citation.cfm?id=1762174.1762205</span></li>
+<li><span id="35">Friedman, D. P., &amp; Wise, D. S. (1978). Aspects of Applicative Programming for Parallel Processing. <i>IEEE Trans. Comput.</i>, <i>27</i>(4), 289–296. http://doi.org/10.1109/TC.1978.1675100</span></li>
+<li><span id="Hewitt77">Baker, H. G., Jr., &amp; Hewitt, C. (1977). <i>The Incremental Garbage Collection of Processes</i>. Cambridge, MA, USA: Massachusetts Institute of Technology.</span></li>
+<li><span id="ELang">Miller, M. S., Tribble, E. D., &amp; Shapiro, J. (2005). Concurrency Among Strangers: Programming in E As Plan Coordination. In <i>Proceedings of the 1st International Conference on Trustworthy Global Computing</i> (pp. 195–229). Berlin, Heidelberg: Springer-Verlag. Retrieved from http://dl.acm.org/citation.cfm?id=1986262.1986274</span></li>
+<li><span id="PromisePipe07">Miller, M. S., Tribble, E. D., &amp; Jellinghaus, R. (2007). The Promise System. <i>Presentation</i>. Retrieved from http://web.archive.org/web/20071023111712/http://www.sunless-sea.net/Transcripts/promise.html</span></li>
+<li><span id="Joule">Tribble, E. D., Miller, M. S., Hardy, N., &amp; Krieger, D. (1995). <i>Joule: Distributed application foundations</i> (No. ADd003.4P). Agorics, Inc. Retrieved from http://www.erights.org/history/joule/MANUAL.BK2.pdf</span></li>
+<li><span id="Twisted">Lefkowitz, G. (2002). Twisted. <i>GitHub repository</i>. GitHub.</span></li>
+<li><span id="Qjs">Kowal, K. (2009). Q.js. <i>GitHub repository</i>. GitHub.</span></li>
+<li><span id="JQueryPromises">Gheri, V. (2013). JavaScript Promises and Why JQuery Implementation is Broken. Retrieved from \urlhttps://thewayofcode.wordpress.com/tag/jquery-deferred-broken/</span></li>
+<li><span id="38">Botlan, D. L., Tack, G., Rossberg, A., Rossberg, A., Le, D., Tack, B. G., … Smolka, G. (2006). Alice through the looking glass. In <i>In Trends in Functional Programming</i> (pp. 79–96). Intellect Books.</span></li>
+<li><span id="39">Miller, H. Futures and Promises in Scala 2.10. Retrieved from https://speakerdeck.com/heathermiller/futures-and-promises-in-scala-2-dot-10</span></li>
+<li><span id="SIP14">Haller, P., Prokopec, A., Miller, H., Klang, V., Kuhn, R., &amp; Jovanovic, V. (2013). Futures and promises. <i>Scala Documentation</i>. Retrieved from http://docs.scala-lang.org/overviews/core/futures.html</span></li>
+<li><span id="PromisesAPlus">Promises/A+. (2013). Promises/A+ Specification. <i>Promises/A+ Specification</i>. Retrieved from https://promisesaplus.com/</span></li>
+<li><span id="PromisesA">Zyp, K. (2009). CommonJS Promises/A Specification. <i>Promises/A Specification</i>. Retrieved from http://wiki.commonjs.org/wiki/Promises/A</span></li>
+<li><span id="Ecmascript15">ECMAScript, E. C. M. A., Association, E. C. M., &amp; others. (2015). ECMAScript Language Specification.</span></li>
+<li><span id="40">Futures and promises. Retrieved from https://en.wikipedia.org/wiki/Futures_and_promises</span></li>
+<li><span id="41">Lazy Futures or Promises? Retrieved from https://groups.google.com/forum/#!topic/scala-language/dP2SyUCF724</span></li>
+<li><span id="42">Try. Retrieved from http://www.scala-lang.org/api/2.9.3/scala/util/Try.html</span></li>
+<li><span id="43">Finagle: A Protocol-Agnostic RPC System. Retrieved from https://blog.twitter.com/2011/finagle-a-protocol-agnostic-rpc-system</span></li>
+<li><span id="44">Promise.all(). Retrieved from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all</span></li>
+<li><span id="45">Promise Pipelining. Retrieved from https://www.revolvy.com/main/index.php?s=Promise%20pipelining</span></li>
+<li><span id="46">Promises. Retrieved from https://christophermeiklejohn.com/pl/2016/03/04/promises.html</span></li>
+<li><span id="47">futures. Retrieved from https://www.ps.uni-saarland.de/alice/manual/futures.html</span></li>
+<li><span id="Thunks">Ingerman, P. Z. (1961). Thunks: A Way of Compiling Procedure Statements with Some Comments on Procedure Declarations. <i>Commun. ACM</i>, <i>4</i>(1), 55–58. http://doi.org/10.1145/366062.366084</span></li></ol>
+
+
+<!-- </article> -->
+
+      </div>
+      <div class="col-sm-3">
+        <nav id="toc" class="hidden-print hidden-xs affix" data-spy="affix" data-toggle="toc"><div class="toc-header affix" data-spy="affix"><span class="toc-contents">Contents</span></div><span class="toc-hide">Hide</span><span class="toc-expand">Expand</span></nav>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        <div class="footer-links">
+          
+          
+          
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+
+  <script>
+
+      $( ".toc-hide" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+        $(".toc-contents").toggleClass( "lighter" );
+
+        if ($(this).text() == 'Hide') {
+          $(this).text("Show");
+        } else {
+          $(this).text("Hide");
+        }
+        // toggle visibility of contents, and expand button
+        $(".nav").toggle();
+        $(".toc-expand").toggle();
+      });
+
+      $( ".toc-expand" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+
+        if ($(this).text() == 'Expand') {
+          $(this).text("Compact");
+          $(".nav").css('display', 'block');
+        } else {
+          $(this).text("Expand");
+          $(".nav .nav").css('display', 'none');
+        }
+      });
+
+      // get current year and put it in span
+      var currYear = new Date().getFullYear()
+      $(".current-year").text(currYear);
+  </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,5 @@
+nav:
+    - Introduction: index.md
+    - Threading-Building-Blocks: Threading-Building-Blocks
+    - OpenMP: OpenMP
+    - Cilk: Cilk

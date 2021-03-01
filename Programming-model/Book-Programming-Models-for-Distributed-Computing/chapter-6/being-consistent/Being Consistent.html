@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)http://dist-prog-book.com/chapter/6/being-consistent.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Being Consistent</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <!-- jquery js -->
+  <script src="./Being Consistent_files/jquery-1.11.0.min.js.下载" type="text/javascript"></script>
+
+  <!-- retina js -->
+  <script src="./Being Consistent_files/retina.js.下载" type="text/javascript"></script>
+
+  <!-- Bootstrap JS and CSS -->
+  <!-- <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" media="screen, print"/> -->
+  <link rel="stylesheet" href="./Being Consistent_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.css">
+  <script src="./Being Consistent_files/bootstrap.min.js.下载" type="text/javascript"></script>
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.js"></script>
+
+  <link rel="stylesheet" href="./Being Consistent_files/fira.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:100,700i,900" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic" rel="stylesheet" type="text/css">
+  <link href="./Being Consistent_files/css" rel="stylesheet" type="text/css">
+
+  <!-- MathJax -->
+  <script src="./Being Consistent_files/MathJax.js.下载" id=""></script>
+
+  <!-- <link rel="stylesheet" href="/resources/css/tufte.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/custom.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/github.css"/> -->
+
+  <link rel="stylesheet" href="./Being Consistent_files/latex.css">
+  <link rel="stylesheet" href="./Being Consistent_files/entypo.css" type="text/css">
+  <link rel="stylesheet" href="./Being Consistent_files/prettify.css" type="text/css">
+  <!-- <link rel="stylesheet" href="/resources/css/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="./Being Consistent_files/blog.css" type="text/css">
+
+  <!-- Custom javascript -->
+  <script src="./Being Consistent_files/main.js.下载" type="text/javascript"></script>
+
+  <!-- <link rel="canonical" href="http://yourdomain.com/chapter/6/being-consistent.html"> -->
+  <link rel="alternate" type="application/rss+xml" title="Programming Models for Distributed Computing" href="http://yourdomain.com/feed.xml">
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body data-spy="scroll" data-target="#toc"><div id="MathJax_Message" style="display: none;"></div>
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <div class="logo-wrap">
+            <a href="http://dist-prog-book.com/">
+              <svg class="logo" width="100" height="100">
+                <circle cx="50" cy="50" r="35" stroke-width="6" stroke="#fff" fill="#b3c7cf"></circle>
+                <circle cx="50" cy="50" r="20" fill="#92adb9"></circle>
+                <circle cx="50" cy="50" r="14" fill="#7499AA"></circle>
+              </svg>
+              <div class="book-title">
+                <div class="prog-mod">Programming Models for</div>
+                <div class="dist-comp">Distributed Computing</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-md visible-lg">
+          <div class="navbar-wrap">
+            <ul class="navbar">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-sm visible-xs">
+          <div id="burger" data-toggle="collapse" data-target="#navbar-responsive-wrap">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="navbar-responsive-wrap navbar-static-top navbar-collapse collapse" id="navbar-responsive-wrap">
+            <ul class="navbar-responsive">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container blog">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        
+        <div class="category"></div>
+        <h1 class="page-title">Being Consistent</h1>
+        <div class="author">By Aviral Goel</div>
+        <div class="subtitle">
+          
+            <span class="minutes">(8 min read)</span>
+          
+        </div>
+        <div class="dash">—</div>
+        <!-- <article> -->
+
+  <!-- <h1 class="post-title">Being Consistent</h1> -->
+  <!-- <div class="author">By Aviral Goel</div> -->
+
+    <h2 id="replication-and-consistency">Replication and Consistency</h2>
+
+<p>Availability and Consistency are the defining characteristics of any distributed system. As dictated by the CAP theorem, accommodating network partitions requires a trade off between the two properties. Modern day large scale internet based distributed systems have to be highly available. To manage huge volumes of data (big data) and to reduce access latency for geographically diverse user base, their data centers also have to be geographically spread out. Network partitions which would otherwise happen with a low probability on a local network become certain events in such systems. To ensure availability in the event of partitions, these systems have to replicate data objects. This begs the question, how to ensure consistency of these replicas? It turns out there are different notions of consistency which the system can adhere to.</p>
+
+<ul>
+  <li>
+    <p><strong>Strong Consistency</strong> implies linearizability of updates, i.e., all updates applied to a replicated data type are serialized in a global total order. This means that any update will have to be simultaneously applied to all other replicas. Its obvious that this notion of consistency is too restrictive. A single unavailable node will violate this condition. Forcing all updates to happen synchronously will impact system availability negatively. This notion clearly does not fit the requirements of highly available fault tolerant systems.</p>
+  </li>
+  <li>
+    <p><strong>Eventual Consistency</strong> is a weaker model of consistency that does not guarantee immediate consistency of all replicas. Any local update is immediately executed on the replica. The replica then sends its state asynchronously to other replicas. As long as all replicas share their states with each other, the system eventually achieves stability. Each replica finally contains the same value. During the execution, all updates happen asynchronously at all replicas in a non-deterministic order. So replicas can be inconsistent between updates. If updates arrive concurrently at a replica, a consensus protocol can be employed to ensure that both updates taken together do not violate an invariant. If they do, a rollback has to be performed and the new state is communicated to all the other replicas.</p>
+  </li>
+</ul>
+
+<p>Most large scale distributed systems try to be <strong>Eventually Consistent</strong> to ensure high availability and partition-tolerance. But conflict resolution is hard. There is little guidance on correct approaches to consensus and its easy to come up with an error prone ad-hoc approach. What if we side-step conflict resolution and rollback completely? Is there a way to design data structures which do not require any consensus protocols to merge concurrent updates?</p>
+
+<h2 id="a-distributed-setting">A Distributed Setting</h2>
+
+<h3 id="todo-need-to-write-pseudocode-will-finish-this-part-with-the-detailed-explanation-of-crdts-in-the-next-chapter">TODO need to write pseudocode. Will finish this part with the detailed explanation of CRDTs in the next chapter.</h3>
+
+<p>Consider a replicated counter. Each node can increment the value of its local copy. The figure below shows three nodes which increment their local copies at arbitrary time points and each replica sends its value asynchronously to the other two replicas. Whenever it receives the value of its replica, it adds it to its current value. If two values are received concurrently, both will be added together to its current value. So merging replicas in this example becomes trivial.</p>
+
+<p>Let’s take a look at another interesting generalization of this. Integer Vector</p>
+
+<p>We can make an interesting observation from the previous examples:</p>
+
+<p><strong><em>All distributed data structures don’t need conflict resolution</em></strong></p>
+
+<p>This raises the following question:</p>
+
+<p><strong><em>How can we design a distributed structure such that we don’t need conflict resolution?</em></strong></p>
+
+<p>The answer to this question lies in an algebraic structure called the <strong>join semilattice</strong>.</p>
+
+<h2 id="join-semilattice">Join Semilattice</h2>
+
+<p>A join-semilattice or upper semilattice is a <em>partial order</em> <code class="highlighter-rouge">≤</code> with a <em>least upper bound</em> (LUB) <code class="highlighter-rouge">⊔</code> for all pairs.
+<code class="highlighter-rouge">m = x ⊔ y</code> is a Least Upper Bound of <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">x</span><span class="w"> </span><span class="err">,</span><span class="w"> </span><span class="err">y</span><span class="w"> </span><span class="p">}</span></code> under <code class="highlighter-rouge">≤</code> iff <code class="highlighter-rouge">∀m′, x ≤ m′ ∧ y ≤ m′ ⇒ x ≤ m ∧ y ≤ m ∧ m ≤ m′</code>.</p>
+
+<p>Here the least upper bound <code class="highlighter-rouge">⊔</code> has the follow properties:</p>
+
+<p><strong>Associative</strong></p>
+
+<p><code class="highlighter-rouge">(x ⊔ y) ⊔ z = x ⊔ (y ⊔ z)</code></p>
+
+<p><strong>Commutative</strong></p>
+
+<p><code class="highlighter-rouge">x ⊔ y = y ⊔ x</code></p>
+
+<p><strong>Idempotent</strong></p>
+
+<p><code class="highlighter-rouge">x ⊔ x = x</code></p>
+
+<p>The examples we saw earlier were of structures that could be modeled as join semilattices. The merge operation for the increment only counter is the summation function and for the integer vector it is the per-index maximum of the vectors being merged.</p>
+
+<p>So, if we can model the state of the data structure as a partially ordered set and design the merge operation to always compute the “larger” of the two states, its replicas will never need consensus. They will always converge as execution proceeds. Such data structures are called CRDTs (Conflict-free Replicated Data Type). But what about consistency of these replicas?</p>
+
+<h2 id="strong-eventual-consistency-sec">Strong Eventual Consistency (SEC)</h2>
+
+<p>We discussed a notion of consistency, <em>Eventual Consistency</em>, in which replicas eventually become consistent if there are no more updates to be merged. But the update operation is left unspecified. Its possible for an update to render the replica in a state that causes it to conflict with a later update. In this case the replica may have to roll back and use consensus to ensure that all replicas do the same to ensure consistency. This is complicated and wasteful. But if replicas are modeled as CRDTs, the updates never conflict. Regardless of the order in which the updates are applied, all replicas will eventually have equivalent state. Note that no conflict arbitration is necessary. This kind of Eventual Consistency is a stronger notion of consistency than the one that requires conflict arbitration and hence is called <em>Strong Eventual Consistency</em>.</p>
+
+<h3 id="strong-eventual-consistency-and-cap-theorem">Strong Eventual Consistency and CAP Theorem</h3>
+
+<p>Let’s study SEC data objects from the perspective of CAP theorem.</p>
+
+<h4 id="consistency-and-network-partition">Consistency and Network Partition</h4>
+
+<p>Each distributed replica will communicate asynchronously with other reachable replicas. These replicas will eventually converge to the same value. There is no consistency guarantee on the value of replicas not reachable due to network conditions and hence this condition is strictly weaker than strong consistency. But as soon as those replicas can be reached, they will also converge in a self-stabilizing manner.</p>
+
+<h4 id="availability-and-network-partition">Availability and Network Partition</h4>
+
+<p>Each distributed replica will always be available for local reads and writes regardless of network partitions. In fact, if there are n replicas, a single replica will function even if the remaining n - 1 replicas crash simultaneously. This <strong>provides an extreme form of availability</strong>.</p>
+
+<p>SEC facilitates maximum consistency and availability in the event of network partitions by relaxing the requirement of global consistency. Note that this is achieved by virtue of modeling the data objects as join semilattices.</p>
+
+<h4 id="strong-eventual-consistency-and-linearizability">Strong Eventual Consistency and Linearizability</h4>
+
+<p>In a distributed setting, a replica has to handle concurrent updates. In addition to its sequential behavior, a CRDT also has to ensure that its concurrent behavior also ensures strong eventual consistency. This makes it possible for CRDTs to exhibit behavior that is simply not possible for sequentially consistent objects.</p>
+
+<p>Consider a set CRDT used in a distributed setting. One of the replicas p<sub>i</sub> executes the sequence <code class="highlighter-rouge">add(a); remove(b)</code>. Another replica p<sub>j</sub> executes the sequence <code class="highlighter-rouge">add(b); remove(a)</code>. Now both send their states asynchronously to another replica p<sub>k</sub> which has to merge them concurrently. Same element exists in one of the sets and does not exist in the other set. There are multiple choices that the CRDT designer can make. Let’s assume that the implementation always prefers inclusion over exclusion. So in this case, p<sub>k</sub> will include both <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code>.</p>
+
+<p>Now consider a sequential execution of the two sequences on set data structure. The order of execution will be either <code class="highlighter-rouge">add(a); remove(b); add(b); remove(a)</code> or <code class="highlighter-rouge">add(b); remove(a); add(a); remove(b)</code>. In both cases one of the elements is excluded. This is different from the state of the CRDT set implementation. Thus, strong eventually consistent data structures can be sequentially inconsistent.</p>
+
+<p>Similarly, if there are <code class="highlighter-rouge">n</code> sequentially consistent replicas, then they would need consensus to ensure a single order of execution of operations across all replicas. But if <code class="highlighter-rouge">n - 1</code> replicas crash, then consensus cannot happen. This makes the idea of sequential consistency incomparable to that of strong eventual consistency.</p>
+
+<h2 id="what-next">What Next?</h2>
+
+<p>This chapter introduced Strong Eventual Consistency and the formalism behind CRDTs, join semilattices, which enables CRDTs to exhibit strong eventual consistency. The discussion however does not answer an important question:</p>
+
+<p><strong><em>Can all standard data structures be designed as CRDTs?</em></strong></p>
+
+<p>The next chapter sheds more light on the design of CRDTs and attempts to answer this question.</p>
+
+
+<!-- </article> -->
+
+      </div>
+      <div class="col-sm-3">
+        <nav id="toc" class="hidden-print hidden-xs affix" data-spy="affix" data-toggle="toc"><div class="toc-header affix" data-spy="affix"><span class="toc-contents">Contents</span></div><span class="toc-hide">Hide</span><span class="toc-expand">Expand</span></nav>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        <div class="footer-links">
+          
+          
+          
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+
+  <script>
+
+      $( ".toc-hide" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+        $(".toc-contents").toggleClass( "lighter" );
+
+        if ($(this).text() == 'Hide') {
+          $(this).text("Show");
+        } else {
+          $(this).text("Hide");
+        }
+        // toggle visibility of contents, and expand button
+        $(".nav").toggle();
+        $(".toc-expand").toggle();
+      });
+
+      $( ".toc-expand" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+
+        if ($(this).text() == 'Expand') {
+          $(this).text("Compact");
+          $(".nav").css('display', 'block');
+        } else {
+          $(this).text("Expand");
+          $(".nav .nav").css('display', 'none');
+        }
+      });
+
+      // get current year and put it in span
+      var currYear = new Date().getFullYear()
+      $(".current-year").text(currYear);
+  </script>
+
+
+
+
+</body></html>

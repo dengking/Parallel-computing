@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>General Purpose Languages Extended for Distribution</title>
+  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+
+  <!-- jquery js -->
+  <script src="./General Purpose Languages Extended for Distribution_files/jquery-1.11.0.min.js.下载" type="text/javascript"></script>
+
+  <!-- retina js -->
+  <script src="./General Purpose Languages Extended for Distribution_files/retina.js.下载" type="text/javascript"></script>
+
+  <!-- Bootstrap JS and CSS -->
+  <!-- <link rel="stylesheet" href="/resources/css/bootstrap.min.css" type="text/css" media="screen, print"/> -->
+  <link rel="stylesheet" href="./General Purpose Languages Extended for Distribution_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.css">
+  <script src="./General Purpose Languages Extended for Distribution_files/bootstrap.min.js.下载" type="text/javascript"></script>
+  <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v0.3.0/dist/bootstrap-toc.min.js"></script>
+
+  <link rel="stylesheet" href="./General Purpose Languages Extended for Distribution_files/fira.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:100,700i,900" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Domine:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,800,600,700,400" rel="stylesheet" type="text/css">
+
+  <!-- MathJax -->
+  <script src="./General Purpose Languages Extended for Distribution_files/MathJax.js.下载" id=""></script>
+
+  <!-- <link rel="stylesheet" href="/resources/css/tufte.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/custom.css"/> -->
+  <!-- <link rel="stylesheet" href="/resources/css/github.css"/> -->
+
+  <link rel="stylesheet" href="./General Purpose Languages Extended for Distribution_files/latex.css">
+  <link rel="stylesheet" href="./General Purpose Languages Extended for Distribution_files/entypo.css" type="text/css">
+  <link rel="stylesheet" href="./General Purpose Languages Extended for Distribution_files/prettify.css" type="text/css">
+  <!-- <link rel="stylesheet" href="/resources/css/main.css" type="text/css" /> -->
+  <link rel="stylesheet" href="./General Purpose Languages Extended for Distribution_files/blog.css" type="text/css">
+
+  <!-- Custom javascript -->
+  <script src="./General Purpose Languages Extended for Distribution_files/main.js.下载" type="text/javascript"></script>
+
+  <!-- <link rel="canonical" href="http://yourdomain.com/chapter/5/langs-extended-for-dist.html"> -->
+  <link rel="alternate" type="application/rss+xml" title="Programming Models for Distributed Computing" href="http://yourdomain.com/feed.xml">
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body data-spy="scroll" data-target="#toc"><div id="MathJax_Message" style="display: none;"></div>
+  <div class="topbar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+          <div class="logo-wrap">
+            <a href="http://dist-prog-book.com/">
+              <svg class="logo" width="100" height="100">
+                <circle cx="50" cy="50" r="35" stroke-width="6" stroke="#fff" fill="#b3c7cf"></circle>
+                <circle cx="50" cy="50" r="20" fill="#92adb9"></circle>
+                <circle cx="50" cy="50" r="14" fill="#7499AA"></circle>
+              </svg>
+              <div class="book-title">
+                <div class="prog-mod">Programming Models for</div>
+                <div class="dist-comp">Distributed Computing</div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-md visible-lg">
+          <div class="navbar-wrap">
+            <ul class="navbar">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-5 visible-sm visible-xs">
+          <div id="burger" data-toggle="collapse" data-target="#navbar-responsive-wrap">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="navbar-responsive-wrap navbar-static-top navbar-collapse collapse" id="navbar-responsive-wrap">
+            <ul class="navbar-responsive">
+              <li><a href="http://dist-prog-book.com/index.html">Intro</a></li>
+<li><a href="http://dist-prog-book.com/chapter">Chapters</a></li>
+<li><a href="http://dist-prog-book.com/about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container blog">
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        
+        <div class="category"></div>
+        <h1 class="page-title">General Purpose Languages Extended for Distribution</h1>
+        <div class="author">By Sam Caldwell</div>
+        <div class="subtitle">
+          
+            <span class="minutes">(26 min read)</span>
+          
+        </div>
+        <div class="dash">—</div>
+        <!-- <article> -->
+
+  <!-- <h1 class="post-title">General Purpose Languages Extended for Distribution</h1> -->
+  <!-- <div class="author">By Sam Caldwell</div> -->
+
+    <h2 id="introduction">Introduction</h2>
+
+<p>In very general terms, a distributed system is comprised of nodes that internally perform computation and communicate with each other. Therefore programming a distributed system requires two distinct models: one for the computation on each node and one to model the network of communications between nodes.</p>
+
+<p>A slightly-secondary concern is fault-tolerance. Failure of nodes and communication is one of the defining aspects of distributed computing <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#note-on-dc">(Kendall, Waldo, Wollrath, &amp; Wyant, 1994)</a>. A programming model for distributed systems then must either implement a strategy for handling failures or equip programmers to design their own.</p>
+
+<p>Nodes can perform computation in any of the various paradigms (imperative, functional, object-oriented, relational, and so on). The models are not completely orthogonal. Some matters necessarily concern both. Serialization is a communication concern that is greatly influenced by the design of the computation language. Similar concerns affect the means of deployment and updating systems.</p>
+
+<p>Early designs of distributed programming models in the late 1970s focused on <em>building novel programming languages</em> (Eden, Argus, Emerald). As time has gone on researchers shifted towards <em>extending existing languages</em> with facilities for programming distributed system. This article explores the history of these designs and the tradeoffs to be made between the two approaches.</p>
+
+<h2 id="languages-and-libraries">Languages and Libraries</h2>
+
+<p>The different approaches to implementing a distributed programming model differ on the tradeoffs they offer to both language designers and users.</p>
+
+<h3 id="clean-slate-language-implementations">Clean-slate language implementations</h3>
+
+<p>A straightforward approach to implementing a new language is to start from scratch. Beginning with a clean slate offers several advantages. First, the implementor has complete control (up to what they are willing and able to implement) over every aspect of the design. Second, some elements of language design are difficult to integrate with other languages. Type systems are a good example of the problem. How to combine the designs of two type systems into one that has the properties of both is an open problem. If types play a prominent role in the language then starting anew may be the only option. However, this strategy has apparent drawbacks not only in term of implementation effort for the creator(s) but also for users.</p>
+
+<h3 id="extension-to-an-existing-language">Extension to an existing language</h3>
+
+<p>Another option is to use another language as a starting point and modify that language’s implementation for your own purposes. Think of it as forking a compiler and/or runtime and then making your own modifications. An advantage of this approach is the savings in implementation effort. If the computation models coincide then the language designer only has to implement the communication model and fault-tolerance strategy. Another plus is that users of the existing language may be more likely to consider trying or adopting the new language since it is only a step away from what they already know. A downside for maintaining any fork is keeping up to date with upstream changes.</p>
+
+<h3 id="library">Library</h3>
+
+<p>The final approach to consider is similar to extending a language, but this time doing so only by writing code in that language to create new abstractions implementing a language model. This strategy offers similar savings in implementation effort to extending a language (perhaps more so). But a major benefit is that is significantly easier for users to use and adopt; the only new concepts they must learn are the specifics of the programming model, as opposed to other concerns such as syntax.</p>
+
+<h2 id="roadmap">Roadmap</h2>
+
+<p>Language designers have explored a broad spectrum of designs for distributed programming models.</p>
+
+<h3 id="actors">Actors</h3>
+
+<p>One common sense and popular approach to extending a language for distribution is to implement the constructs of the Actor model (discussed in chapter 3). This is the approach taken by Termite Scheme, CloudHaskell, and Scala Actors to name a few. Doing so requires two steps: first, implementing facilities for spawning and linking actors and sending and receiving messages; and second, fitting actor-style concurrency on top of the language’s concurrency model.</p>
+
+<p>Erlang/OTP <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Erlang">(Armstrong, 2003)</a> is a language designed with the intention of building resilient distributed applications for operating telephony switches. Erlang provides a simple base language and an extensive library of facilities for distribution. Erlang/OTP fits into the Actor model of distribution: the basic agents in a system are processes which communicate by sending messages to each other. Erlang/OTP stands out for the extent to which fault tolerance is considered. Erlang programmers are encouraged to think about failure as a routine occurrence and provides libraries for describing policies on how to handle such failures. Chapter 3 includes a more detailed overview of Erlang.</p>
+
+<p>TermiteScheme <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#TermiteScheme">(Germain, 2006)</a> is an extension to a Scheme language with constructs for Erlang-style distribution. The primary innovations of Termite are found by leveraging features of the host language. In particular, the features of interest are macros and continuations.</p>
+
+<p>Macros allow users or library developers to design higher-level abstractions than the actor model and treat them as first-class in the language. Macros are a very powerful tool for abstraction. They allow library authors to elevate many patterns, such as patterns of communication, to first-class constructs. A simple example is a construct for RPC implemented by TermiteScheme as a macro expanding to a send followed by a receive.</p>
+
+<p>A continuation is a concrete representation of how to finish computation of a program. A helpful analogy is to the call-stack in a procedural language. The call-stack tells you, once you’ve finished the current procedure, what to do next. Likewise, a continuation tells you, once you’ve finished evaluating the current expression, what to do next. Languages with first-class continuations have a way of reifying this concept, historically named <code class="highlighter-rouge">call/cc</code>, an abbreviation for <code class="highlighter-rouge">call-with-current-continuation</code>. First-class continuations allow for simple process migration; a process can capture its continuation and use that as the behavior of a spawned actor on another node.</p>
+
+<p>In addition to supporting the classic actor style which places few if any constraints on what messages may be sent, Haskell and Scala based implementations leverage the host language’s powerful type system to create more structured communication patterns. Both CloudHaskell and Akka, the successor to Scala Actors, provide <em>typed channels</em> between actors. For example, the type checker will reject a program where an actor expecting to receive numbers is instead sent a string. Anecdotally, typed actors in Akka are not commonly used. This might suggest that errors due to incorrect message types are not that serious of a concern for users.</p>
+
+<p>One disadvantage of this approach of implementing the simple actor model of Erlang is that Erlang also provides an extensive support platform for creating and deploying distributed systems. Even after the Erlang model has been implemented in Scheme, it is a long road to feature-parity.</p>
+
+<h3 id="types">Types</h3>
+
+<p>Several efforts have explored the interplay between statically typed languages and distributed computing. Research is focused on extending functional languages like SML, Haskell, and Scala which feature relatively advanced type systems. Areas of investigation include how to integrate an existing model of distribution with a type system and how to take advantage of types to help programmers.</p>
+
+<p>CloudHaskell <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#CloudHaskell">(Epstein, Black, &amp; Peyton-Jones, 2011)</a> is an extension to Haskell. CloudHaskell is largely designed in the mold of Erlang style process-based actors. It offers a novel typeclass based approach for ensuring safe serialization (as in only serializing things known to be serializable). Typeclasses <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#typeclasses">(Wadler &amp; Blott, 1989)</a> are a novel feature of Haskell’s language system that enable flexible overloading. Typeclass <em>instances</em> can be <em>derived automatically</em> <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#deriving-typeclasses">(Hinze &amp; Jones, 2001)</a> to reduce boilerplate. For example, the code to perform serialization and deserialization can be automatically generated for each kind of message using its definition. CloudHaskell takes the stance that the cost of communication operations should be readily apparent to the programmer. A consequence of this is that calls to the (automatically generated) serialization functions for messages must be explicitly inserted into the code. For example, in Erlang where we might write <code class="highlighter-rouge">send msg</code> in CloudHaskell we write <code class="highlighter-rouge">send (serialize msg)</code>. CloudHaskell is implemented as an extension to GHC Haskell (actually it was first implemented as a library then later on the features they needed were added as extensions to GHC).</p>
+
+<p>The fact that CloudHaskell allows concurrency within an actor demonstrates the separation between computation and communication models. That is, in CloudHaskell a single process might internally be implemented by a group of threads. To the rest of the system this fact is completely opaque (a good thing).</p>
+
+<p>CloudHaskell also takes a stance against “everything is serializable”, for example mutable reference cells should not be. This makes serializing functions (closures) tricky because it is not apparent how to tell if a closure’s environment is serializable. To solve this, CloudHaskell uses <em>static pointers</em> and forces closures to use pre-serialized environments. Pre-serialization means that a closure is a pair of a closed expression and a byte string representing the environment; presumably the first code the closure will execute when invoked is to deserialize the environment to retrieve the proper information.</p>
+
+<p>ML5 <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#ML5">(Murphy, Crary, &amp; Harper, 2008)</a> is an extension to the SML <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#sml">(Miler, Tofte, Harper, &amp; MacQueen, 1997)</a> programming language. ML5 uses the notion of <em>location</em> and <em>movability</em>. The type system keeps track of the locations (nodes) in the system, which location each piece of the program is, and what can and cannot be moved between locations. As a result, the system is able to detect unpermitted attempts to access a resource. The ML5 type system cleanly integrates with the ML type system. ML5 supports type inference, a tricky but fundamental feature of SML.</p>
+
+<p>Though applicable to distributed systems in general, the presentation of ML5 focuses in particular on client-server interactions, and more specifically on those between a web front-end and back-end. The ML5 compiler is able to generate Javascript code that executes in-browser.</p>
+
+<p>An example of some ML5 code (from <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#ML5">(Murphy, Crary, &amp; Harper, 2008)</a>) follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">extern javascript world home
+extern val alert : string -&gt; unit @ home
+do alert [Hello, home!]
+</code></pre>
+</div>
+
+<p>This snippet declares a location in the system called <code class="highlighter-rouge">home</code> that can execute Javascript code. Additionally, there is a function named <code class="highlighter-rouge">alert</code> that can be used from the location <code class="highlighter-rouge">home</code> (defined through an interface to plain Javascript). The last line is an example of calling the <code class="highlighter-rouge">alert</code> function with the String <code class="highlighter-rouge">"Hello, home!"</code>. (In ML5 the String type is indicated by square brackets)</p>
+
+<p>A slightly more complex example (again from <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#ML5">(Murphy, Crary, &amp; Harper, 2008)</a>) demonstrates movement between locations:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">extern bytecode world server
+extern val server : server addr @ home
+extern val version : unit -&gt; string @ server
+extern val alert : string -&gt; unit @ home
+do alert (from server get version ())
+</code></pre>
+</div>
+
+<p>This example features two locations (worlds), the default <code class="highlighter-rouge">home</code> location and one named <code class="highlighter-rouge">server</code>. As before, we can call <code class="highlighter-rouge">alert</code> from <code class="highlighter-rouge">home</code>, but now we can also call <code class="highlighter-rouge">version</code> on <code class="highlighter-rouge">server</code>. Locations access one another using addresses; the declaration of <code class="highlighter-rouge">server</code> as a <code class="highlighter-rouge">server addr @ home</code> says that the home location knows the address of the <code class="highlighter-rouge">server</code> location and can therefore access <code class="highlighter-rouge">version</code>.</p>
+
+<p>ML5 does not consider fault-tolerance. For the web front/back-end examples this is perhaps not too big of an issue, but the absence of a compelling strategy for handling failures is a shortcoming of the design. Since <code class="highlighter-rouge">home</code> is the default location, the same way that <code class="highlighter-rouge">main</code> is the default entry point for C programs, this program typechecks. An error would be raised if the <code class="highlighter-rouge">alert</code> function was called from a different location.</p>
+
+<p>AliceML <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Alice">(Rossberg, Le Botlan, Tack, Brunklaus, &amp; Smolka, 2004)</a> is an example of another extension to SML. AliceML leverages SML’s advanced module system to explore building <em>open</em> distributed systems. Open systems are those where each node is only loosely coupled to its peers, meaning it allows for dynamic update and replacements. AliceML enables this by forcing components to program to interfaces and dynamically type-checking components as they enter the system.</p>
+
+<h3 id="objects">Objects</h3>
+
+<p>Object-Oriented languages have been extended for distribution in various fashions. Objects are an appealing model for agents in a distributed system. Alan Kay’s metaphor of objects as miniature computers and method invocation as message passing <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#smalltalkHistory">(Kay, 1993)</a> seems directly evocative of distributed systems.</p>
+
+<p>Eden <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Eden">(Black, 1985)</a> was an early pioneer (the project began in 1979) in both distributed and object-oriented programming languages. Eden can be classified as a language extended for distribution: Eden applications “were written in the Eden Programming Language (EPL) — a version of Concurrent Euclid to which the Eden team had added support for remote object invocation” <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#bhjl07">(Black, Hutchinson, Jul, &amp; Levy, 2007)</a>. However, Eden did not take full advantage of the overlap (namely, objects) between the computation and distribution models.</p>
+
+<p>See Chapter 4 for a more extensive overview of the languages using an object-based model for distribution, such as Emerald, Argus, and E.</p>
+
+<h3 id="batch-processing">Batch Processing</h3>
+
+<p>Another common extension is in the domain of batch processing large-scale data. MapReduce (and correspondingly Hadoop) is the landmark example of a programming model for distributed batch processing. Essentially, batch processing systems present a restricted programming model. For example, MapReduce programs must fit into the rigid model of two-step produce then aggregate. A restricted model alllows the system to make more guarantees, such as for fault tolerance. Subsequently language designers have sought to increase the expressiveness of the programming models and to boost performance. Chapter 8 covers batch processing languages in more detail.</p>
+
+<p>MBrace <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#MBrace">(Dzik, Palladinos, Rontogiannis, Tsarpalis, &amp; Vathis, 2013)</a> is an extension to the F# programming language for writing computations for clusters. MBrace provides a <em>monadic</em> interface (point to something about monads here) which allows for building cluster jobs out of smaller jobs while still exploiting available parallelism. MBrace is a framework that features its own runtime for provisioning, scheduling, and monitoring nodes in a cluster.</p>
+
+<p>Batch processing systems offer an interesting take on how to handle fault tolerance. The common approach taken is to use a central coordinator (for example, on the machine that initiated the job) to detect the failure of nodes. By tracking what each other node in the system is doing, the coordinator can restart a task on failure.</p>
+
+<h3 id="consistency">Consistency</h3>
+
+<p>Several languages explore designs for ensuring the <em>consistency</em> of distributed applications, or the requirement that each node agree on some state. CRDTs are a family of distributed data structures that maintain consistency. Chapter 6 explains consistency and CRDTS in further detail while chapter 7 takes a closer look at the following languages.</p>
+
+<p>Dedalus <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Dedalus">(Alvaro et al., 2011)</a> and Bloom <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Bloom">(Alvaro, Conway, Hellerstein, &amp; Marczak, 2011)</a> both represent uses of a logic-programming based attempt to design languages providing consistency guarantees. Dedalus is meant to provide the underlying model of distribution while Bloom provides a high-level language intended to be usable for creating applications. Logic-programming is an attractive model because execution is order-independent. Using Datalog, a logic-programming language, as the computation model encourages programmers to develop applications that are agnostic to message-reorderings. Bloom is implemented as a Ruby library called Bud (Bloom Under Development).</p>
+
+<p>Lasp <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Lasp">(Meiklejohn &amp; Van Roy, 2015)</a> is a language model where CRDTs are the only distributed data. CRDT sets are the primary data structure and Lasp programs are built by composing set transformations such as maps, filters, and folds.</p>
+
+<p>Lasp is implemented as an Erlang library. In practice, applications using Lasp are free to use other forms of distributed data, but consistency is only promised for the library-provided tools. Lasp nodes then share the same fault-tolerance platform as Erlang applications.</p>
+
+<p>Lasp’s programming model is very restrictive; sets are the primary data structure and folding operations are the primary operations provided. Future work may show how to enrich the programming model while still making the same strong consistency guarantees.</p>
+
+<h3 id="tuplespaces">Tuplespaces</h3>
+
+<p>Linda <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Linda">(Carriero, Gelernter, Mattson, &amp; Sherman, 1994)</a> is a distributed programming model more in the vein of shared memory than message passing. Linda programs are a collection of processes and a shared <em>tuplespace</em>. The tuplespace holds an unordered collection of tuples. A process adds data to the tuplespace using the <code class="highlighter-rouge">out</code> form. The <code class="highlighter-rouge">in</code> form takes a <em>pattern</em> and removes and returns a tuple matching the pattern from the tuplespace, blocking until one such appears.</p>
+
+<p>A simple example demonstrating communication in Linda:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="prettyprint lang-">;; INITIALLY the tuplespace is empty
+;; Process A
+out ("Hello", "from process A");
+
+;; after Process A executes the tuplespace contains one record, ("Hello", "from process A")
+
+;; Process B
+in("Hello", x);
+;; x = "from process A"
+;; the tuplespace is empty again
+</code></pre>
+</div>
+
+<p>If the tuplespace was not empty but instead contained tuples of some for <em>besides</em> 2-entry tuples where the first element was the string <code class="highlighter-rouge">"Hello"</code> the above interaction would remain unchanged. However, if some process C had entered the tuple <code class="highlighter-rouge">("Hello", "I am process C")</code> then
+B would receive either A’s or B’s tuple with one of the tuples remaining in the tuplespace.</p>
+
+<p>The Linda model of distribution has several advantages. Linda processes are not only spatially decoupled (able to execute on different machines, as in actor implementations) but <em>temporally</em> decoupled as well. That is, a Linda process can communicate with other processes even after it exits! Tuples remain in the shared space even after the process that created them exits. Therefore a different process can receive those tuples at any point in the future. Another point is that Linda processes don’t need to know the identities of the other process it communicates with. Unlike actors, which in order to send a message need to know the address of the other actor’s mailbox, Linda processes operate entirely through their connection to the tuplespace. Processes need to “know exactly as much about one another as is appropriate for the programming situation at hand” <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Linda">(Carriero, Gelernter, Mattson, &amp; Sherman, 1994)</a>.</p>
+
+<p>Linda is agnostic to the internal computation language of each node. Implementations of tuplespaces have been built on top of C and Fortran as well as a little-used Java one named JavaSpaces. (There is reportedly at least one financial institution in the UK that has some JavaSpaces-based systems). The choices of C and Fortran may be why Linda did not gain more popularity. Both languages are low-level and not well-suited for creating new abstractions (<code class="highlighter-rouge">void*</code> is just about the only abstraction mechanism in C).</p>
+
+<p>Maintaining the consistency of the tuplespace is of paramount importance for Linda implementations. Another concern is the detection of process crashes. Unfortunately, presentations of Linda have not clearly addressed these concerns.</p>
+
+<h2 id="discussion">Discussion</h2>
+
+<p>The line between a language and a library can be extremely blurry <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#LanguagesAsLibraries">(Tobin-Hochstadt, St-Amour, Culpepper, Flatt, &amp; Felleisen, 2011)</a>. A language provides some building blocks and forms for combining and composing. <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#700pl">(Landin, 1966)</a> For example, numbers, strings, and Booleans are common primitive building blocks. Operations like addition, concatenation, and negation offer ways of combining such blocks. More interesting operations allow <em>abstraction</em> over parts of the language: function (or λ) abstraction allows for creating operations over all numbers. Objects provide a way of combining data and functions in a way that abstracts over particular implementation details. Most importantly, a language defines the <em>semantics</em>, or meaning, of such operations.</p>
+
+<p>Many libraries can be described in the same way. The first-order values provided by a library are the primitives while the provided functions, classes, or objects perform combination and composition. A library can implement the primitives and operations such that they are in correspondence with the forms and semantics defined by a language.</p>
+
+<p>A theme in the literature is presenting an idea as a language and implementing it as a library or extension to an existing language. Doing so allows the authors to analyze a minimal presentation of their idea, but enjoy the benefits of the library/extension approach. Both Linda and Lasp take this approach, for example.</p>
+
+<p>Language models benefit from implementations <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#Redex">(Klein et al., 2012)</a>. The reasons to implement a new distributed language model on top of existing work are abundant:</p>
+
+<ul>
+  <li>
+    <p>As mentioned above, a distributed language includes both a model for single-node computation as well as inter-node communication. Building a distributed language from scratch also means re-implementing one of the paradigms of computing, and we would rather re-use existing language implementations</p>
+  </li>
+  <li>
+    <p>Implementing real-world applications calls for models of many domains besides computation and communication, such as persistence and parsing. The availability of a rich repository of libraries is an important concern for many users in adopting a new technology <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#socioPLT">(Meyerovich &amp; Rabkin, 2013)</a>.</p>
+  </li>
+  <li>
+    <p>Many applications of distributed systems are extremely performance sensitive. Performance engineering and fine-tuning are time and labor intensive endeavors. It makes sense to re-use as much of the work in existing language ecosystems as possible.</p>
+  </li>
+</ul>
+
+<p>These reasons form the foundation of an argument in favor of general-purpose programming languages that allow for the creation of rich abstractions. Such a language can be adapted for different models of computation. (Although, most general-purpose languages have a fixed computation model such as functional or object-oriented). When models are implemented as libraries in a common language, users can mix-and-match different models to get exactly the right behavior where it is needed by the application.</p>
+
+<p>One can argue that one reason the Linda model failed to catch on in is that the primary implementations were extensions to C and Fortran. While general-purpose, C and Fortran suffer a paucity of options for creating abstractions.</p>
+
+<p>That being said, there are advantages to clean slate languages. A fresh start grants the designer full control over every part of the language. For some areas, such as novel type systems, this is almost a necessity. However, we have seen designs like ML5 that elegantly integrate with a base language’s type system. Finally, a language designer can put their new ideas center stage, easily allowing people to see what is new and cool; in time those ideas may spread to other languages.</p>
+
+<p>Erik Meijer points out in <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#salesman">(Meijer, 2007)</a> that programmers don’t jump to new technologies to access new features. Rather, in time those features make their way to old technologies. Examples abound, such as the arrival of λ in Java and of course all of Meijer’s work in C# and Visual Basic.</p>
+
+<p>Ideas from distributed programming models have influenced more than just the languages used in practice. Microservices <a href="http://dist-prog-book.com/chapter/5/langs-extended-for-dist.html#microservices">(Eriksen, 2013)</a> are a popular technique for architecting large systems as a collection of manageable components. Microservices apply the lessons learned from organizing programs around actors to organizing the entire system. Actor programming uses shared-nothing concurrent agents and emphasizes fault-tolerance. Building a system using microservices means treating an entire block of functionality as an actor: it can exchange messages with the other components, but it can also go on and offline (or crash) independent from the rest of the system. The result is more resilient and modular.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>All design lies on a spectrum of tradeoffs; to gain convenience in one area means to sacrifice in another. Distributed systems come with a famous trade off: the CAP theorem. Building new language models on top of an existing, flexible general-purpose language is an attractive option for both implementors and users.</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="bhjl07">Black, A. P., Hutchinson, N. C., Jul, E., &amp; Levy, H. M. (2007). The Development of the Emerald Programming Language. In <i>Proceedings of the Third ACM SIGPLAN Conference on History of Programming Languages</i> (pp. 11–1–11–51). New York, NY, USA: ACM. http://doi.org/10.1145/1238844.1238855</span></li>
+<li><span id="LanguagesAsLibraries">Tobin-Hochstadt, S., St-Amour, V., Culpepper, R., Flatt, M., &amp; Felleisen, M. (2011). Languages As Libraries. In <i>Proceedings of the 32Nd ACM SIGPLAN Conference on Programming Language Design and Implementation</i> (pp. 132–141). New York, NY, USA: ACM. http://doi.org/10.1145/1993498.1993514</span></li>
+<li><span id="ScalaActors">Haller, P., &amp; Odersky, M. (2009). Scala Actors: Unifying Thread-based and Event-based Programming. <i>Theor. Comput. Sci.</i>, <i>410</i>(2-3), 202–220. http://doi.org/10.1016/j.tcs.2008.09.019</span></li>
+<li><span id="Argus">Liskov, B. (1988). Distributed Programming in Argus. <i>Commun. ACM</i>, <i>31</i>(3), 300–312. http://doi.org/10.1145/42392.42399</span></li>
+<li><span id="Linda">Carriero, N. J., Gelernter, D., Mattson, T. G., &amp; Sherman, A. H. (1994). The Linda Alternative to Message-passing Systems. <i>Parallel Comput.</i>, <i>20</i>(4), 633–655. http://doi.org/10.1016/0167-8191(94)90032-9</span></li>
+<li><span id="AmbientTalk">Dedecker, J., Van Cutsem, T., Mostinckx, S., D'Hondt, T., &amp; De Meuter, W. (2006). Ambient-Oriented Programming in Ambienttalk. In <i>Proceedings of the 20th European Conference on Object-Oriented Programming</i> (pp. 230–254). Berlin, Heidelberg: Springer-Verlag. http://doi.org/10.1007/11785477_16</span></li>
+<li><span id="Bloom">Alvaro, P., Conway, N., Hellerstein, J. M., &amp; Marczak, W. R. (2011). Consistency Analysis in Bloom: a CALM and Collected Approach. In <i>CIDR 2011, Fifth Biennial Conference on Innovative Data Systems
+               Research, Asilomar, CA, USA, January 9-12, 2011, Online Proceedings</i> (pp. 249–260). Retrieved from http://www.cidrdb.org/cidr2011/Papers/CIDR11_Paper35.pdf</span></li>
+<li><span id="Lasp">Meiklejohn, C., &amp; Van Roy, P. (2015). Lasp: A Language for Distributed, Coordination-free Programming. In <i>Proceedings of the 17th International Symposium on Principles and Practice of Declarative Programming</i> (pp. 184–195). New York, NY, USA: ACM. http://doi.org/10.1145/2790449.2790525</span></li>
+<li><span id="CloudHaskell">Epstein, J., Black, A. P., &amp; Peyton-Jones, S. (2011). Towards Haskell in the Cloud. In <i>Proceedings of the 4th ACM Symposium on Haskell</i> (pp. 118–129). New York, NY, USA: ACM. http://doi.org/10.1145/2034675.2034690</span></li>
+<li><span id="TermiteScheme">Germain, G. (2006). Concurrency Oriented Programming in Termite Scheme. In <i>Proceedings of the 2006 ACM SIGPLAN  Workshop on Erlang</i> (pp. 20–20). New York, NY, USA: ACM. http://doi.org/10.1145/1159789.1159795</span></li>
+<li><span id="ML5">Murphy, T., VII., Crary, K., &amp; Harper, R. (2008). Type-safe Distributed Programming with ML5. In <i>Proceedings of the 3rd Conference on Trustworthy Global Computing</i> (pp. 108–123). Berlin, Heidelberg: Springer-Verlag. Retrieved from http://dl.acm.org/citation.cfm?id=1793574.1793585</span></li>
+<li><span id="MBrace">Dzik, J., Palladinos, N., Rontogiannis, K., Tsarpalis, E., &amp; Vathis, N. (2013). MBrace: Cloud Computing with Monads. In <i>Proceedings of the Seventh Workshop on Programming Languages and Operating Systems</i> (pp. 7:1–7:6). New York, NY, USA: ACM. http://doi.org/10.1145/2525528.2525531</span></li>
+<li><span id="Spark">Zaharia, M., Chowdhury, M., Das, T., Dave, A., Ma, J., McCauley, M., … Stoica, I. (2012). Resilient Distributed Datasets: A Fault-tolerant Abstraction for In-memory Cluster Computing. In <i>Proceedings of the 9th USENIX Conference on Networked Systems Design and Implementation</i> (pp. 2–2). Berkeley, CA, USA: USENIX Association. Retrieved from http://dl.acm.org/citation.cfm?id=2228298.2228301</span></li>
+<li><span id="DryadLINQ">Yu, Y., Isard, M., Fetterly, D., Budiu, M., Erlingsson, Ú., Gunda, P. K., &amp; Currey, J. (2008). DryadLINQ: A System for General-purpose Distributed Data-parallel Computing Using a High-level Language. In <i>Proceedings of the 8th USENIX Conference on Operating Systems Design and Implementation</i> (pp. 1–14). Berkeley, CA, USA: USENIX Association. Retrieved from http://dl.acm.org/citation.cfm?id=1855741.1855742</span></li>
+<li><span id="Dedalus">Alvaro, P., Marczak, W. R., Conway, N., Hellerstein, J. M., Maier, D., &amp; Sears, R. (2011). Dedalus: Datalog in Time and Space. In <i>Proceedings of the First International Conference on Datalog Reloaded</i> (pp. 262–281). Berlin, Heidelberg: Springer-Verlag. http://doi.org/10.1007/978-3-642-24206-9_16</span></li>
+<li><span id="Emerald">Black, A., Hutchinson, N., Jul, E., &amp; Levy, H. (1986). Object Structure in the Emerald System. In <i>Conference Proceedings on Object-oriented Programming Systems, Languages and Applications</i> (pp. 78–86). New York, NY, USA: ACM. http://doi.org/10.1145/28697.28706</span></li>
+<li><span id="Erlang">Armstrong, J. (2003). <i>Making reliable distributed systems in the presence of software errors</i> (PhD thesis). The Royal Institute of Technology Stockholm, Sweden.</span></li>
+<li><span id="Redex">Klein, C., Clements, J., Dimoulas, C., Eastlund, C., Felleisen, M., Flatt, M., … Findler, R. B. (2012). Run Your Research: On the Effectiveness of Lightweight Mechanization. In <i>Proceedings of the 39th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages</i> (pp. 285–296). New York, NY, USA: ACM. http://doi.org/10.1145/2103656.2103691</span></li>
+<li><span id="sml">Miler, R., Tofte, M., Harper, R., &amp; MacQueen, D. (1997). The Definition of Standard ML–Revised. MIT press.</span></li>
+<li><span id="Alice">Rossberg, A., Le Botlan, D., Tack, G., Brunklaus, T., &amp; Smolka, G. (2004). Alice through the looking glass. <i>Trends in Functional Programming</i>, <i>5</i>, 79–96.</span></li>
+<li><span id="salesman">Meijer, E. (2007). Confessions of a Used Programming Language Salesman. In <i>Proceedings of the 22Nd Annual ACM SIGPLAN Conference on Object-oriented Programming Systems and Applications</i> (pp. 677–694). New York, NY, USA: ACM. http://doi.org/10.1145/1297027.1297078</span></li>
+<li><span id="Eden">Black, A. P. (1985). The Eden Programming Language.</span></li>
+<li><span id="smalltalkHistory">Kay, A. C. (1993). The Early History of Smalltalk. In <i>The Second ACM SIGPLAN Conference on History of Programming Languages</i> (pp. 69–95). New York, NY, USA: ACM. http://doi.org/10.1145/154766.155364</span></li>
+<li><span id="microservices">Eriksen, M. (2013). Your server as a function. In <i>Proceedings of the Seventh Workshop on Programming Languages and Operating Systems</i> (p. 5). ACM.</span></li>
+<li><span id="socioPLT">Meyerovich, L. A., &amp; Rabkin, A. S. (2013). Empirical Analysis of Programming Language Adoption. In <i>Proceedings of the 2013 ACM SIGPLAN International Conference on Object Oriented Programming Systems Languages &amp; Applications</i> (pp. 1–18). New York, NY, USA: ACM. http://doi.org/10.1145/2509136.2509515</span></li>
+<li><span id="hewitt77">Hewitt, C. (1977). Viewing Control Structures As Patterns of Passing Messages. <i>Artif. Intell.</i>, <i>8</i>(3), 323–364. http://doi.org/10.1016/0004-3702(77)90033-9</span></li>
+<li><span id="typeclasses">Wadler, P., &amp; Blott, S. (1989). How to Make Ad-hoc Polymorphism Less Ad Hoc. In <i>Proceedings of the 16th ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages</i> (pp. 60–76). New York, NY, USA: ACM. http://doi.org/10.1145/75277.75283</span></li>
+<li><span id="deriving-typeclasses">Hinze, R., &amp; Jones, S. P. (2001). Derivable type classes. <i>Electronic Notes in Theoretical Computer Science</i>, <i>41</i>(1), 5–35.</span></li>
+<li><span id="700pl">Landin, P. J. (1966). The Next 700 Programming Languages. <i>Commun. ACM</i>, <i>9</i>(3), 157–166. http://doi.org/10.1145/365230.365257</span></li>
+<li><span id="note-on-dc">Kendall, S. C., Waldo, J., Wollrath, A., &amp; Wyant, G. (1994). <i>A Note on Distributed Computing</i>. Mountain View, CA, USA: Sun Microsystems, Inc.</span></li></ol>
+
+
+<!-- </article> -->
+
+      </div>
+      <div class="col-sm-3">
+        <nav id="toc" class="hidden-print hidden-xs affix" data-spy="affix" data-toggle="toc"><div class="toc-header affix" data-spy="affix"><span class="toc-contents">Contents</span></div><span class="toc-hide">Hide</span><span class="toc-expand">Expand</span></nav>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-6">
+        <div class="footer-links">
+          
+          
+          
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+
+  <script>
+
+      $( ".toc-hide" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+        $(".toc-contents").toggleClass( "lighter" );
+
+        if ($(this).text() == 'Hide') {
+          $(this).text("Show");
+        } else {
+          $(this).text("Hide");
+        }
+        // toggle visibility of contents, and expand button
+        $(".nav").toggle();
+        $(".toc-expand").toggle();
+      });
+
+      $( ".toc-expand" ).click(function() {
+        // $( this ).toggleClass( "gray-bg" );
+
+        if ($(this).text() == 'Expand') {
+          $(this).text("Compact");
+          $(".nav").css('display', 'block');
+        } else {
+          $(this).text("Expand");
+          $(".nav .nav").css('display', 'none');
+        }
+      });
+
+      // get current year and put it in span
+      var currYear = new Date().getFullYear()
+      $(".current-year").text(currYear);
+  </script>
+
+
+
+
+</body></html>
