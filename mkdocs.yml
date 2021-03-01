@@ -8,7 +8,7 @@ google_analytics:
 - mkdocs.org
 markdown_extensions:
 - toc:
-    separator: '-'
+    separator: '#'
 - admonition
 - def_list
 - mdx_gh_links:
@@ -20,8 +20,6 @@ markdown_extensions:
 - pymdownx.caret
 - pymdownx.critic
 - pymdownx.details
-- pymdownx.emoji:
-    emoji_generator: '!!python/name:pymdownx.emoji.to_svg'
 - pymdownx.inlinehilite
 - pymdownx.magiclink
 - pymdownx.mark
@@ -491,10 +489,10 @@ nav:
 - Ordering-in-parallel-computing: Ordering-in-parallel-computing.md
 plugins:
 - search
-repo_url: https://github.com/dengking/programming-language
+repo_url: https://github.com/dengking/Parallel-computing
 site_author: DengKing
 site_description: Project documentation with Markdown.
-site_name: programming-language
-site_url: https://dengking.github.io/programming-language
+site_name: Parallel-computing
+site_url: https://dengking.github.io/Parallel-computing
 theme:
   name: material

@@ -1,10 +1,10 @@
-site_name: programming-language  
-site_url: https://dengking.github.io/programming-language
+site_name: Parallel-computing  
+site_url: https://dengking.github.io/Parallel-computing
 site_description: Project documentation with Markdown.
 site_author: DengKing
 
 
-repo_url: https://github.com/dengking/programming-language
+repo_url: https://github.com/dengking/Parallel-computing
 
 edit_uri: ""
 
