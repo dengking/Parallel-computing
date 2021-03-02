@@ -5,3 +5,4 @@ nav:
     - Read–write-lock: Read–write-lock
     - Spinlock: Spinlock
     - Disadvantage: Disadvantage
+    - Double-checked-locking: Double-checked-locking

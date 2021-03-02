@@ -1,3 +1,5 @@
 nav:
     - Lockfree-Algorithms: index.md
     - TODO-Introduction: TODO-Introduction
+    - TODO-Producer-Consumer-Queues: TODO-Producer-Consumer-Queues
+    - TODO-Lazy-Concurrent-Initialization: TODO-Lazy-Concurrent-Initialization

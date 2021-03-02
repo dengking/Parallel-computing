@@ -1,5 +1,9 @@
 # [Home](http://www.1024cores.net/home)‎ > ‎[Lockfree Algorithms](http://www.1024cores.net/home/lock-free-algorithms)‎ > ‎[Introduction](http://www.1024cores.net/home/lock-free-algorithms/introduction)
 
+> NOTE: 
+>
+> 1、wait-free > Lock-free > obstruction-free
+
 I bet you had heard terms like "lockfree" and "waitfree". So what it's all about? Let's start with some definitions.
 
 ## **Wait-freedom**
@@ -62,7 +66,7 @@ void stack_push(stack* s, node* n)
 >
 > 1、cppreference [std::atomic_compare_exchange_strong](https://en.cppreference.com/w/cpp/atomic/atomic_compare_exchange)
 >
-> 上述过程让我想到了busy-waiting
+> 上述过程让我想到了busy-waiting、CAS
 
 As can be seen, a thread can "whirl"(回旋) in the cycle theoretically infinitely. But every repeat of the cycle means that some other thread had made forward progress (that is, successfully pushed a node to the stack). A blocked/interrupted/terminated thread can not prevent(阻止) forward progress of other threads. Consequently, the system as a whole undoubtedly makes forward progress.
 

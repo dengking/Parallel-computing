@@ -1,0 +1,1 @@
+# 1024cores [Lazy Concurrent Initialization](http://www.1024cores.net/home/lock-free-algorithms/lazy-concurrent-initialization)
