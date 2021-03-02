@@ -15,3 +15,9 @@
 2、promise-future channel
 
 3、Semaphore
+
+比较好的文章:
+
+1、modernescpp [Synchronization with Atomics in C++20](https://www.modernescpp.com/index.php/synchronization-with-atomics-in-c-20)
+
+2、modernescpp [Performance Comparison of Condition Variables and Atomics in C++20](https://www.modernescpp.com/index.php/component/jaggyblog/performancecomparison-of-condition-variables-and-atomics-in-c-20)
