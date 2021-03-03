@@ -84,6 +84,14 @@ Heres a table of the time in s the tests took to execute:
 
 其中进行了较好的总结。
 
+
+
+### 5、stackoverflow [Using Boost.Lockfree queue is slower than using mutexes](https://stackoverflow.com/questions/43540943/using-boost-lockfree-queue-is-slower-than-using-mutexes) # [A](https://stackoverflow.com/a/43541067)
+
+
+
+### 6、preshing [Locks Aren't Slow; Lock Contention Is](https://preshing.com/20111118/locks-arent-slow-lock-contention-is/)
+
 ## Cooperative VS contention 
 
 lock显然是contention 

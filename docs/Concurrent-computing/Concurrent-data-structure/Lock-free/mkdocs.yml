@@ -1,6 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Hash-Map: Hash-Map
-    - Circular-queue: Circular-queue
-    - Library-khizmax-libcds: Library-khizmax-libcds
-    - Queue: Queue
