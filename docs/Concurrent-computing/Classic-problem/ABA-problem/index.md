@@ -2,7 +2,11 @@
 
 在阅读 preshing [An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming/) 时，其中介绍了ABA problem。
 
+## 总结
 
+1、ABA也是由于race而引发的
+
+2、ABA和time of check to time of use是非常类似的
 
 ## Wikipedia [ABA problem](https://infogalactic.com/info/ABA_problem)
 
@@ -104,3 +108,37 @@ int main()
 #### Intermediate nodes
 
 #### Deferred reclamation
+
+
+
+## Workarounds总结
+
+### Herb Sutter [Lock-Free Programming or, How to Juggle Razor Blades](http://www.alfasoft.com/files/herb/40-LockFree.pdf) 
+
+在 Herb Sutter [Lock-Free Programming or, How to Juggle Razor Blades](http://www.alfasoft.com/files/herb/40-LockFree.pdf) 中，给出了总结，这篇文章收录于工程programming-language的`Lock-Free-Programming-or-How-to-Juggle-Razor-Blades`章节。
+
+ABA Solutions (sketch)
+
+We need to solve the ABA issue: Two nodes with the same address, but different identities (existing at different times).
+
+Option 1: Use lazy garbage collection.
+
+Solves the problem. Memory can’t be reused while pointers to it exist.
+
+But: Not an option (yet) in portable C++ code, and destruction of nodes becomes nondeterministic.
+
+Option 2: Use reference counting (garbage collection).
+
+Solves the problem in cases without cycles. Again, avoids memory reuse.
+
+Option 3: Make each pointer unique by appending a serial number, and increment the serial number each time it’s set.
+
+This way we can always distinguish between A and A’.
+
+But: Requires an atomic compare and swap on a value that’s larger than the size of a pointer. Not available on all hardware & bit nesses.
+
+Option 4: Use hazard pointers.
+
+Maged Michael and Andrei Alexandrescu have covered this in detail. But: It’s very intricate(复杂的). Tread(踩踏) with caution.
+
+### ticki [Fearless concurrency with hazard pointers](http://ticki.github.io/blog/fearless-concurrency-with-hazard-pointers/)

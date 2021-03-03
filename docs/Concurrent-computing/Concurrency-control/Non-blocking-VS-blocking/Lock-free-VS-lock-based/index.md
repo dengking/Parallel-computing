@@ -72,6 +72,18 @@ Heres a table of the time in s the tests took to execute:
 | #11           | 0.058999    | 0.0534279      | 0.06688   | 0.56929   | 0.030724  |
 | #12           | 0.059998    | 0.0676858      | 0.07563   | 0.57466   | 0.036788  |
 
+
+
+### 3、lock-based add VS non-lock atomic add
+
+使用atomic add和用lock来保护两者都能够实现正确的操作（顺序、原子、互斥），为什么前者比后者性能更好？
+
+因为: lock-based存在lock contention，因此存在system call(system call的成本是比较高的)、存在blocking、等等，而atomic add则没有前面描述的内容。
+
+### 4、infoq [Lock-free Programming in C++ with Herb Sutter](https://www.infoq.com/news/2014/10/cpp-lock-free-programming/)
+
+其中进行了较好的总结。
+
 ## Cooperative VS contention 
 
 lock显然是contention 
@@ -87,3 +99,6 @@ lock-free是cooperative
 Generally speaking, in [lock-free programming](http://preshing.com/20120612/an-introduction-to-lock-free-programming), there are two ways in which threads can manipulate shared memory: They can compete with each other for a resource, or they can pass information co-operatively from one thread to another. Acquire and release semantics are crucial for the latter: reliable passing of information between threads. 
 
 2、工程programming-language的`Memory-model-and-atomic-library\Design`章节
+
+
+
