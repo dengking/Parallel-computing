@@ -2,7 +2,7 @@
 
 
 
-# [Issues In Concurrent Server Design on Linux Systems - Part I](https://linuxgazette.net/129/saha.html)
+# linuxgazette [Issues In Concurrent Server Design on Linux Systems - Part I](https://linuxgazette.net/129/saha.html)
 
 ### What is a Concurrent Server
 
