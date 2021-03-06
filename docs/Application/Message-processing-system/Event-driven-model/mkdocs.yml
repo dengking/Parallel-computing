@@ -5,7 +5,7 @@ nav:
     # 如何传输message？
     - Event-message-passing: Event-message-passing
      # event library
-    - Library: Library
+    - Event-library: Event-library
     - Event-VS-exception-VS-signal: Event-VS-exception-VS-signal.md
     - Design-pattern: Design-pattern
    

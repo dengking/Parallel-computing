@@ -1,2 +1,0 @@
-- 在《redis设计与实现》的chapter12.1文件事件中提及：redis基于reactor模式开发了自己的网络事件处理器；
-- 在youdao 《`event-and-message-passing-summary.md`》中也收录了reactor

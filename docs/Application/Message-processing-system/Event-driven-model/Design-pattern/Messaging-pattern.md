@@ -1,4 +1,4 @@
-# [Messaging pattern](https://en.wikipedia.org/wiki/Messaging_pattern)
+# wikipedia [Messaging pattern](https://en.wikipedia.org/wiki/Messaging_pattern)
 
 In [software architecture](https://en.wikipedia.org/wiki/Software_architecture), a **messaging pattern** is a network-oriented [architectural pattern](https://en.wikipedia.org/wiki/Architectural_pattern) which describes how two different parts of a [message passing](https://en.wikipedia.org/wiki/Message_passing) system connect and communicate with each other.
 
@@ -6,24 +6,24 @@ In [software architecture](https://en.wikipedia.org/wiki/Software_architecture),
 
 In [telecommunications](https://en.wikipedia.org/wiki/Telecommunications), a **message exchange pattern** (**MEP**) describes the [pattern](https://en.wikipedia.org/wiki/Pattern) of [messages](https://en.wikipedia.org/wiki/Message_passing) required by a [communications protocol](https://en.wikipedia.org/wiki/Communications_protocol) to establish or use a [communication channel](https://en.wikipedia.org/wiki/Communication_channel). There are two major message exchange patterns — a *request–response* pattern, and a *one-way*（单程的） pattern. For example, [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) is a *request–response* pattern protocol, and [UDP](https://en.wikipedia.org/wiki/User_Datagram_Protocol) is a *one-way* pattern.[[1\]](https://en.wikipedia.org/wiki/Messaging_pattern#cite_note-1)
 
-***SUMMARY*** : 本文所描述的messaging pattern是建立在network protocol的基础上而构建的更加高级的功能，需要将它和比较底层的network protocol区分开来；
+> NOTE: 本文所描述的messaging pattern是建立在network protocol的基础上而构建的更加高级的功能，需要将它和比较底层的network protocol区分开来；
 
 ## ØMQ
 
 The [ØMQ](https://en.wikipedia.org/wiki/%C3%98MQ) message queueing library provides so-called *sockets* (a kind of generalization over the traditional [IP](https://en.wikipedia.org/wiki/Internet_socket) and [Unix sockets](https://en.wikipedia.org/wiki/Unix_domain_socket)) which require indicating a **messaging pattern** to be used, and are optimized for each pattern. The basic ØMQ patterns are:[[4\]](https://en.wikipedia.org/wiki/Messaging_pattern#cite_note-4)
 
-- **Request–reply** connects a set of clients to a set of services. This is a [remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call) and task distribution pattern.[*clarification needed*]
+1、**Request–reply** connects a set of clients to a set of services. This is a [remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call) and task distribution pattern.[*clarification needed*]
 
-- **Publish–subscribe** connects a set of publishers to a set of subscribers. This is a data distribution pattern.[*clarification needed*]
+2、**Publish–subscribe** connects a set of publishers to a set of subscribers. This is a data distribution pattern.[*clarification needed*]
 
-- **Push–pull** connects nodes in a [fan-out](https://en.wikipedia.org/wiki/Fan-out_(software)) / fan-in pattern that can have multiple steps, and loops. This is a parallel task distribution and collection pattern.[*clarification needed*]
+3、**Push–pull** connects nodes in a [fan-out](https://en.wikipedia.org/wiki/Fan-out_(software)) / fan-in pattern that can have multiple steps, and loops. This is a parallel task distribution and collection pattern.[*clarification needed*]
 
-  ***THINKING*** : 并没有搞懂
+> NOTE: 并没有搞懂
 
-- **Exclusive pair** connects two sockets in an exclusive pair. This is a low-level pattern for specific, advanced use cases.
+4、**Exclusive pair** connects two sockets in an exclusive pair. This is a low-level pattern for specific, advanced use cases.
 
-  **THINKING** : 并没有搞懂
+> NOTE: 并没有搞懂
 
 Each pattern defines a particular **network topology**. **Request-reply** defines so-called "service bus", **publish-subscribe** defines "data distribution tree", **push-pull** defines "parallelised pipeline". All the patterns are deliberately designed in such a way as to be infinitely scalable and thus usable on Internet scale.[[5\]](https://en.wikipedia.org/wiki/Messaging_pattern#cite_note-5)
 
-***SUMMARY*** : 最后一段话非常好；
+> NOTE: 最后一段话非常好；

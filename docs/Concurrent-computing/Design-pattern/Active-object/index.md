@@ -69,3 +69,20 @@ When the meal is ready, the cook places it on the serve bar and the waiter bring
 ## Implementation
 
 1、需要一个message queue。
+
+
+
+## TODO
+
+1、wikipedia [Active object](https://en.wikipedia.org/wiki/Active_object)
+
+2、stackoverflow [To use Active object or not?](https://stackoverflow.com/questions/10237837/to-use-active-object-or-not)
+
+3、https://sites.google.com/site/kjellhedstrom2/active-object-with-cpp0x
+
+
+
+
+
+
+

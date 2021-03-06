@@ -1,4 +1,4 @@
-# [Understanding Reactor Pattern: Thread-Based and Event-Driven](https://dzone.com/articles/understanding-reactor-pattern-thread-based-and-eve)
+# dzone [Understanding Reactor Pattern: Thread-Based and Event-Driven](https://dzone.com/articles/understanding-reactor-pattern-thread-based-and-eve)
 
 To handle **web requests**, there are two competing web architectures: **thread-based** and **event-driven** architectures. 
 
