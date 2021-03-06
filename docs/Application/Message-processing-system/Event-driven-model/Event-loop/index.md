@@ -1,8 +1,8 @@
 # Event loop
 
+1、结合Redis ae来理解是非常容易的。
 
-
-## 维基百科 [Event loop](https://en.wikipedia.org/wiki/Event_loop)
+## wikipedia [Event loop](https://en.wikipedia.org/wiki/Event_loop)
 
 
 
@@ -95,7 +95,7 @@ An alternative, more portable solution, is to convert **asynchronous events** to
 
 I'm trying to understand what an **event loop** is. Often the explanation is that in an event loop, you do something until you're **notified** that an event has occurred. You then handle the event and continue doing what you were doing before.
 
-***keyword***：notify
+> NOTE：notify
 
 To map the above definition with an example. I have a server which 'listens' in a event loop, and when a socket connection is detected, the data from it gets read and displayed, after which the server resumes/starts listening as it did before.
 
@@ -180,7 +180,7 @@ I think of an **event listener** not as a function running its own loop, but as 
 
 Consider a Web server. When your server calls `listen()` and blocks, your code is taking its place as a relay runner. When the first packet of a new connection arrives, the network card **starts** the race by **interrupting**（中断） the operating system. The OS runs an **interrupt service routine** (ISR) that grabs the packet. The ISR passes the baton（接力棒） to a higher-level routine that establishes the connection. Once the connection is alive, that routine passes the baton to `listen()`, which passes the baton up to your code. At that point, you can do what you want with the connection. For all we know, between races each relay runner could be going to the pub. A strength of the event abstraction is that your code doesn't have to know or care.
 
-***SUMMARY***:上面对触发式的比喻比较形象；感觉这非常像经典的Unix网络编程模型。
+> NOTE:上面对触发式的比喻比较形象；感觉这非常像经典的Unix网络编程模型。
 
 Some operating systems include event-handling code that runs its portion of the race, hands off the baton, then loops back to its starting point to wait for the next race to start. In that sense, event handling is optimized polling in lots of concurrent loops. However, there is always an outside **trigger** that kicks off the process. The event listener is not a function that isn't returning, but a function that is waiting for that external trigger before it runs. Rather than:
 
@@ -201,7 +201,7 @@ on(some event):    //I got the baton
 
 and between the `signal` and the next time the handler runs, there is conceptually no code running or looping.
 
-***SUMMARY***:对比上面两段伪代码，on可以翻译为“当”，这是非常契合interrupt的；
+> NOTE:对比上面两段伪代码，on可以翻译为“当”，这是非常契合interrupt的；
 
 ### [A4](https://softwareengineering.stackexchange.com/a/215529)
 

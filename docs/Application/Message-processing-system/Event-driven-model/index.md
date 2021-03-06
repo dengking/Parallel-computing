@@ -1,6 +1,6 @@
 # Event-driven model
 
-本章描述[Event-driven model](https://dengking.github.io/Post/Abstraction/Abstraction-and-model/#event-driven-model)，它是一个非常强大的模型，能够描述非常非常广泛的问题。在本文，我们将说明什么是event-driven model、什么是event、如何实现event-driven model。
+本章描述"Event-driven model"，它是一个非常强大的模型，能够描述非常非常广泛的问题。在本文，我们将说明什么是event-driven model、什么是event、如何实现event-driven model。
 
 ## Event-driven model概述
 
@@ -130,7 +130,7 @@ Event-driven model肯定需要记录下event和event handler之间的映射关�
 
 
 
-## 维基百科[Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)
+## wikipedia [Event-driven programming](https://en.wikipedia.org/wiki/Event-driven_programming)
 
 In [computer programming](https://en.wikipedia.org/wiki/Computer_programming), **event-driven programming** is a [programming paradigm](https://en.wikipedia.org/wiki/Programming_paradigm) in which the [flow of the program](https://en.wikipedia.org/wiki/Control_flow) is determined by [events](https://en.wikipedia.org/wiki/Event_(computing)) such as user actions ([mouse](https://en.wikipedia.org/wiki/Computer_mouse) clicks, key presses), [sensor](https://en.wikipedia.org/wiki/Sensor) outputs, or [messages](https://en.wikipedia.org/wiki/Message_passing) from other programs or [threads](https://en.wikipedia.org/wiki/Thread_(computer_science)). Event-driven programming is the dominant paradigm used in [graphical user interfaces](https://en.wikipedia.org/wiki/Graphical_user_interface) and other applications (e.g., JavaScript [web applications](https://en.wikipedia.org/wiki/Web_application)) that are centered on performing certain actions in response to [user input](https://en.wikipedia.org/wiki/Input/output). This is also true of programming for [device drivers](https://en.wikipedia.org/wiki/Device_driver) (e.g., [P](https://en.wikipedia.org/wiki/P_(programming_language)) in USB device driver stacks).
 
