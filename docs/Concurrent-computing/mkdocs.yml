@@ -12,8 +12,8 @@ nav:
     - Classic-problem: Classic-problem
     # 描述具体application
     - Concurrent-data-structure: Concurrent-data-structure
-    - TODO-Concurrent-server: TODO-Concurrent-server
-    # 总结设计模式
-    - Design-pattern: Design-pattern
+
+
     # 最最典型的concurrency模式   
     - Multithread: Multithread
+    - TODO-Concurrent-server: TODO-Concurrent-server    

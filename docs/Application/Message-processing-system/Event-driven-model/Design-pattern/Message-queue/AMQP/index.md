@@ -8,7 +8,7 @@ https://www.amqp.org/
 
 
 
-## wikipedia [Advanced Message Queuing Protocol](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) H1
+## wikipedia [Advanced Message Queuing Protocol](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) 
 
 The **Advanced Message Queuing Protocol** (**AMQP**) is an [open standard](https://en.wikipedia.org/wiki/Open_standard) (开放标准) [application layer](https://en.wikipedia.org/wiki/Application_layer) protocol(应用层协议) for [message-oriented middleware](https://en.wikipedia.org/wiki/Message-oriented_middleware). The defining features of **AMQP** are message orientation, queuing, [routing](https://en.wikipedia.org/wiki/Routing) (including [point-to-point](https://en.wikipedia.org/wiki/Point-to-point_(telecommunications)) and [publish-and-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe)), reliability and security.
 
