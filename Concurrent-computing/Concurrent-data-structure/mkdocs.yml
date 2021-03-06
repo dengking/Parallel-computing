@@ -1,4 +1,8 @@
 nav:
     - Introduction: index.md
-    - Lock-free: Lock-free
-   
+    - Queue: Queue
+
+    - Hash-table: Hash-table
+    - Linked-list: Linked-list
+
+    - Collection-library: Collection-library    

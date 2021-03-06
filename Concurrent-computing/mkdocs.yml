@@ -1,17 +1,19 @@
 nav:
     - Concurrent-computing: index.md
-    # 先描述 理论知识
-    - Concurrency-control: Concurrency-control
     # 专家和经典书籍
     - Books: Books.md
     - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
     - Expert-1024cores: Expert-1024cores
+    - Expert-Cameron: Expert-Cameron
+    # 先描述 理论知识
+    - Concurrency-control: Concurrency-control
+
     # 总结经典问题
     - Classic-problem: Classic-problem
     # 描述具体application
     - Concurrent-data-structure: Concurrent-data-structure
-    - TODO-Concurrent-server: TODO-Concurrent-server
-    # 总结设计模式
-    - Design-pattern: Design-pattern
+
+
     # 最最典型的concurrency模式   
     - Multithread: Multithread
+    - TODO-Concurrent-server: TODO-Concurrent-server    
