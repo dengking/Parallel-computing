@@ -449,8 +449,8 @@ nav:
         - Implementation: Application/Message-processing-system/Event-driven-model/Event-loop/Implementation.md
       - Event-message-passing:
         - Introduction: Application/Message-processing-system/Event-driven-model/Event-message-passing/index.md
-      - Library:
-        - Event-library: Application/Message-processing-system/Event-driven-model/Library/Event-library.md
+      - Event-library:
+        - Introduction: Application/Message-processing-system/Event-driven-model/Event-library/index.md
       - Event-VS-exception-VS-signal: Application/Message-processing-system/Event-driven-model/Event-VS-exception-VS-signal.md
       - Design-pattern:
         - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/index.md
@@ -462,12 +462,9 @@ nav:
           - Actor:
             - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Actor/index.md
           - Proactor:
-            - vanderbilt.edu-Proactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor/vanderbilt.edu-Proactor.md
-            - wikipedia-Proactor-pattern: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor/wikipedia-Proactor-pattern.md
-          - TODO-Reactor:
-            - vanderbilt.edu-Reactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/TODO-Reactor/vanderbilt.edu-Reactor.md
-            - wikipedia-Reactor-pattern: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/TODO-Reactor/wikipedia-Reactor-pattern.md
-          - Proactor-and-Reactor: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor-and-Reactor.md
+            - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor/index.md
+          - Reactor:
+            - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Reactor/index.md
         - Message-queue:
           - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/index.md
           - AMQP:
@@ -475,6 +472,8 @@ nav:
             - Fan-out: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Fan-out.md
             - Rabbitmq:
               - AMQP-0-9-1-Model-Explained: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Rabbitmq/AMQP-0-9-1-Model-Explained.md
+        - drdobbs-Message-Handling-Without-Dependencies:
+          - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/drdobbs-Message-Handling-Without-Dependencies/index.md
     - Stream-based-message-processing-system:
       - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/index.md
       - Implementation:
