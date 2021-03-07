@@ -13,3 +13,7 @@
 4、Herb Sutter [Lock Free Programming or, How to Juggle Razor Blades](http://www.alfasoft.com/files/herb/40-LockFree.pdf)
 
 其中有着非常好的总结。
+
+5、developer.51cto [高性能开发的“十大武器”，爱了爱了！](https://developer.51cto.com/art/202011/630654.htm)
+
+这篇文章中也有提及

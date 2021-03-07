@@ -2,7 +2,7 @@
 
 
 
-# [Thinking Concurrently: How Modern Network Applications Handle Multiple Connections](https://www.linuxjournal.com/content/thinking-concurrently)
+# linuxjournal [Thinking Concurrently: How Modern Network Applications Handle Multiple Connections](https://www.linuxjournal.com/content/thinking-concurrently)
 
 Reuven explores different types of multiprocessing and looks at the advantages and disadvantages of each.
 
