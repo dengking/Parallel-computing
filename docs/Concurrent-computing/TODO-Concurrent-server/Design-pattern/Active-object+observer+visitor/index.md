@@ -6,6 +6,10 @@
 
 3、消息的种类非常多，不同的observer对不同类型的消息的处理是不同的
 
+## 异步处理消息
+
+如果需要异步处理消息，则需要使用message queue了。
+
 4、performance:
 
 a、避免频繁的new，使用inplacement new、message queue(memory pool)、使用copy替代new
@@ -19,6 +23,10 @@ c、那如何对不同种类的message进行dispatch呢？
 通过if-else实现不同类型的消息进行不同的处理
 
 使用visitor pattern实现double dispatch
+
+## 同步处理
+
+相对比较简单
 
 ## draft
 
