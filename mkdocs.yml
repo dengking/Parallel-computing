@@ -229,23 +229,6 @@ nav:
       - Library-libcds:
         - Introduction: Concurrent-computing/Concurrent-data-structure/Collection-library/Library-libcds/index.md
       - Library-libcds: Library-libcds
-  - TODO-Concurrent-server:
-    - Introduction: Concurrent-computing/TODO-Concurrent-server/index.md
-    - The-C10K-problem:
-      - wikipedia-C10k-problem: Concurrent-computing/TODO-Concurrent-server/The-C10K-problem/wikipedia-C10k-problem.md
-      - kegel-Unix-The-C10K-problem: Concurrent-computing/TODO-Concurrent-server/The-C10K-problem/kegel-Unix-The-C10K-problem.md
-    - Asynchronous-method-dispatch: Concurrent-computing/TODO-Concurrent-server/Asynchronous-method-dispatch.md
-  - Design-pattern:
-    - Introduction: Concurrent-computing/Design-pattern/index.md
-    - Active-object:
-      - Introduction: Concurrent-computing/Design-pattern/Active-object/index.md
-      - Asynchronous-method-invocation: Concurrent-computing/Design-pattern/Active-object/Asynchronous-method-invocation.md
-      - Implementation:
-        - library-syscpp:
-          - Introduction: Concurrent-computing/Design-pattern/Active-object/Implementation/library-syscpp/index.md
-        - rosettacode-Active-object: Concurrent-computing/Design-pattern/Active-object/Implementation/rosettacode-Active-object.md
-        - kjellhedstrom2-Active-Object-the-C++11-way:
-          - Introduction: Concurrent-computing/Design-pattern/Active-object/Implementation/kjellhedstrom2-Active-Object-the-C++11-way/index.md
   - Multithread:
     - Introduction: Concurrent-computing/Multithread/index.md
     - Thread-safety:
@@ -295,6 +278,40 @@ nav:
         - Introduction: Concurrent-computing/Multithread/Topics/False-death/index.md
     - Condition-variables-VS-mutex:
       - Introduction: Concurrent-computing/Multithread/Condition-variables-VS-mutex/index.md
+  - TODO-Concurrent-server:
+    - Introduction: Concurrent-computing/TODO-Concurrent-server/index.md
+    - Case:
+      - Introduction: Concurrent-computing/TODO-Concurrent-server/Case/index.md
+    - The-C10K-problem:
+      - wikipedia-C10k-problem: Concurrent-computing/TODO-Concurrent-server/The-C10K-problem/wikipedia-C10k-problem.md
+      - kegel-Unix-The-C10K-problem: Concurrent-computing/TODO-Concurrent-server/The-C10K-problem/kegel-Unix-The-C10K-problem.md
+    - High-performance-server:
+      - Introduction: Concurrent-computing/TODO-Concurrent-server/High-performance-server/index.md
+      - Load-balancing:
+        - Introduction: Concurrent-computing/TODO-Concurrent-server/High-performance-server/Load-balancing/index.md
+      - "developer.51cto-\u9AD8\u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668":
+        - Introduction: "Concurrent-computing/TODO-Concurrent-server/High-performance-server/developer.51cto-\u9AD8\
+            \u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668/index.md"
+      - "developer.51cto-\u652F\u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837":
+        - Introduction: "Concurrent-computing/TODO-Concurrent-server/High-performance-server/developer.51cto-\u652F\
+            \u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837\
+            /index.md"
+    - Design-pattern:
+      - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/index.md
+      - Active-object:
+        - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/index.md
+        - Asynchronous-method-invocation: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Asynchronous-method-invocation.md
+        - Implementation:
+          - library-syscpp:
+            - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Implementation/library-syscpp/index.md
+          - rosettacode-Active-object: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Implementation/rosettacode-Active-object.md
+          - kjellhedstrom2-Active-Object-the-C++11-way:
+            - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Implementation/kjellhedstrom2-Active-Object-the-C++11-way/index.md
+      - drdobbs-Message-Handling-Without-Dependencies:
+        - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/drdobbs-Message-Handling-Without-Dependencies/index.md
+      - Asynchronous-method-dispatch: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Asynchronous-method-dispatch.md
+    - TODO-thread-model:
+      - Introduction: Concurrent-computing/TODO-Concurrent-server/TODO-thread-model/index.md
 - Distributed-computing:
   - Distributed-computing: Distributed-computing/index.md
   - Theory:
@@ -447,8 +464,8 @@ nav:
       - Event-loop:
         - Event-loop: Application/Message-processing-system/Event-driven-model/Event-loop/index.md
         - Implementation: Application/Message-processing-system/Event-driven-model/Event-loop/Implementation.md
-      - Event-message-passing:
-        - Introduction: Application/Message-processing-system/Event-driven-model/Event-message-passing/index.md
+      - Event-source-and-passing:
+        - Introduction: Application/Message-processing-system/Event-driven-model/Event-source-and-passing/index.md
       - Event-library:
         - Introduction: Application/Message-processing-system/Event-driven-model/Event-library/index.md
       - Event-VS-exception-VS-signal: Application/Message-processing-system/Event-driven-model/Event-VS-exception-VS-signal.md
@@ -472,8 +489,6 @@ nav:
             - Fan-out: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Fan-out.md
             - Rabbitmq:
               - AMQP-0-9-1-Model-Explained: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Rabbitmq/AMQP-0-9-1-Model-Explained.md
-        - drdobbs-Message-Handling-Without-Dependencies:
-          - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/drdobbs-Message-Handling-Without-Dependencies/index.md
     - Stream-based-message-processing-system:
       - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/index.md
       - Implementation:

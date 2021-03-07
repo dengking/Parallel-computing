@@ -4,4 +4,3 @@ nav:
     - Pub-sub: Pub-sub
     - Actor-proactor-reactor: Actor-proactor-reactor
     - Message-queue: Message-queue
-    - drdobbs-Message-Handling-Without-Dependencies: drdobbs-Message-Handling-Without-Dependencies
