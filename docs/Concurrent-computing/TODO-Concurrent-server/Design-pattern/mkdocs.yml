@@ -1,6 +1,6 @@
 nav:
     - Introduction: index.md
     - Active-object: Active-object
-    - drdobbs-Message-Handling-Without-Dependencies: drdobbs-Message-Handling-Without-Dependencies
+
     - Asynchronous-method-dispatch: Asynchronous-method-dispatch.md    
     - Active-object+observer+visitor: Active-object+observer+visitor
