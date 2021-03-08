@@ -12,7 +12,7 @@ Linux 提供了很多的notification:
 
 2、condition variable也是一种notification，它用于让programmer自定义notification。
 
-
+3、Semaphore
 
 Observer pattern也是一种notification。
 
