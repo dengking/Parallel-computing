@@ -1,6 +1,8 @@
 # Observer pattern
 
-Observer pattern使用OOP的语言来描述event-driven model。
+1、Observer pattern使用OOP的语言来描述event-driven model
+
+2、observer pattern和 [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish-subscribe_pattern) 比较相关
 
 ## wikipedia [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
 
