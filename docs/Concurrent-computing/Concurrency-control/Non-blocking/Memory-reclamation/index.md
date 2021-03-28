@@ -8,7 +8,7 @@
 
 二、"reclamation"的意思是"回收"，"memory reclamation"即"内存回收"，它和我们平时经常所说的"garbage collection"本质是比较相近，不过两者一般用于不同的领域: garbage collection一般用于programming language，memory reclamation一般用于lock-free data structure。
 
-另外，memory reclamation也可以归入memory management领域。
+另外，memory reclamation也可以归入automatic memory management领域。
 
 三、在使用类似于copy-on-write、RCU方法来实现lock-free data structure时，并且host programming language是没有garbage-collection的，则需要由programmer自己来实现对old copy的reclamation，即需要由programmer自己来实现一个garbage collection。
 
