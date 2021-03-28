@@ -1,5 +1,7 @@
 nav:
     - Introduction: index.md
     - cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies: cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies
+    - Quiescent-state-based-reclamation: Quiescent-state-based-reclamation
+    - Epoch-Based-Reclamation: Epoch-Based-Reclamation
     - preshing-Using-Quiescent-States-to-Reclaim-Memory: preshing-Using-Quiescent-States-to-Reclaim-Memory
    

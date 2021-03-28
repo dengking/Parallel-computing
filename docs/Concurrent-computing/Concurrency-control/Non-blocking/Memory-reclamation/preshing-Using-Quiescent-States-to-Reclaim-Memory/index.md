@@ -42,3 +42,5 @@ The `broadcast` function reads from the list of connected clients, but doesn’t
 That’s all fine and dandy. Now let’s eliminate the read-write lock by allowing multiple copies of the list to exist at the same time.
 
 ## Eliminating the Read-Write Lock
+
+> NOTE: 消除read-write lock

@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - TODO-paper-obstruction-free synchronization-double-ended-queues: TODO-paper-obstruction-free synchronization-double-ended-queues
+    - TODO-paper-wait-free-queue-with-multiple-enqueuers-and-dequeuers: TODO-paper-wait-free-queue-with-multiple-enqueuers-and-dequeuers
     - Circular-queue: Circular-queue
