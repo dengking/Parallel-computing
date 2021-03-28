@@ -1,26 +1,38 @@
-# Copy on write
+# Copy on write in concurrent lock free data structure
 
-1、copy-on-write是实现concurrent lock free data structure的一种常用的技术；
+一、Copy-on-write是实现concurrent lock free data structure的一种常用的技术: 
 
-在Read-copy-update 、MVCC中，都可以看到它的影子；
+1、在Read-copy-update 、MVCC中，都可以看到它的影子；
 
-由于会存在多份copy，因此对于这些copy的reclaimation就是一个需要研究的内容，在`Memory-reclaimation`章节对此进行了讨论。
+2、由于会存在多份copy，因此对于这些copy的reclaimation就变得非常重要，对于没有GC的programming language，需要由programmer实现memory reclamation，在`Memory-reclaimation`章节对此进行了讨论。
 
-它们都是实现lock free data structure的关键技术之一；
+二、memory management
 
-2、memory management
+通过copy on write、memory reclamation，可以发现在lock-free programming中，memory management是一个非常重要的主题。
 
-我在Google "is array thread safe"的时候，发现了如下内容:
+## 思考: 是否会导致读到旧数据？
 
+在使用copy-on-write来实现concurrent lock free data structure的时候，是否会导致read到旧数据？答案是不会。
 
+### 以RCU为例来进行分析
 
-## openclassrooms [Modify Arrays on Multiple Threads With CopyOnWriteArrayList](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/6677541-modify-arrays-on-multiple-threads-with-copyonwritearraylist)
+在RCU中，就使用了copy-on-write技术，下面以RCU为例来进行分析:
+
+使用read-writer lock: 如果以read-writer lock来进行synchronization，则reader会加上read lock，当一个writer尝试去write的时候，显然它此时会被阻塞，显然它此时对shared data的write无法生效，此时reader所读到的还是原来的数据。
+
+使用RCU: writer会写到copy中，然后进行commit。显然reader下次读的时候，能够读到新数据，这个和read-write lock的效果是一致的，但是并发性更高。
+
+## In Java
+
+Java是自带GC的，因此在使用copy on write来实现lock free data structure的时候，就省去了由programmer来实现memory reclamation的负担。
+
+### openclassrooms [Modify Arrays on Multiple Threads With CopyOnWriteArrayList](https://openclassrooms.com/en/courses/5684021-scale-up-your-code-with-java-concurrency/6677541-modify-arrays-on-multiple-threads-with-copyonwritearraylist)
 
 显然，Java中的`CopyOnWriteArrayList`就是用了copy-on-write技术来实现lock-free data structure；
 
 
 
-## stackoverflow [How can CopyOnWriteArrayList be thread-safe?](https://stackoverflow.com/questions/2950871/how-can-copyonwritearraylist-be-thread-safe)
+### stackoverflow [How can CopyOnWriteArrayList be thread-safe?](https://stackoverflow.com/questions/2950871/how-can-copyonwritearraylist-be-thread-safe)
 
 [A](https://stackoverflow.com/a/2950898)
 
@@ -36,23 +48,29 @@ The advantage of only taking out a lock for write operations is improved through
 
 
 
-## javamex [Java *copy-on-write* collections](https://www.javamex.com/tutorials/synchronization_concurrency_8_copy_on_write.shtml)
+### javamex [Java *copy-on-write* collections](https://www.javamex.com/tutorials/synchronization_concurrency_8_copy_on_write.shtml)
 
 
 
 
 
-# QT copy on write
+## QT copy on write
 
 
 
-## stackoverflow [What is implicit sharing?](https://stackoverflow.com/questions/4637951/what-is-implicit-sharing)
+### doc.qt [Implicit Sharing](https://doc.qt.io/qt-5/implicit-sharing.html)
+
+Many C++ classes in Qt use implicit data sharing to maximize resource usage and minimize copying. Implicitly shared classes are both safe and efficient when passed as arguments, because only a pointer to the data is passed around, and the data is copied only if and when a function writes to it, i.e., *copy-on-write*.
+
+
+
+### stackoverflow [What is implicit sharing?](https://stackoverflow.com/questions/4637951/what-is-implicit-sharing)
 
 I am building a game engine library in C++. A little while back I was using Qt to build an application and was rather fascinated with its use of [Implicit Sharing](http://doc.trolltech.com/latest/implicit-sharing.html). I am wondering if anybody could explain this technique in greater detail or could offer a simple example of this in action.
 
 
 
-### comments
+#### comments
 
 You gave a link to the docs providing an excellent explanation of how it works. It even has a reference to [the thread docs explaining how atomic reference counting helps in multi-threaded apps](http://doc.trolltech.com/latest/threads-modules.html#threads-and-implicitly-shared-classes). If something is still unclear, you should ask a more detailed question about that something. And don't forget you can always look at the Qt's sources. – [Sergei Tachenov](https://stackoverflow.com/users/540312/sergei-tachenov) [Jan 9 '11 at 7:38](https://stackoverflow.com/questions/4637951/what-is-implicit-sharing#comment5104118_4637951) 
 
@@ -62,7 +80,7 @@ I believe implicit sharing is just Qt's implementation of [copy-on-write](https:
 
 
 
-### [A](https://stackoverflow.com/a/4637973)
+#### [A](https://stackoverflow.com/a/4637973)
 
 The key idea behind implicit sharing seems to go around using the more common term *copy-on-write*. The idea behind copy-on-write is to have each object serve as a wrapper around a pointer to the actual implementation. Each implementation object keeps track of the number of pointers into it. Whenever an operation is performed on the wrapper object, it's just forwarded to the implementation object, which does the actual work.
 
@@ -78,10 +96,4 @@ Hope this helps!
 
 
 
-## 15.0 and 16.0 from [Stanford's introductory C++ programming course](http://www.keithschwarz.com/cs106l/fall2010/)
-
-
-
-## doc.qt [Implicit Sharing](https://doc.qt.io/qt-5/implicit-sharing.html)
-
-## [Qt-Widgets](https://github.com/Qt-Widgets)/**[thinker-qt-QtAsync](https://github.com/Qt-Widgets/thinker-qt-QtAsync)**
+### [Qt-Widgets](https://github.com/Qt-Widgets)/**[thinker-qt-QtAsync](https://github.com/Qt-Widgets/thinker-qt-QtAsync)**
