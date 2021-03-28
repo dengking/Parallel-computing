@@ -6,8 +6,12 @@ nav:
     - Primer: Primer
     # memory相关
     - Atomic-operation: Atomic-operation
+    - Memory-barrier: Memory-barrier
+    
+    - Copy-on-write: Copy-on-write
+    - Memory-reclamation: Memory-reclamation    
     # 一些技巧
     - Read-copy-update: Read-copy-update
     - Time-based-concurrency-control: Time-based-concurrency-control    
-    - Memory-barrier: Memory-barrier
-    - Memory-reclamation: Memory-reclamation
+
+

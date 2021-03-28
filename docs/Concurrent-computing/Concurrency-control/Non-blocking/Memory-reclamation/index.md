@@ -8,6 +8,8 @@
 
 二、"reclamation"的意思是"回收"，"memory reclamation"即"内存回收"，它和我们平时经常所说的"garbage collection"本质是比较相近，不过两者一般用于不同的领域: garbage collection一般用于programming language，memory reclamation一般用于lock-free data structure。
 
+另外，memory reclamation也可以归入memory management领域。
+
 三、在使用类似于copy-on-write、RCU方法来实现lock-free data structure时，并且host programming language是没有garbage-collection的，则需要由programmer自己来实现对old copy的reclamation，即需要由programmer自己来实现一个garbage collection。
 
 ## Safe memory reclamation strategy
@@ -28,11 +30,15 @@
 
 
 
+### Reference counting
 
+一、这是一种非常常见的方法。
 
-> 参考资料:
->
-> 1、http://www.cs.toronto.edu/~tomhart/papers/tomhart_thesis.pdf
+二、参见:
+
+1、工程programming-language的`Reference-counting`章节
+
+2、http://www.cse.chalmers.se/~tsigas/papers/MemoryReclamation-ReferenceCounting-ISPAN05.pdf
 
 
 
@@ -117,6 +123,10 @@ What this difference impiles is:
 1、QSBR can outperform EBR because *it can be used with less frequent synchronization*. Yes, as you said, QSBR can be used in the similar way with EBR, but that does not provide the efficiency QSBR claims.
 
 2、In a complex application, identifying quiescent state can be hard. This is why quiescent-based techniques such as RCU usage is mainly restricted to specific environment where there is a natural quiecent state (e.g. context switch in Linux kernel).
+
+### 参考资料
+
+1、http://www.cs.toronto.edu/~tomhart/papers/tomhart_thesis.pdf
 
 
 
