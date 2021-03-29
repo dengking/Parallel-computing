@@ -8,3 +8,4 @@
 
 ## wikipedia [Hazard pointer](https://en.wikipedia.org/wiki/Hazard_pointer)
 
+## ticki.github [Fearless concurrency with hazard pointers](http://ticki.github.io/blog/fearless-concurrency-with-hazard-pointers/)
