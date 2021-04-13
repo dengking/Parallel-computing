@@ -128,3 +128,14 @@ Singleton* Singleton::GetInstance()
 }
 
 ```
+
+
+
+## 其他资源
+
+在工程programming-language的`C-family-language\C++\Pattern\Singleton`章节也对它进行了讨论，其中主要收录了如下文章：
+
+1、aristeia [C++ and the Perils of Double-Checked Locking](https://www.aristeia.com/Papers/DDJ_Jul_Aug_2004_revised.pdf)
+
+
+

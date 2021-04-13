@@ -3,8 +3,10 @@ nav:
     # 专家和经典书籍
     - Books: Books.md
     - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
+    - Expert-iter_zc: Expert-iter_zc
     - Expert-1024cores: Expert-1024cores
     - Expert-Cameron: Expert-Cameron
+    
     # 先描述 理论知识
     - Concurrency-control: Concurrency-control
 

@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    
+    - TODO-Spinning-lock-with-timeout: TODO-Spinning-lock-with-timeout
+    - Ticket-lock: Ticket-lock

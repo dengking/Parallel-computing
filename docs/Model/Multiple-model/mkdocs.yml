@@ -1,3 +1,5 @@
 nav:
     - Introduction: index.md
+    - Shared-data: Shared-data
+    - Contention-and-race: Contention-and-race
     - Read-and-write: Read-and-write

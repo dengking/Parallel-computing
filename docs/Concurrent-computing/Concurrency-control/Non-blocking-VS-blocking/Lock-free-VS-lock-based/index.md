@@ -110,3 +110,8 @@ Generally speaking, in [lock-free programming](http://preshing.com/20120612/an-i
 
 
 
+## draft: lock-based VS non-lock
+
+为什么使用atomic add比用lock来保护两者都能够实现正确的操作（顺序、原子、互斥）？
+
+lock-based存在lock contention，存在system call：从user space到kernel space

@@ -4,5 +4,6 @@ nav:
     - Seqlock: Seqlock
     - Read–write-lock: Read–write-lock
     - Spinlock: Spinlock
+    - Double-checked-locking: Double-checked-locking    
     - Disadvantage: Disadvantage
-    - Double-checked-locking: Double-checked-locking
+    - Evaluation-metric-for-lock: Evaluation-metric-for-lock
