@@ -1,2 +1,4 @@
 nav:
     - Introduction: index.md
+    - brianstorti-The-actor-model-in-10-minutes: brianstorti-The-actor-model-in-10-minutes
+    - Writing-Concurrent-Programs-Using-F#-Mailbox-Processors: Writing-Concurrent-Programs-Using-F#-Mailbox-Processors
