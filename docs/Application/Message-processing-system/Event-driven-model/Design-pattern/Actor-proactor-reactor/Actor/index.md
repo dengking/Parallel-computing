@@ -8,7 +8,9 @@
 
 3、TODO rocketeer [Concurrency in Erlang & Scala: The Actor Model](https://rocketeer.be/articles/concurrency-in-erlang-scala/)
 
-## Erlang programming language and actor model
+## 使用了Actor model的
+
+### Erlang programming language and actor model
 
 关于 Erlang programming language and actor model，在下面文章中进行描述: 
 
@@ -17,6 +19,14 @@
 2、brianstorti [The actor model in 10 minutes](https://www.brianstorti.com/the-actor-model/)
 
 3、TODO rocketeer [Concurrency in Erlang & Scala: The Actor Model](https://rocketeer.be/articles/concurrency-in-erlang-scala/)
+
+### Python celery
+
+> Instantiation[¶](http://docs.celeryproject.org/en/latest/userguide/tasks.html#instantiation)
+>
+> A task is **not** instantiated for every request, but is registered in the **task registry** as a **global** instance.
+>
+> This means that the `__init__` constructor will only be called once per **process**, and that the **task class** is semantically closer to an **Actor**.
 
 ## wikipedia [Actor model](http://en.wikipedia.org/wiki/Actor_model) 
 
