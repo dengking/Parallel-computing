@@ -92,3 +92,12 @@ https://en.wikipedia.org/wiki/Asynchronous_method_invocation
 
 显然，在没有收到响应之前，需要将caller阻塞，因此需要考虑的一个问题是: blocking with timeout，因为有可能一直无法收到响应，因此需要设置一个超时时间。
 
+
+
+## Sync to async
+
+1、典型的实现方式是asynchronous method invocation + message queue(mailbox) +  thread pool
+
+例子包括:
+
+a、libuv filesystem operation，参见 http://docs.libuv.org/en/v1.x/design.html

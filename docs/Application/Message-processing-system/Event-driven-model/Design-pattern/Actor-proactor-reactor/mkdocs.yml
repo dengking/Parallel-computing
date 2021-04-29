@@ -1,7 +1,0 @@
-nav:
-    - Introduction: index.md
-
-    - Actor: Actor
-    - Proactor: Proactor
-    - Reactor: Reactor
-    

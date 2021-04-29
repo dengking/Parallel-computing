@@ -1,0 +1,4 @@
+nav:
+    - Advanced-Message-Queuing-Protocol: index.md
+    - Fan-out: Fan-out.md
+    - software-Rabbitmq: software-Rabbitmq

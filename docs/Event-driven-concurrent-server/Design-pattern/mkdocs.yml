@@ -1,0 +1,11 @@
+nav:
+    - Introduction: index.md
+
+
+    - Asynchronous-method-dispatch: Asynchronous-method-dispatch.md    
+    - Active-object+observer+visitor: Active-object+observer+visitor
+    
+    - Messaging-pattern: Messaging-pattern.md
+    - Pub-sub: Pub-sub
+    - Proactor-reactor: Proactor-reactor
+    - Message-queue: Message-queue    

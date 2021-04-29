@@ -1,6 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Active-object: Active-object
-
-    - Asynchronous-method-dispatch: Asynchronous-method-dispatch.md    
-    - Active-object+observer+visitor: Active-object+observer+visitor

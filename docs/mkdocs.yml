@@ -5,6 +5,8 @@ nav:
     - Distributed-computing: Distributed-computing
     - Model: Model
     - Programming-model: Programming-model
-    - Application: Application
-    - Ordering-in-parallel-computing: Ordering-in-parallel-computing.md
+
     - Miscellaneous: Miscellaneous
+    - Event-driven-concurrent-server: Event-driven-concurrent-server
+    - Message-processing-system: Message-processing-system
+    - Application: Application    
