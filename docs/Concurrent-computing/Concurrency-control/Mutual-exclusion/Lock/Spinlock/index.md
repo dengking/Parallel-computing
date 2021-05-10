@@ -34,6 +34,89 @@ Here is a question on SO addressing that: [Spinlocks, How Useful Are They?](http
 
 
 
+## 对spinning lock的optimization
+
+参见 `Spinning-lock-optimization` 章节。
+
 ## Implementation
 
 stackoverflow [x86 spinlock using cmpxchg](https://stackoverflow.com/questions/6935442/x86-spinlock-using-cmpxchg)
+
+
+
+### [bogachevdmitry](https://github.com/bogachevdmitry)/**[CLHLock](https://github.com/bogachevdmitry/CLHLock)**
+
+描述了 CHL-lock algorithm 的原理。
+
+
+
+### MCS-lock
+
+#### [honkiko](https://github.com/honkiko)/**[Multi-Core-Toolbox](https://github.com/honkiko/Multi-Core-Toolbox)**
+
+实现了 MCS-lock 。
+
+
+
+#### [ntrivix](https://github.com/ntrivix)/**[MCSLock-C](https://github.com/ntrivix/MCSLock-C)**
+
+MCS locking algorithm with timeouts
+
+
+
+#### [avionipevaju](https://github.com/avionipevaju)/**[MCSTimeoutLock](https://github.com/avionipevaju/MCSTimeoutLock)**
+
+MCS Lock algorithm implementation in C
+
+> NOTE: 
+>
+> with timeout
+
+
+
+#### [per-framework](https://github.com/per-framework)/**[mcs.cpp](https://github.com/per-framework/mcs.cpp)**
+
+
+
+### [geidav](https://github.com/geidav)/**[spinlocks-bench](https://github.com/geidav/spinlocks-bench)**
+
+Implementation and benchmark of different spin lock types
+
+
+
+### [NoiseEHC](https://github.com/NoiseEHC)/**[spinpool](https://github.com/NoiseEHC/spinpool)**
+
+
+
+
+
+
+
+## Implementation
+
+### tick lock
+
+https://github.com/search?l=C&q=ticket+lock&type=Repositories
+
+
+
+### [jason741852](https://github.com/jason741852)/**[c_locks](https://github.com/jason741852/c_locks)**
+
+Implementations of spin lock, exponential backoff lock and queue lock
+
+### [luapvu](https://github.com/luapvu)/**[lock-algorithms](https://github.com/luapvu/lock-algorithms)**
+
+其中有benchmark。
+
+### [geidav](https://github.com/geidav)/**[spinlocks-bench](https://github.com/geidav/spinlocks-bench)**
+
+
+
+### [shines77](https://github.com/shines77)/**[RingQueue](https://github.com/shines77/RingQueue)**
+
+
+
+## TODO
+
+1、0xax.gitbooks [Synchronization primitives in the Linux kernel. Part 2.](https://0xax.gitbooks.io/linux-insides/content/SyncPrim/linux-sync-2.html)
+

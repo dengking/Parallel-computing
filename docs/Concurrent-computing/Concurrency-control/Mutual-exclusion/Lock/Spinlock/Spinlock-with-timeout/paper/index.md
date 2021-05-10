@@ -154,8 +154,7 @@ void tatas_release(tatas_lock *L)
 
 ```
 
-Figure 1: Test-and-test and set (TATAS) lock with exponential backoff. Parameters `BACKOFF BASE`, `BACKOFF FACTOR`, and `BACKOFF CAP` must be tuned by
-trial and error for each individual machine architecture.
+**Figure 1: Test-and-test and set (TATAS) lock with exponential backoff. Parameters `BACKOFF BASE`, `BACKOFF FACTOR`, and `BACKOFF CAP` must be tuned by trial and error for each individual machine architecture.**
 
 
 
@@ -197,13 +196,180 @@ Our MCS lock, co-designed with John Mellortypedef Crummey [8], employs a linked 
 newly arriving processes to jump ahead of processes already in the queue.) The MCS lock is naturally suited to local-only spinning on both cache-coherent and non-cache coherent machines. The Anderson and Graunke/Thakkar locks must be modified to employ an extra level of indirection
 on non-cache-coherent machines.
 
+
+
+
+
+```C
+typedef struct mcs_qnode
+{
+	volatile bool waiting;
+	volatile struct mcs_qnode *volatile next;
+} mcs_qnode;
+
+typedef volatile mcs_qnode *mcs_qnode_ptr;
+
+typedef mcs_qnode_ptr mcs_lock; // initialized to nil
+
+void mcs_acquire(mcs_lock *L, mcs_qnode_ptr I)
+{
+	I->next = nil;
+	mcs_qnode_ptr pred = swap(L, I);
+	if (pred == nil)
+		return; // lock was free
+	I->waiting = true; // word on which to spin
+	pred->next = I; // make pred point to me
+	while (I->waiting)
+		; // spin
+}
+void mcs_release(mcs_lock *L, mcs_qnode_ptr I)
+{
+	mcs_qnode_ptr succ;
+	if (!(succ = I->next))
+	{ // I seem to have no succ.
+// try to fix global pointer
+		if (compare_and_store(L, I, nil))
+			return;
+		do
+		{
+			succ = I->next;
+		} while (!succ); // wait for successor
+	}
+	succ->waiting = false;
+}
+
+```
+
+**Figure 2: The MCS queue-based spin lock. Parameter I points to a qnode record allocated (in an enclosing scope) in shared memory locally-accessible to the invoking processor.**
+
+
+
 #### CLH lock
 
 The CLH lock, developed about three years later by Craig [2] and, independently, Landin and Hagersten [7], also employs a linked list, but with pointers from each process to its predecessor. The CLH lock relies on atomic swap, and may outperform the MCS lock on cache-coherent machines. Like the Anderson and Graunke/Thakkar locks, it requires an extra level of indirection to avoid spinning on remote locations on a non-cache-coherent machine [2]. Code for the MCS and CLH locks appears in Figures 2, 3, and 4.
+
+```C++
+typedef struct clh_qnode
+{
+	volatile bool waiting;
+	volatile struct clh_qnode *volatile prev;
+} clh_qnode;
+
+typedef volatile clh_qnode *clh_qnode_ptr;
+
+typedef clh_qnode_ptr clh_lock;
+
+// initialized to point to an unowned qnode
+void clh_acquire(clh_lock *L, clh_qnode_ptr I)
+{
+	I->waiting = true;
+	clh_qnode_ptr pred = I->prev = swap(L, I);
+	while (pred->waiting)
+		; // spin
+}
+void clh_release(clh_qnode_ptr *I)
+{
+	clh_qnode_ptr pred = (*I)->prev;
+	(*I)->waiting = false;
+	*I = pred; // take pred’s qnode
+}
+
+```
+
+
+
+**Figure 3: The CLH queue-based spin lock. Parameter I points to qnode record or, in clh release, to a pointer to a qnode record. The qnode “belongs” to the calling process, but may be in main memory anywhere in the system, and will generally change identity as a result of releasing the lock.**
+
+
+
+```C
+typedef struct clh_numa_qnode
+{
+	volatile bool *w_ptr;
+	volatile struct clh_qnode *volatile prev;
+} clh_numa_qnode;
+
+typedef volatile clh_numa_qnode *clh_numa_qnode_ptr;
+
+typedef clh_numa_qnode_ptr clh_numa_lock;
+
+// initialized to point to an unowned qnode
+const bool *granted = 0x1;
+void clh_numa_acquire(clh_numa_lock *L, clh_numa_qnode_ptr I)
+{
+	volatile bool waiting = true;
+	I->w_ptr = nil;
+	clh_numa_qnode_ptr pred = I->prev = swap(L, I);
+	volatile bool *p = swap(&pred->w_ptr, &waiting);
+	if (p == granted)
+		return;
+	while (waiting)
+		; // spin
+}
+void clh_numa_release(clh_numa_qnode_ptr *I)
+{
+	clh_numa_qnode_ptr pred = (*I)->prev;
+	volatile bool *p = swap(&((*I)->w_ptr), granted);
+	if (p)
+		*p = false;
+	*I = pred; // take pred’s qnode
+}
+
+```
+
+**Figure 4: Alternative version of the CLH lock, with an extra level of indirection to avoid remote spinning on a non-cache-coherent machine.**
+
+
+
+```C
+// return value indicates whether lock was acquired
+bool tatas_try_acquire(tatas_lock *L, hrtime_r T)
+{
+	if (tas(L))
+	{
+		hrtime_t start = gethrtime();
+		int b = BACKOFF_BASE;
+		do
+		{
+			if (gethrtime() - start > T) // 已经timeout了
+				return false;
+			for (i = b; i; i--)
+				; // delay
+			b = min(b * BACKOFF_FACTOR, BACKOFF_CAP);
+			if (*L)
+				continue; // spin with reads
+		} while (tas(L));
+	}
+}
+
+```
+
+**Figure 5: The standard TATAS-try lock. Type definitions and release code are the same as in Figure 1.**
+
+
 
 ### 2.2 Atomic primitives
 
 
 
-## pseudocode [Scalable Queue-Based Spin Locks with Timeout](https://www.cs.rochester.edu/research/synchronization/pseudocode/timeout.html)
+## 3、TRY LOCKS
 
+As noted in section 1, a process may wish to bound the time it may wait for a lock, in order to accommodate soft real-time constraints, to avoid waiting for a preempted peer, or to recover from transaction deadlock. 
+
+> NOTE: 
+>
+> 1、上述"to avoid waiting for a preempted peer"的含义是: 当前持有lock的process被"preempted"，那么它就不会被执行，那么它就一直持有锁，所以其他的process将陷入等待。
+>
+> 
+
+Such a bound is easy to achieve with a `test_and_set` lock (see Figure 5): processes are anonymous and compete with one another chaotically(混乱的). Things are not so simple, however, in a queue-based lock: a waiting process is linked into a data structure on which other processes depend; it cannot simply leave.
+
+> NOTE: 
+>
+> 1、"Figure 5"中，所展示的是"TATAS-try lock"
+
+A similar problem occurs in multiprogrammed systems when a process stops spinning because it has been preempted. Our previous work in **scheduler-conscious synchronization** [6] arranged to mark the queue node of a preempted process so that the process releasing the lock would simply pass it over(依次传递下去). Upon being rescheduled, a skipped-over process would have to reenter the queue. A process that had yet to reach the head of the queue when rescheduled would retain its original position.
+
+
+
+### 3.1 The CLH-try lock

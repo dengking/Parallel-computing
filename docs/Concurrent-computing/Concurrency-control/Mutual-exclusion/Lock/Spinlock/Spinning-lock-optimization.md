@@ -8,21 +8,25 @@
 
 ### cs.tau [Multiprocessor Programming](http://www.cs.tau.ac.il/~shanir/multiprocessor-synch-2003/) # **Lecture 7:** Spin Locks and Contention Management (last updated Sunday, May 11, 2003**)**
 
+> NOTE: 
+>
+> 1、参见 `Course-tau-Multiprocessor-Programming-CS-0368-4061-01` 章节
+
 其中内容比较不错，梳理了:
 
 TASLock ->TTASLock->TTASLock with exponential delay->Queue-based Locks:
 
 a、An Array Based Queue Lock(A-lock)
 
-b、The CLH queue lock(Mellor-Crummey and Scott provided the popular list based
-MCS Queue lock)
+b、The MCS queue lock(CLH lock of Craig and Landin and Hagersten)
 
-c、The MCS queue lock(CLH lock of Craig and Landin and Hagersten)
+c、The CLH queue lock(Mellor-Crummey and Scott provided the popular list based MCS Queue lock)
+
+
 
 > 7.10 Chapter Notes
 >
-> The TTASLock is due to Kruskal and Rudolph and Snir. Exponential backoff is a well known technique used in Ethernet routing. Anderson was one of the first to empirically study contention in shared memory multiprocessors, introducing the A-lock, the first queue lock which was array based. Many of the graphs in this document are idealizations of his actual empirical results on the Sequent Symmetry. Mellor-Crummey and Scott provided the popular list based MCS Queue lock, later improved upon by the CLH lock of Craig and Landin and Hagersten. The NUMA machine graphs we show are idealizations of the experiments of Mellor-Crummey and Scott on the BBN butterfly machine. The
-> modern machine graphs are due to Scott.
+> The TTASLock is due to Kruskal and Rudolph and Snir. Exponential backoff is a well known technique used in Ethernet routing. Anderson was one of the first to empirically(以经验为主的) study contention in shared memory multiprocessors, introducing the A-lock, the first queue lock which was array based. Many of the graphs in this document are idealizations of his actual empirical results on the Sequent Symmetry. Mellor-Crummey and Scott provided the popular list based MCS Queue lock, later improved upon by the CLH lock of Craig and Landin and Hagersten. The NUMA machine graphs we show are idealizations of the experiments of Mellor-Crummey and Scott on the BBN butterfly machine. The modern machine graphs are due to Scott.
 
 总结地比较好。
 
@@ -36,13 +40,13 @@ c、The MCS queue lock(CLH lock of Craig and Landin and Hagersten)
 
 1、梳理得非常好
 
-2、参见相关章节
+2、参见`Course-rochester-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors`章节
 
 
 
 ### disco.ethz [Locking Part 2, Chapter 11](https://disco.ethz.ch/courses/hs15/distsys/lecture/chapter11.pdf)
 
-
+1、参见 `Course-disco.ethz-Distributed-Systems` 章节。
 
 ## Optimization: TASLock ->TTASLock
 
@@ -88,30 +92,3 @@ wikipedia [Array_Based_Queuing_Locks](https://en.wikipedia.org/wiki/Array_Based_
 
 谷歌的专利
 
-## Implementation
-
-### tick lock
-
-https://github.com/search?l=C&q=ticket+lock&type=Repositories
-
-
-
-### [jason741852](https://github.com/jason741852)/**[c_locks](https://github.com/jason741852/c_locks)**
-
-Implementations of spin lock, exponential backoff lock and queue lock
-
-### [luapvu](https://github.com/luapvu)/**[lock-algorithms](https://github.com/luapvu/lock-algorithms)**
-
-其中有benchmark。
-
-### [geidav](https://github.com/geidav)/**[spinlocks-bench](https://github.com/geidav/spinlocks-bench)**
-
-
-
-### [shines77](https://github.com/shines77)/**[RingQueue](https://github.com/shines77/RingQueue)**
-
-## 0xax.gitbooks [Synchronization primitives in the Linux kernel. Part 2.](https://0xax.gitbooks.io/linux-insides/content/SyncPrim/linux-sync-2.html)
-
-### Queued Spinlocks
-
-### Introduction to queued spinlocks

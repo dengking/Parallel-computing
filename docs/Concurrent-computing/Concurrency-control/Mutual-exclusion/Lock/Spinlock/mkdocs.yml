@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - TODO-Spinning-lock-with-timeout: TODO-Spinning-lock-with-timeout
+    - Spinning-lock-optimization: Spinning-lock-optimization.md
+    - Spinlock-with-timeout: Spinlock-with-timeout
     - Ticket-lock: Ticket-lock
