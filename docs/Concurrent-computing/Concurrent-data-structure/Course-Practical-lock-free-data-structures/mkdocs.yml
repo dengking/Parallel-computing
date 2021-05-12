@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - paper-Concurrent-Programming-Without-Locks: paper-Concurrent-Programming-Without-Locks    
+    - paper-Non-blocking-hashtables-with-open-addressing: paper-Non-blocking-hashtables-with-open-addressing

@@ -6,5 +6,6 @@ nav:
     - Linked-list: Linked-list
 
     - Collection-library: Collection-library    
-    - TODO-paper-Concurrent-Programming-Without-Locks: TODO-paper-Concurrent-Programming-Without-Locks
+    - Course-Practical-lock-free-data-structures: Course-Practical-lock-free-data-structures
+
     - TODO-simongui-Improving-performance-of-lockless-data-structures: TODO-simongui-Improving-performance-of-lockless-data-structures
