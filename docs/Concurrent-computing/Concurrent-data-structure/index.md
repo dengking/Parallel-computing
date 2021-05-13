@@ -20,3 +20,15 @@ kukuruku: [Lock-free Data Structures](https://kukuruku.co/post/lock-free-data-st
 
 stackoverflow [Is there a production ready lock-free queue or hash implementation in C++ [closed]](https://stackoverflow.com/questions/1164023/is-there-a-production-ready-lock-free-queue-or-hash-implementation-in-c)
 
+
+
+
+
+http://amino-cbbs.sourceforge.net/
+
+
+
+http://atomic-ptr-plus.sourceforge.net/
+
+http://www.johantorp.com/
+
