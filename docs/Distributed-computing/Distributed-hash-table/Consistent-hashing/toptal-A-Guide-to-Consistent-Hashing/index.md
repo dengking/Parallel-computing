@@ -1,8 +1,4 @@
-[TOC]
-
-
-
-# [A Guide to Consistent Hashing](https://www.toptal.com/big-data/consistent-hashing)
+# toptal [A Guide to Consistent Hashing](https://www.toptal.com/big-data/consistent-hashing)
 
 In recent years, with the advent of concepts such as cloud computing and big data, distributed systems have gained popularity and relevance.
 
@@ -16,7 +12,7 @@ In this article, I’ll first review the general concept of hashing and its purp
 
 What is “hashing” all about? [Merriam-Webster](http://www.merriam-webster.com/dictionary/hash) defines the noun *hash* as “chopped meat mixed with potatoes and browned,” and the verb as “to chop (as meat and potatoes) into small pieces.” So, culinary details aside, hash roughly means “chop and mix”—and that’s precisely where the technical term comes from.
 
-哈希是什么意思?《韦氏词典》将名词“hash”定义为“将碎肉与土豆混合并煎成褐色”，动词“将(肉和土豆)切成小块”。所以，撇开烹饪细节不谈，hash大致的意思是“切碎和混合”——这正是这个技术术语的来源。
+> NOTE: 哈希是什么意思?《韦氏词典》将名词“hash”定义为“将碎肉与土豆混合并煎成褐色”，动词“将(肉和土豆)切成小块”。所以，撇开烹饪细节不谈，hash大致的意思是“切碎和混合”——这正是这个技术术语的来源。
 
 A hash function is a function that maps one piece of data—typically describing some kind of object, often of arbitrary size—to another piece of data, typically an integer, known as *hash code*, or simply *hash*.
 
@@ -56,6 +52,10 @@ Now that we have discussed hashing, we’re ready to look into *distributed hash
 
 In some situations, it may be necessary or desirable to split a **hash table** into several parts, hosted by different servers. One of the main motivations for this is to bypass the memory limitations of using a single computer, allowing for the construction of arbitrarily large **hash tables** (given enough servers).
 
+> NOTE: 
+>
+> 1、Redis cluster就是这样做的
+
 In such a scenario, the objects (and their keys) are *distributed* among several servers, hence the name.
 
 A typical use case for this is the implementation of in-memory caches, such as [Memcached](https://en.wikipedia.org/wiki/Memcached).
@@ -65,6 +65,10 @@ Such setups consist of a pool of caching servers that host many key/value pairs 
 Now, how does distribution take place? What criteria are used to determine which keys to host in which servers?
 
 The simplest way is to take the hash *modulo* of the number of servers. That is, `server = hash(key) mod N`, where `N` is the size of the pool. To store or retrieve a key, the client first computes the hash, applies a `modulo N` operation, and uses the resulting index to contact the appropriate server (probably by using a lookup table of IP addresses). Note that the **hash function** used for key distribution must be the same one across all clients, but it need not be the same one used internally by the caching servers.
+
+> NOTE: 
+>
+> 1、其实分布式hash table中，每个node就是一个slot，这就是"key distribution"
 
 Let’s see an example. Say we have three servers, `A`, `B` and `C`, and we have some string keys with their hashes:
 
@@ -115,7 +119,7 @@ After the remaining keys are added, the pool looks like this:
 
 This distribution scheme is simple, intuitive, and works fine. That is, until the number of servers changes. What happens if one of the servers crashes or becomes unavailable? Keys need to be redistributed to account for the missing server（key需要重新分发，以弥补丢失的服务器）, of course. The same applies if one or more new servers are added to the pool;keys need to be redistributed to include the new servers. This is true for any distribution scheme, but the problem with our simple modulo distribution is that when the number of servers changes, most `hashes modulo N` will change, so most keys will need to be moved to a different server. So, even if a single server is removed or added, all keys will likely need to be rehashed into a different server.
 
-***SUMMARY*** : 上述对问题的总结非常的好；
+> NOTE: 上述对问题的总结非常的好；
 
 From our previous example, if we removed server `C`, we’d have to **rehash** all the keys using `hash modulo 2` instead of `hash modulo 3`, and the new locations for the keys would become:
 
@@ -161,7 +165,7 @@ So, how can this problem be solved? We need a **distribution scheme** that does 
 
 Imagine we mapped the hash output range onto the edge of a circle（将hash输出值的值域映射到circle上）. That means that **the minimum possible hash value**, zero, would correspond to **an angle of zero**, **the maximum possible value** (some big integer we’ll call `INT_MAX`) would correspond to an angle of 2𝝅 radians (or 360 degrees), and all other **hash values** would linearly fit somewhere in between. So, we could take a key, compute its hash, and find out where it lies on the circle’s edge. Assuming an `INT_MAX` of 1010 (for example’s sake), the keys from our previous example would look like this:
 
-![Consistent Hashing Example: Keys](https://uploads.toptal.io/blog/image/129306/toptal-blog-image-1551794695039-9efe52bc4a7265c5c7abac5056707db8.png)
+![Consistent Hashing Example: Keys](./toptal-blog-image-1551794695039-9efe52bc4a7265c5c7abac5056707db8.png)
 
 
 

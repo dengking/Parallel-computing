@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Consistent-hashing: Consistent-hashing
+    - Rendezvous-hashing: Rendezvous-hashing
+    - TODO-Consistent-hash-VS-rendezvous-hash: TODO-Consistent-hash-VS-rendezvous-hash.md
+    - wikipedia-Distributed-cache: wikipedia-Distributed-cache.md

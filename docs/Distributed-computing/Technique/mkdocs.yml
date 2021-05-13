@@ -3,3 +3,4 @@ nav:
     - Quorum: Quorum
     - Heartbeat: Heartbeat
     - Transaction: Transaction
+    - Rendezvous: Rendezvous
