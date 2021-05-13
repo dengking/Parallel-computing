@@ -1,12 +1,14 @@
 # Distributed hash table
 
-存在两次map/hash:
+## 存在两次map/hash
 
 1、根据key找到server，因此需要因此Keyspace partitioning，后面会对此进行说明
 
 2、在对应的server中，根据key找到value
 
+## Rehash of keyspace
 
+在 distributed hash table 中，对 keyspace 的 rehash 不是和普通的hash table那样，由于load factor而引起的，在 distributed hash table 中，对 keyspace 的 rehash 是由于 cluster 中 node 的 增加、退出 而引起的。
 
 ## wikipedia [Distributed hash table](https://en.wikipedia.org/wiki/Distributed_hash_table)
 

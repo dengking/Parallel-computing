@@ -6,7 +6,9 @@
 
 其中结合了具体的案例来说明，比较容易理解。
 
+2、wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table) # Monotonic keys
 
+其中也讨论了consistent hashing。
 
 ## wikipedia [Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing)
 
