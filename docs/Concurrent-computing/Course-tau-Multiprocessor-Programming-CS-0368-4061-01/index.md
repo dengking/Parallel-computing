@@ -1,4 +1,4 @@
-# [Multiprocessor Programming](http://www.cs.tau.ac.il/~shanir/multiprocessor-synch-2003/)
+# tau [Multiprocessor Programming](http://www.cs.tau.ac.il/~shanir/multiprocessor-synch-2003/)
 
 
 
@@ -87,7 +87,16 @@ Simplifying slightly, there are four kinds of basic architectures.
 
 ### 7.3 Cache Memory & Consistency
 
+Cache coherence protocols have two ways of dealing with modified data.
 
+A write-through coherence protocol immediately broadcasts the new value, so that both the memory and other processors’ caches become aware of the new value. By contrast, Write-through protocols have the advantage that all cached copies of the data agree, but they have the disadvantage that every modification to a location requires bus traffic. Since the vast majority of all updates are to memory locations that are not shared among processors, write-through protocols are generally not used.
+
+A write-back coherence protocol sends out an invalidation message message when the value is first modified, instructing the other processors to discard that value from their caches. Once the processor has invalidated the other cached values, it can make subsequent modifications without further bus traffic. A value that has been modified in the cache but not written back is called dirty. If the processor needs to use the cache for another value, however, it must remember to write back any dirty values.
+
+Real cache coherence protocols can be very complex. For example, some protocols mix write-through and write-back strategies, some distinguish between exclusive and shared access, and almost all modern multiprocessors have multilevel caches, where each processor has an on-chip (L1) cache, and clusters of
+processors share an off-chip (L2) cache.
+
+Cache architecture is a fascinating subject in its own right, but we already know most of what we need to understand the relative performance of the two TAS-based lock implementations.
 
 ### 7.4 TAS-Based Spin Locks
 
