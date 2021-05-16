@@ -1,26 +1,16 @@
 # Lock
 
+1、Lock最最常见的Mutual exclusion，本文对它进行详细说明。
+
+## wikipedia [Mutual exclusion](https://en.wikipedia.org/wiki/Mutual_exclusion)
+
+In [computer science](https://en.wikipedia.org/wiki/Computer_science), **mutual exclusion** is a property of [concurrency control](https://en.wikipedia.org/wiki/Concurrency_control), which is instituted for the purpose of preventing [race conditions](https://en.wikipedia.org/wiki/Race_condition). It is the requirement that one [thread of execution](https://en.wikipedia.org/wiki/Thread_(computing)) never enters its [critical section](https://en.wikipedia.org/wiki/Critical_section) at the same time that another [concurrent](https://en.wikipedia.org/wiki/Concurrent_computing) thread of execution enters its own critical section, which refers to an interval of time during which a thread of execution accesses a shared resource, such as [shared memory](https://en.wikipedia.org/wiki/Shared_memory_(interprocess_communication)).
+
+
+
 
 
 ## wikipedia [Lock (computer science)](https://en.wikipedia.org/wiki/Lock_(computer_science))
-
-
-
-## draft: Optimistic and pessimistic locking
-
-wikipedia [Optimistic concurrency control](https://en.wikipedia.org/wiki/Optimistic_concurrency_control)
-
-
-
-https://en.wikipedia.org/wiki/Server_Message_Block#Opportunistic_locking
-
-
-
-https://docs.jboss.org/jbossas/docs/Server_Configuration_Guide/4/html/TransactionJTA_Overview-Pessimistic_and_optimistic_locking.html
-
-
-
-https://stackoverflow.com/questions/129329/optimistic-vs-pessimistic-locking
 
 
 
@@ -50,6 +40,7 @@ if (citerSubRequestMap != CHqAccessFlow::GetInstance()->m_SubRequestMapByMkt.end
 ## draft: Getter-setter-lock
 
 在使用OOP的时候，一般我们会提供getter、setter方法，当位于multithread环境的时候，就可能出现如下组合：
+
 - 多个线程同时执行getter
 - 多个线程同时执行setter
 - 一个线程执行setter、一个线程执行getter
@@ -71,3 +62,4 @@ https://rules.sonarsource.com/cpp/RSPEC-1912
 https://help.semmle.com/wiki/display/CSHARP/Inconsistently+synchronized+property
 
 https://books.google.com/books?id=IgAICAAAQBAJ&pg=PA29&lpg=PA29&dq=should+getter+and+setter+be+locked&source=bl&ots=cSQCoTywkd&sig=ACfU3U03vlcYgKl29kmWcubdqe8q2sk-gQ&hl=en&sa=X&ved=2ahUKEwjnh4jtqrDoAhX-yosBHeKkAlEQ6AEwA3oECAgQAQ#v=onepage&q=should%20getter%20and%20setter%20be%20locked&f=false
+
