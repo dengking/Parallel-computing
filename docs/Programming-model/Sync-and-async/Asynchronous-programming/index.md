@@ -2,10 +2,6 @@
 
 
 
-
-
-
-
 ## Programming model
 
 ### Fluent API
@@ -47,5 +43,4 @@ https://stackoverflow.com/questions/7931537/whats-the-difference-between-asynchr
 [Now that Python has coroutines (e.g. async/await), does multi-threading still have a use?](https://www.reddit.com/r/Python/comments/5all7u/now_that_python_has_coroutines_eg_asyncawait_does/)([self.Python](https://www.reddit.com/r/Python/))
 
 这篇文章提及了IO bound和CPU bound，这对于选取concurrency方式非常重要；
-
 

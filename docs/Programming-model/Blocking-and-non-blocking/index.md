@@ -48,9 +48,9 @@ Once the event occurs for which the process is waiting ("is blocked on"), the pr
 
 在很多应用中，一直将application block是非常危险的，因为它可能导致系统不可用；所以为block设置一个timeout是非常重要的；
 
-
-
-
+> NOTE: 
+>
+> 1、system call with timeout
 
 ### Process的blocked状态
 

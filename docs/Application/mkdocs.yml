@@ -5,7 +5,7 @@ nav:
     - Data-system: Data-system
     - Blockchain: Blockchain
     - IPFS: IPFS
-    - ZooKeeper: ZooKeeper
-    - Celery: Celery
+
+
     - NFS: NFS
     - RPC: RPC

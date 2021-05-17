@@ -5,3 +5,4 @@ nav:
     - Distributed-log-system: Distributed-log-system
     - Messaging-pattern: Messaging-pattern
     - library-ZeroMQ: library-ZeroMQ
+    - library-Celery: library-Celery

@@ -1,6 +1,8 @@
 # Async/await
 
-"async"的含义是"asynchronous"，"await"的含义是"等待"。
+1、"async"的含义是"asynchronous"，"await"的含义是"等待"。
+
+2、感觉它也是基于"promise-future communication channel"的
 
 ## wikipedia [Async/await](https://en.wikipedia.org/wiki/Async/await)
 

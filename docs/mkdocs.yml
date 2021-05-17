@@ -10,3 +10,4 @@ nav:
     - Event-driven-concurrent-server: Event-driven-concurrent-server
     - Message-processing-system: Message-processing-system
     - Application: Application    
+    - library-ZooKeeper: library-ZooKeeper
