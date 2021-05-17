@@ -22,4 +22,4 @@ nav:
 
     # 最最典型的concurrency模式   
     - Multithread: Multithread
-    - How-to-optimize: How-to-optimize
+    - Design-and-optimize: Design-and-optimize

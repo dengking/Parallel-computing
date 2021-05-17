@@ -1,4 +1,4 @@
-# How to optimize？
+# Design and optimize
 
 1、Optimize的目的是提高**并发**，最终目的是提供performance、遵循optimization principle。
 
@@ -63,6 +63,10 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 3、作为software engineer，需要开发出具有scalability的software，这样才能够re-enable the free lunch
 
 
+
+## Pipeline 
+
+参见 `How-Much-Scalability-Do-You-Have-or-Need` 章节。
 
 
 

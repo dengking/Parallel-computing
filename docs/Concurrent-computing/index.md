@@ -62,6 +62,8 @@
 
 并发的数据结构。
 
+
+
 ## wikipedia [Concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing#Concurrent_programming_languages)
 
 **Concurrent computing** is a form of [computing](https://en.wikipedia.org/wiki/Computing) in which several [computations](https://en.wikipedia.org/wiki/Computation) are executed *[concurrently](https://en.wikipedia.org/wiki/Concurrency_(computer_science))*—during overlapping time periods—instead of *sequentially*, with one completing before the next starts.
