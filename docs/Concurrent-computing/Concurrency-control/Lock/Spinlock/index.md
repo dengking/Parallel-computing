@@ -90,10 +90,6 @@ Implementation and benchmark of different spin lock types
 
 
 
-
-
-## Implementation
-
 ### tick lock
 
 https://github.com/search?l=C&q=ticket+lock&type=Repositories
@@ -107,8 +103,6 @@ Implementations of spin lock, exponential backoff lock and queue lock
 ### [luapvu](https://github.com/luapvu)/**[lock-algorithms](https://github.com/luapvu/lock-algorithms)**
 
 其中有benchmark。
-
-### [geidav](https://github.com/geidav)/**[spinlocks-bench](https://github.com/geidav/spinlocks-bench)**
 
 
 

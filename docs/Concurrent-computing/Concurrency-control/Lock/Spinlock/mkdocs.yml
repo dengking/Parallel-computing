@@ -4,3 +4,5 @@ nav:
     - rochester-paper-Spinlock-with-timeout: rochester-paper-Spinlock-with-timeout
     - Ticket-lock: Ticket-lock
     - library-geidav-spinlocks-bench: library-geidav-spinlocks-bench
+    - library-Multi-Core-Toolbox: library-Multi-Core-Toolbox
+    - library-honkiko-Multi-Core-Toolbox: library-honkiko-Multi-Core-Toolbox
