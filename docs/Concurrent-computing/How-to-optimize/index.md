@@ -1,6 +1,10 @@
 # How to optimize？
 
-Optimize的目的是提高**并发**，最终目的是提供performance、遵循optimization principle。
+1、Optimize的目的是提高**并发**，最终目的是提供performance、遵循optimization principle。
+
+2、以Herb Sutter的"Effective concurrency"系列文章为蓝本来进行总结
+
+3、需要基于 hardware CPU 的运行机制来进行优化
 
 
 
@@ -30,6 +34,14 @@ One of the main goals for this allocator was to reduce lock contention for multi
 >
 > 1、通过分解来降低锁粒度，减少竞争，提高并发性
 
+
+
+### [TCMalloc : Thread-Caching Malloc](https://google.github.io/tcmalloc/design.html)
+
+1、Fast, uncontended allocation and deallocation for most objects. Objects are cached, depending on mode, either per-thread, or per-logical-CPU. Most allocations do not need to take locks, so there is low contention and good scaling for multi-threaded applications.
+
+![Diagram of TCMalloc internal structure](https://google.github.io/tcmalloc/images/tcmalloc_internals.png)
+
 ### DB
 
 行级锁、表级锁
@@ -38,13 +50,11 @@ One of the main goals for this allocator was to reduce lock contention for multi
 
 
 
-## 发展趋势、re-enable free lunch
+## Scalable concurrency、 re-enable free lunch、O(n) scalability
 
 Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software](http://www.gotw.ca/publications/concurrency-ddj.htm) 文章，其中总结了CPU的发展方向，对software的影响，programmer要如何做。
 
-
-
-### Scalable concurrency re-enable free lunch
+在 `How-Much-Scalability-Do-You-Have-or-Need` 中，提出了如下核心观点: 
 
 1、scale well to multiple core CPU
 
@@ -53,22 +63,6 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 3、作为software engineer，需要开发出具有scalability的software，这样才能够re-enable the free lunch
 
 
-
-### Programming language的发展
-
-内置concurrency:
-
-1、scala
-
-2、golang
-
-3、erlang
-
-### Software
-
-1、jemalloc、tcmalloc
-
-2、spinlock: A-lock、MCS queue lock、CLH queue lock
 
 
 
@@ -90,21 +84,43 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 
 
-## 合理地设计，减少线程竞争
+## Choose-Concurrency-Friendly-Data-Structures
 
-> TODO: 以redis线程模型为例来进行说明，每个thread一个私有的queue，这样有效地避免竞争
+这是在 `12-Choose-Concurrency-Friendly-Data-Structures` 中提出的。
 
-### Maximize cache locality minimize contention
+
+
+## Divide shared data to 降低lock的粒度、减少线程竞争
+
+这是提高并发的直接做法。
+
+1、jemalloc
+
+2、DB 
+
+行级锁、表级锁
+
+
+
+
+
+### draft: cache locality and scalability and contention
+
+如果多个thread都使用(read、write)同一个lock、variable，则就会出现high contention
+
+如果能够让每个thread使用它自己的local variable，那么就能够增加cache local，减少contention，增加scalability。
+
+
+
+## Per-thread、avoid shared data消除竞争
 
 1、`Spinning-lock-optimization`
 
-2、`12-Choose-Concurrency-Friendly-Data-Structures`
+TAS spin lock中，所有的thread都使用同一个shared data-->CLH Lock、MCS Lock，每个thread都有要给自己的node，它们只需要poll自己的node。
 
+2、以redis线程模型为例来进行说明，每个thread一个私有的queue，这样有效地避免竞争。
 
-
-### 降低lock的粒度
-
-提高并发的直接做法是降低lock的粒度。
+3、tcmalloc
 
 
 
@@ -120,38 +136,6 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 
 
-## how to optimize
-
-1、以effective concurrency为蓝本来进行总结
-
-a、基本的原则
-
-b、方法
-
-2、基于 hardware CPU 运行机制 等
-
-software and hardware
-
-3、锁的粒度
-
-"tag-Granularity of lock-加锁粒度"
-
-
-
-
-
-## Q&A: cache locality and scalability and contention
-
-如果多个thread都使用(read、write)同一个lock、variable，则就会出现high contention
-
-如果能够让每个thread使用它自己的local variable，那么就能够增加cache local，减少contention，增加scalability。
-
-
-
-## Choose-Concurrency-Friendly-Data-Structures
-
-这是在 `12-Choose-Concurrency-Friendly-Data-Structures` 中提出的。
-
 ## Cache optimization
 
 ### 避免cache sloshing-晃动
@@ -161,3 +145,9 @@ software and hardware
 2、`02-How-Much-Scalability-Do-You-Have-or-Need`
 
 3、`12-Choose-Concurrency-Friendly-Data-Structures`
+
+### 增加cache performance
+
+1、align-to-cache line-optimization
+
+2、padding-to-cache line-optimization-avoid false sharing
