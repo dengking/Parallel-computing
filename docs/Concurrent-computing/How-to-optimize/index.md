@@ -26,6 +26,14 @@ Optimize的目的是提高**并发**，最终目的是提供performance、遵循
 
 > TODO: 以redis线程模型为例来进行说明，每个thread一个私有的queue，这样有效地避免竞争
 
+### Maximize cache locality minimize contention
+
+1、`Spinning-lock-optimization`
+
+2、`12-Choose-Concurrency-Friendly-Data-Structures`
+
+
+
 ### 降低lock的粒度
 
 提高并发的直接做法是降低lock的粒度。
