@@ -2,40 +2,6 @@
 
 
 
-## 发展趋势、re-enable free lunch
-
-Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward Concurrency in Software](http://www.gotw.ca/publications/concurrency-ddj.htm) 文章，其中总结了CPU的发展发现，对software的影响，programmer要如何做。
-
-
-
-### Scalable concurrency re-enable free lunch
-
-1、scale well to multiple core CPU
-
-2、能够充分发挥hardware的computation power，理想情况是线性增加: software的处理能力和核数呈线性关系 
-
-3、作为software engineer，需要开发出具有scalability的software，这样才能够re-enable the free lunch
-
-
-
-### Programming language的发展
-
-内置concurrency:
-
-1、scala
-
-2、golang
-
-3、erlang
-
-### Software
-
-1、jemalloc、tcmalloc
-
-2、spinlock: A-lock、MCS queue lock、CLH queue lock
-
-
-
 ## 我的学习之路
 
 一、APUE
