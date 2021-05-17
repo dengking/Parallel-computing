@@ -32,7 +32,7 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 1、jemalloc、tcmalloc
 
-
+2、spinlock: A-lock、MCS queue lock、CLH queue lock
 
 
 
@@ -70,7 +70,7 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 五、Expert-Herb-Sutter的Effective-Concurrency-Serial
 
-前面、系统性的、概括、居高临下、非常好，可以作为系统性的学习concurrency的读物。
+前面、系统性的、概括、居高临下、非常好，可以作为系统性的学习concurrency的guide。
 
 ## 主要topic
 

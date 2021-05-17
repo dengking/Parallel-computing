@@ -1,8 +1,8 @@
-# Parallel computing
+# wikipedia [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
 
-“Parallel computing”即“并行计算”。
-
-## 维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
+> NOTE: 
+>
+> “Parallel computing”即“并行计算”。
 
 **Parallel computing** is a type of [computation](https://en.wikipedia.org/wiki/Computing) in which many calculations or the execution of [processes](https://en.wikipedia.org/wiki/Process_(computing)) are carried out **simultaneously**. Large problems can often be divided into smaller ones, which can then be solved at the same time. 
 
@@ -32,19 +32,19 @@ In some cases parallelism is transparent to the programmer, such as in bit-level
 
 A theoretical [upper bound](https://en.wikipedia.org/wiki/Upper_bound) on the [speed-up](https://en.wikipedia.org/wiki/Speedup) of a single program as a result of parallelization is given by [Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law).
 
-### Background(时代背景)
+## Background(时代背景)
 
 To deal with the problem of power consumption and overheating the major [central processing unit](https://en.wikipedia.org/wiki/Central_processing_unit) (CPU or processor) manufacturers started to produce power efficient processors with multiple cores. The core is the computing unit of the processor and in multi-core processors each core is independent and can access the same memory concurrently. [Multi-core processors](https://en.wikipedia.org/wiki/Multi-core_processor) have brought parallel computing to [desktop computers](https://en.wikipedia.org/wiki/Desktop_computers). Thus parallelisation of serial programmes has become a mainstream programming task.
 
 > 总结：从[Frequency scaling](https://en.wikipedia.org/wiki/Frequency_scaling)到[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)
 
-### [Dependencies](https://en.wikipedia.org/wiki/Parallel_computing#Dependencies)
+## [Dependencies](https://en.wikipedia.org/wiki/Parallel_computing#Dependencies)
 
 Understanding [data dependencies](https://en.wikipedia.org/wiki/Data_dependency) is fundamental in implementing [parallel algorithms](https://en.wikipedia.org/wiki/Parallel_algorithm). No program can run more quickly than the longest chain of dependent calculations (known as the [critical path](https://en.wikipedia.org/wiki/Critical_path_method)), since calculations that depend upon prior calculations in the chain must be executed in order. However, most algorithms do not consist of just a long chain of dependent calculations; there are usually opportunities to execute independent calculations in parallel.
 
 > 总结：上述[critical path](https://en.wikipedia.org/wiki/Critical_path_method)的概念是非常重要的；
 
-### [Race conditions, mutual exclusion, synchronization, and parallel slowdown](https://en.wikipedia.org/wiki/Parallel_computing#Race_conditions,_mutual_exclusion,_synchronization,_and_parallel_slowdown)
+## [Race conditions, mutual exclusion, synchronization, and parallel slowdown](https://en.wikipedia.org/wiki/Parallel_computing#Race_conditions,_mutual_exclusion,_synchronization,_and_parallel_slowdown)
 
 > NOTE: 这些内容在Unix-like-operating-system中已经包含了，此处省略。仅仅给出一些链接。
 
@@ -72,87 +72,87 @@ Understanding [data dependencies](https://en.wikipedia.org/wiki/Data_dependency)
 
 
 
-### [Fine-grained, coarse-grained, and embarrassing parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Fine-grained,_coarse-grained,_and_embarrassing_parallelism)
+## [Fine-grained, coarse-grained, and embarrassing parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Fine-grained,_coarse-grained,_and_embarrassing_parallelism)
 
 Applications are often classified according to how often their subtasks need to synchronize or communicate with each other. An application exhibits fine-grained parallelism if its subtasks must communicate many times per second; it exhibits coarse-grained parallelism if they do not communicate many times per second, and it exhibits [embarrassing parallelism](https://en.wikipedia.org/wiki/Embarrassingly_parallel) if they rarely or never have to communicate. Embarrassingly parallel applications are considered the easiest to parallelize.
 
-### [Consistency models](https://en.wikipedia.org/wiki/Parallel_computing#Consistency_models)
+## [Consistency models](https://en.wikipedia.org/wiki/Parallel_computing#Consistency_models)
 
 *Main article:* [Consistency model](https://en.wikipedia.org/wiki/Consistency_model)
 
 Parallel programming languages and parallel computers must have a [consistency model](https://en.wikipedia.org/wiki/Consistency_model) (also known as a memory model). The consistency model defines rules for how operations on [computer memory](https://en.wikipedia.org/wiki/Computer_data_storage) occur and how results are produced.
 
-### [Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)
+## [Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)
 
-### Bit-level parallelism
+## Bit-level parallelism
 
 *Main article:* [Bit-level parallelism](https://en.wikipedia.org/wiki/Bit-level_parallelism)
 
-### Instruction-level parallelism
+## Instruction-level parallelism
 
 *Main article:* [Instruction-level parallelism](https://en.wikipedia.org/wiki/Instruction-level_parallelism)
 
-### Task parallelism
+## Task parallelism
 
 *Main article:* [Task parallelism](https://en.wikipedia.org/wiki/Task_parallelism)
 
 
 
-### Hardware
+## Hardware
 
-### Memory and communication
+## Memory and communication
 
 > NOTE: 这一段内容与底层hardware关联，对于software engineer而言，可以跳过
 
-### Classes of parallel computers
+## Classes of parallel computers
 
 **Parallel computers** can be roughly classified according to the level at which the hardware supports parallelism. This classification is broadly analogous to the **distance** between basic **computing nodes**. These are not mutually exclusive; for example, clusters of symmetric multiprocessors are relatively common.
 
-#### Multi-core computing
+### Multi-core computing
 
 *Main article:* [Multi-core processor](https://en.wikipedia.org/wiki/Multi-core_processor)
 
 A multi-core processor is a processor that includes multiple [processing units](https://en.wikipedia.org/wiki/Central_processing_unit) (called "cores") on the same chip. 
 
-#### Symmetric multiprocessing
+### Symmetric multiprocessing
 
 *Main article:* [Symmetric multiprocessing](https://en.wikipedia.org/wiki/Symmetric_multiprocessing)
 
 A symmetric multiprocessor (SMP) is a computer system with multiple identical processors that share memory and connect via a bus.
 
-#### Distributed computing
+### Distributed computing
 
 *Main article:* [Distributed computing](https://en.wikipedia.org/wiki/Distributed_computing)
 
 A distributed computer (also known as a distributed memory multiprocessor) is a distributed memory computer system in which the processing elements are connected by a network. Distributed computers are highly scalable. The terms "[concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)", "**parallel computing**", and "**distributed computing**" have a lot of overlap, and no clear distinction exists between them. The same system may be characterized both as "parallel" and "distributed"; the processors in a typical distributed system run concurrently in parallel. 
 
-##### Cluster computing
+#### Cluster computing
 
 *Main article:* [Computer cluster](https://en.wikipedia.org/wiki/Computer_cluster)
 
-##### Massively parallel computing
+#### Massively parallel computing
 
 *Main article:* [Massively parallel (computing)](https://en.wikipedia.org/wiki/Massively_parallel_(computing))
 
-##### Grid computing
+#### Grid computing
 
 *Main article:* [Grid computing](https://en.wikipedia.org/wiki/Grid_computing)
 
-#### Specialized parallel computers
+### Specialized parallel computers
 
 Within parallel computing, there are specialized parallel devices that remain niche areas of interest. While not [domain-specific](https://en.wikipedia.org/wiki/Domain-specific_programming_language), they tend to be applicable to only a few classes of parallel problems.
 
-### Software
+## Software
 
-### Parallel programming languages
+## Parallel programming languages
 
 *Main article:* [List of concurrent and parallel programming languages](https://en.wikipedia.org/wiki/List_of_concurrent_and_parallel_programming_languages)
 
-### [Algorithmic methods](https://en.wikipedia.org/wiki/Parallel_computing#Algorithmic_methods)
+## [Algorithmic methods](https://en.wikipedia.org/wiki/Parallel_computing#Algorithmic_methods)
 
 
 
-### Fault tolerance
+## Fault tolerance
 
 *Further information:* [Fault-tolerant computer system](https://en.wikipedia.org/wiki/Fault-tolerant_computer_system)
 

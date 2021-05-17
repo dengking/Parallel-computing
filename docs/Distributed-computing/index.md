@@ -1,6 +1,6 @@
 # Distributed computing
 
-## 时代背景
+## 时代背景、发展趋势
 
 在`Parallel-computing`中介绍了background；
 
@@ -16,9 +16,15 @@ Distributed computing 在某种程度上是遵循 分而治之思想 的。
 
 Three significant characteristics of distributed systems are: 
 
-- concurrency of components
-- [lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization)
-- independent failure of components.
+1、concurrency of components
+
+2、[lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization)
+
+3、independent failure of components.
+
+> NOTE: 
+>
+> 1、简而言之，去中心化的
 
 Examples of distributed systems vary from [SOA-based systems](https://en.wikipedia.org/wiki/Service-oriented_architecture) to [massively multiplayer online games](https://en.wikipedia.org/wiki/Massively_multiplayer_online_game) to [peer-to-peer applications](https://en.wikipedia.org/wiki/Peer-to-peer).
 
@@ -34,8 +40,9 @@ A [computer program](https://en.wikipedia.org/wiki/Computer_program) that runs w
 
 Distributed systems are groups of **networked computers** which share a common goal for their work. The terms "[concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)", "[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)", and "distributed computing" have a lot of overlap, and no clear distinction exists between them. The same system may be characterized both as "parallel" and "distributed"; the processors in a typical distributed system run concurrently in parallel. **Parallel computing** may be seen as a particular tightly coupled form of **distributed computing**, and **distributed computing** may be seen as a loosely coupled form of **parallel computing**. Nevertheless, it is possible to roughly classify concurrent systems as "parallel" or "distributed" using the following criteria:
 
-- In parallel computing, all processors may have access to a [shared memory](https://en.wikipedia.org/wiki/Shared_memory_architecture) to exchange information between processors. 
-- In distributed computing, each processor has its own private memory ([distributed memory](https://en.wikipedia.org/wiki/Distributed_memory)). Information is exchanged by passing messages between the processors. 
+1、In parallel computing, all processors may have access to a [shared memory](https://en.wikipedia.org/wiki/Shared_memory_architecture) to exchange information between processors. 
+
+2、In distributed computing, each processor has its own private memory ([distributed memory](https://en.wikipedia.org/wiki/Distributed_memory)). Information is exchanged by passing messages between the processors. 
 
 
 
@@ -54,9 +61,12 @@ Various hardware and software architectures are used for distributed computing. 
 
 Distributed programming typically falls into one of several basic architectures: [client–server](https://en.wikipedia.org/wiki/Client–server_model), [three-tier](https://en.wikipedia.org/wiki/Three-tier_(computing)), [*n*-tier](https://en.wikipedia.org/wiki/Multitier_architecture), or [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer); or categories: [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling), or [tight coupling](https://en.wikipedia.org/wiki/Computer_cluster). 
 
-- [Client–server](https://en.wikipedia.org/wiki/Client–server_model): architectures where smart clients contact the server for data then format and display it to the users. Input at the client is committed back to the server when it represents a permanent change.
-- [Three-tier](https://en.wikipedia.org/wiki/Three-tier_(computing)): architectures that move the client intelligence to a middle tier so that [stateless](https://en.wikipedia.org/wiki/Stateless_protocol) clients can be used. This simplifies application deployment. Most web applications are three-tier.
-- [*n*-tier](https://en.wikipedia.org/wiki/Multitier_architecture): architectures that refer typically to web applications which further forward their requests to other enterprise services. This type of application is the one most responsible for the success of [application servers](https://en.wikipedia.org/wiki/Application_server).
-- [Peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer): architectures where there are no special machines that provide a service or manage the network resources. Instead all responsibilities are uniformly divided among all machines, known as peers. Peers can serve both as clients and as servers. Examples of this architecture include [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) and the [bitcoin network](https://en.wikipedia.org/wiki/Bitcoin_network).
+1、[Client–server](https://en.wikipedia.org/wiki/Client–server_model): architectures where smart clients contact the server for data then format and display it to the users. Input at the client is committed back to the server when it represents a permanent change.
+
+2、[Three-tier](https://en.wikipedia.org/wiki/Three-tier_(computing)): architectures that move the client intelligence to a middle tier so that [stateless](https://en.wikipedia.org/wiki/Stateless_protocol) clients can be used. This simplifies application deployment. Most web applications are three-tier.
+
+3、[*n*-tier](https://en.wikipedia.org/wiki/Multitier_architecture): architectures that refer typically to web applications which further forward their requests to other enterprise services. This type of application is the one most responsible for the success of [application servers](https://en.wikipedia.org/wiki/Application_server).
+
+4、[Peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer): architectures where there are no special machines that provide a service or manage the network resources. Instead all responsibilities are uniformly divided among all machines, known as peers. Peers can serve both as clients and as servers. Examples of this architecture include [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) and the [bitcoin network](https://en.wikipedia.org/wiki/Bitcoin_network).
 
 Another basic aspect of distributed computing architecture is the method of communicating and coordinating work among concurrent processes. Through various message passing protocols, processes may communicate directly with one another, typically in a [master/slave](https://en.wikipedia.org/wiki/Master-slave_(technology)) relationship. Alternatively, a ["database-centric" architecture](https://en.wikipedia.org/wiki/Database-centric_architecture) can enable distributed computing to be done without any form of direct [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication), by utilizing a shared [database](https://en.wikipedia.org/wiki/Database). Database-centric architecture in particular provides relational processing analytics in a schematic architecture allowing for live environment relay. This enables distributed computing functions both within and beyond the parameters of a networked database. 

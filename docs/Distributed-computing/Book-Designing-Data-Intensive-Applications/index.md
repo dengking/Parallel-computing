@@ -36,7 +36,7 @@
 
 
 
-我觉得上述这些挑战的根本原因在于: distributed computing中，缺乏中心角色。
+我觉得上述这些挑战的根本原因在于: distributed computing中，缺乏中心角色，即它是去中心化的。
 
 
 

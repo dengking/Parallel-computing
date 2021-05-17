@@ -26,7 +26,15 @@ In the last decade we have seen many interesting developments in databases, in d
 
 *Data-intensive applications* are pushing the boundaries of what is possible by making use of these technological developments. We call an application *data-intensive* if data is its primary challenge—the quantity of data, the complexity of data, or the speed at which it is changing—as opposed to *compute-intensive*, where CPU cycles are the bottleneck.
 
-> NOTE: 作者给出了data-intensive和compute-insensitive的定义。
+> NOTE: 
+>
+> 一、作者给出了data-intensive和compute-insensitive的定义:
+>
+> compute-intensive 即计算密集型，它是CPU-bound
+>
+> data-intensive 即数据密集型，它是data-bound
+>
+> 
 
 
 
