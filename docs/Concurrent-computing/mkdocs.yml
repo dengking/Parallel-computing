@@ -8,8 +8,9 @@ nav:
     - Expert-1024cores: Expert-1024cores
     - Expert-Cameron: Expert-Cameron
     - Course-tau-Multiprocessor-Programming: Course-tau-Multiprocessor-Programming
-    - Course-rochester-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors: Course-rochester-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors
+
     - Course-uhcl-Concurrency: Course-uhcl-Concurrency
+    - rochester-paper-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors: rochester-paper-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors
     # 先描述 理论知识
     - Concurrency-control: Concurrency-control
 

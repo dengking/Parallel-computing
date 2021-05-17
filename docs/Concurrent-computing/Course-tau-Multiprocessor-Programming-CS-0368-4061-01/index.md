@@ -182,15 +182,13 @@ public void release() {
 
 #### 7.8.2 The CLH queue lock
 
-The **CLH lock** improves on the **A-lock** by allocating the slots on which threads spin dynamically. Figure 7.15 shows a simplified version of the CLH Queue
-Lock. The lock is a virtual linked list of `Qnode` objects, each waiting to enter the critical section. We use the term “virtual” since unlike conventional linked lists, it cannot be passively traversed because the **pointers** in the list are the threads’ private `pred` variables. We will not deal here with recycling(循环利用) of the `Qnode` objects though this can be done rather efficiently through simple modifications of the above code.
+The **CLH lock** improves on the **A-lock** by allocating the slots on which threads spin dynamically. Figure 7.15 shows a simplified version of the CLH Queue Lock. The lock is a virtual linked list of `Qnode` objects, each waiting to enter the critical section. We use the term “virtual” since unlike conventional linked lists, it cannot be passively traversed because the **pointers** in the list are the threads’ private `pred` variables. We will not deal here with recycling(循环利用) of the `Qnode` objects though this can be done rather efficiently through simple modifications of the above code.
 
 > NOTE: 
 >
 > 1、`pred` 是 "predecessor(前辈、前驱)" 的缩写，因为在CLH queue 中，每个node所关注的是它的"前驱节点"
 
-To acquire the lock, a thread creates a `Qnode` structure, sets its `locked` variable to indicate that it has not yet released the critical section, and atomically
-places its own `Qnode` at the tail of the list while finding the `Qnode` object of its predecessor. It then spins on the `locked` variable of its predecessor (if there is one), waiting until the predecessor(前辈、前驱) sets the `locked` field of its `Qnode` to false. To release the lock, a thread sets the `locked` field of its `Qnode` to `false`. The key point here is that each thread spins on a distinct location, so when one thread releases its lock, it does not invalidate every waiting thread’s cache, only the cache of its immediate successor.
+To acquire the lock, a thread creates a `Qnode` structure, sets its `locked` variable to indicate that it has not yet released the critical section, and atomically places its own `Qnode` at the tail of the list while finding the `Qnode` object of its predecessor. It then spins on the `locked` variable of its predecessor (if there is one), waiting until the predecessor(前辈、前驱) sets the `locked` field of its `Qnode` to false. To release the lock, a thread sets the `locked` field of its `Qnode` to `false`. The key point here is that each thread spins on a distinct location, so when one thread releases its lock, it does not invalidate every waiting thread’s cache, only the cache of its immediate successor.
 
 ```java
 public class CLHLock {
