@@ -17,7 +17,6 @@ The term *promise* was proposed in 1976 by [Daniel P. Friedman](https://en.wikip
 The terms *future*, *promise*, *delay*, and *deferred* are often used interchangeably（互换）, although some differences in usage between *future* and *promise* are treated below. Specifically, when usage is distinguished, a **future** is a *read-only* placeholder view of a variable, while a **promise** is a writable, [single assignment](https://en.wikipedia.org/wiki/Single_assignment) container which sets the value of the future（promise用于设置future的值）.[[4\]](https://en.wikipedia.org/wiki/Futures_and_promises#cite_note-4) Notably, a future may be defined without specifying which specific **promise** will set its value, and different possible **promises** may set the value of a given **future**, though this can be done only once for a given **future**. In other cases a future and a promise are created together and associated with each other: the **future** is the value, the **promise** is the function that sets the value – essentially the return value (**future**) of an asynchronous function (**promise**). Setting the value of a future is also called *resolving*, *fulfilling*, or *binding* it.
 
 > NOTE: 这段话对future和promise的解释非常到位，其实它所阐述的就是"Promise-future communication channel"，参见后面的"Promise-future communication channel"。
->
 
 ### Applications
 

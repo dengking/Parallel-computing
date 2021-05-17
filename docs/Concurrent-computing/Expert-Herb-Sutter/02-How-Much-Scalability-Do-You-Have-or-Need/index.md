@@ -129,7 +129,9 @@ We find the scalable concurrency opportunities principally by exploiting **natur
 
 2、Exploit parallelism in data structures: For example, tree traversal can often exploit the independence in each node's subtrees. Compilation can exploit independence at several levels in the structure of source code, from **coarse-grained** independence among source files to **finer-grained** independence among classes or methods within a file.
 
-
+> NOTE: 
+>
+> 1、divide-and-conquer
 
 This lets us decompose the application into a "sea of chores"—expressing independent chunks of work that are big or small, blocking or nonblocking, structured subdivisions or independent; but we often want to look first for the CPU-bound work—and rely on the runtime system to "rightsize" the application by assigning those chores efficiently to whatever hardware parallelism is available on a given user's system.
 

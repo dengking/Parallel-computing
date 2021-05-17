@@ -72,6 +72,8 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 前面、系统性的、概括、居高临下、非常好，可以作为系统性的学习concurrency的guide。
 
+后续很多内容，可能是基于这个系列中的内容展开、组织。
+
 ## 主要topic
 
 下面总结了学习concurrent programming时，涉及的一些topic。

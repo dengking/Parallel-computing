@@ -1,6 +1,6 @@
 # Stream model
 
-
+1、在工程`discrete`的`Relation-structure-computation\Model\Stream-model`章节中，也对"Stream model"进行了说明。
 
 ## wikipedia [Stream processing](https://en.wikipedia.org/wiki/Stream_processing)
 
