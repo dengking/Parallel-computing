@@ -6,6 +6,28 @@
 
 所以，有必要对它们进行研究。本工程按照维基百科的[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)进行组织，它将[Distributed computing](https://en.wikipedia.org/wiki/Concurrent_computing)、[Concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)都归入[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)的范轴，本工程对相关理论知识进行梳理。
 
+
+
+## 时代背景、发展趋势 以及 why need parallel computing
+
+关于当前的时代背景、发展趋势，在下面章节中进行了描述:
+
+1、工程`hardware`的`Modern-CPU\Tendency-toward-parallel-computing`章节
+
+2、`Book-Designing-Data-Intensive-Applications`
+
+下面是截取自 `Book-Designing-Data-Intensive-Applications`:
+
+> 4、CPU clock speeds are barely increasing, but multi-core processors are standard, and networks are getting faster. This means parallelism is only going to increase.
+>
+> > NOTE: CPU clock speed几乎不增加，multi-core processors被广泛采用，网络越来越快，这些都意味着“parallelism”将会增加。
+
+
+
+### Why need parallel computing ?
+
+重复发挥computation power，克服越来越多的挑战。
+
 ## Unit of parallel computing
 
 "Unit of parallel computing"即"并行的单位"（参见<文章Unit>），类似于在维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)所述的[Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)、或者说是：并发的级别。unit是一个更加抽象/概括的概念，能够让我们正在更加高的角度来理解和分析在parallel computing中的各种问题，能够让我们清楚地看到在不同层级的parallel computing中，都会面临的问题，比如无论是multiple process、multiple thread都涉及通信问题。在后面我们有时候也会使用“entity”来表示，后面我们将使用unit/entity的概念来描述在各种parallel computing中的各种问题，如：
