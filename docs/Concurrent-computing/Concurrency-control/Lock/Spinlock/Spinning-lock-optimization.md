@@ -6,7 +6,7 @@
 
 ## 综述的、梳理性的、导读性的教程
 
-### cs.tau [Multiprocessor Programming](http://www.cs.tau.ac.il/~shanir/multiprocessor-synch-2003/) # **Lecture 7:** Spin Locks and Contention Management (last updated Sunday, May 11, 2003**)**
+### cs.tau [Multiprocessor Programming](http://www.cs.tau.ac.il/~shanir/multiprocessor-synch-2003/) # **Lecture 7:** Spin Locks and Contention Management 
 
 > NOTE: 
 >
@@ -39,8 +39,6 @@ c、The CLH queue lock(Mellor-Crummey and Scott provided the popular list based 
 ### rochester [Algorithms for Scalable Synchronization on Shared-Memory Multiprocessors](https://www.cs.rochester.edu/research/synchronization/pseudocode/ss.html)
 
 1、梳理得非常好
-
-2、参见`Course-rochester-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors`章节
 
 
 

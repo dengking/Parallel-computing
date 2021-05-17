@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - Spinning-lock-optimization: Spinning-lock-optimization.md
-    - Spinlock-with-timeout: Spinlock-with-timeout
+    - rochester-paper-Spinlock-with-timeout: rochester-paper-Spinlock-with-timeout
     - Ticket-lock: Ticket-lock
