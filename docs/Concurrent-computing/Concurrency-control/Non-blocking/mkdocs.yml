@@ -12,6 +12,6 @@ nav:
     - Memory-reclamation: Memory-reclamation    
     # 一些技巧
     - Read-copy-update: Read-copy-update
-    - Time-based-concurrency-control: Time-based-concurrency-control    
+    - Version-based: Version-based
 
 
