@@ -7,4 +7,5 @@ nav:
     - Double-checked-locking: Double-checked-locking    
 
     - Disadvantage: Disadvantage
+    - Granularity-of-lock: Granularity-of-lock
     - Evaluation-metric: Evaluation-metric
