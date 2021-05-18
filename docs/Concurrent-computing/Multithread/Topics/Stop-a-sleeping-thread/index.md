@@ -169,7 +169,7 @@ Somewhere you need a **variable** protected by the **mutex** that stores whether
 
 Why `return` on a spurious wakeup? (Same problem. You have no way to know whether you should wakeup or not because you have no predicate to check.) – [David Schwartz](https://stackoverflow.com/users/721269/david-schwartz) [Sep 21 '15 at 11:03](https://stackoverflow.com/questions/32693103/threaded-timer-interrupting-a-sleep-stopping-it#comment53230191_32693103) 
 
-***SUMMARY*** : 上述并不涉及**condition**的修改；使用condition variable的一个非常重要的目的是仅仅当condition满足的时候才运行thread继续执行，而当[Spurious wakeup](https://en.wikipedia.org/wiki/Spurious_wakeup)的时候，则不能够允许它允许，所以才需要一个condition；而上述代码则显然没有这样做，如下面的评论所述，它存在着这样的一个风险： `return` on a spurious wakeup
+> NOTE: 上述并不涉及**condition**的修改；使用condition variable的一个非常重要的目的是仅仅当condition满足的时候才运行thread继续执行，而当[Spurious wakeup](https://en.wikipedia.org/wiki/Spurious_wakeup)的时候，则不能够允许它允许，所以才需要一个condition；而上述代码则显然没有这样做，如下面的评论所述，它存在着这样的一个风险： `return` on a spurious wakeup
 
 What other kinds of wakeup are there? There's timeout and user signalled the wait. Can the OS wake it up for other reasons? – [Robinson](https://stackoverflow.com/users/416274/robinson) [Sep 21 '15 at 11:04](https://stackoverflow.com/questions/32693103/threaded-timer-interrupting-a-sleep-stopping-it#comment53230250_32693103)
 

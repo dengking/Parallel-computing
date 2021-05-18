@@ -79,10 +79,104 @@ do {
 
 
 
+#### Chandy/Misra解法
+
+1984年，K. Mani Chandy和J. Misra提出了哲学家就餐问题的另一个解法，允许任意的用户（编号P1, ..., Pn）争用任意数量的资源。与迪科斯彻的解法不同的是，这里编号可以是任意的。
+
+1.对每一对竞争一个资源的哲学家，新拿一个餐叉，给编号较低的哲学家。每只餐叉都是“干净的”或者“脏的”。最初，所有的餐叉都是脏的。
+
+2.当一位哲学家要使用资源（也就是要吃东西）时，他必须从与他竞争的邻居那里得到。对每只他当前没有的餐叉，他都发送一个请求。
+
+3.当拥有餐叉的哲学家收到请求时，如果餐叉是干净的，那么他继续留着，否则就擦干净并交出餐叉。
+
+4.当某个哲学家吃东西后，他的餐叉就变脏了。如果另一个哲学家之前请求过其中的餐叉，那他就擦干净并交出餐叉。
+
+这个解法允许很大的[并行性](https://baike.baidu.com/item/并行性)，适用于任意大多问题。
+
 
 
 ## wikipedia [Dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 
+### Resource hierarchy solution
+
+> NOTE: 
+>
+> 1、lock hierarchy 就是遵循这种思路，参见 drdobbs [Use Lock Hierarchies to Avoid Deadlock](https://www.drdobbs.com/parallel/use-lock-hierarchies-to-avoid-deadlock/204801163) ，其中有着非常好的描述。
+>
+> 2、这种方案是一种 "Autonomy 自治的-and-decentralization 去中心化"
+
+This solution to the problem is the one originally proposed by [Dijkstra](https://en.wanweibaike.com/wiki-Edsger_W._Dijkstra). It assigns a [partial order](https://en.wanweibaike.com/wiki-Partially_ordered_set) to the resources (the forks, in this case), and establishes the convention that all resources will be requested in order, and that no two resources unrelated by order will ever be used by a single unit of work at the same time. 
+
+Here, the resources (forks) will be numbered 1 through 5 and each unit of work (philosopher) will always pick up the lower-numbered fork first, and then the higher-numbered fork, from among the two forks they plan to use. The order in which each philosopher puts down the forks does not matter. In this case, if four of the five philosophers simultaneously pick up their lower-numbered fork, only the highest-numbered fork will remain on the table, so the fifth philosopher will not be able to pick up any fork. Moreover, only one philosopher will have access to that highest-numbered fork, so he will be able to eat using two forks.
+
+> NOTE: 
+>
+> 一、按照上述方式推演:，存在下面的一种情况(需要注意的是，由于thread的执行是由OS来调度的，因此实际的执行情况是非常多的，下面是其中的一种情况)
+>
+> 第一位哲学家在第一轮能够拿到两个fork
+>
+> 第五位哲学家在第一轮是不会拿起fork的，因为轮到他的时候只剩下了"highest-numbered fork"
+
+While the resource hierarchy solution avoids deadlocks, it is not always practical, especially when the list of required resources is not completely known in advance. For example, if a unit of work holds resources 3 and 5 and then determines it needs resource 2, it must release 5, then 3 before acquiring 2, and then it must re-acquire 3 and 5 in that order. Computer programs that access large numbers of database records would not run efficiently if they were required to release all higher-numbered records before accessing a new record, making the method impractical for that purpose.[[2\]](https://en.wanweibaike.com/wiki-Dining philosophers problem#cite_note-formalization-2)
+
+> NOTE: 
+>
+> 1、上述是非常好的分析，从上述的分析来看，lock hierarchy不是一种高效的方式
+
+The resource hierarchy solution is not *fair*. If philosopher 1 is slow to take a fork, and if philosopher 2 is quick to think and pick its forks back up, then philosopher 1 will never get to pick up both forks. A fair solution must guarantee that each philosopher will eventually eat, no matter how slowly that philosopher moves relative to the others.
+
+> NOTE: 
+>
+> 1、公平性
+
+### Arbitrator solution
+
+> NOTE: 
+>
+> 这种方案是"Arbitrator仲裁者-中心化"
+
+### Chandy/Misra solution
+
+> NOTE: 
+>
+> 1、这种方案是一种 "Autonomy 自治的-and-decentralization 去中心化"
+>
+> 2、前面的 baike [哲学家就餐问题](https://baike.baidu.com/item/%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98/10929794?fr=aladdin) 中有翻译
+
+In 1984, [K. Mani Chandy](https://en.wanweibaike.com/wiki-K._Mani_Chandy) and [J. Misra](https://en.wanweibaike.com/wiki-Jayadev_Misra)[[5\]](https://en.wanweibaike.com/wiki-Dining philosophers problem#cite_note-5) proposed a different solution to the dining philosophers problem to allow for arbitrary agents (numbered *P*1, ..., *Pn*) to contend for an arbitrary number of resources, unlike Dijkstra's solution. It is also completely distributed and requires no central authority after initialization. However, it violates the requirement that "the philosophers do not speak to each other" (due to the request messages).
+
+1、For every pair of philosophers contending for a resource, create a fork and give it to the philosopher with the lower ID (*n* for agent *Pn*). Each fork can either be *dirty* or *clean.* Initially, all forks are dirty.
+
+> NOTE: 
+>
+> 1、上面这段话中的"create a fork "是什么含义？"新拿一个餐叉"
+
+2、When a philosopher wants to use a set of resources (*i.e.*, eat), said philosopher must obtain the forks from their contending neighbors. For all such forks the philosopher does not have, they send a request message.
+
+3、When a philosopher with a fork receives a request message, they keep the fork if it is clean, but give it up when it is dirty. If the philosopher sends the fork over(送出去), they clean the fork before doing so.
+
+4、After a philosopher is done eating, all their forks become dirty. If another philosopher had previously requested one of the forks, the philosopher that has just finished eating cleans the fork and sends it.
 
 
-## golangprograms [Golang Concurrency # Illustration of the dining philosophers problem in Golang](https://www.golangprograms.com/go-language/concurrency.html)
+
+> NOTE: 
+>
+> 一、后面介绍了它的优势: 
+>
+> 1、允许很大的[并行性](https://baike.baidu.com/item/并行性)，适用于任意大多问题
+>
+> 2、solves the starvation problem
+>
+> 后面进行了一些分析来论述为什么这种方案是可行的
+
+This solution also allows for a large degree of concurrency, and will solve an arbitrarily large problem.
+
+It also solves the starvation problem. The clean/dirty labels act as a way of giving preference to the most "starved" processes, and a disadvantage to processes that have just "eaten". One could compare their solution to one where philosophers are not allowed to eat twice in a row without letting others use the forks in between. Chandy and Misra's solution is more flexible than that, but has an element tending in that direction.
+
+In their analysis, they derive a system of preference levels from the distribution of the forks and their clean/dirty states. They show that this system may describe a [directed acyclic graph](https://en.wanweibaike.com/wiki-Directed_acyclic_graph), and if so, the operations in their protocol cannot turn that graph into a cyclic one. This guarantees that deadlock cannot occur. However, if the system is initialized to a perfectly symmetric state, like all philosophers holding their left side forks, then the graph is cyclic at the outset, and their solution cannot prevent a deadlock. Initializing the system so that philosophers with lower IDs have dirty forks ensures the graph is initially acyclic.
+
+
+
+## TODO
+
+golangprograms [Golang Concurrency # Illustration of the dining philosophers problem in Golang](https://www.golangprograms.com/go-language/concurrency.html)

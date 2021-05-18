@@ -1,10 +1,12 @@
-# drdobbs [Use Lock Hierarchies to Avoid Deadlock](https://www.drdobbs.com/parallel/use-lock-hierarchies-to-avoid-deadlock/204801163)
+# drdobbs [Use Lock Hierarchies to Avoid Deadlock](https://www.drdobbs.com/parallel/use-lock-hierarchies-to-avoid-deadlock/204801163) 
 
 > NOTE: 
 >
 > 一、本文讨论的其实是lock multiple，其实这在APUE中已经讨论了，作者提出了lock hierarchy的概念、方法，它是一种更加通用的方法，能够保证consistent global order。
 >
 > 二、deadlock是可以使用dependency model来进行描述的
+>
+> 三、这种算法其实是 [Dijkstra](https://en.wanweibaike.com/wiki-Edsger_W._Dijkstra) 提出的， 参见 "wikipedia [Dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem) # Resource hierarchy solution "章节，其中有着非常好的分析论述。
 
 **Need to avoid deadlock in the code you control? Try using lock hierarchies.**
 
