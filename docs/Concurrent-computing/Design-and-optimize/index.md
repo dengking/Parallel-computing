@@ -138,7 +138,13 @@ TAS spin lock中，所有的thread都使用同一个shared data-->CLH Lock、MCS
 
 
 
+## Parallel divide and conquer
 
+关于此，参见:
+
+1、`02-How-Much-Scalability-Do-You-Have-or-Need`
+
+2、工程`discrete`的`Divide-and-Conquer`章节
 
 ## Cache optimization
 
