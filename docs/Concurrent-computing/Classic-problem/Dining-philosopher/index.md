@@ -14,6 +14,18 @@
 
 2、引入hierarchy
 
+三、在下面文章中给出了demo code
+
+mariusbancila [Dining Philosophers in C++11](https://mariusbancila.ro/blog/2017/01/16/dining-philosophers-in-cpp11/)
+
+mariusbancila [Dining philosophers in C++11: Chandy-Misra algorithm](https://mariusbancila.ro/blog/2017/01/20/dining-philosophers-in-c11-chandy-misra-algorithm/)
+
+四、这个问题可以进一步地抽象为一个: 资源分配问题，它的一个要求:
+
+1、要保证公平性，其实starvation就是一种极端的不公平
+
+2、不会死锁
+
 ## biancheng [哲学家就餐问题分析（含解决方案）](http://c.biancheng.net/view/1233.html)
 
 > NOTE: 
@@ -169,11 +181,39 @@ In 1984, [K. Mani Chandy](https://en.wanweibaike.com/wiki-K._Mani_Chandy) and [J
 >
 > 后面进行了一些分析来论述为什么这种方案是可行的
 
+**提供并发**
+
 This solution also allows for a large degree of concurrency, and will solve an arbitrarily large problem.
 
-It also solves the starvation problem. The clean/dirty labels act as a way of giving preference to the most "starved" processes, and a disadvantage to processes that have just "eaten". One could compare their solution to one where philosophers are not allowed to eat twice in a row without letting others use the forks in between. Chandy and Misra's solution is more flexible than that, but has an element tending in that direction.
+**solves the starvation problem**
 
-In their analysis, they derive a system of preference levels from the distribution of the forks and their clean/dirty states. They show that this system may describe a [directed acyclic graph](https://en.wanweibaike.com/wiki-Directed_acyclic_graph), and if so, the operations in their protocol cannot turn that graph into a cyclic one. This guarantees that deadlock cannot occur. However, if the system is initialized to a perfectly symmetric state, like all philosophers holding their left side forks, then the graph is cyclic at the outset, and their solution cannot prevent a deadlock. Initializing the system so that philosophers with lower IDs have dirty forks ensures the graph is initially acyclic.
+> NOTE: 
+>
+> 一、从下面的描述来看，它使用"clean/dirty labels"实现了一种均衡的维持公平的策略，虽然没有对它进行形式化的分析，但是从下面的描述来看，它是非常灵活、巧妙的:
+>
+> 1、当吃完后，就将自己的fork置为**dirty**: 
+>
+> giving a disadvantage to processes that have just "eaten"
+>
+> 2、当收到请求后，将自己的fork置位**clean**，然后交给请求方:
+>
+> giving preference(偏向于) to the most "starved" processes
+
+It also solves the **starvation problem**. The **clean/dirty labels** act as a way of giving preference(偏向于、提供优先级) to the most "starved" processes, and a disadvantage(降低优先级) to processes that have just "eaten". One could compare their solution to one where philosophers are not allowed to eat twice in a row without letting others use the forks in between. Chandy and Misra's solution is more flexible than that, but has an element tending in that direction.
+
+**Formal analysis**
+
+> NOTE: 
+>
+> 一、思考: 
+>
+> 1、它是如何得出  [directed acyclic graph](https://en.wanweibaike.com/wiki-Directed_acyclic_graph) 的？
+>
+> 2、为什么"Initializing the system so that philosophers with lower IDs have dirty forks ensures the graph is initially acyclic"？
+>
+> 
+
+In their analysis, they derive a system of preference levels from the distribution of the forks and their clean/dirty states. They show that this system may describe a [directed acyclic graph](https://en.wanweibaike.com/wiki-Directed_acyclic_graph), and if so, the operations in their protocol cannot turn that graph into a cyclic(有环的) one. This guarantees that deadlock cannot occur. However, if the system is initialized to a perfectly symmetric state, like all philosophers holding their left side forks, then the graph is cyclic at the outset(开始), and their solution cannot prevent a deadlock. Initializing the system so that philosophers with lower IDs have dirty forks ensures the graph is initially acyclic.
 
 
 
