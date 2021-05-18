@@ -20,11 +20,21 @@ mariusbancila [Dining Philosophers in C++11](https://mariusbancila.ro/blog/2017/
 
 mariusbancila [Dining philosophers in C++11: Chandy-Misra algorithm](https://mariusbancila.ro/blog/2017/01/20/dining-philosophers-in-c11-chandy-misra-algorithm/)
 
+在下面的是一些开源实现:
+
+1、[mtking2](https://github.com/mtking2)/**[dining-philosophers](https://github.com/mtking2/dining-philosophers)**
+
+2、[graninas](https://github.com/graninas)/**[cpp_philosophers_stm](https://github.com/graninas/cpp_philosophers_stm)**
+
+
+
 四、这个问题可以进一步地抽象为一个: 资源分配问题，它的一个要求:
 
 1、要保证公平性，其实starvation就是一种极端的不公平
 
 2、不会死锁
+
+
 
 ## biancheng [哲学家就餐问题分析（含解决方案）](http://c.biancheng.net/view/1233.html)
 
