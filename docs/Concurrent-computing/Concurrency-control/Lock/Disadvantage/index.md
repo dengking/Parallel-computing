@@ -6,6 +6,8 @@
 
 3、多核之间进行数据同步、cache coherence、bus traffic
 
+尤其是当多个thread都使用同一个lock的时候。
+
 ## wikipedia [Lock (computer science) # Disadvantages](https://en.wikipedia.org/wiki/Lock_(computer_science)#Disadvantages)
 
 
