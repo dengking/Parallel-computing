@@ -5,7 +5,7 @@
 
 在我们的application中，我使用一个thread来执行`Subscriber::consume`，这意味中在没有message的时候我的thread将block；那对于一个blocked的thread，是否会存在和sleeping thread一样的stop的问题呢？
 
-# [Terminate thread c++11 blocked on read](https://stackoverflow.com/questions/51742179/terminate-thread-c11-blocked-on-read)
+## stackoverflow [Terminate thread c++11 blocked on read](https://stackoverflow.com/questions/51742179/terminate-thread-c11-blocked-on-read)
 
 I've got the following code:
 
@@ -71,7 +71,7 @@ void Foo::run() {
 
 I'm trying to quit from this thread in my program cleanup code. Using pthread works but I'm wondering if I can do something better with `c++11` only (no native handle). It seems to me there's no good way to handle all cases using `c++11` code. As you can see here the thread is **blocked** on a read system call. So even if I clear the flag the thread will be still blocked and join call will block forever. So what I really need is an **interrupt** (in this case `pthread_cancel`). But if I call `pthread_cancel` I can't call anymore the `c++11` `join()` method because it fails, I can only call `pthread_join()`. So it seems the standard has a really big limitation, am I miss anything?
 
-***SUMMARY*** : `read`是阻塞IO，可能永远地将thread阻塞
+> NOTE: `read`是阻塞IO，可能永远地将thread阻塞
 
 Edit:
 
@@ -231,7 +231,7 @@ If on Linux or POSIX learn about [poll(2)](http://man7.org/linux/man-pages/man2/
 
 That's right, don't use any indefinitely(不确定的，无限的) blocking system calls, with threads or without. – [n.m.](https://stackoverflow.com/users/775806/n-m) [Aug 9 '18 at 10:33](https://stackoverflow.com/questions/51742179/terminate-thread-c11-blocked-on-read#comment90487998_51742179)
 
-# system call with max blocking time
+## system call with max blocking time
 
 今天在阅读《redis设计与实现》这本书的第12.3节《事件的调度与执行》的时候，作者所给出的伪代码让我突然意识到max blocking time参数的重要价值，在youdao 《`redis设计与实现-第12章-事件.md`》中对这个进行了总结，我觉得有必要将其copy过来：
 ```
@@ -263,13 +263,17 @@ Unix所提供的很多system call，如果涉及到阻塞执行的线程，很�
 
 还有，提供一个`timeout`参数，其实能够达到一箭双雕的效果，第一雕已经在上一段中描述了，即防止永远地阻塞thread，第二雕则是提供了定时的功能，尤其到我们的程序中涉及到timer的时候，这个功能的价值是比较高的；这让我想起了使用c++的thread library的[`wait_until`](https://en.cppreference.com/w/cpp/thread/condition_variable/wait_until)来避免`sleep`带来的可能导致无法将thead随时唤醒的问题；
 
-# system call with max blocking time
+## system call with max blocking time
 
 <http://www.cs.um.edu.mt/~ssrg/AThesis.pdf>
 
-# self-pipe
 
-# Interrupted System Calls
+
+## self-pipe
+
+
+
+## Interrupted System Calls
 
 使用signal了来interrupte System Calls，如果process正blocked 在一个low system call，这种方法是比较好的；上面所采用的就是这种方法；
 

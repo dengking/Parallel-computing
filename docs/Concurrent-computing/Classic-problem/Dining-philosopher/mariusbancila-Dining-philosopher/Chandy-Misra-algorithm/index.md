@@ -160,6 +160,8 @@ void eat()
 
 According to the initial setup, each fork is given to the philosopher with the lower ID. That means fork 1, placed between philosopher 1 and N, goes to philosopher 1. Fork 2, placed between philosophers 2 and 3 is given to philosopher 2. Eventually, fork N, placed between philosophers N and 1, is given to philosopher 1. Overall, this means all philosophers have initially 1 fork, except for the first one that has two, and the last philosopher, that has none.
 
+## 完整程序
+
 Put all together, the code looks like this:
 
 ```C++
@@ -352,6 +354,226 @@ int main()
 	return 0;
 }
 // g++ test.cpp -pedantic -Wall -Wextra --std=c++17 -lpthread
+
+
+```
+
+## 缺陷分析
+
+作者给出的原版程序是存在问题的: 
+
+它尝试去stop a blocked thread，显然它是无法被join的，因此被阻塞在下面的函数中:
+
+```C++
+	~philosopher()
+	{
+		lifethread.join();
+	}
+```
+
+显然，在停止的时候，需要将阻塞的thread唤醒，下面是我修改的一个版本，它没有改彻底，还是存在无法停止的问题，关于完整的修改方法，可以参考:
+
+1、`Stop-a-blocked-thread`
+
+2、`Stop-a-sleeping-thread`
+
+### 一个不彻底的修改
+
+```C++
+#include <array>
+#include <mutex>
+#include <thread>
+#include <atomic>
+#include <chrono>
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <condition_variable>
+
+std::mutex g_lockprint;
+constexpr int no_of_philosophers = 7;
+
+class sync_channel
+{
+	std::mutex mutex;
+	std::condition_variable cv;
+
+public:
+	void wait()
+	{
+		std::unique_lock<std::mutex> lock(mutex);
+		cv.wait(lock);
+	}
+
+	void notifyall()
+	{
+		std::unique_lock<std::mutex> lock(mutex);
+		cv.notify_all();
+	}
+};
+
+struct table_setup
+{
+	std::atomic<bool> done { false };
+	sync_channel channel;
+};
+
+class fork
+{
+	int id;
+	int owner;
+	bool dirty;
+	std::mutex mutex;
+
+public:
+	sync_channel channel;
+
+	fork(int const forkId, int const ownerId) :
+					id(forkId), owner(ownerId), dirty(true)
+	{
+	}
+
+	void request(int const ownerId)
+	{
+		while (owner != ownerId)
+		{
+			if (dirty)
+			{
+				std::lock_guard<std::mutex> lock(mutex);
+
+				dirty = false;
+				owner = ownerId;
+			}
+			else
+			{
+				channel.wait();
+			}
+		}
+	}
+
+	void done_using()
+	{
+		dirty = true;
+		channel.notifyall();
+	}
+
+	std::mutex& getmutex()
+	{
+		return mutex;
+	}
+};
+
+struct philosopher
+{
+private:
+	int id;
+	std::string const name;
+	table_setup &setup;
+	fork &left_fork;
+	fork &right_fork;
+	std::thread lifethread;
+public:
+	philosopher(int const id, std::string const &n, table_setup &s, fork &l, fork &r) :
+					id(id), name(n), setup(s), left_fork(l), right_fork(r), lifethread(&philosopher::dine, this)
+	{
+	}
+
+	~philosopher()
+	{
+		lifethread.join();
+	}
+
+	void dine()
+	{
+		setup.channel.wait();
+
+		do
+		{
+			think();
+			eat();
+		} while (!setup.done);
+	}
+
+	void print(std::string const &text)
+	{
+		std::lock_guard<std::mutex> cout_lock(g_lockprint);
+		std::cout << std::left << std::setw(10) << std::setfill(' ') << name << text << std::endl;
+	}
+
+	void eat()
+	{
+		left_fork.request(id);
+		right_fork.request(id);
+
+		std::lock(left_fork.getmutex(), right_fork.getmutex());
+
+		std::lock_guard<std::mutex> left_lock(left_fork.getmutex(), std::adopt_lock);
+		std::lock_guard<std::mutex> right_lock(right_fork.getmutex(), std::adopt_lock);
+
+		print(" started eating.");
+		print(" finished eating.");
+
+		left_fork.done_using();
+		right_fork.done_using();
+	}
+
+	void think()
+	{
+		print(" is thinking ");
+	}
+};
+
+class table
+{
+	table_setup setup;
+
+	/**
+	 * 最后一个叉子是要给第一个philosopher的
+	 */
+	std::array<fork, no_of_philosophers> forks { { { 1, 1 }, { 2, 2 }, { 3, 3 }, { 4, 4 }, { 5, 5 }, { 6, 6 }, { 7, 1 }, } };
+
+	std::array<philosopher, no_of_philosophers> philosophers { { { 1, "Aristotle", setup, forks[0], forks[1] }, { 2, "Platon", setup, forks[1], forks[2] }, { 3, "Descartes", setup, forks[2], forks[3] }, { 4, "Kant", setup, forks[3], forks[4] }, { 5, "Nietzsche", setup, forks[4], forks[5] }, { 6, "Hume", setup, forks[5], forks[6] }, { 7, "Russell", setup, forks[6], forks[0] }, } };
+
+public:
+	void start()
+	{
+
+		setup.channel.notifyall();
+	}
+
+	void stop()
+	{
+		setup.done = true;
+		for (auto &&fork : forks)
+		{
+			fork.channel.notifyall();
+		}
+	}
+};
+
+void dine()
+{
+	std::cout << "Dinner started!" << std::endl;
+
+	{
+		table table;
+
+		table.start();
+		std::this_thread::sleep_for(std::chrono::seconds(30));
+		std::cout << "停止" << std::endl;
+		table.stop();
+	}
+
+	std::cout << "Dinner done!" << std::endl;
+}
+
+int main()
+{
+	dine();
+
+	return 0;
+}
+// g++ test.cpp -pedantic -Wall -Wextra --std=c++11 -lpthread
 
 
 ```
