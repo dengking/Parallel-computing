@@ -62,7 +62,11 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 3、作为software engineer，需要开发出具有scalability的software，这样才能够re-enable the free lunch
 
+### 查询核数来实现O(n) scalability
 
+为了实现O(n) scalability，可能需要查询核数，下面是一些案例:
+
+1、jemalloc
 
 ## Pipeline 
 

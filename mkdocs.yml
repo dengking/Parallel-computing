@@ -30,10 +30,31 @@ markdown_extensions:
 - pymdownx.tilde
 nav:
 - Home: index.md
-- Parallel-computing: Parallel-computing.md
+- wikipedia-Parallel-computing:
+  - Introduction: wikipedia-Parallel-computing/index.md
 - Concurrent-computing:
   - Concurrent-computing: Concurrent-computing/index.md
   - Books: Concurrent-computing/Books.md
+  - Expert-Herb-Sutter:
+    - Introduction: Concurrent-computing/Expert-Herb-Sutter/index.md
+    - 01-The-Pillars-of-Concurrency:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/01-The-Pillars-of-Concurrency/index.md
+    - 02-How-Much-Scalability-Do-You-Have-or-Need:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/02-How-Much-Scalability-Do-You-Have-or-Need/index.md
+    - 06-Use-Lock-Hierarchies-to-Avoid-Deadlock:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/06-Use-Lock-Hierarchies-to-Avoid-Deadlock/index.md
+    - 07-TODO-Break-Amdahl's-Law:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/07-TODO-Break-Amdahl's-Law/index.md
+    - 11-Maximize-Locality-Minimize-Contention:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/11-Maximize-Locality-Minimize-Contention/index.md
+    - 12-Choose-Concurrency-Friendly-Data-Structures:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/12-Choose-Concurrency-Friendly-Data-Structures/index.md
+    - 15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue/index.md
+    - 20-TODO-Sharing-Is-the-Root-of-All-Contention:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/20-TODO-Sharing-Is-the-Root-of-All-Contention/index.md
+    - 31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread:
+      - Introduction: Concurrent-computing/Expert-Herb-Sutter/31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread/index.md
   - Expert-Jeff-Preshing:
     - Introduction: Concurrent-computing/Expert-Jeff-Preshing/index.md
     - Performance:
@@ -108,6 +129,18 @@ nav:
         - Introduction: Concurrent-computing/Expert-Jeff-Preshing/Library-cpp11-on-multicore/Read-code/index.md
         - inmemorylogger:
           - Introduction: Concurrent-computing/Expert-Jeff-Preshing/Library-cpp11-on-multicore/Read-code/inmemorylogger/index.md
+  - Expert-iter_zc:
+    - Introduction: Concurrent-computing/Expert-iter_zc/index.md
+    - "CSDN-\u804A\u804A\u9AD8\u5E76\u53D1-5-\u7406\u89E3\u7F13\u5B58\u4E00\u81F4\u6027\u534F\u8BAE\u4EE5\u53CA\u5BF9\u5E76\u53D1\u7F16\u7A0B\u7684\u5F71\u54CD":
+      - Introduction: "Concurrent-computing/Expert-iter_zc/CSDN-\u804A\u804A\u9AD8\
+          \u5E76\u53D1-5-\u7406\u89E3\u7F13\u5B58\u4E00\u81F4\u6027\u534F\u8BAE\u4EE5\
+          \u53CA\u5BF9\u5E76\u53D1\u7F16\u7A0B\u7684\u5F71\u54CD/index.md"
+    - "CSDN-\u804A\u804A\u9AD8\u5E76\u53D1-6-\u5B9E\u73B0\u51E0\u79CD\u81EA\u65CB\u9501\u4E00":
+      - Introduction: "Concurrent-computing/Expert-iter_zc/CSDN-\u804A\u804A\u9AD8\
+          \u5E76\u53D1-6-\u5B9E\u73B0\u51E0\u79CD\u81EA\u65CB\u9501\u4E00/index.md"
+    - "CSDN-\u804A\u804A\u9AD8\u5E76\u53D1-7-\u5B9E\u73B0\u51E0\u79CD\u81EA\u65CB\u9501\u4E8C":
+      - Introduction: "Concurrent-computing/Expert-iter_zc/CSDN-\u804A\u804A\u9AD8\
+          \u5E76\u53D1-7-\u5B9E\u73B0\u51E0\u79CD\u81EA\u65CB\u9501\u4E8C/index.md"
   - Expert-1024cores:
     - Introduction: Concurrent-computing/Expert-1024cores/index.md
     - Lockfree-Algorithms:
@@ -124,38 +157,56 @@ nav:
       - Introduction: Concurrent-computing/Expert-Cameron/Library-readerwriterqueue/index.md
     - Library-concurrentqueue:
       - Introduction: Concurrent-computing/Expert-Cameron/Library-concurrentqueue/index.md
+  - Course-tau-Multiprocessor-Programming-CS-0368-4061-01:
+    - Introduction: Concurrent-computing/Course-tau-Multiprocessor-Programming-CS-0368-4061-01/index.md
+  - Course-uhcl-Concurrency:
+    - Introduction: Concurrent-computing/Course-uhcl-Concurrency/index.md
+  - rochester-paper-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors:
+    - Introduction: Concurrent-computing/rochester-paper-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors/index.md
   - Concurrency-control:
     - Introduction: Concurrent-computing/Concurrency-control/index.md
     - Synchronization:
       - Introduction: Concurrent-computing/Concurrency-control/Synchronization/index.md
-    - How-to-optimize:
-      - Introduction: Concurrent-computing/Concurrency-control/How-to-optimize/index.md
-    - Challenge:
-      - Starvation:
-        - Introduction: Concurrent-computing/Concurrency-control/Challenge/Starvation/index.md
-    - Optimistic-and-pessimistic:
-      - Introduction: Concurrent-computing/Concurrency-control/Optimistic-and-pessimistic/index.md
-    - Mutual-exclusion:
-      - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/index.md
-      - Lock:
-        - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/index.md
-        - TODO-Mutex:
-          - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/TODO-Mutex/index.md
-        - Seqlock:
-          - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/Seqlock/index.md
-        - "Read\u2013write-lock":
-          - Introduction: "Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/Read\u2013\
-              write-lock/index.md"
-        - Spinlock:
-          - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/Spinlock/index.md
-        - Disadvantage:
-          - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/Disadvantage/index.md
-          - Deadlock-and-livelock:
-            - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/Disadvantage/Deadlock-and-livelock/index.md
-        - Double-checked-locking:
-          - Introduction: Concurrent-computing/Concurrency-control/Mutual-exclusion/Lock/Double-checked-locking/index.md
-    - Transactional-memory:
-      - Introduction: Concurrent-computing/Concurrency-control/Transactional-memory/index.md
+    - Lock:
+      - Introduction: Concurrent-computing/Concurrency-control/Lock/index.md
+      - TODO-Mutex:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/TODO-Mutex/index.md
+      - Linux-Seqlock:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/Linux-Seqlock/index.md
+      - "Read\u2013write-lock":
+        - Introduction: "Concurrent-computing/Concurrency-control/Lock/Read\u2013\
+            write-lock/index.md"
+      - Spinlock:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/index.md
+        - Spinning-lock-optimization:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/Spinning-lock-optimization/index.md
+        - rochester-paper-Spinlock-with-timeout:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/rochester-paper-Spinlock-with-timeout/index.md
+          - paper:
+            - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/rochester-paper-Spinlock-with-timeout/paper/index.md
+        - Ticket-lock:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/Ticket-lock/index.md
+        - library-geidav-spinlocks-bench:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/library-geidav-spinlocks-bench/index.md
+        - library-honkiko-Multi-Core-Toolbox:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/library-honkiko-Multi-Core-Toolbox/index.md
+        - library-honkiko-Multi-Core-Toolbox: library-honkiko-Multi-Core-Toolbox
+      - Double-checked-locking:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/Double-checked-locking/index.md
+      - TODO-Hand-over-hand-lock:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/TODO-Hand-over-hand-lock/index.md
+      - Disadvantage:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/Disadvantage/index.md
+        - Deadlock-and-livelock:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Disadvantage/Deadlock-and-livelock/index.md
+        - Starvation:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Disadvantage/Starvation/index.md
+      - Granularity-of-lock:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/Granularity-of-lock/index.md
+      - Evaluation-metric:
+        - Introduction: Concurrent-computing/Concurrency-control/Lock/Evaluation-metric/index.md
+    - Barrier:
+      - Introduction: Concurrent-computing/Concurrency-control/Barrier/index.md
     - Non-blocking:
       - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/index.md
       - TODO-Level-of-free:
@@ -164,11 +215,7 @@ nav:
           - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/TODO-Level-of-free/Liveness/index.md
         - Lock-free:
           - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/TODO-Level-of-free/Lock-free/index.md
-        - TODO-paper-obstruction-free synchronization-double-ended-queues:
-          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/TODO-Level-of-free/TODO-paper-obstruction-free
-              synchronization-double-ended-queues/index.md
       - Primer:
-        - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Primer/index.md
         - microsoft-Lockless-Programming-Considerations-for-Xbox-360-and-Microsoft-Windows:
           - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Primer/microsoft-Lockless-Programming-Considerations-for-Xbox-360-and-Microsoft-Windows/index.md
       - Atomic-operation:
@@ -176,22 +223,42 @@ nav:
         - Atomic-instruction: Concurrent-computing/Concurrency-control/Non-blocking/Atomic-operation/Atomic-instruction.md
       - Memory-barrier:
         - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-barrier/index.md
+      - Copy-on-write:
+        - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Copy-on-write/index.md
+        - wikipedia-Copy-on-write: Concurrent-computing/Concurrency-control/Non-blocking/Copy-on-write/wikipedia-Copy-on-write.md
       - Memory-reclamation:
         - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/index.md
         - cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies:
           - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies/index.md
+        - Quiescent-state-based-reclamation-QSBR:
+          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Quiescent-state-based-reclamation-QSBR/index.md
+        - Epoch-Based-Reclamation-EBR:
+          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Epoch-Based-Reclamation-EBR/index.md
+        - Hazard-pointer-based reclamation-HPBR:
+          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Hazard-pointer-based
+              reclamation-HPBR/index.md
+          - TODO-Hazard-pointer:
+            - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Hazard-pointer-based
+                reclamation-HPBR/TODO-Hazard-pointer/index.md
         - preshing-Using-Quiescent-States-to-Reclaim-Memory:
           - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/preshing-Using-Quiescent-States-to-Reclaim-Memory/index.md
       - Read-copy-update:
         - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Read-copy-update/index.md
-      - Time-based-concurrency-control:
-        - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Time-based-concurrency-control/index.md
+        - lwn-User-space-RCU:
+          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Read-copy-update/lwn-User-space-RCU/index.md
+      - Version-based:
+        - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/index.md
         - MVCC:
-          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Time-based-concurrency-control/MVCC/index.md
-        - Timestamp-based concurrency-control: Concurrent-computing/Concurrency-control/Non-blocking/Time-based-concurrency-control/Timestamp-based
+          - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/MVCC/index.md
+        - Timestamp-based concurrency-control: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/Timestamp-based
             concurrency-control.md
-    - Barrier:
-      - Introduction: Concurrent-computing/Concurrency-control/Barrier/index.md
+    - Transactional-memory:
+      - Introduction: Concurrent-computing/Concurrency-control/Transactional-memory/index.md
+    - Optimistic-and-pessimistic:
+      - Introduction: Concurrent-computing/Concurrency-control/Optimistic-and-pessimistic/index.md
+      - "zhihu-\u4F60\u4E86\u89E3\u4E50\u89C2\u9501\u548C\u60B2\u89C2\u9501\u5417":
+        - Introduction: "Concurrent-computing/Concurrency-control/Optimistic-and-pessimistic/zhihu-\u4F60\
+            \u4E86\u89E3\u4E50\u89C2\u9501\u548C\u60B2\u89C2\u9501\u5417/index.md"
     - Non-blocking-VS-blocking:
       - Introduction: Concurrent-computing/Concurrency-control/Non-blocking-VS-blocking/index.md
   - Classic-problem:
@@ -200,14 +267,16 @@ nav:
       - Introduction: "Concurrent-computing/Classic-problem/Producer\u2013consumer-problem/index.md"
       - Unbounded-producer-and-consumer-problem: "Concurrent-computing/Classic-problem/Producer\u2013\
           consumer-problem/Unbounded-producer-and-consumer-problem.md"
-    - Dining-philosophers-problem:
-      - Introduction: Concurrent-computing/Classic-problem/Dining-philosophers-problem/index.md
+    - Dining-philosopher:
+      - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/index.md
+      - mariusbancila-Dining-philosopher:
+        - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/mariusbancila-Dining-philosopher/index.md
+        - Chandy-Misra-algorithm:
+          - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/mariusbancila-Dining-philosopher/Chandy-Misra-algorithm/index.md
+      - TODO-howardhinnant-Dining-Philosophers-Rebooted:
+        - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/TODO-howardhinnant-Dining-Philosophers-Rebooted/index.md
     - "Readers\u2013writers-problem":
       - Introduction: "Concurrent-computing/Classic-problem/Readers\u2013writers-problem/index.md"
-    - ABA-problem:
-      - Introduction: Concurrent-computing/Classic-problem/ABA-problem/index.md
-      - TODO-Hazard-pointer:
-        - Introduction: Concurrent-computing/Classic-problem/ABA-problem/TODO-Hazard-pointer/index.md
     - Checkpoint-Synchronization:
       - Introduction: Concurrent-computing/Classic-problem/Checkpoint-Synchronization/index.md
     - Sleeping-barber-problem:
@@ -218,6 +287,11 @@ nav:
     - Introduction: Concurrent-computing/Concurrent-data-structure/index.md
     - Queue:
       - Introduction: Concurrent-computing/Concurrent-data-structure/Queue/index.md
+      - TODO-paper-obstruction-free synchronization-double-ended-queues:
+        - Introduction: Concurrent-computing/Concurrent-data-structure/Queue/TODO-paper-obstruction-free
+            synchronization-double-ended-queues/index.md
+      - TODO-paper-wait-free-queue-with-multiple-enqueuers-and-dequeuers:
+        - Introduction: Concurrent-computing/Concurrent-data-structure/Queue/TODO-paper-wait-free-queue-with-multiple-enqueuers-and-dequeuers/index.md
       - Circular-queue:
         - Introduction: Concurrent-computing/Concurrent-data-structure/Queue/Circular-queue/index.md
     - Hash-table:
@@ -229,6 +303,14 @@ nav:
       - Library-libcds:
         - Introduction: Concurrent-computing/Concurrent-data-structure/Collection-library/Library-libcds/index.md
       - Library-libcds: Library-libcds
+    - Course-Practical-lock-free-data-structures:
+      - Introduction: Concurrent-computing/Concurrent-data-structure/Course-Practical-lock-free-data-structures/index.md
+      - paper-Concurrent-Programming-Without-Locks:
+        - Introduction: Concurrent-computing/Concurrent-data-structure/Course-Practical-lock-free-data-structures/paper-Concurrent-Programming-Without-Locks/index.md
+      - paper-Non-blocking-hashtables-with-open-addressing:
+        - Introduction: Concurrent-computing/Concurrent-data-structure/Course-Practical-lock-free-data-structures/paper-Non-blocking-hashtables-with-open-addressing/index.md
+    - TODO-simongui-Improving-performance-of-lockless-data-structures:
+      - Introduction: Concurrent-computing/Concurrent-data-structure/TODO-simongui-Improving-performance-of-lockless-data-structures/index.md
   - Multithread:
     - Introduction: Concurrent-computing/Multithread/index.md
     - Thread-safety:
@@ -276,73 +358,50 @@ nav:
         - Introduction: Concurrent-computing/Multithread/Topics/Stop-a-sleeping-thread/index.md
       - False-death:
         - Introduction: Concurrent-computing/Multithread/Topics/False-death/index.md
+      - Thread-pool:
+        - Introduction: Concurrent-computing/Multithread/Topics/Thread-pool/index.md
+        - library-progschj-ThreadPool:
+          - Introduction: Concurrent-computing/Multithread/Topics/Thread-pool/library-progschj-ThreadPool/index.md
     - Condition-variables-VS-mutex:
       - Introduction: Concurrent-computing/Multithread/Condition-variables-VS-mutex/index.md
-  - TODO-Concurrent-server:
-    - Introduction: Concurrent-computing/TODO-Concurrent-server/index.md
-    - Case:
-      - Introduction: Concurrent-computing/TODO-Concurrent-server/Case/index.md
-    - The-C10K-problem:
-      - wikipedia-C10k-problem: Concurrent-computing/TODO-Concurrent-server/The-C10K-problem/wikipedia-C10k-problem.md
-      - kegel-Unix-The-C10K-problem: Concurrent-computing/TODO-Concurrent-server/The-C10K-problem/kegel-Unix-The-C10K-problem.md
-    - High-performance-server:
-      - Introduction: Concurrent-computing/TODO-Concurrent-server/High-performance-server/index.md
-      - Load-balancing:
-        - Introduction: Concurrent-computing/TODO-Concurrent-server/High-performance-server/Load-balancing/index.md
-      - "developer.51cto-\u9AD8\u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668":
-        - Introduction: "Concurrent-computing/TODO-Concurrent-server/High-performance-server/developer.51cto-\u9AD8\
-            \u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668/index.md"
-      - "developer.51cto-\u652F\u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837":
-        - Introduction: "Concurrent-computing/TODO-Concurrent-server/High-performance-server/developer.51cto-\u652F\
-            \u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837\
-            /index.md"
-    - Design-pattern:
-      - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/index.md
-      - Active-object:
-        - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/index.md
-        - Asynchronous-method-invocation: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Asynchronous-method-invocation.md
-        - Implementation:
-          - library-syscpp:
-            - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Implementation/library-syscpp/index.md
-          - rosettacode-Active-object: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Implementation/rosettacode-Active-object.md
-          - kjellhedstrom2-Active-Object-the-C++11-way:
-            - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object/Implementation/kjellhedstrom2-Active-Object-the-C++11-way/index.md
-      - Asynchronous-method-dispatch: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Asynchronous-method-dispatch.md
-      - Active-object+observer+visitor:
-        - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object+observer+visitor/index.md
-        - drdobbs-Message-Handling-Without-Dependencies:
-          - Introduction: Concurrent-computing/TODO-Concurrent-server/Design-pattern/Active-object+observer+visitor/drdobbs-Message-Handling-Without-Dependencies/index.md
-    - TODO-thread-model:
-      - Introduction: Concurrent-computing/TODO-Concurrent-server/TODO-thread-model/index.md
+    - TODO-Thread-model:
+      - Introduction: Concurrent-computing/Multithread/TODO-Thread-model/index.md
+      - "TODO-Locate-assign-\u7EBF\u7A0B\u5B9A\u4F4D":
+        - Introduction: "Concurrent-computing/Multithread/TODO-Thread-model/TODO-Locate-assign-\u7EBF\
+            \u7A0B\u5B9A\u4F4D/index.md"
+  - Design-and-optimize:
+    - Introduction: Concurrent-computing/Design-and-optimize/index.md
 - Distributed-computing:
   - Distributed-computing: Distributed-computing/index.md
+  - Book-Designing-Data-Intensive-Applications:
+    - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/index.md
+    - Preface: Distributed-computing/Book-Designing-Data-Intensive-Applications/Preface.md
+    - Outline-of-This-Book: Distributed-computing/Book-Designing-Data-Intensive-Applications/Outline-of-This-Book.md
+    - PART-I:
+      - CHAPTER-1-Reliable-Scalable-and-Maintainable-Applications:
+        - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-I/CHAPTER-1-Reliable-Scalable-and-Maintainable-Applications/index.md
+    - PART-II-Distributed-Data:
+      - PART-II-Distributed-Data: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/PART-II-Distributed-Data.md
+      - CHAPTER-5-Replication:
+        - CHAPTER-5-Replication: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-5-Replication/CHAPTER-5-Replication.md
+      - CHAPTER-8-The-Trouble-with-Distributed-Systems:
+        - CHAPTER-8-The-Trouble-with-Distributed-Systems: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-8-The-Trouble-with-Distributed-Systems/index.md
+  - Book-Distributed-operating-systems:
+    - Introduction: Distributed-computing/book-Distributed-operating-systems/index.md
+    - 6-Distributed-Shared-Memory:
+      - 6.3-Consistency-model: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3-Consistency-model.md
+      - 6.3.1-Strict-Consistency: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.1-Strict-Consistency.md
+      - 6.3.2-Sequential-Consistency:
+        - Introduction: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.2-Sequential-Consistency/index.md
+      - 6.3.8-Summary-of-Consistency-Models: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.8-Summary-of-Consistency-Models.md
+  - Book-Programming-Models-for-Distributed-Computing:
+    - Introduction: Distributed-computing/Book-Programming-Models-for-Distributed-Computing/index.md
   - Theory:
     - Introduction: Distributed-computing/Theory/index.md
     - Trouble-with-Distributed-Systems: Distributed-computing/Theory/Trouble-with-Distributed-Systems.md
     - Abstraction:
       - Abstraction-in-distributed-computing: Distributed-computing/Theory/Abstraction/Abstraction-in-distributed-computing.md
     - Design-goal-of-distributed-systems: Distributed-computing/Theory/Design-goal-of-distributed-systems.md
-    - Book-Designing-Data-Intensive-Applications:
-      - Introduction: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/index.md
-      - Preface: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/Preface.md
-      - Outline-of-This-Book: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/Outline-of-This-Book.md
-      - PART-I:
-        - CHAPTER-1-Reliable-Scalable-and-Maintainable-Applications:
-          - Introduction: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/PART-I/CHAPTER-1-Reliable-Scalable-and-Maintainable-Applications/index.md
-      - PART-II-Distributed-Data:
-        - PART-II-Distributed-Data: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/PART-II-Distributed-Data.md
-        - CHAPTER-5-Replication:
-          - CHAPTER-5-Replication: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-5-Replication/CHAPTER-5-Replication.md
-        - CHAPTER-8-The-Trouble-with-Distributed-Systems:
-          - CHAPTER-8-The-Trouble-with-Distributed-Systems: Distributed-computing/Theory/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-8-The-Trouble-with-Distributed-Systems/index.md
-    - book-Distributed-operating-systems:
-      - Introduction: Distributed-computing/Theory/book-Distributed-operating-systems/index.md
-      - 6-Distributed-Shared-Memory:
-        - 6.3-Consistency-model: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3-Consistency-model.md
-        - 6.3.1-Strict-Consistency: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.1-Strict-Consistency.md
-        - 6.3.2-Sequential-Consistency:
-          - Introduction: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.2-Sequential-Consistency/index.md
-        - 6.3.8-Summary-of-Consistency-Models: Distributed-computing/Theory/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.8-Summary-of-Consistency-Models.md
     - CAP:
       - Introduction: Distributed-computing/Theory/CAP/index.md
       - CAP:
@@ -401,6 +460,8 @@ nav:
       - Introduction: Distributed-computing/Technique/Heartbeat/index.md
     - Transaction:
       - Introduction: Distributed-computing/Technique/Transaction/index.md
+    - Rendezvous:
+      - Introduction: Distributed-computing/Technique/Rendezvous/index.md
   - Architecture:
     - Introduction: Distributed-computing/Architecture/index.md
     - "Client\u2013server-architecture": "Distributed-computing/Architecture/Client\u2013\
@@ -409,10 +470,31 @@ nav:
     - Client-server-VS-Peer-to-peer: Distributed-computing/Architecture/Client-server-VS-Peer-to-peer.md
   - Expert-Leslie-Lamport:
     - Introduction: Distributed-computing/Expert-Leslie-Lamport/index.md
+  - Distributed-hash-table:
+    - Introduction: Distributed-computing/Distributed-hash-table/index.md
+    - Consistent-hashing:
+      - Introduction: Distributed-computing/Distributed-hash-table/Consistent-hashing/index.md
+      - "cnblogs-\u4E00\u81F4\u6027Hash\u7684\u539F\u7406\u548C\u5B9E\u8DF5":
+        - Introduction: "Distributed-computing/Distributed-hash-table/Consistent-hashing/cnblogs-\u4E00\
+            \u81F4\u6027Hash\u7684\u539F\u7406\u548C\u5B9E\u8DF5/index.md"
+    - Rendezvous-hashing:
+      - Introduction: Distributed-computing/Distributed-hash-table/Rendezvous-hashing/index.md
+    - TODO-Consistent-hash-VS-rendezvous-hash: Distributed-computing/Distributed-hash-table/TODO-Consistent-hash-VS-rendezvous-hash.md
+    - wikipedia-Distributed-cache: Distributed-computing/Distributed-hash-table/wikipedia-Distributed-cache.md
 - Model:
   - Introduction: Model/index.md
   - Multiple-model:
     - Introduction: Model/Multiple-model/index.md
+    - Shared-data:
+      - Introduction: Model/Multiple-model/Shared-data/index.md
+      - TODO-Shared-memory:
+        - Introduction: Model/Multiple-model/Shared-data/TODO-Shared-memory/index.md
+      - Shared-resource:
+        - Introduction: Model/Multiple-model/Shared-data/Shared-resource/index.md
+    - Contention-and-race:
+      - Introduction: Model/Multiple-model/Contention-and-race/index.md
+      - Resource-contention:
+        - Introduction: Model/Multiple-model/Contention-and-race/Resource-contention/index.md
     - Read-and-write:
       - Introduction: Model/Multiple-model/Read-and-write/index.md
   - "Fork\u2013join-model":
@@ -423,32 +505,28 @@ nav:
     - Introduction: Model/Communicating-Sequential-Processes/index.md
 - Programming-model:
   - Introduction: Programming-model/index.md
-  - Book-Programming-Models-for-Distributed-Computing:
-    - Introduction: Programming-model/Book-Programming-Models-for-Distributed-Computing/index.md
-  - Northeastern-University-CS7680:
-    - Introduction: Programming-model/Northeastern-University-CS7680/index.md
-  - TODO-MapReduce:
-    - Introduction: Programming-model/TODO-MapReduce/index.md
-    - VS-MapReduce-VS-DivideAndConquer: Programming-model/TODO-MapReduce/VS-MapReduce-VS-DivideAndConquer.md
-  - Blocking-and-synchronous:
-    - Introduction: Programming-model/Blocking-and-synchronous/index.md
-    - Blocking-and-non-blocking:
-      - Introduction: Programming-model/Blocking-and-synchronous/Blocking-and-non-blocking/index.md
-    - Sync-and-async:
-      - Introduction: Programming-model/Blocking-and-synchronous/Sync-and-async/index.md
-      - Asynchronous-programming:
-        - Introduction: Programming-model/Blocking-and-synchronous/Sync-and-async/Asynchronous-programming/index.md
-        - Coroutine-async-await:
-          - Introduction: Programming-model/Blocking-and-synchronous/Sync-and-async/Asynchronous-programming/Coroutine-async-await/index.md
-          - Coroutine:
-            - Introduction: Programming-model/Blocking-and-synchronous/Sync-and-async/Asynchronous-programming/Coroutine-async-await/Coroutine/index.md
-        - Promise-future:
-          - Introduction: Programming-model/Blocking-and-synchronous/Sync-and-async/Asynchronous-programming/Promise-future/index.md
   - Active-and-passive:
     - Introduction: Programming-model/Active-and-passive/index.md
     - Busy-waiting:
       - Introduction: Programming-model/Active-and-passive/Busy-waiting/index.md
     - Polling-and-notify: Programming-model/Active-and-passive/Polling-and-notify.md
+  - TODO-MapReduce:
+    - Introduction: Programming-model/TODO-MapReduce/index.md
+  - Blocking-and-synchronous:
+    - Introduction: Programming-model/Blocking-and-synchronous/index.md
+  - Blocking-and-non-blocking:
+    - Introduction: Programming-model/Blocking-and-non-blocking/index.md
+  - Sync-and-async:
+    - Introduction: Programming-model/Sync-and-async/index.md
+    - Asynchronous-programming:
+      - Introduction: Programming-model/Sync-and-async/Asynchronous-programming/index.md
+      - Coroutine-async-await:
+        - Introduction: Programming-model/Sync-and-async/Asynchronous-programming/Coroutine-async-await/index.md
+        - Coroutine:
+          - Introduction: Programming-model/Sync-and-async/Asynchronous-programming/Coroutine-async-await/Coroutine/index.md
+      - Promise-future:
+        - Introduction: Programming-model/Sync-and-async/Asynchronous-programming/Promise-future/index.md
+        - Future-promise-VS-observer-pattern-VS-callback: Programming-model/Sync-and-async/Asynchronous-programming/Promise-future/Future-promise-VS-observer-pattern-VS-callback.md
   - API:
     - Introduction: Programming-model/API/index.md
     - Threading-Building-Blocks:
@@ -457,49 +535,125 @@ nav:
       - Introduction: Programming-model/API/OpenMP/index.md
     - Cilk:
       - Introduction: Programming-model/API/Cilk/index.md
+- Miscellaneous:
+  - Ordering-in-parallel-computing: Miscellaneous/Ordering-in-parallel-computing.md
+  - Scalability:
+    - Introduction: Miscellaneous/Scalability/index.md
+- Event-driven-concurrent-server:
+  - Introduction: Event-driven-concurrent-server/index.md
+  - Event-driven-model:
+    - Introduction: Event-driven-concurrent-server/Event-driven-model/index.md
+    - What-is-event-driven-model:
+      - Introduction: Event-driven-concurrent-server/Event-driven-model/What-is-event-driven-model/index.md
+      - Monitor-notify-dispatch: Event-driven-concurrent-server/Event-driven-model/What-is-event-driven-model/Monitor-notify-dispatch.md
+    - Event-loop:
+      - Event-loop: Event-driven-concurrent-server/Event-driven-model/Event-loop/index.md
+      - Implementation: Event-driven-concurrent-server/Event-driven-model/Event-loop/Implementation.md
+    - Event-source-and-passing:
+      - Introduction: Event-driven-concurrent-server/Event-driven-model/Event-source-and-passing/index.md
+    - Event-VS-exception-VS-signal: Event-driven-concurrent-server/Event-driven-model/Event-VS-exception-VS-signal.md
+  - Event-library:
+    - Introduction: Event-driven-concurrent-server/Event-library/index.md
+  - library-Netty:
+    - Introduction: Event-driven-concurrent-server/library-Netty/index.md
+  - library-libevent:
+    - Introduction: Event-driven-concurrent-server/library-libevent/index.md
+  - library-libuv:
+    - Introduction: Event-driven-concurrent-server/library-libuv/index.md
+    - Design-overview:
+      - Introduction: Event-driven-concurrent-server/library-libuv/Design-overview/index.md
+    - User-guide:
+      - Basics-of-libuv:
+        - Introduction: Event-driven-concurrent-server/library-libuv/User-guide/Basics-of-libuv/index.md
+  - Concurrent-server:
+    - Introduction: Event-driven-concurrent-server/Concurrent-server/index.md
+    - The-C10K-problem:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/index.md
+      - kegel-Unix-The-C10K-problem:
+        - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/kegel-Unix-The-C10K-problem/index.md
+    - TODO-linuxgazette-Concurrent-Server-Design-on-Linux-Systems:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/TODO-linuxgazette-Concurrent-Server-Design-on-Linux-Systems/index.md
+    - High-performance-server:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/High-performance-server/index.md
+      - "developer.51cto-\u9AD8\u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668":
+        - Introduction: "Event-driven-concurrent-server/Concurrent-server/High-performance-server/developer.51cto-\u9AD8\
+            \u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668/index.md"
+      - "developer.51cto-\u652F\u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837":
+        - Introduction: "Event-driven-concurrent-server/Concurrent-server/High-performance-server/developer.51cto-\u652F\
+            \u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837\
+            /index.md"
+    - Load-balancing:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/index.md
+      - TODO-Round-robin-scheduling:
+        - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/TODO-Round-robin-scheduling/index.md
+    - Case:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/index.md
+  - Design-pattern:
+    - Introduction: Event-driven-concurrent-server/Design-pattern/index.md
+    - Asynchronous-method-dispatch: Event-driven-concurrent-server/Design-pattern/Asynchronous-method-dispatch.md
+    - Observer-pattern:
+      - Introduction: Event-driven-concurrent-server/Design-pattern/Observer-pattern/index.md
+      - Code:
+        - Introduction: Event-driven-concurrent-server/Design-pattern/Observer-pattern/Code/index.md
+    - Active-object+observer+visitor:
+      - Introduction: Event-driven-concurrent-server/Design-pattern/Active-object+observer+visitor/index.md
+      - drdobbs-Message-Handling-Without-Dependencies:
+        - Introduction: Event-driven-concurrent-server/Design-pattern/Active-object+observer+visitor/drdobbs-Message-Handling-Without-Dependencies/index.md
+    - Proactor-reactor:
+      - Introduction: Event-driven-concurrent-server/Design-pattern/Proactor-reactor/index.md
+      - Proactor:
+        - Introduction: Event-driven-concurrent-server/Design-pattern/Proactor-reactor/Proactor/index.md
+      - Reactor:
+        - Introduction: Event-driven-concurrent-server/Design-pattern/Proactor-reactor/Reactor/index.md
+    - Actor-and-active-object:
+      - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/index.md
+      - Actor:
+        - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Actor/index.md
+        - brianstorti-The-actor-model-in-10-minutes:
+          - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Actor/brianstorti-The-actor-model-in-10-minutes/index.md
+        - Writing-Concurrent-Programs-Using-F#-Mailbox-Processors:
+          - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Actor/Writing-Concurrent-Programs-Using-F#-Mailbox-Processors/index.md
+      - Active-object:
+        - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/index.md
+        - Asynchronous-method-invocation: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/Asynchronous-method-invocation.md
+        - Implementation:
+          - library-syscpp:
+            - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/Implementation/library-syscpp/index.md
+          - rosettacode-Active-object: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/Implementation/rosettacode-Active-object.md
+          - kjellhedstrom2-Active-Object-the-C++11-way:
+            - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/Implementation/kjellhedstrom2-Active-Object-the-C++11-way/index.md
+  - Expert-Nick-Black:
+    - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/index.md
+    - Fast-UNIX-Servers:
+      - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/Fast-UNIX-Servers/index.md
+- Message-processing-system:
+  - Introduction: Message-processing-system/index.md
+  - Stream-based-message-processing-system:
+    - Introduction: Message-processing-system/Stream-based-message-processing-system/index.md
+    - Implementation:
+      - Flink:
+        - Introduction: Message-processing-system/Stream-based-message-processing-system/Implementation/Flink/index.md
+      - Kafka:
+        - Introduction: Message-processing-system/Stream-based-message-processing-system/Implementation/Kafka/index.md
+  - Distributed-log-system:
+    - Introduction: Message-processing-system/Distributed-log-system/index.md
+  - Messaging-pattern:
+    - Introduction: Message-processing-system/Messaging-pattern/index.md
+    - Message-queue:
+      - Introduction: Message-processing-system/Messaging-pattern/Message-queue/index.md
+      - AMQP:
+        - Advanced-Message-Queuing-Protocol: Message-processing-system/Messaging-pattern/Message-queue/AMQP/index.md
+        - Fan-out: Message-processing-system/Messaging-pattern/Message-queue/AMQP/Fan-out.md
+        - software-Rabbitmq:
+          - AMQP-0-9-1-Model-Explained: Message-processing-system/Messaging-pattern/Message-queue/AMQP/software-Rabbitmq/AMQP-0-9-1-Model-Explained.md
+    - Pub-sub:
+      - Introduction: Message-processing-system/Messaging-pattern/Pub-sub/index.md
+  - library-ZeroMQ:
+    - ZeroMQ: Message-processing-system/library-ZeroMQ/index.md
+  - library-Celery:
+    - Introduction: Message-processing-system/library-Celery/index.md
 - Application:
   - Introduction: Application/index.md
-  - Message-processing-system:
-    - Introduction: Application/Message-processing-system/index.md
-    - Event-driven-model:
-      - Introduction: Application/Message-processing-system/Event-driven-model/index.md
-      - Event-loop:
-        - Event-loop: Application/Message-processing-system/Event-driven-model/Event-loop/index.md
-        - Implementation: Application/Message-processing-system/Event-driven-model/Event-loop/Implementation.md
-      - Event-source-and-passing:
-        - Introduction: Application/Message-processing-system/Event-driven-model/Event-source-and-passing/index.md
-      - Event-library:
-        - Introduction: Application/Message-processing-system/Event-driven-model/Event-library/index.md
-      - Event-VS-exception-VS-signal: Application/Message-processing-system/Event-driven-model/Event-VS-exception-VS-signal.md
-      - Design-pattern:
-        - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/index.md
-        - Messaging-pattern: Application/Message-processing-system/Event-driven-model/Design-pattern/Messaging-pattern.md
-        - Pub-sub:
-          - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Pub-sub/index.md
-        - Actor-proactor-reactor:
-          - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/index.md
-          - Actor:
-            - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Actor/index.md
-          - Proactor:
-            - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Proactor/index.md
-          - Reactor:
-            - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Actor-proactor-reactor/Reactor/index.md
-        - Message-queue:
-          - Introduction: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/index.md
-          - AMQP:
-            - Advanced-Message-Queuing-Protocol: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/index.md
-            - Fan-out: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Fan-out.md
-            - Rabbitmq:
-              - AMQP-0-9-1-Model-Explained: Application/Message-processing-system/Event-driven-model/Design-pattern/Message-queue/AMQP/Rabbitmq/AMQP-0-9-1-Model-Explained.md
-    - Stream-based-message-processing-system:
-      - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/index.md
-      - Implementation:
-        - Flink:
-          - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/Implementation/Flink/index.md
-        - Kafka:
-          - Introduction: Application/Message-processing-system/Stream-based-message-processing-system/Implementation/Kafka/index.md
-    - Distributed-log-system:
-      - Introduction: Application/Message-processing-system/Distributed-log-system/index.md
   - Parallel-numeric-processing-system:
     - Introduction: Application/Parallel-numeric-processing-system/index.md
     - Dataflow-programming:
@@ -516,35 +670,32 @@ nav:
     - Is-git-a-block-chain: Application/Blockchain/Is-git-a-block-chain.md
   - IPFS:
     - Introduction: Application/IPFS/index.md
-  - ZooKeeper:
-    - Introduction: Application/ZooKeeper/index.md
-    - Overview:
-      - Introduction: Application/ZooKeeper/Overview/index.md
-    - Developers:
-      - Introduction: Application/ZooKeeper/Developers/index.md
-      - ZK-client:
-        - Introduction: Application/ZooKeeper/Developers/ZK-client/index.md
-        - Java-Apache-Curator:
-          - Introduction: Application/ZooKeeper/Developers/ZK-client/Java-Apache-Curator/index.md
-        - Zookeeper-cpp:
-          - Introduction: Application/ZooKeeper/Developers/ZK-client/Zookeeper-cpp/index.md
-          - Read-code:
-            - Introduction: Application/ZooKeeper/Developers/ZK-client/Zookeeper-cpp/Read-code/index.md
-      - Application:
-        - Introduction: Application/ZooKeeper/Developers/Application/index.md
-        - Lead-election:
-          - Introduction: Application/ZooKeeper/Developers/Application/Lead-election/index.md
-          - Automatic-failover-using-ZK: Application/ZooKeeper/Developers/Application/Lead-election/Automatic-failover-using-ZK.md
-        - Lock:
-          - Introduction: Application/ZooKeeper/Developers/Application/Lock/index.md
-        - Herd-Effect-in-ZK: Application/ZooKeeper/Developers/Application/Herd-Effect-in-ZK.md
-  - Celery:
-    - Introduction: Application/Celery/index.md
   - NFS:
     - Network-File-System: Application/NFS/Network-File-System.md
   - RPC:
     - Introduction: Application/RPC/index.md
-- Ordering-in-parallel-computing: Ordering-in-parallel-computing.md
+- library-ZooKeeper:
+  - Introduction: library-ZooKeeper/index.md
+  - Overview:
+    - Introduction: library-ZooKeeper/Overview/index.md
+  - Developers:
+    - Introduction: library-ZooKeeper/Developers/index.md
+    - ZK-client:
+      - Introduction: library-ZooKeeper/Developers/ZK-client/index.md
+      - Java-Apache-Curator:
+        - Introduction: library-ZooKeeper/Developers/ZK-client/Java-Apache-Curator/index.md
+      - Zookeeper-cpp:
+        - Introduction: library-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/index.md
+        - Read-code:
+          - Introduction: library-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/Read-code/index.md
+    - Application:
+      - Introduction: library-ZooKeeper/Developers/Application/index.md
+      - Lead-election:
+        - Introduction: library-ZooKeeper/Developers/Application/Lead-election/index.md
+        - Automatic-failover-using-ZK: library-ZooKeeper/Developers/Application/Lead-election/Automatic-failover-using-ZK.md
+      - Lock:
+        - Introduction: library-ZooKeeper/Developers/Application/Lock/index.md
+      - Herd-Effect-in-ZK: library-ZooKeeper/Developers/Application/Herd-Effect-in-ZK.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Parallel-computing

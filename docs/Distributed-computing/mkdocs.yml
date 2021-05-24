@@ -1,5 +1,9 @@
 nav:
     - Distributed-computing: index.md
+    - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    - Book-Distributed-operating-systems: book-Distributed-operating-systems    
+    - Book-Programming-Models-for-Distributed-Computing: Book-Programming-Models-for-Distributed-Computing
+    # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
     - Theory: Theory
     - Technique: Technique
     - Architecture: Architecture
