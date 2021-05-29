@@ -46,6 +46,10 @@ race condition可能发生于application内部：
 
 2、在APUE 的10.6 Reentrant Functions章节介绍的；在这种情况下，application并没有使用thread pool，process pool，但是依然存在race，在这种情况下， many所指为对async-signal unsafe function（或者称之为**unreentrant** function，注意它不是只的signal handler）的[re-enter](https://en.wikipedia.org/wiki/Reentrancy_(computing))（重入），the one则指async-signal unsafe function中使用到的data structure；
 
+> NOTE: 
+>
+> 在 drdobbs [Use Lock Hierarchies to Avoid Deadlock](https://www.drdobbs.com/parallel/use-lock-hierarchies-to-avoid-deadlock/204801163)  中，也阐述了相同观点
+
 3、可能发生于application与OS 中的其他application之间，即OS中的多个不同computing entity operate the one in a uncontrollable sequence or time，这种情况最最典型的就是[time of checker to time of use](https://en.wikipedia.org/wiki/Time_of_check_to_time_of_use) ；
 
 4、可能发生于network的不同end之间，这种情况在Wikipedia的[Race condition](https://en.wikipedia.org/wiki/Race_condition) 的[Networking](https://en.wikipedia.org/wiki/Race_condition#Networking)章节中有一个非常好的例子；
@@ -79,16 +83,6 @@ programmer应该根据avoid race 发生的范围采取合适的方法 to avoid i
 多个thread同时对原子变量进行操作，原子变量能够保证原子性，即没有中间状态，从而保证了线程安全；
 
 使用原子变量进行lockless programming还需要克服的一个问题是：memory reordering，这在"memory ordering"章节中会进行描述；
-
-
-
-## draft
-
-### 不使用async-signal unsafe function
-
-当然有些情况下的race condition是通过OS提供的各种方法是无法avoid，比如在APUE 的10.6 Reentrant Functions章节介绍的情况，这种情况下，就只有不使用这些async-signal unsafe function才能够彻底规避；
-
-> 思考:原子操作有哪些优良性质
 
 
 
