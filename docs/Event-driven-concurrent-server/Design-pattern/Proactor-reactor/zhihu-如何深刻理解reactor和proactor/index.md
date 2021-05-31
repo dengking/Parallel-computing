@@ -1,22 +1,18 @@
-# Actor、proactor and reactor
+# zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938)
 
 
 
-## zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938)
+## [A](https://www.zhihu.com/question/26943938/answer/68773398)
 
-
-
-### [A](https://www.zhihu.com/question/26943938/answer/68773398)
-
-#### 1、标准定义
+### 1、标准定义
 
 两种I/O多路复用模式：Reactor和Proactor
 
-**Event Demultiplexer and Event Handler**
+#### Event Demultiplexer and Event Handler
 
 一般地,I/O多路复用机制都依赖于一个事件**多路分离器(Event Demultiplexer)**。**分离器对象**可将来自事件源的I/O事件分离出来，并分发到对应的**read/write事件处理器(Event Handler)**(或回调函数)。开发人员预先注册需要处理的事件及其事件处理器（或回调函数）；事件分离器负责将请求事件传递给事件处理器。
 
-**同步IO或异步IO**
+#### 同步IO或异步IO
 
 **两个与事件分离器有关的模式是Reactor和Proactor。Reactor模式采用同步IO，而Proactor采用异步IO。**
 
@@ -33,6 +29,8 @@
 在**Reactor**中，**事件分离器**负责等待文件描述符或socket为读写操作准备就绪，然后将就绪事件传递给对应的处理器，最后由**处理器**负责完成实际的读写工作。
 
 在**Proactor**模式中，处理器--或者兼任处理器的**事件分离器**，只负责发起异步读写操作。IO操作本身由**操作系统**来完成。传递给操作系统的参数需要包括用户定义的**数据缓冲区地址**和**数据大小**，操作系统才能从中得到写出操作所需数据，或写入从socket读到的数据。**事件分离器**捕获**IO操作完成事件**，然后将事件传递给对应处理器。比如，在windows上，处理器发起一个异步IO操作，再由事件分离器等待IOCompletion事件。典型的异步模式实现，都建立在操作系统支持异步API的基础之上，我们将这种实现称为“系统级”异步或“真”异步，因为应用程序完全依赖操作系统执行真正的IO工作。
+
+#### Example
 
 举个例子，将有助于理解Reactor与Proactor二者的差异，以读操作为例（类操作类似）。
 
@@ -64,7 +62,7 @@
 
 不同点在于，异步情况下(Proactor)，当回调handler时，表示IO操作已经完成；同步情况下(Reactor)，回调handler时，表示IO设备可以进行某个操作(can read or can write)。
 
-#### 2、通俗理解
+### 2、通俗理解
 
 使用Proactor框架和Reactor框架都可以极大的简化网络应用的开发，但它们的重点却不同。
 
@@ -78,7 +76,7 @@ Reactor框架中用户定义的操作是在实际操作之前调用的。比如�
 http://www.cnblogs.com/dawen/archive/2011/05/18/2050358.html
 ```
 
-### [A](https://www.zhihu.com/question/26943938/answer/35007092)
+## [A](https://www.zhihu.com/question/26943938/answer/35007092)
 
 reactor：能收了你跟俺说一声。
 
@@ -86,7 +84,7 @@ proactor: 你给我收十个字节，收好了跟俺说一声。
 
 
 
-### [A](https://www.zhihu.com/question/26943938/answer/35034068)
+## [A](https://www.zhihu.com/question/26943938/answer/35034068)
 
 Reactor: 
 
@@ -98,36 +96,386 @@ IOCP/Boost.Asio
 
 linux下还是Reactor把, 没有os支持, Proactor玩不转.
 
-## stackoverflow [What is the difference between event driven model and reactor pattern? ](https://stackoverflow.com/questions/9138294/what-is-the-difference-between-event-driven-model-and-reactor-pattern)
-
-From the wikipedia [Reactor Pattern](http://en.wikipedia.org/wiki/Reactor_pattern) article:
-
-> The reactor design pattern is an event handling pattern for handling service requests delivered concurrently to a service handler by one or more inputs.
-
-It named a few examples, e.g. `nodejs`, `twisted`, `eventmachine`
-
-But what I understand that above is popular event driven framework, so make them also a reactor pattern framework?
-
-How to differentiate between these two? Or they are the same?
-
-### [A](https://stackoverflow.com/a/9143390)
-
-The **reactor pattern** is more specific than "event driven programming". It is a specific implementation technique used when doing **event driven programming**. However, the term is not used with much accuracy in typical conversation, so you should be careful about using it and expecting your audience to understand you, and you should be careful in how you interpret the term when you encounter its use.
-
-One way to look at the reactor pattern is to consider it closely related to the idea of "non-blocking" operations. The reactor sends out notifications when certain operations can be completed without blocking. For example, `select(2)` can be used to implement the **reactor pattern** for reading from and writing to sockets using the standard BSD socket APIs (`recv(2)`, `send(2)`, etc). `select` will tell you when you can receive bytes from a socket instantly - because the bytes are present in the kernel receiver buffer for that socket, for example.
-
-Another pattern you might want to consider while thinking about these ideas is the ***proactor* pattern**. In contrast to the **reactor pattern**, the **proactor pattern** has operations start regardless of whether they can finish immediately or not, has them performed *asynchronously*, and then arranges to deliver notification about their **completion**.
-
-The Windows I/O Completion Ports (IOCP) API is one example where the *proactor* pattern can be seen. When performing a send on a socket with IOCP, the send operation is started regardless of whether there is any room in the kernel send buffer for that socket. The send operation continues (in another thread, perhaps a thread in the kernel) while the `WSASend` call completes immediately. When the send *actually* completes (meaning only that the bytes being sent have been copied into the kernel send buffer for that socket), a callback function supplied to the `WSASend` call is invoked (in a new thread in the application).
-
-This approach of starting operations and then being notified when they are complete is central to the idea of *asynchronous* operations. Compare it to *non-blocking* operations where you wait until an operation can complete immediately before attempting to perform it.
-
-Either approach can be used for event driven programming. Using the reactor pattern, a program waits for the *event* of (for example) a socket being readable and then reads from it. Using the proactor pattern, the program instead waits for the *event* of a socket read completing.
-
-Strictly speaking, Twisted misuses the term *reactor*. The Twisted reactor which is based on `select(2)` (`twisted.internet.selectreactor`) is implemented using non-blocking I/O, which is very reactor-like. However, the interface it exposes to application code is *asynchronous*, making it more proactor-like. Twisted also has a reactor based on IOCP. This reactor exposes the same asynchronous application-facing API **and** uses the proactor-like IOCP APIs. This hybrid approach, varying from platform to platform in its details, makes neither the term "reactor" nor "proactor" particularly accurate, but since the API exposed by `twisted.internet.reactor` is basically entirely asynchronous instead of non-blocking, *proactor* would probably have been a better choice of name.
+## [小林coding的回答](https://www.zhihu.com/question/26943938/answer/1856426252)
 
 
 
-### [A](https://stackoverflow.com/a/38971145)
+别小看这两个东西，特别是 Reactor 模式，市面上常见的开源软件很多都采用了这个方案，比如 Redis、Nginx、Netty 等等，所以学好这个模式设计的思想，不仅有助于我们理解很多开源软件，而且也能在面试时吹逼。
 
-I think that this separation "non-blocking" and "asynchronous" is wrong, as the main implication of "asynchronous" is "non-blocking". Reactor pattern is about asynchronous (so non-blocking) calls, but synchronous (blocking) processing of those calls. Proactor is about asynchronous (non-blocking) calls and asynchronous (non-blocking) processing of those calls.
+发车！
+
+
+
+![img](./v2-e7c8ec8a75fc13c602f394bb3c8e45b5_1440w.jpg)
+
+```
+![img](https://pic4.zhimg.com/80/v2-e7c8ec8a75fc13c602f394bb3c8e45b5_1440w.jpg?source=1940ef5c)
+```
+
+
+
+
+------
+
+### 演进
+
+> NOTE: 
+>
+> C10K问题
+
+#### Concurrent server: 每个client一个thread、process
+
+如果要让服务器服务多个客户端，那么最直接的方式就是为每一条连接创建线程。
+
+其实创建进程也是可以的，原理是一样的，进程和线程的区别在于线程比较轻量级些，线程的创建和线程间切换的成本要小些，为了描述简述，后面都以线程为例。
+
+处理完业务逻辑后，随着连接关闭后线程也同样要销毁了，但是这样不停地创建和销毁线程，不仅会带来性能开销，也会造成浪费资源，而且如果要连接几万条连接，创建几万个线程去应对也是不现实的。
+
+#### Concurrent server: thread pool
+
+要这么解决这个问题呢？我们可以使用「资源复用」的方式。
+
+也就是不用再为每个连接创建线程，而是创建一个「线程池」，将连接分配给线程，然后一个线程可以处理多个连接的业务。
+
+不过，这样又引来一个新的问题，线程怎样才能高效地处理多个连接的业务？
+
+当一个连接对应一个线程时，线程一般采用「read -> 业务处理 -> send」的处理流程，如果当前连接没有数据可读，那么线程会阻塞在 `read` 操作上（ socket 默认情况是阻塞 I/O），不过这种阻塞方式并不影响其他线程。
+
+但是引入了线程池，那么一个线程要处理多个连接的业务，线程在处理某个连接的 `read` 操作时，如果遇到没有数据可读，就会发生阻塞，那么线程就没办法继续处理其他连接的业务。
+
+要解决这一个问题，最简单的方式就是将 socket 改成非阻塞，然后线程不断地轮询调用 `read` 操作来判断是否有数据，这种方式虽然该能够解决阻塞的问题，但是解决的方式比较粗暴，因为轮询是要消耗 CPU 的，而且随着一个 线程处理的连接越多，轮询的效率就会越低。
+
+上面的问题在于，线程并不知道当前连接是否有数据可读，从而需要每次通过 `read` 去试探。
+
+#### Concurrent server: event driven IO multiplexing
+
+那有没有办法在只有当连接上有数据的时候，线程才去发起读请求呢？答案是有的，实现这一技术的就是 I/O 多路复用。
+
+I/O 多路复用技术会用一个系统调用函数来监听我们所有关心的连接，也就说可以在一个监控线程里面监控很多的连接。
+
+
+
+![img](./v2-0a86ab90d8167860dec5c695064648f3_hd.jpg)
+
+
+
+```
+![img](https://pic1.zhimg.com/50/v2-0a86ab90d8167860dec5c695064648f3_hd.jpg)
+```
+
+
+
+我们熟悉的 select/poll/epoll 就是内核提供给用户态的多路复用系统调用，线程可以通过一个系统调用函数从内核中获取多个事件。
+
+> PS：如果想知道 select/poll/epoll 的区别，可以看看小林之前写的这篇文章：[这次答应我，一举拿下 I/O 多路复用！](https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/Qpa0qXxuIM8jrBqDaXmVNA)
+
+select/poll/epoll 是如何获取网络事件的呢？
+
+在获取事件时，先把我们要关心的连接传给内核，再由内核检测：
+
+1、如果没有事件发生，线程只需阻塞在这个系统调用，而无需像前面的线程池方案那样轮训调用 read 操作来判断是否有数据。
+
+2、如果有事件发生，内核会返回产生了事件的连接，线程就会从阻塞状态返回，然后在用户态中再处理这些连接对应的业务即可。
+
+#### Reactor 模式
+
+当下开源软件能做到网络高性能的原因就是 I/O 多路复用吗？
+
+是的，基本是基于 I/O 多路复用，用过 I/O 多路复用接口写网络程序的同学，肯定知道是面向过程的方式写代码的，这样的开发的效率不高。
+
+于是，大佬们基于面向对象的思想，对 I/O 多路复用作了一层封装，让使用者不用考虑底层网络 API 的细节，只需要关注应用代码的编写。
+
+大佬们还为这种模式取了个让人第一时间难以理解的名字：**Reactor 模式**。
+
+Reactor 翻译过来的意思是「反应堆」，可能大家会联想到物理学里的核反应堆，实际上并不是的这个意思。
+
+这里的反应指的是「**对事件反应**」，也就是**来了一个事件，Reactor 就有相对应的反应/响应**。
+
+事实上，Reactor 模式也叫 `Dispatcher` 模式，我觉得这个名字更贴合该模式的含义，即 **I/O 多路复用监听事件，收到事件后，根据事件类型分配（Dispatch）给某个进程 / 线程**。
+
+**Reactor 模式**主要由 **Reactor** 和**处理资源池**这两个核心部分组成，它俩负责的事情如下：
+
+1、Reactor 负责监听和分发事件，事件类型包含连接事件、读写事件；
+
+2、处理资源池负责处理事件，如 read -> 业务逻辑 -> send；
+
+Reactor 模式是灵活多变的，可以应对不同的业务场景，灵活在于：
+
+1、Reactor 的数量可以只有一个，也可以有多个；
+
+2、处理资源池可以是单个进程 / 线程，也可以是多个进程 /线程；
+
+将上面的两个因素排列组设一下，理论上就可以有 4 种方案选择：
+
+1、单 Reactor 单进程 / 线程；
+
+2、单 Reactor 多进程 / 线程；
+
+> NOTE: 
+>
+> Redis是采用的这种方案
+
+3、多 Reactor 单进程 / 线程；
+
+> NOTE: 无实际用途
+
+4、多 Reactor 多进程 / 线程；
+
+其中，「多 Reactor 单进程 / 线程」实现方案相比「单 Reactor 单进程 / 线程」方案，不仅复杂而且也没有性能优势，因此实际中并没有应用。
+
+剩下的 3 个方案都是比较经典的，且都有应用在实际的项目中：
+
+1、单 Reactor 单进程 / 线程；
+
+2、单 Reactor 多线程 / 进程；
+
+4、多 Reactor 多进程 / 线程；
+
+方案具体使用进程还是线程，要看使用的编程语言以及平台有关：
+
+- Java 语言一般使用线程，比如 Netty;
+- C 语言使用进程和线程都可以，例如 Nginx 使用的是进程，Memcache 使用的是线程。
+
+接下来，分别介绍这三个经典的 Reactor 方案。
+
+------
+
+### Reactor
+
+### 单 Reactor 单进程 / 线程
+
+一般来说，C 语言实现的是「**单 Reactor** ***单进程***」的方案，因为 C 语编写完的程序，运行后就是一个独立的进程，不需要在进程中再创建线程。
+
+而 Java 语言实现的是「**单 Reactor** ***单线程***」的方案，因为 Java 程序是跑在 Java 虚拟机这个进程上面的，虚拟机中有很多线程，我们写的 Java 程序只是其中的一个线程而已。
+
+我们来看看「**单 Reactor 单进程**」的方案示意图：
+
+
+
+![img](./v2-614eb69d0186c32de123115b10c3c682_hd.jpg)
+
+```
+![img](https://pic4.zhimg.com/50/v2-614eb69d0186c32de123115b10c3c682_hd.jpg?source=1940ef5c)
+```
+
+
+
+可以看到进程里有 **Reactor、Acceptor、Handler** 这三个对象：
+
+- Reactor 对象的作用是监听和分发事件；
+- Acceptor 对象的作用是获取连接；
+- Handler 对象的作用是处理业务；
+
+对象里的 select、accept、read、send 是系统调用函数，dispatch 和 「业务处理」是需要完成的操作，其中 dispatch 是分发事件操作。
+
+接下来，介绍下「单 Reactor 单进程」这个方案：
+
+1、Reactor 对象通过 select （IO 多路复用接口） 监听事件，收到事件后通过 dispatch 进行分发，具体分发给 Acceptor 对象还是 Handler 对象，还要看收到的事件类型；
+
+2、如果是连接建立的事件，则交由 Acceptor 对象进行处理，Acceptor 对象会通过 accept 方法 获取连接，并创建一个 Handler 对象来处理后续的响应事件；
+
+3、如果不是连接建立事件， 则交由当前连接对应的 Handler 对象来进行响应；
+
+4、Handler 对象通过 read -> 业务处理 -> send 的流程来完成完整的业务流程。
+
+单 Reactor 单进程的方案因为全部工作都在同一个进程内完成，所以实现起来比较简单，不需要考虑进程间通信，也不用担心多进程竞争。
+
+但是，这种方案存在 2 个缺点：
+
+1、第一个缺点，因为只有一个进程，**无法充分利用 多核 CPU 的性能**；
+
+2、第二个缺点，Handler 对象在业务处理时，整个进程是无法处理其他连接的事件的，**如果业务处理耗时比较长，那么就造成响应的延迟**；
+
+所以，单 Reactor 单进程的方案**不适用计算机密集型的场景，只适用于业务处理非常快速的场景**。
+
+Redis 是由 C 语言实现的，它采用的正是「单 Reactor 单进程」的方案，因为 Redis 业务处理主要是在内存中完成，操作的速度是很快的，性能瓶颈不在 CPU 上，所以 Redis 对于命令的处理是单进程的方案。
+
+> NOTE: 
+>
+> Redis的新版本已经替换为multiple thread了
+
+### 单 Reactor 多线程 / 多进程
+
+如果要克服「单 Reactor 单线程 / 进程」方案的缺点，那么就需要引入多线程 / 多进程，这样就产生了**单 Reactor 多线程 / 多进程**的方案。
+
+闻其名不如看其图，先来看看「单 Reactor 多线程」方案的示意图如下：
+
+
+![img](./v2-66a4675ea9604867ad6889c3d598d0fc_hd.jpg)
+
+
+详细说一下这个方案：
+
+- Reactor 对象通过 select （IO 多路复用接口） 监听事件，收到事件后通过 dispatch 进行分发，具体分发给 Acceptor 对象还是 Handler 对象，还要看收到的事件类型；
+- 如果是连接建立的事件，则交由 Acceptor 对象进行处理，Acceptor 对象会通过 accept 方法 获取连接，并创建一个 Handler 对象来处理后续的响应事件；
+- 如果不是连接建立事件， 则交由当前连接对应的 Handler 对象来进行响应；
+
+上面的三个步骤和单 Reactor 单线程方案是一样的，接下来的步骤就开始不一样了：
+
+- Handler 对象不再负责业务处理，只负责数据的接收和发送，Handler 对象通过 read 读取到数据后，会将数据发给子线程里的 Processor 对象进行业务处理；
+- 子线程里的 Processor 对象就进行业务处理，处理完后，将结果发给主线程中的 Handler 对象，接着由 Handler 通过 send 方法将响应结果发送给 client；
+
+单 Reator 多线程的方案优势在于**能够充分利用多核 CPU 的能**，那既然引入多线程，那么自然就带来了多线程竞争资源的问题。
+
+例如，子线程完成业务处理后，要把结果传递给主线程的 Reactor 进行发送，这里涉及共享数据的竞争。
+
+要避免多线程由于竞争共享资源而导致数据错乱的问题，就需要在操作共享资源前加上互斥锁，以保证任意时间里只有一个线程在操作共享资源，待该线程操作完释放互斥锁后，其他线程才有机会操作共享数据。
+
+聊完单 Reactor 多线程的方案，接着来看看单 Reactor 多进程的方案。
+
+事实上，单 Reactor 多进程相比单 Reactor 多线程实现起来很麻烦，主要因为要考虑子进程 <-> 父进程的双向通信，并且父进程还得知道子进程要将数据发送给哪个客户端。
+
+而多线程间可以共享数据，虽然要额外考虑并发问题，但是这远比进程间通信的复杂度低得多，因此实际应用中也看不到单 Reactor 多进程的模式。
+
+另外，「单 Reactor」的模式还有个问题，**因为一个 Reactor 对象承担所有事件的监听和响应，而且只在主线程中运行，在面对瞬间高并发的场景时，容易成为性能的瓶颈的地方**。
+
+### 多 Reactor 多进程 / 线程
+
+要解决「单 Reactor」的问题，就是将「单 Reactor」实现成「多 Reactor」，这样就产生了第 **多 Reactor 多进程 / 线程**的方案。
+
+老规矩，闻其名不如看其图。多 Reactor 多进程 / 线程方案的示意图如下（以线程为例）：
+
+
+
+![img](https://pic1.zhimg.com/50/v2-4da008d8b7f55a0c18bef0e87c5c5bb1_hd.jpg?source=1940ef5c)![img](https://pic1.zhimg.com/80/v2-4da008d8b7f55a0c18bef0e87c5c5bb1_1440w.jpg?source=1940ef5c)
+
+
+
+方案详细说明如下：
+
+- 主线程中的 MainReactor 对象通过 select 监控连接建立事件，收到事件后通过 Acceptor 对象中的 accept 获取连接，将新的连接分配给某个子线程；
+- 子线程中的 SubReactor 对象将 MainReactor 对象分配的连接加入 select 继续进行监听，并创建一个 Handler 用于处理连接的响应事件。
+- 如果有新的事件发生时，SubReactor 对象会调用当前连接对应的 Handler 对象来进行响应。
+- Handler 对象通过 read -> 业务处理 -> send 的流程来完成完整的业务流程。
+
+多 Reactor 多线程的方案虽然看起来复杂的，但是实际实现时比单 Reactor 多线程的方案要简单的多，原因如下：
+
+- 主线程和子线程分工明确，主线程只负责接收新连接，子线程负责完成后续的业务处理。
+- 主线程和子线程的交互很简单，主线程只需要把新连接传给子线程，子线程无须返回数据，直接就可以在子线程将处理结果发送给客户端。
+
+大名鼎鼎的两个开源软件 Netty 和 Memcache 都采用了「多 Reactor 多线程」的方案。
+
+采用了「多 Reactor 多进程」方案的开源软件是 Nginx，不过方案与标准的多 Reactor 多进程有些差异。
+
+具体差异表现在主进程中仅仅用来初始化 socket，并没有创建 mainReactor 来 accept 连接，而是由子进程的 Reactor 来 accept 连接，通过锁来控制一次只有一个子进程进行 accept（防止出现惊群现象），子进程 accept 新连接后就放到自己的 Reactor 进行处理，不会再分配给其他子进程。
+
+------
+
+### Proactor
+
+前面提到的 Reactor **是非阻塞同步网络模式**，而 **Proactor 是异步网络模式**。
+
+这里先给大家复习下阻塞、非阻塞、同步、异步 I/O 的概念。
+
+> NOTE: 
+>
+> 下面的内容是基于 "UNP 6.1 I/O Multiplexing: The `select` and `poll` Functions[¶](https://notes.shichao.io/unp/ch6/#chapter-6-io-multiplexing-the-select-and-poll-functions) "的
+
+#### 阻塞 I/O
+
+先来看看**阻塞 I/O**，当用户程序执行 `read` ，线程会被阻塞，一直等到内核数据准备好，并把数据从内核缓冲区拷贝到应用程序的缓冲区中，当拷贝过程完成，`read` 才会返回。
+
+注意，**阻塞等待的是「内核数据准备好」和「数据从内核态拷贝到用户态」这两个过程**。过程如下图：
+
+
+
+![img](./v2-7f73fdcaca316aa0f12d77b6873785e5_hd.jpg)
+
+
+
+#### 非阻塞 I/O
+
+知道了阻塞 I/O ，来看看**非阻塞 I/O**，非阻塞的 read 请求在数据未准备好的情况下立即返回，可以继续往下执行，此时应用程序不断轮询内核，直到数据准备好，内核将数据拷贝到应用程序缓冲区，`read` 调用才可以获取到结果。过程如下图：
+
+
+
+![img](./v2-51e052e2beecef41da3aed3ebc2b80bd_hd.jpg)
+
+```
+![img](https://pic4.zhimg.com/50/v2-51e052e2beecef41da3aed3ebc2b80bd_hd.jpg?source=1940ef5c)
+```
+
+
+
+
+注意，**这里最后一次 read 调用，获取数据的过程，是一个同步的过程，是需要等待的过程。这里的同步指的是内核态的数据拷贝到用户程序的缓存区这个过程。**
+
+举个例子，如果 socket 设置了 `O_NONBLOCK` 标志，那么就表示使用的是非阻塞 I/O 的方式访问，而不做任何设置的话，默认是阻塞 I/O。
+
+因此，无论 read 和 send 是阻塞 I/O，还是非阻塞 I/O 都是同步调用。因为在 read 调用时，内核将数据从内核空间拷贝到用户空间的过程都是需要等待的，也就是说这个过程是同步的，如果内核实现的拷贝效率不高，read 调用就会在这个同步过程中等待比较长的时间。
+
+#### 异步 I/O
+
+而真正的**异步 I/O** 是「内核数据准备好」和「数据从内核态拷贝到用户态」这**两个过程都不用等待**。
+
+当我们发起 `aio_read` （异步 I/O） 之后，就立即返回，内核自动将数据从内核空间拷贝到用户空间，这个拷贝过程同样是异步的，内核自动完成的，和前面的同步操作不一样，**应用程序并不需要主动发起拷贝动作**。过程如下图：
+
+
+
+![img](./v2-b01988dd44a5edbe596a280d1c266033_hd.jpg)
+
+
+
+#### 形象的例子
+
+举个你去饭堂吃饭的例子，你好比应用程序，饭堂好比操作系统。
+
+阻塞 I/O 好比，你去饭堂吃饭，但是饭堂的菜还没做好，然后你就一直在那里等啊等，等了好长一段时间终于等到饭堂阿姨把菜端了出来（数据准备的过程），但是你还得继续等阿姨把菜（内核空间）打到你的饭盒里（用户空间），经历完这两个过程，你才可以离开。
+
+非阻塞 I/O 好比，你去了饭堂，问阿姨菜做好了没有，阿姨告诉你没，你就离开了，过几十分钟，你又来饭堂问阿姨，阿姨说做好了，于是阿姨帮你把菜打到你的饭盒里，这个过程你是得等待的。
+
+异步 I/O 好比，你让饭堂阿姨将菜做好并把菜打到饭盒里后，把饭盒送到你面前，整个过程你都不需要任何等待。
+
+很明显，异步 I/O 比同步 I/O 性能更好，因为异步 I/O 在「内核数据准备好」和「数据从内核空间拷贝到用户空间」这两个过程都不用等待。
+
+Proactor 正是采用了异步 I/O 技术，所以被称为异步网络模型。
+
+现在我们再来理解 Reactor 和 Proactor 的区别，就比较清晰了。
+
+1、**Reactor 是非阻塞同步网络模式，感知的是就绪可读写事件**。在每次感知到有事件发生（比如可读就绪事件）后，就需要应用进程主动调用 read 方法来完成数据的读取，也就是要应用进程主动将 socket 接收缓存中的数据读到应用进程内存中，这个过程是同步的，读取完数据后应用进程才能处理数据。
+
+2、**Proactor 是异步网络模式， 感知的是已完成的读写事件**。在发起异步读写请求时，需要传入数据缓冲区的地址（用来存放结果数据）等信息，这样系统内核才可以自动帮我们把数据的读写工作完成，这里的读写工作全程由操作系统来做，并不需要像 Reactor 那样还需要应用进程主动发起 read/write 来读写数据，操作系统完成读写工作后，就会通知应用进程直接处理数据。
+
+因此，**Reactor 可以理解为「来了事件操作系统通知应用进程，让应用进程来处理」**，而 **Proactor 可以理解为「来了事件操作系统来处理，处理完再通知应用进程」**。这里的「事件」就是有新连接、有数据可读、有数据可写的这些 I/O 事件这里的「处理」包含从驱动读取到内核以及从内核读取到用户空间。
+
+举个实际生活中的例子，Reactor 模式就是快递员在楼下，给你打电话告诉你快递到你家小区了，你需要自己下楼来拿快递。而在 Proactor 模式下，快递员直接将快递送到你家门口，然后通知你。
+
+无论是 Reactor，还是 Proactor，都是一种基于「事件分发」的网络编程模式，区别在于 **Reactor 模式是基于「待完成」的 I/O 事件，而 Proactor 模式则是基于「已完成」的 I/O 事件**。
+
+接下来，一起看看 Proactor 模式的示意图：
+
+
+
+![img](./v2-35bd4bdf3b12246fb005415d3a29ecc0_hd.jpg)
+
+
+
+介绍一下 Proactor 模式的工作流程：
+
+- Proactor Initiator 负责创建 Proactor 和 Handler 对象，并将 Proactor 和 Handler 都通过 Asynchronous Operation Processor 注册到内核；
+- Asynchronous Operation Processor 负责处理注册请求，并处理 I/O 操作；
+- Asynchronous Operation Processor 完成 I/O 操作后通知 Proactor；
+- Proactor 根据不同的事件类型回调不同的 Handler 进行业务处理；
+- Handler 完成业务处理；
+
+可惜的是，在 Linux 下的异步 I/O 是不完善的， `aio` 系列函数是由 POSIX 定义的异步操作接口，不是真正的操作系统级别支持的，而是在用户空间模拟出来的异步，并且仅仅支持基于本地文件的 aio 异步操作，网络编程中的 socket 是不支持的，这也使得基于 Linux 的高性能网络程序都是使用 Reactor 方案。
+
+而 Windows 里实现了一套完整的支持 socket 的异步编程接口，这套接口就是 `IOCP`，是由操作系统级别实现的异步 I/O，真正意义上异步 I/O，因此在 Windows 里实现高性能网络程序可以使用效率更高的 Proactor 方案。
+
+------
+
+### 总结
+
+常见的 Reactor 实现方案有三种。
+
+第一种方案单 Reactor 单进程 / 线程，不用考虑进程间通信以及数据同步的问题，因此实现起来比较简单，这种方案的缺陷在于无法充分利用多核 CPU，而且处理业务逻辑的时间不能太长，否则会延迟响应，所以不适用于计算机密集型的场景，适用于业务处理快速的场景，比如 Redis 采用的是单 Reactor 单进程的方案。
+
+第二种方案单 Reactor 多线程，通过多线程的方式解决了方案一的缺陷，但它离高并发还差一点距离，差在只有一个 Reactor 对象来承担所有事件的监听和响应，而且只在主线程中运行，在面对瞬间高并发的场景时，容易成为性能的瓶颈的地方。
+
+第三种方案多 Reactor 多进程 / 线程，通过多个 Reactor 来解决了方案二的缺陷，主 Reactor 只负责监听事件，响应事件的工作交给了从 Reactor，Netty 和 Memcache 都采用了「多 Reactor 多线程」的方案，Nginx 则采用了类似于 「多 Reactor 多进程」的方案。
+
+Reactor 可以理解为「来了事件操作系统通知应用进程，让应用进程来处理」，而 Proactor 可以理解为「来了事件操作系统来处理，处理完再通知应用进程」。
+
+因此，真正的大杀器还是 Proactor，它是采用异步 I/O 实现的异步网络模型，感知的是已完成的读写事件，而不需要像 Reactor 感知到事件后，还需要调用 read 来从内核中获取数据。
+
+不过，无论是 Reactor，还是 Proactor，都是一种基于「事件分发」的网络编程模式，区别在于 Reactor 模式是基于「待完成」的 I/O 事件，而 Proactor 模式则是基于「已完成」的 I/O 事件。

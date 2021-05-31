@@ -1,4 +1,26 @@
-# Actor、proactor and reactor
+# Proactor and reactor
+
+## Reactor VS Proactor 
+
+参考文章:
+
+一、zhihu [如何深刻理解reactor和proactor？](https://www.zhihu.com/question/26943938)
+
+下面是我的总结:
+
+相同点: 
+
+1、两种都是基于IO multiplexing
+
+不同点:
+
+IO model: 
+
+reactor sync同步IO-proactor async异步IO
+
+reactor非阻塞同步IO-proactor非阻塞异步IO
+
+reactor通知notify IO就绪状态-proactor通知notify IO完成状态
 
 
 
