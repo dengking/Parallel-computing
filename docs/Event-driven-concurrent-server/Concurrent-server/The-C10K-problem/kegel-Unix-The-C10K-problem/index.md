@@ -99,19 +99,19 @@ Serve many clients with each thread的意思是：为每个线程提供许多客
 
 ... set **nonblocking mode** on all **network handles**, and use `select()` or `poll()` to tell which **network handle** has data waiting. This is the traditional favorite. With this scheme, the kernel tells you whether a **file descriptor** is ready, whether or not you've done anything with that **file descriptor** since the last time the kernel told you about it. (The name 'level triggered' comes from computer hardware design; it's the opposite of ['edge triggered'](http://www.kegel.com/c10k.html#nb.edge). Jonathon Lemon introduced the terms in his [BSDCON 2000 paper on kqueue()](http://people.freebsd.org/~jlemon/papers/kqueue.pdf).)
 
-***SUMMARY*** : 这告诉了我们，`select`和`poll`只能够使用level-triggered readiness notification，而不支持['edge triggered'](http://www.kegel.com/c10k.html#nb.edge)。
+> NOTE: : 这告诉了我们，`select`和`poll`只能够使用level-triggered readiness notification，而不支持['edge triggered'](http://www.kegel.com/c10k.html#nb.edge)。
 
 Note: it's particularly important to remember that **readiness notification** from the kernel is only a hint; the **file descriptor** might not be ready anymore when you try to read from it. That's why it's important to use **nonblocking mode** when using **readiness notification**.
 
 An important bottleneck in this method is that `read()` or `sendfile()` from disk blocks if the page is not in core at the moment; setting **nonblocking mode** on a **disk file handle** has no effect. Same thing goes for **memory-mapped disk files**. The first time a server needs disk I/O, its process **blocks**, all clients must wait, and that raw nonthreaded performance goes to waste. 
 
-***SUMMARY*** : 当从disk在将文件`read()` or `sendfile()` 到core（内存）中时，即使在file handle上设置了**nonblocking mode**，仍然会block；
+> NOTE: : 当从disk在将文件`read()` or `sendfile()` 到core（内存）中时，即使在file handle上设置了**nonblocking mode**，仍然会block；
 
 
 
 This is what asynchronous I/O is for, but on systems that lack `AIO`, worker threads or processes that do the disk I/O can also get around this bottleneck. One approach is to use **memory-mapped files**, and if [`mincore()`](http://man7.org/linux/man-pages/man2/mincore.2.html)  indicates I/O is needed, ask a worker to do the I/O, and continue handling network traffic. Jef Poskanzer mentions that Pai, Druschel, and Zwaenepoel's 1999 [Flash](http://www.cs.rice.edu/~vivek/flash99/) web server uses this trick; they gave a talk at [Usenix '99](http://www.usenix.org/events/usenix99/technical.html) on it. It looks like `mincore()` is available in BSD-derived Unixes like [FreeBSD](http://www.freebsd.org/cgi/man.cgi?query=mincore)and Solaris, but is not part of the [Single Unix Specification](http://www.unix-systems.org/). It's available as part of Linux as of kernel 2.3.51, [thanks to Chuck Lever](http://www.citi.umich.edu/projects/citi-netscape/status/mar-apr2000.html).
 
-***SUMMARY***: This is what asynchronous I/O is for, but on systems that lack `AIO`, worker threads or processes that do the disk I/O can also get around this bottleneck.翻译是：这就是异步I / O的用途，但在缺少AIO的系统上，执行磁盘I / O的工作线程或进程也可以解决这个瓶颈问题。它的意思是使用一个thread或者process来执行IO，而不阻塞主线程；
+> NOTE: : This is what asynchronous I/O is for, but on systems that lack `AIO`, worker threads or processes that do the disk I/O can also get around this bottleneck.翻译是：这就是异步I / O的用途，但在缺少AIO的系统上，执行磁盘I / O的工作线程或进程也可以解决这个瓶颈问题。它的意思是使用一个thread或者process来执行IO，而不阻塞主线程；
 
 
 
