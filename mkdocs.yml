@@ -433,8 +433,10 @@ nav:
           - Introduction: Distributed-computing/Theory/CAP/Consistency/Consistency-protocol/index.md
     - High-availability:
       - Introduction: Distributed-computing/Theory/High-availability/index.md
-      - Single-point-of-failure: Distributed-computing/Theory/High-availability/Single-point-of-failure.md
-      - High-availability-cluster: Distributed-computing/Theory/High-availability/High-availability-cluster.md
+      - Single-point-of-failure:
+        - Introduction: Distributed-computing/Theory/High-availability/Single-point-of-failure/index.md
+      - High-availability-cluster:
+        - Introduction: Distributed-computing/Theory/High-availability/High-availability-cluster/index.md
     - Consensus:
       - Consensus: Distributed-computing/Theory/Consensus/index.md
       - Leader-election: Distributed-computing/Theory/Consensus/Leader-election.md
@@ -507,6 +509,8 @@ nav:
   - Introduction: Programming-model/index.md
   - Active-and-passive:
     - Introduction: Programming-model/Active-and-passive/index.md
+    - Polling:
+      - Introduction: Programming-model/Active-and-passive/Polling/index.md
     - Busy-waiting:
       - Introduction: Programming-model/Active-and-passive/Busy-waiting/index.md
     - Polling-and-notify: Programming-model/Active-and-passive/Polling-and-notify.md
@@ -601,6 +605,9 @@ nav:
         - Introduction: Event-driven-concurrent-server/Design-pattern/Active-object+observer+visitor/drdobbs-Message-Handling-Without-Dependencies/index.md
     - Proactor-reactor:
       - Introduction: Event-driven-concurrent-server/Design-pattern/Proactor-reactor/index.md
+      - "zhihu-\u5982\u4F55\u6DF1\u523B\u7406\u89E3reactor\u548Cproactor":
+        - Introduction: "Event-driven-concurrent-server/Design-pattern/Proactor-reactor/zhihu-\u5982\
+            \u4F55\u6DF1\u523B\u7406\u89E3reactor\u548Cproactor/index.md"
       - Proactor:
         - Introduction: Event-driven-concurrent-server/Design-pattern/Proactor-reactor/Proactor/index.md
       - Reactor:
@@ -626,6 +633,10 @@ nav:
     - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/index.md
     - Fast-UNIX-Servers:
       - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/Fast-UNIX-Servers/index.md
+  - library-linyacool-WebServer:
+    - Introduction: Event-driven-concurrent-server/library-linyacool-WebServer/index.md
+  - library-yedf-handy:
+    - Introduction: Event-driven-concurrent-server/library-yedf-handy/index.md
 - Message-processing-system:
   - Introduction: Message-processing-system/index.md
   - Stream-based-message-processing-system:
