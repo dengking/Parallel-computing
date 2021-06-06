@@ -40,3 +40,11 @@ Varghese's *[Network Algorithmics: An Interdisciplinary Approach to Designing Fa
 
 3、Principle 3: **Measure, measure, and measure again, preferably automatically.** Hardware, software and networks will all surprise you. Become friends with your hardware's [performance counters](https://nick-black.com/dankwiki/index.php?title=Performance_Counters) and tools like [eBPF](https://nick-black.com/dankwiki/index.php?title=EBPF), dtrace, ktrace, etc. Build explicit support for performance analysis into the application, especially domain-specific statistics.
 
+## Queueing Theory
+
+> NOTE: 
+>
+> 暂未了解
+
+## Event Cores
+
