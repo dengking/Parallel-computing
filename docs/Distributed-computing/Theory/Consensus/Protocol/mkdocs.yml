@@ -1,0 +1,5 @@
+nav:
+    # - Introduction: index.md
+    - Raft: Raft
+    - Paxos: Paxos
+    
