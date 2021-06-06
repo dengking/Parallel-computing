@@ -7,7 +7,9 @@ nav:
     - library-libuv: library-libuv
     
     - Concurrent-server: Concurrent-server
-    - Design-pattern: Design-pattern
     - Expert-Nick-Black: Expert-Nick-Black
+    - Expert-Jeff-Darcy: Expert-Jeff-Darcy    
+    - Design-pattern: Design-pattern
+
     - library-linyacool-WebServer: library-linyacool-WebServer
     - library-yedf-handy: library-yedf-handy
