@@ -1,4 +1,4 @@
-# [Is Git a Block Chain?](https://news.ycombinator.com/item?id=9436847)
+# ycombinator [Is Git a Block Chain?](https://news.ycombinator.com/item?id=9436847)
 
 ​	
 
@@ -7,8 +7,6 @@
 Both git repositories and bitcoin are specialized Merkle trees. Merkle trees are incredibly useful and general; they are used in many kinds of verification, especially of large chunks of data.
 
 http://en.wikipedia.org/wiki/Merkle_tree
-
-
 
 
 
