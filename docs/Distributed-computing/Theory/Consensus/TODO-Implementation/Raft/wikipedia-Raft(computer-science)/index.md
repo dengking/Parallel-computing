@@ -4,9 +4,9 @@
 
 Raft is not a [Byzantine fault](https://en.wikipedia.org/wiki/Byzantine_fault) tolerant algorithm: the nodes trust the elected leader.[[1\]](https://en.wikipedia.org/wiki/Raft_(computer_science)#cite_note-paper-1)
 
-***SUMMARY*** : 可以结合redis来理解Raft；
+> NOTE : 可以结合redis来理解Raft；
 
-***SUMMARY*** : raft算法的设计考虑到了[consensus](https://en.wikipedia.org/wiki/Consensus_(computer_science))和consistency
+> NOTE : raft算法的设计考虑到了[consensus](https://en.wikipedia.org/wiki/Consensus_(computer_science))和consistency
 
 ## Basics
 
@@ -32,7 +32,7 @@ A leader election is started by a *candidate* server. A server becomes a **candi
 
 Raft uses randomized election timeout to ensure that **split votes** problem are resolved quickly. This should reduce the chance of a split vote because servers won't become candidates at the same time: a single server will timeout, win the election, then become leader and sends heartbeat messages to other servers before any of the followers can become candidates.[[1\]](https://en.wikipedia.org/wiki/Raft_(computer_science)#cite_note-paper-1)
 
-***SUMMARY*** : redis中，选举是由slave发起的；redis中的`currentEpoch`和`configEpoch`相当于raft中的`term`
+> NOTE : redis中，选举是由slave发起的；redis中的`currentEpoch`和`configEpoch`相当于raft中的`term`
 
 
 
@@ -44,11 +44,11 @@ Once the leader receives confirmation from the majority of its followers that th
 
 In the case of leader crash, the logs can be left inconsistent, with some logs from the old leader not being fully replicated through the cluster. The new leader will then handle **inconsistency** by forcing the followers to duplicate its own log. To do so, for each of its followers, the leader will compare its log with the log from the follower, find the **last entry** where they agree, then delete all the entries coming after this critical entry in the follower log and replace it with its own log entries. This mechanism will restore log consistency in a cluster subject to failures.
 
-***SUMMARY*** : 只有字leader crash的情况下，才会出现inconsistent，fellow的crash并不会导致inconsistent；
+> NOTE : 只有字leader crash的情况下，才会出现inconsistent，fellow的crash并不会导致inconsistent；
 
-***SUMMARY*** : 需要梳理log和state machine之间的关系：log表示的是需要被执行/发生的state transition，它只有commit到了node的local state machine中才能够生效；
+> NOTE : 需要梳理log和state machine之间的关系：log表示的是需要被执行/发生的state transition，它只有commit到了node的local state machine中才能够生效；
 
-***SUMMARY*** : 需要注意的是，raft算法也实现了[State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)。redis中也实现了[State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)。
+> NOTE : 需要注意的是，raft算法也实现了[State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)。redis中也实现了[State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)。
 
 ### Safety
 

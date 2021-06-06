@@ -1,4 +1,4 @@
-# [In Search of an Understandable Consensus Algorithm](https://www.usenix.org/system/files/conference/atc14/atc14-paper-ongaro.pdf)
+# usenix [In Search of an Understandable Consensus Algorithm](https://www.usenix.org/system/files/conference/atc14/atc14-paper-ongaro.pdf)
 
 Diego Ongaro and John Ousterhout Stanford University
 
@@ -28,7 +28,7 @@ Replication [27, 20]), but it has several novel features:
 
 - ***Membership changes***: Raft’s mechanism for changing the set of servers in the cluster uses a new ***joint consensus*** approach where the majorities of two different configurations overlap during transitions. This allows the cluster to continue operating normally during configuration changes
 
-  ***SUMMARY*** : 这是什么意思？是指当leader更换的时候？
+  > NOTE : 这是什么意思？是指当leader更换的时候？
 
 We believe that Raft is superior to Paxos and other **consensus algorithms**, both for educational purposes and as a foundation for implementation. It is simpler and more understandable than other algorithms; it is described completely enough to meet the needs of a practical system; it has several open-source implementations and is used by several companies; its **safety properties** have been formally specified and proven; and its efficiency is comparable to other algorithms.
 
@@ -40,7 +40,7 @@ The remainder of the paper introduces the **replicated state machine problem** (
 
 **Consensus algorithms** typically arise in the context of **replicated state machines** [33]. In this approach, **state machines** on a collection of servers compute identical copies of the same state and can continue operating even if some of the servers are down. **Replicated state machines** are used to solve a variety of **fault tolerance problems** in distributed systems. For example, large-scale systems that have a single **cluster leader**, such as GFS [7], HDFS [34], and RAMCloud [30], typically use a separate **replicated state machine** to manage **leader election** and store configuration information that must survive leader crashes. Examples of **replicated state machines** include Chubby [2] and ZooKeeper [9].
 
-***SUMMARY*** : [Chubby](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/chubby-osdi06.pdf)，[ZooKeeper](https://zookeeper.apache.org/)
+> NOTE : [Chubby](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/chubby-osdi06.pdf)，[ZooKeeper](https://zookeeper.apache.org/)
 
 
 
@@ -67,7 +67,7 @@ to form a single, highly reliable state machine.
 
 **Raft** is an algorithm for managing a **replicated log** of the form described in Section 2. Figure 2 summarizes the algorithm in condensed（浓缩的，简明扼要的） form for reference, and Figure 3 lists key properties of the algorithm;the elements of these figures are discussed piecewise over the rest of this section.
 
-***SUMMARY*** : 在raft运行过程中，leader承担着核心的角色，它是raft算法的核心所在，感觉从这个角度来看，raft算法是中心化的，显然在中心化的cluster中，一个显著的特点就是节点是有角色属性的（比如在raft中，就有leader，follower等角色），而在去中心化的cluster中，节点是不具备角色属性的；
+> NOTE : 在raft运行过程中，leader承担着核心的角色，它是raft算法的核心所在，感觉从这个角度来看，raft算法是中心化的，显然在中心化的cluster中，一个显著的特点就是节点是有角色属性的（比如在raft中，就有leader，follower等角色），而在去中心化的cluster中，节点是不具备角色属性的；
 
 Raft implements **consensus** by first electing a distinguished leader, then giving the **leader** complete responsibility for managing the **replicated log**. The **leader** accepts **log entries** from clients, replicates them on other servers, and tells servers when it is safe to apply **log entries** to their **state machines**. Having a **leader** simplifies the management of the **replicated log**. For example,the leader can decide where to place new entries in the log without consulting other servers, and data flows in a simple fashion from the leader to other servers. A leader can fail or become disconnected from the other servers, in which case a new leader is elected.
 
@@ -77,7 +77,7 @@ Given the **leader** approach, Raft decomposes the **consensus problem** into th
 
 - Log replication: the leader must accept log entries from clients and replicate them across the cluster, forcing the other logs to agree with its own (Section 5.3).
 
-  ***SUMMARY*** : 其实在redis中，replication的过程和这是非常类似的；
+  > NOTE : 其实在redis中，replication的过程和这是非常类似的；
 
 - Safety: the key safety property for Raft is the **State Machine Safety Property** in Figure 3: if any server has applied a particular log entry to its **state machine**, then no other server may apply a different command for the same **log index**. Section 5.4 describes how Raft ensures this property; the solution involves an additional restriction on the **election mechanism** described in Section 5.2.
 
@@ -114,7 +114,7 @@ Figure2: A condensed summary of the Raft consensus algorithm (excluding membersh
 
 > **Election Safety**: at most one leader can be elected in a given term. §5.2
 >
-> ***SUMMARY*** : 如何来保证？在distributed system中，这样的问题是非常普遍的：如何保证只有一个node被选为leader？在redis中，这个问题就是如何保证只有一个slave被选为master？
+> > NOTE : 如何来保证？在distributed system中，这样的问题是非常普遍的：如何保证只有一个node被选为leader？在redis中，这个问题就是如何保证只有一个slave被选为master？
 >
 > **Leader Append-Only**: a leader never overwrites or deletes entries in its log; it only appends new entries. §5.3
 >
@@ -152,7 +152,7 @@ Figure 5: Time is divided into **terms**, and each **term** begins with an **ele
 
 Different servers may observe the transitions between terms at different times, and in some situations a server may not observe an election or even entire terms. Terms act as a **logical clock** [12] in Raft, and they allow servers to detect **obsolete information**（陈旧信息） such as stale leaders. Each server stores a ***current term*** number, which increases monotonically over time. **Current terms** are exchanged whenever servers communicate; if one server’s **current term** is smaller than the other’s, then it updates its **current term** to the **larger value**. If a candidate or leader discovers that its term is out of date, it immediately reverts to **follower state**. If a server receives a request with a stale term number, it rejects the request.
 
-***SUMMARY*** : 要想准确地理解term的用途，必须要阅读论文[12] ，其实在这篇论文中就说明了：
+> NOTE : 要想准确地理解term的用途，必须要阅读论文[12] ，其实在这篇论文中就说明了：
 
 > A **distributed algorithm** is given for synchronizing a system of **logical clocks** which can be used to totally order the events.
 
@@ -160,7 +160,7 @@ Different servers may observe the transitions between terms at different times, 
 
 需要注意的是，raft中的term其实并不是完全的使用的[Lamport timestamps](https://en.wikipedia.org/wiki/Lamport_timestamps)，而是借鉴于它，并进行了调整，它的调整是为了适应raft中在leader election阶段的各种问题的；
 
-***SUMMARY*** : 第一句话是什么意思？
+> NOTE : 第一句话是什么意思？
 
 Raft servers communicate using **remote procedure calls** (RPCs), and the **consensus algorithm** requires only two types of RPCs. **RequestVote RPCs** are initiated by candidates during elections (Section 5.2), and AppendEntries RPCs are initiated by leaders to **replicate log entries** and to provide a form of **heartbeat** (Section 5.3). Servers retry RPCs if they do not receive a response in a timely manner, and they issue RPCs in parallel for best performance.
 

@@ -1,1 +1,0 @@
-https://engineering.cerner.com/2014/01/the-raft-protocol-a-better-paxos/

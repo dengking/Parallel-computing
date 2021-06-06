@@ -1,4 +1,4 @@
-# [The Raft Consensus Algorithm](https://raft.github.io/)
+# raft.github [The Raft Consensus Algorithm](https://raft.github.io/)
 
 ### What is Raft?
 
@@ -10,7 +10,7 @@ Consensus is a fundamental problem in fault-tolerant distributed systems. Consen
 
 Consensus typically arises in the context of **replicated state machines**, a general approach to building fault-tolerant systems. Each server has a **state machine** and **a log**. The **state machine** is the component that we want to make **fault-tolerant**, such as a hash table. It will appear to clients that they are interacting with a single, reliable state machine, even if a minority of the servers in the cluster fail. Each **state machine** takes as input commands from its **log**. In our **hash table** example, the log would include commands like *set x to 3*. A **consensus algorithm** is used to agree on the commands in the servers' logs. The **consensus algorithm** must ensure that if any **state machine** applies *set x to 3* as the *n*th command, no other **state machine** will ever apply a different *n*th command. As a result, each **state machine** processes the same series of commands and thus produces the same series of results and arrives at the same series of states.
 
-***SUMMARY*** : 
+> NOTE : 
 
 ### Raft Visualization
 

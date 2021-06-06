@@ -1,4 +1,4 @@
-# [A brief overview of the Raft algorithm](http://blog.carlosgaldino.com/a-brief-overview-of-the-raft-algorithm.html)
+# carlosgaldino [A brief overview of the Raft algorithm](http://blog.carlosgaldino.com/a-brief-overview-of-the-raft-algorithm.html)
 
 Raft is a **consensus algorithm** for managing a replicated log. It is used to achieve an agreement between multiple entities allowing them to serve as a coherent group that can tolerate failures of some of its members. For example, you can have several Key/Value servers and want them to have the same values so in case some of them fail the system still operates correctly since the data is the same. Using a consensus algorithm can help in this situation where for each operation, the servers agree on what is/should be the correct value.
 
