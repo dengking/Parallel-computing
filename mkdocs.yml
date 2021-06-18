@@ -580,17 +580,17 @@ nav:
     - Event-VS-exception-VS-signal: Event-driven-concurrent-server/Event-driven-model/Event-VS-exception-VS-signal.md
   - Event-library:
     - Introduction: Event-driven-concurrent-server/Event-library/index.md
-  - library-Netty:
-    - Introduction: Event-driven-concurrent-server/library-Netty/index.md
-  - library-libevent:
-    - Introduction: Event-driven-concurrent-server/library-libevent/index.md
-  - library-libuv:
-    - Introduction: Event-driven-concurrent-server/library-libuv/index.md
-    - Design-overview:
-      - Introduction: Event-driven-concurrent-server/library-libuv/Design-overview/index.md
-    - User-guide:
-      - Basics-of-libuv:
-        - Introduction: Event-driven-concurrent-server/library-libuv/User-guide/Basics-of-libuv/index.md
+    - library-Netty:
+      - Introduction: Event-driven-concurrent-server/Event-library/library-Netty/index.md
+    - library-libevent:
+      - Introduction: Event-driven-concurrent-server/Event-library/library-libevent/index.md
+    - library-libuv:
+      - Introduction: Event-driven-concurrent-server/Event-library/library-libuv/index.md
+      - Design-overview:
+        - Introduction: Event-driven-concurrent-server/Event-library/library-libuv/Design-overview/index.md
+      - User-guide:
+        - Basics-of-libuv:
+          - Introduction: Event-driven-concurrent-server/Event-library/library-libuv/User-guide/Basics-of-libuv/index.md
   - Concurrent-server:
     - Introduction: Event-driven-concurrent-server/Concurrent-server/index.md
     - The-C10K-problem:
@@ -667,6 +667,22 @@ nav:
     - Introduction: Event-driven-concurrent-server/library-linyacool-WebServer/index.md
   - library-yedf-handy:
     - Introduction: Event-driven-concurrent-server/library-yedf-handy/index.md
+  - Apache-Thrift:
+    - Introduction: Event-driven-concurrent-server/Apache-Thrift/index.md
+    - paper-Thrift-Scalable-Cross-Language-Services-Implementation:
+      - Introduction: Event-driven-concurrent-server/Apache-Thrift/paper-Thrift-Scalable-Cross-Language-Services-Implementation/index.md
+    - "cnblogs-thrift\u7684\u539F\u7406\u548C\u4F7F\u7528":
+      - Introduction: "Event-driven-concurrent-server/Apache-Thrift/cnblogs-thrift\u7684\
+          \u539F\u7406\u548C\u4F7F\u7528/index.md"
+    - "zhihu-Thrift\u7684\u90A3\u4E9B\u670D\u52A1\u6A21\u578B":
+      - Introduction: "Event-driven-concurrent-server/Apache-Thrift/zhihu-Thrift\u7684\
+          \u90A3\u4E9B\u670D\u52A1\u6A21\u578B/index.md"
+  - Google-Protobuf:
+    - Introduction: Event-driven-concurrent-server/Google-Protobuf/index.md
+  - POCO:
+    - Introduction: Event-driven-concurrent-server/POCO/index.md
+    - POCO-PRO-C++framework:
+      - Introduction: Event-driven-concurrent-server/POCO/POCO-PRO-C++framework/index.md
 - Message-processing-system:
   - Introduction: Message-processing-system/index.md
   - Stream-based:
