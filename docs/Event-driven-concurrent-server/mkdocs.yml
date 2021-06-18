@@ -2,9 +2,6 @@ nav:
     - Introduction: index.md
     - Event-driven-model: Event-driven-model
     - Event-library: Event-library
-    - library-Netty: library-Netty
-    - library-libevent: library-libevent
-    - library-libuv: library-libuv
     
     - Concurrent-server: Concurrent-server
     - Expert-Nick-Black: Expert-Nick-Black
@@ -13,3 +10,7 @@ nav:
 
     - library-linyacool-WebServer: library-linyacool-WebServer
     - library-yedf-handy: library-yedf-handy
+
+    - Apache-Thrift: Apache-Thrift
+    - Google-Protobuf: Google-Protobuf
+    - POCO: POCO    
