@@ -267,6 +267,8 @@ nav:
       - Introduction: "Concurrent-computing/Classic-problem/Producer\u2013consumer-problem/index.md"
       - Unbounded-producer-and-consumer-problem: "Concurrent-computing/Classic-problem/Producer\u2013\
           consumer-problem/Unbounded-producer-and-consumer-problem.md"
+    - "Readers\u2013writers-problem":
+      - Introduction: "Concurrent-computing/Classic-problem/Readers\u2013writers-problem/index.md"
     - Dining-philosopher:
       - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/index.md
       - mariusbancila-Dining-philosopher:
@@ -275,14 +277,22 @@ nav:
           - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/mariusbancila-Dining-philosopher/Chandy-Misra-algorithm/index.md
       - TODO-howardhinnant-Dining-Philosophers-Rebooted:
         - Introduction: Concurrent-computing/Classic-problem/Dining-philosopher/TODO-howardhinnant-Dining-Philosophers-Rebooted/index.md
-    - "Readers\u2013writers-problem":
-      - Introduction: "Concurrent-computing/Classic-problem/Readers\u2013writers-problem/index.md"
     - Checkpoint-Synchronization:
       - Introduction: Concurrent-computing/Classic-problem/Checkpoint-Synchronization/index.md
     - Sleeping-barber-problem:
       - Introduction: Concurrent-computing/Classic-problem/Sleeping-barber-problem/index.md
     - Cigarette-smokers-problem:
       - Introduction: Concurrent-computing/Classic-problem/Cigarette-smokers-problem/index.md
+    - Thundering-herd-problem:
+      - Introduction: Concurrent-computing/Classic-problem/Thundering-herd-problem/index.md
+      - "TODO-zhihu-\u5206\u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94":
+        - Introduction: "Concurrent-computing/Classic-problem/Thundering-herd-problem/TODO-zhihu-\u5206\
+            \u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94/index.md"
+      - TODO-uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem:
+        - Introduction: Concurrent-computing/Classic-problem/Thundering-herd-problem/TODO-uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/index.md
+      - "TODO-louqibin-Robinhood-\u5B95\u673A-\u5E55\u540E\u9ED1\u624BThundering-Herd":
+        - Introduction: "Concurrent-computing/Classic-problem/Thundering-herd-problem/TODO-louqibin-Robinhood-\u5B95\
+            \u673A-\u5E55\u540E\u9ED1\u624BThundering-Herd/index.md"
   - Concurrent-data-structure:
     - Introduction: Concurrent-computing/Concurrent-data-structure/index.md
     - Queue:
@@ -441,6 +451,18 @@ nav:
       - Consensus: Distributed-computing/Theory/Consensus/index.md
       - Leader-election: Distributed-computing/Theory/Consensus/Leader-election.md
       - VS-consensus-VS-consistency: Distributed-computing/Theory/Consensus/VS-consensus-VS-consistency.md
+      - Protocol:
+        - Raft:
+          - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/index.md
+          - wikipedia-Raft(computer-science):
+            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/wikipedia-Raft(computer-science)/index.md
+          - github-The-Raft-Consensus-Algorithm:
+            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/github-The-Raft-Consensus-Algorithm/index.md
+          - paper-In-Search-of-an-Understandable-Consensus-Algorithm:
+            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/paper-In-Search-of-an-Understandable-Consensus-Algorithm/index.md
+        - Paxos:
+          - wikipedia-Paxos(computer-science):
+            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Paxos/wikipedia-Paxos(computer-science)/index.md
     - Partitioning:
       - Introduction: Distributed-computing/Theory/Partitioning/index.md
     - Replication:
@@ -592,6 +614,16 @@ nav:
         - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/TODO-Round-robin-scheduling/index.md
     - Case:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/index.md
+  - Expert-Nick-Black:
+    - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/index.md
+    - Fast-UNIX-Servers:
+      - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/Fast-UNIX-Servers/index.md
+    - library-libtorque:
+      - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/library-libtorque/index.md
+  - Expert-Jeff-Darcy:
+    - Introduction: Event-driven-concurrent-server/Expert-Jeff-Darcy/index.md
+    - High-Performance-Server-Architecture:
+      - Introduction: Event-driven-concurrent-server/Expert-Jeff-Darcy/High-Performance-Server-Architecture/index.md
   - Design-pattern:
     - Introduction: Event-driven-concurrent-server/Design-pattern/index.md
     - Asynchronous-method-dispatch: Event-driven-concurrent-server/Design-pattern/Asynchronous-method-dispatch.md
@@ -629,23 +661,19 @@ nav:
           - rosettacode-Active-object: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/Implementation/rosettacode-Active-object.md
           - kjellhedstrom2-Active-Object-the-C++11-way:
             - Introduction: Event-driven-concurrent-server/Design-pattern/Actor-and-active-object/Active-object/Implementation/kjellhedstrom2-Active-Object-the-C++11-way/index.md
-  - Expert-Nick-Black:
-    - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/index.md
-    - Fast-UNIX-Servers:
-      - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/Fast-UNIX-Servers/index.md
+    - Master-worker:
+      - Introduction: Event-driven-concurrent-server/Design-pattern/Master-worker/index.md
   - library-linyacool-WebServer:
     - Introduction: Event-driven-concurrent-server/library-linyacool-WebServer/index.md
   - library-yedf-handy:
     - Introduction: Event-driven-concurrent-server/library-yedf-handy/index.md
 - Message-processing-system:
   - Introduction: Message-processing-system/index.md
-  - Stream-based-message-processing-system:
-    - Introduction: Message-processing-system/Stream-based-message-processing-system/index.md
+  - Stream-based:
+    - Introduction: Message-processing-system/Stream-based/index.md
     - Implementation:
-      - Flink:
-        - Introduction: Message-processing-system/Stream-based-message-processing-system/Implementation/Flink/index.md
-      - Kafka:
-        - Introduction: Message-processing-system/Stream-based-message-processing-system/Implementation/Kafka/index.md
+      - Apache-Flink:
+        - Introduction: Message-processing-system/Stream-based/Implementation/Apache-Flink/index.md
   - Distributed-log-system:
     - Introduction: Message-processing-system/Distributed-log-system/index.md
   - Messaging-pattern:
@@ -654,13 +682,18 @@ nav:
       - Introduction: Message-processing-system/Messaging-pattern/Message-queue/index.md
       - AMQP:
         - Advanced-Message-Queuing-Protocol: Message-processing-system/Messaging-pattern/Message-queue/AMQP/index.md
-        - Fan-out: Message-processing-system/Messaging-pattern/Message-queue/AMQP/Fan-out.md
-        - software-Rabbitmq:
-          - AMQP-0-9-1-Model-Explained: Message-processing-system/Messaging-pattern/Message-queue/AMQP/software-Rabbitmq/AMQP-0-9-1-Model-Explained.md
+        - Fan-out:
+          - Introduction: Message-processing-system/Messaging-pattern/Message-queue/AMQP/Fan-out/index.md
     - Pub-sub:
       - Introduction: Message-processing-system/Messaging-pattern/Pub-sub/index.md
-  - library-ZeroMQ:
-    - ZeroMQ: Message-processing-system/library-ZeroMQ/index.md
+  - MQ-library:
+    - Introduction: Message-processing-system/MQ-library/index.md
+    - library-Rabbitmq:
+      - AMQP-0-9-1-Model-Explained: Message-processing-system/MQ-library/library-Rabbitmq/AMQP-0-9-1-Model-Explained.md
+    - library-ZeroMQ:
+      - ZeroMQ: Message-processing-system/MQ-library/library-ZeroMQ/index.md
+    - Apache-Kafka:
+      - Introduction: Message-processing-system/MQ-library/Apache-Kafka/index.md
   - library-Celery:
     - Introduction: Message-processing-system/library-Celery/index.md
 - Application:
@@ -677,8 +710,9 @@ nav:
     - Redo-log: Application/Data-system/Redo-log.md
     - Transaction-log: Application/Data-system/Transaction-log.md
   - Blockchain:
-    - Blockchain: Application/Blockchain/Blockchain.md
-    - Is-git-a-block-chain: Application/Blockchain/Is-git-a-block-chain.md
+    - Introduction: Application/Blockchain/index.md
+    - Is-git-a-block-chain:
+      - Introduction: Application/Blockchain/Is-git-a-block-chain/index.md
   - IPFS:
     - Introduction: Application/IPFS/index.md
   - NFS:

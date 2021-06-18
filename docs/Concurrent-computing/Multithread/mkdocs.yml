@@ -4,6 +4,5 @@ nav:
     - Lifetime: Lifetime
     - Inter-thread-communication: Inter-thread-communication
     - Topics: Topics
-    - Thundering-herd-problem: Thundering-herd-problem
     - Condition-variables-VS-mutex: Condition-variables-VS-mutex
     - TODO-Thread-model: TODO-Thread-model

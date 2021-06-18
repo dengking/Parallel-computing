@@ -1,8 +1,8 @@
 nav:
     - Introduction: index.md
 
-    - Stream-based-message-processing-system: Stream-based-message-processing-system
+    - Stream-based: Stream-based
     - Distributed-log-system: Distributed-log-system
     - Messaging-pattern: Messaging-pattern
-    - library-ZeroMQ: library-ZeroMQ
+    - MQ-library: MQ-library
     - library-Celery: library-Celery
