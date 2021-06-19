@@ -677,8 +677,6 @@ nav:
     - "zhihu-Thrift\u7684\u90A3\u4E9B\u670D\u52A1\u6A21\u578B":
       - Introduction: "Event-driven-concurrent-server/Apache-Thrift/zhihu-Thrift\u7684\
           \u90A3\u4E9B\u670D\u52A1\u6A21\u578B/index.md"
-  - Google-Protobuf:
-    - Introduction: Event-driven-concurrent-server/Google-Protobuf/index.md
   - POCO:
     - Introduction: Event-driven-concurrent-server/POCO/index.md
     - POCO-PRO-C++framework:

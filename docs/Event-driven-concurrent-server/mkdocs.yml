@@ -10,7 +10,6 @@ nav:
 
     - library-linyacool-WebServer: library-linyacool-WebServer
     - library-yedf-handy: library-yedf-handy
-
+    
     - Apache-Thrift: Apache-Thrift
-    - Google-Protobuf: Google-Protobuf
     - POCO: POCO    
