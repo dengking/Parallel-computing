@@ -2,5 +2,5 @@ nav:
     - Introduction: index.md
     - Race: Race
     - Time-of-check-to-time-of-use: Time-of-check-to-time-of-use
-    - Out-of-order-execution-and-memory-reordering: Out-of-order-execution-and-memory-reordering
+    - Out-of-order-execution&&memory-reorder: Out-of-order-execution&&memory-reorder
     
