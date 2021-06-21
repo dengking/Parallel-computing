@@ -339,10 +339,10 @@ nav:
           - Introduction: Concurrent-computing/Multithread/Thread-safety/What-cause-unsafety/Time-of-check-to-time-of-use/index.md
           - wikipedia-Time-of-check-to-time-of-use:
             - Introduction: Concurrent-computing/Multithread/Thread-safety/What-cause-unsafety/Time-of-check-to-time-of-use/wikipedia-Time-of-check-to-time-of-use/index.md
-        - Out-of-order-execution-and-memory-reordering:
-          - Introduction: Concurrent-computing/Multithread/Thread-safety/What-cause-unsafety/Out-of-order-execution-and-memory-reordering/index.md
+        - Out-of-order-execution&&memory-reorder:
+          - Introduction: Concurrent-computing/Multithread/Thread-safety/What-cause-unsafety/Out-of-order-execution&&memory-reorder/index.md
           - acmqueue-Shared-Variables-or-Memory-Models:
-            - Introduction: Concurrent-computing/Multithread/Thread-safety/What-cause-unsafety/Out-of-order-execution-and-memory-reordering/acmqueue-Shared-Variables-or-Memory-Models/index.md
+            - Introduction: Concurrent-computing/Multithread/Thread-safety/What-cause-unsafety/Out-of-order-execution&&memory-reorder/acmqueue-Shared-Variables-or-Memory-Models/index.md
       - wikipedia-Thread-safety:
         - Introduction: Concurrent-computing/Multithread/Thread-safety/wikipedia-Thread-safety/index.md
     - Lifetime:
@@ -360,6 +360,8 @@ nav:
         - Introduction: Concurrent-computing/Multithread/Topics/Execute-once/index.md
       - TODO-Timer:
         - Introduction: Concurrent-computing/Multithread/Topics/TODO-Timer/index.md
+        - Columbia-paper-Hashed-hierarchical-wheel-timer:
+          - Introduction: Concurrent-computing/Multithread/Topics/TODO-Timer/Columbia-paper-Hashed-hierarchical-wheel-timer/index.md
       - Stop-a-blocked-thread:
         - Introduction: Concurrent-computing/Multithread/Topics/Stop-a-blocked-thread/index.md
       - Wait-VS-sleep:
@@ -733,28 +735,32 @@ nav:
     - Network-File-System: Application/NFS/Network-File-System.md
   - RPC:
     - Introduction: Application/RPC/index.md
-- library-ZooKeeper:
-  - Introduction: library-ZooKeeper/index.md
+- software-ZooKeeper:
+  - Introduction: software-ZooKeeper/index.md
   - Overview:
-    - Introduction: library-ZooKeeper/Overview/index.md
+    - Introduction: software-ZooKeeper/Overview/index.md
   - Developers:
-    - Introduction: library-ZooKeeper/Developers/index.md
+    - Introduction: software-ZooKeeper/Developers/index.md
     - ZK-client:
-      - Introduction: library-ZooKeeper/Developers/ZK-client/index.md
+      - Introduction: software-ZooKeeper/Developers/ZK-client/index.md
       - Java-Apache-Curator:
-        - Introduction: library-ZooKeeper/Developers/ZK-client/Java-Apache-Curator/index.md
+        - Introduction: software-ZooKeeper/Developers/ZK-client/Java-Apache-Curator/index.md
       - Zookeeper-cpp:
-        - Introduction: library-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/index.md
+        - Introduction: software-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/index.md
         - Read-code:
-          - Introduction: library-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/Read-code/index.md
+          - Introduction: software-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/Read-code/index.md
     - Application:
-      - Introduction: library-ZooKeeper/Developers/Application/index.md
+      - Introduction: software-ZooKeeper/Developers/Application/index.md
       - Lead-election:
-        - Introduction: library-ZooKeeper/Developers/Application/Lead-election/index.md
-        - Automatic-failover-using-ZK: library-ZooKeeper/Developers/Application/Lead-election/Automatic-failover-using-ZK.md
+        - Introduction: software-ZooKeeper/Developers/Application/Lead-election/index.md
+        - Automatic-failover-using-ZK: software-ZooKeeper/Developers/Application/Lead-election/Automatic-failover-using-ZK.md
       - Lock:
-        - Introduction: library-ZooKeeper/Developers/Application/Lock/index.md
-      - Herd-Effect-in-ZK: library-ZooKeeper/Developers/Application/Herd-Effect-in-ZK.md
+        - Introduction: software-ZooKeeper/Developers/Application/Lock/index.md
+      - Herd-Effect-in-ZK: software-ZooKeeper/Developers/Application/Herd-Effect-in-ZK.md
+- software-Memcached:
+  - Introduction: software-Memcached/index.md
+  - Thread-model:
+    - Introduction: software-Memcached/Thread-model/index.md
 plugins:
 - search
 repo_url: https://github.com/dengking/Parallel-computing
