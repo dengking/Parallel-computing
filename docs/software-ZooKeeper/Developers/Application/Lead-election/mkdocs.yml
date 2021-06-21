@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - Automatic-failover-using-ZK: Automatic-failover-using-ZK.md
+    - Herd-Effect-in-ZK: Herd-Effect-in-ZK

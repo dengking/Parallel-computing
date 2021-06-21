@@ -99,3 +99,5 @@ void CQuoteInfoWorker::enqueue(QuoteMessage* quote_message_p) {
 ```
 
 ### udaparts [Tutoral 8 – Treat SocketPro Server as a Router for Load Balancing](http://www.udaparts.com/document/articles/snpisec.htm)
+
+### csdn [负载均衡算法--轮询法（Round Robin）](https://blog.csdn.net/claram/article/details/90265243)
