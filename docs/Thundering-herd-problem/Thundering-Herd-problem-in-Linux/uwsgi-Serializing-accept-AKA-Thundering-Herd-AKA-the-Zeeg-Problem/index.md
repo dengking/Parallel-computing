@@ -99,6 +99,7 @@ semop(...); // unlock
 ... // manage the request
 ```
 
-the SysV semaphore protect your epoll_wait from thundering herd.
+the SysV semaphore protect your `epoll_wait` from thundering herd.
 
 So, another problem solved, the world is a such a beautiful place… but ….
+

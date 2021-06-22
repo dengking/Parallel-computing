@@ -1,0 +1,3 @@
+nav:
+    - Introduction: index.md
+    - uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem: uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
