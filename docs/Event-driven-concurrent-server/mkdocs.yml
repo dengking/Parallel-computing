@@ -12,4 +12,6 @@ nav:
     - library-yedf-handy: library-yedf-handy
     
     - Apache-Thrift: Apache-Thrift
-    - POCO: POCO    
+    - library-POCO: library-POCO    
+    
+    - software-Nginx: software-Nginx

@@ -8,6 +8,7 @@ nav:
     - Miscellaneous: Miscellaneous
     - Event-driven-concurrent-server: Event-driven-concurrent-server
     - Message-processing-system: Message-processing-system
+    - Thundering-herd-problem: Thundering-herd-problem
     - Application: Application    
     - software-ZooKeeper: software-ZooKeeper
     - software-Memcached: software-Memcached
