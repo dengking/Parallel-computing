@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - zhihu-nginx-master-worker进程工作原理: zhihu-nginx-master-worker进程工作原理
+    - Thundering-herd-in-Nginx: Thundering-herd-in-Nginx
