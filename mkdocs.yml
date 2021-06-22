@@ -283,16 +283,6 @@ nav:
       - Introduction: Concurrent-computing/Classic-problem/Sleeping-barber-problem/index.md
     - Cigarette-smokers-problem:
       - Introduction: Concurrent-computing/Classic-problem/Cigarette-smokers-problem/index.md
-    - Thundering-herd-problem:
-      - Introduction: Concurrent-computing/Classic-problem/Thundering-herd-problem/index.md
-      - "TODO-zhihu-\u5206\u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94":
-        - Introduction: "Concurrent-computing/Classic-problem/Thundering-herd-problem/TODO-zhihu-\u5206\
-            \u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94/index.md"
-      - TODO-uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem:
-        - Introduction: Concurrent-computing/Classic-problem/Thundering-herd-problem/TODO-uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/index.md
-      - "TODO-louqibin-Robinhood-\u5B95\u673A-\u5E55\u540E\u9ED1\u624BThundering-Herd":
-        - Introduction: "Concurrent-computing/Classic-problem/Thundering-herd-problem/TODO-louqibin-Robinhood-\u5B95\
-            \u673A-\u5E55\u540E\u9ED1\u624BThundering-Herd/index.md"
   - Concurrent-data-structure:
     - Introduction: Concurrent-computing/Concurrent-data-structure/index.md
     - Queue:
@@ -593,6 +583,8 @@ nav:
       - User-guide:
         - Basics-of-libuv:
           - Introduction: Event-driven-concurrent-server/Event-library/library-libuv/User-guide/Basics-of-libuv/index.md
+    - library-muduo:
+      - Introduction: Event-driven-concurrent-server/Event-library/library-muduo/index.md
   - Concurrent-server:
     - Introduction: Event-driven-concurrent-server/Concurrent-server/index.md
     - The-C10K-problem:
@@ -679,10 +671,27 @@ nav:
     - "zhihu-Thrift\u7684\u90A3\u4E9B\u670D\u52A1\u6A21\u578B":
       - Introduction: "Event-driven-concurrent-server/Apache-Thrift/zhihu-Thrift\u7684\
           \u90A3\u4E9B\u670D\u52A1\u6A21\u578B/index.md"
-  - POCO:
-    - Introduction: Event-driven-concurrent-server/POCO/index.md
+  - library-POCO:
+    - Introduction: Event-driven-concurrent-server/library-POCO/index.md
     - POCO-PRO-C++framework:
-      - Introduction: Event-driven-concurrent-server/POCO/POCO-PRO-C++framework/index.md
+      - Introduction: Event-driven-concurrent-server/library-POCO/POCO-PRO-C++framework/index.md
+  - software-Nginx:
+    - Introduction: Event-driven-concurrent-server/software-Nginx/index.md
+    - Concurrency-model:
+      - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/index.md
+      - "zhihu-nginx-master-worker\u8FDB\u7A0B\u5DE5\u4F5C\u539F\u7406":
+        - Introduction: "Event-driven-concurrent-server/software-Nginx/Concurrency-model/zhihu-nginx-master-worker\u8FDB\
+            \u7A0B\u5DE5\u4F5C\u539F\u7406/index.md"
+      - blog-Inside-NGINX-How-We-Designed-for-Performance-&-Scale:
+        - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/blog-Inside-NGINX-How-We-Designed-for-Performance-&-Scale/index.md
+      - Thundering-herd-in-Nginx:
+        - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/index.md
+        - Nginx-Socket-Sharding:
+          - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/Nginx-Socket-Sharding/index.md
+        - Nginx-accept_mutex-implementation:
+          - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/Nginx-accept_mutex-implementation/index.md
+      - Nginx-event-library:
+        - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Nginx-event-library/index.md
 - Message-processing-system:
   - Introduction: Message-processing-system/index.md
   - Stream-based:
@@ -712,6 +721,22 @@ nav:
       - Introduction: Message-processing-system/MQ-library/Apache-Kafka/index.md
   - library-Celery:
     - Introduction: Message-processing-system/library-Celery/index.md
+- Thundering-herd-problem:
+  - Introduction: Thundering-herd-problem/index.md
+  - Thundering-Herd-in-distributed-computing:
+    - Introduction: Thundering-herd-problem/Thundering-Herd-in-distributed-computing/index.md
+    - "zhihu-\u5206\u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94":
+      - Introduction: "Thundering-herd-problem/Thundering-Herd-in-distributed-computing/zhihu-\u5206\
+          \u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94/index.md"
+  - Thundering-Herd-problem-in-Linux:
+    - Introduction: Thundering-herd-problem/Thundering-Herd-problem-in-Linux/index.md
+    - uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem:
+      - Introduction: Thundering-herd-problem/Thundering-Herd-problem-in-Linux/uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/index.md
+    - SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd:
+      - Introduction: Thundering-herd-problem/Thundering-Herd-problem-in-Linux/SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd/index.md
+  - "TODO-louqibin-Robinhood-\u5B95\u673A-\u5E55\u540E\u9ED1\u624BThundering-Herd":
+    - Introduction: "Thundering-herd-problem/TODO-louqibin-Robinhood-\u5B95\u673A\
+        -\u5E55\u540E\u9ED1\u624BThundering-Herd/index.md"
 - Application:
   - Introduction: Application/index.md
   - Parallel-numeric-processing-system:
@@ -754,9 +779,10 @@ nav:
       - Lead-election:
         - Introduction: software-ZooKeeper/Developers/Application/Lead-election/index.md
         - Automatic-failover-using-ZK: software-ZooKeeper/Developers/Application/Lead-election/Automatic-failover-using-ZK.md
+        - Herd-Effect-in-ZK:
+          - Introduction: software-ZooKeeper/Developers/Application/Lead-election/Herd-Effect-in-ZK/index.md
       - Lock:
         - Introduction: software-ZooKeeper/Developers/Application/Lock/index.md
-      - Herd-Effect-in-ZK: software-ZooKeeper/Developers/Application/Herd-Effect-in-ZK.md
 - software-Memcached:
   - Introduction: software-Memcached/index.md
   - Thread-model:

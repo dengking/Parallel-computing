@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - TODO-zhihu-分布式系统的Thundering-Herd效应: TODO-zhihu-分布式系统的Thundering-Herd效应
-    - TODO-uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem: TODO-uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem
+    - Thundering-Herd-in-distributed-computing: Thundering-Herd-in-distributed-computing
+    - Thundering-Herd-problem-in-Linux: Thundering-Herd-problem-in-Linux
     - TODO-louqibin-Robinhood-宕机-幕后黑手Thundering-Herd: TODO-louqibin-Robinhood-宕机-幕后黑手Thundering-Herd

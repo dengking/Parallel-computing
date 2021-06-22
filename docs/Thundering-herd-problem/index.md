@@ -8,8 +8,6 @@
 
 解决的方法: notify one、serialize(串行) 
 
-二、它广泛存在，稍不留神，就可能引入这个问题
-
 
 
 ## wanweibaike [Thundering herd problem](https://en.wanweibaike.com/wiki-Thundering%20herd%20problem)
@@ -32,4 +30,29 @@ The Linux-kernel will serialize(串行) responses for requests to a single file 
 
 Similarly in Microsoft Windows, [I/O completion ports](https://en.wanweibaike.com/wiki-Input/output_completion_port) can mitigate the thundering herd problem, as they can be configured such that only one of the threads waiting on the completion port is woken up when an event occurs.[[4\]](https://en.wanweibaike.com/wiki-Thundering herd problem#cite_note-4)
 
+## 各个领域中应付thundering herd总结
 
+### Concurrent server
+
+| server       | 参考文章                                                     |      |
+| ------------ | ------------------------------------------------------------ | ---- |
+| Nginx        | `Thundering-herd-in-Nginx`                                   |      |
+| uwsgi        | uwsgi-docs [Serializing accept(), AKA Thundering Herd, AKA the Zeeg Problem](https://uwsgi-docs.readthedocs.io/en/latest/articles/SerializingAccept.html) |      |
+| Apache httpd | [accept Serialization - Multiple Sockets](https://httpd.apache.org/docs/2.4/misc/perf-tuning.html)、[accept Serialization - Single Socket](https://httpd.apache.org/docs/2.4/misc/perf-tuning.html) |      |
+
+
+
+### Distributed computing
+
+|           | 文章                                                         |      |
+| --------- | ------------------------------------------------------------ | ---- |
+| zookeeper | zookeeper [A Guide to Creating Higher-level Constructs with ZooKeeper#Leader Election](https://zookeeper.apache.org/doc/r3.6.2/recipes.html#sc_leaderElection) |      |
+|           | `Thundering-Herd-in-distributed-computing`                   |      |
+
+### Linux OS
+
+参见 `Thundering-Herd-in-Linux` 章节
+
+### Multithread
+
+参见 `Concurrent-computing\Concurrency-control\Lock\Spinlock` 章节。
