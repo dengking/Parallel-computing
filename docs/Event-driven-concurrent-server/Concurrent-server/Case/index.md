@@ -8,19 +8,7 @@ nginx has one master process and several worker processes. The main purpose of t
 
 
 
-[Nginx](https://en.wikipedia.org/wiki/Nginx)
-
-
-
-## [Gunicorn](http://docs.gunicorn.org/en/latest/design.html)
-
-Gunicorn is based on the pre-fork worker model. This means that there is a central master process that manages a set of worker processes. The master never knows anything about individual clients. All requests and responses are handled completely by worker processes.
-
-
-
-## [Celery](http://docs.celeryproject.org/en/latest/userguide/workers.html)
-
-
+wikipedia [Nginx](https://en.wikipedia.org/wiki/Nginx)
 
 
 
@@ -28,29 +16,27 @@ Gunicorn is based on the pre-fork worker model. This means that there is a centr
 
 
 
-
-
-## [libuv](http://docs.libuv.org/en/v1.x/#) 
-
-
-
-## [Tornado](http://www.tornadoweb.org/)
+## [Memcached](https://memcached.org/)
 
 
 
-## simple http server
+## Python
 
-### IO multiplex
+### [Gunicorn](http://docs.gunicorn.org/en/latest/design.html)
 
-https://github.com/jeremycw/httpserver.h
-
-### 多进程
-
-https://github.com/pizhi/HttpServer
+Gunicorn is based on the pre-fork worker model. This means that there is a central master process that manages a set of worker processes. The master never knows anything about individual clients. All requests and responses are handled completely by worker processes.
 
 
 
-https://github.com/ethereum/lahja
+### [Celery](http://docs.celeryproject.org/en/latest/userguide/workers.html)
+
+
+
+
+
+### [Tornado](http://www.tornadoweb.org/)
+
+
 
 
 
