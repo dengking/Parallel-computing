@@ -1,9 +1,16 @@
 # Quorum 
 
-通过**投票**来达成共识。
-
 ## Multiple model
-既然有multiple entity，那么由它们来进行vote从而进行决策是自然而然的想法了。
+
+
+
+一、通过**投票**来达成共识。
+
+二、既然有multiple entity，那么由它们来进行vote从而进行决策是自然而然的想法了。
+
+少数服从多数
+
+
 
 ## wikipedia [Quorum (distributed computing)](https://en.wikipedia.org/wiki/Quorum_(distributed_computing))
 

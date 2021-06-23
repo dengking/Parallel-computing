@@ -1,5 +1,7 @@
 nav:
-    - Consensus: index.md
-    - Leader-election: Leader-election.md
-    - VS-consensus-VS-consistency: VS-consensus-VS-consistency.md
+    - Introduction: index.md
+    - Quorum: Quorum
+
     - Protocol: Protocol
+    - Leader-election: Leader-election
+    - VS-consensus-VS-consistency: VS-consensus-VS-consistency.md    
