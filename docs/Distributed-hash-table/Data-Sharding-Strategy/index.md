@@ -1,0 +1,1 @@
+# [Systems Design Glossary](https://aaronice.gitbook.io/system-design/distributed-systems)

@@ -1,5 +1,6 @@
 nav:
-    - Distributed-computing: index.md
+    - Introduction: index.md
+    - Expert-Leslie-Lamport: Expert-Leslie-Lamport    
     - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
     - Book-Distributed-operating-systems: book-Distributed-operating-systems    
     - Book-Programming-Models-for-Distributed-Computing: Book-Programming-Models-for-Distributed-Computing
@@ -7,5 +8,5 @@ nav:
     - Theory: Theory
     - Technique: Technique
     - Architecture: Architecture
-    - Expert-Leslie-Lamport: Expert-Leslie-Lamport
-    - Distributed-hash-table: Distributed-hash-table
+
+    
