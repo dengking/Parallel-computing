@@ -22,7 +22,9 @@ Spanner是个可扩展，多版本，全球分布式还支持同步复制的数�
 
 > NOTE: 
 >
-> 一、[distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) 的一个挑战是 [lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization) ，
+> 一、[distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) 的一个挑战是 [lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization) ，从上面这段的描述可知，Google spanner实现了clock synchronization，精度在10ms内，显然这是能够帮助解决distributed computing中的很多问题的，正如上面这段话中所总结的:
 >
-> "Spanner能做到这些，离不开一个用GPS和原子钟实现的时间API。这个API能将数据中心之间的时间同步精确到10ms以内"
+> "因此有几个 给力的功能：无锁读事务，原子schema修改，读历史数据无block。"
+>
+> 
 
