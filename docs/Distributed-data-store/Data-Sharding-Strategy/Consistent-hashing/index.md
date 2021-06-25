@@ -54,10 +54,6 @@ The portion of the keys associated with each bucket can be altered by altering t
 
 
 
-
-
-
-
 ### Complexity
 
 **Asymptotic time complexities for N nodes (or slots) and** **K keys**
@@ -89,3 +85,6 @@ Some known instances where consistent hashing is used are:
 
 
 
+## TODO
+
+aaronice.gitbook [Consistent Hashing](https://aaronice.gitbook.io/system-design/distributed-systems/consistent-hashing)
