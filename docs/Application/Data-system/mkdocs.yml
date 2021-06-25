@@ -1,6 +1,0 @@
-nav:
-    - Distributed-data-store: Distributed-data-store.md
-    - Version: Version.md
-    - Schema: Schema
-    - Redo-log: Redo-log.md
-    - Transaction-log: Transaction-log.md
