@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
+    - Periodic-worker: Periodic-worker
     - Columbia-paper-Hashed-hierarchical-wheel-timer: Columbia-paper-Hashed-hierarchical-wheel-timer
     

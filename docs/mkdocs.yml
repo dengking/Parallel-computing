@@ -8,7 +8,8 @@ nav:
     - Miscellaneous: Miscellaneous
     - Event-driven-concurrent-server: Event-driven-concurrent-server
     - Message-processing-system: Message-processing-system
-    - Distributed-hash-table: Distributed-hash-table
+    - Distributed-data-store: Distributed-data-store
+    - RPC: RPC
     - Thundering-herd-problem: Thundering-herd-problem
     - Application: Application    
     - software-ZooKeeper: software-ZooKeeper

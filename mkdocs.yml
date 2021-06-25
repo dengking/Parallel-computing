@@ -250,8 +250,7 @@ nav:
         - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/index.md
         - MVCC:
           - Introduction: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/MVCC/index.md
-        - Timestamp-based concurrency-control: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/Timestamp-based
-            concurrency-control.md
+        - Timestamp-based-concurrency-control: Concurrent-computing/Concurrency-control/Non-blocking/Version-based/Timestamp-based-concurrency-control.md
     - Transactional-memory:
       - Introduction: Concurrent-computing/Concurrency-control/Transactional-memory/index.md
     - Optimistic-and-pessimistic:
@@ -348,10 +347,6 @@ nav:
         - Introduction: Concurrent-computing/Multithread/Topics/Sleep-forever/index.md
       - Execute-once:
         - Introduction: Concurrent-computing/Multithread/Topics/Execute-once/index.md
-      - TODO-Timer:
-        - Introduction: Concurrent-computing/Multithread/Topics/TODO-Timer/index.md
-        - Columbia-paper-Hashed-hierarchical-wheel-timer:
-          - Introduction: Concurrent-computing/Multithread/Topics/TODO-Timer/Columbia-paper-Hashed-hierarchical-wheel-timer/index.md
       - Stop-a-blocked-thread:
         - Introduction: Concurrent-computing/Multithread/Topics/Stop-a-blocked-thread/index.md
       - Wait-VS-sleep:
@@ -374,20 +369,24 @@ nav:
   - Design-and-optimize:
     - Introduction: Concurrent-computing/Design-and-optimize/index.md
 - Distributed-computing:
-  - Distributed-computing: Distributed-computing/index.md
+  - Introduction: Distributed-computing/index.md
+  - Expert-Leslie-Lamport:
+    - Introduction: Distributed-computing/Expert-Leslie-Lamport/index.md
   - Book-Designing-Data-Intensive-Applications:
     - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/index.md
-    - Preface: Distributed-computing/Book-Designing-Data-Intensive-Applications/Preface.md
-    - Outline-of-This-Book: Distributed-computing/Book-Designing-Data-Intensive-Applications/Outline-of-This-Book.md
+    - Preface:
+      - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/Preface/index.md
+    - Outline-of-This-Book:
+      - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/Outline-of-This-Book/index.md
     - PART-I:
-      - CHAPTER-1-Reliable-Scalable-and-Maintainable-Applications:
-        - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-I/CHAPTER-1-Reliable-Scalable-and-Maintainable-Applications/index.md
+      - 1-Reliable-Scalable-Maintainable-Applications:
+        - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-I/1-Reliable-Scalable-Maintainable-Applications/index.md
     - PART-II-Distributed-Data:
-      - PART-II-Distributed-Data: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/PART-II-Distributed-Data.md
-      - CHAPTER-5-Replication:
-        - CHAPTER-5-Replication: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-5-Replication/CHAPTER-5-Replication.md
-      - CHAPTER-8-The-Trouble-with-Distributed-Systems:
-        - CHAPTER-8-The-Trouble-with-Distributed-Systems: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II-Distributed-Data/CHAPTER-8-The-Trouble-with-Distributed-Systems/index.md
+      - PART-II-Distributed-Data: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/index.md
+      - 5-Replication:
+        - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/5-Replication/index.md
+      - 8-The-Trouble-with-Distributed-Systems:
+        - CHAPTER-8-The-Trouble-with-Distributed-Systems: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/8-The-Trouble-with-Distributed-Systems/index.md
   - Book-Distributed-operating-systems:
     - Introduction: Distributed-computing/book-Distributed-operating-systems/index.md
     - 6-Distributed-Shared-Memory:
@@ -398,9 +397,12 @@ nav:
       - 6.3.8-Summary-of-Consistency-Models: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.8-Summary-of-Consistency-Models.md
   - Book-Programming-Models-for-Distributed-Computing:
     - Introduction: Distributed-computing/Book-Programming-Models-for-Distributed-Computing/index.md
+  - martinfowler-Patterns-of-Distributed-Systems:
+    - Introduction: Distributed-computing/martinfowler-Patterns-of-Distributed-Systems/index.md
   - Theory:
     - Introduction: Distributed-computing/Theory/index.md
-    - Trouble-with-Distributed-Systems: Distributed-computing/Theory/Trouble-with-Distributed-Systems.md
+    - Distributed-system-challenge:
+      - Introduction: Distributed-computing/Theory/Distributed-system-challenge/index.md
     - Abstraction:
       - Abstraction-in-distributed-computing: Distributed-computing/Theory/Abstraction/Abstraction-in-distributed-computing.md
     - Design-goal-of-distributed-systems: Distributed-computing/Theory/Design-goal-of-distributed-systems.md
@@ -439,10 +441,12 @@ nav:
         - Introduction: Distributed-computing/Theory/High-availability/Single-point-of-failure/index.md
       - High-availability-cluster:
         - Introduction: Distributed-computing/Theory/High-availability/High-availability-cluster/index.md
+      - Split-brain:
+        - Introduction: Distributed-computing/Theory/High-availability/Split-brain/index.md
     - Consensus:
-      - Consensus: Distributed-computing/Theory/Consensus/index.md
-      - Leader-election: Distributed-computing/Theory/Consensus/Leader-election.md
-      - VS-consensus-VS-consistency: Distributed-computing/Theory/Consensus/VS-consensus-VS-consistency.md
+      - Introduction: Distributed-computing/Theory/Consensus/index.md
+      - Quorum:
+        - Introduction: Distributed-computing/Theory/Consensus/Quorum/index.md
       - Protocol:
         - Raft:
           - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/index.md
@@ -455,6 +459,9 @@ nav:
         - Paxos:
           - wikipedia-Paxos(computer-science):
             - Introduction: Distributed-computing/Theory/Consensus/Protocol/Paxos/wikipedia-Paxos(computer-science)/index.md
+      - Leader-election:
+        - Introduction: Distributed-computing/Theory/Consensus/Leader-election/index.md
+      - VS-consensus-VS-consistency: Distributed-computing/Theory/Consensus/VS-consensus-VS-consistency.md
     - Partitioning:
       - Introduction: Distributed-computing/Theory/Partitioning/index.md
     - Replication:
@@ -463,15 +470,20 @@ nav:
       - State-machine-replication: Distributed-computing/Theory/Replication/State-machine-replication.md
     - Logical-clock:
       - Introduction: Distributed-computing/Theory/Logical-clock/index.md
-      - Logical-clock: Distributed-computing/Theory/Logical-clock/Logical-clock.md
+      - wikipedia-Logical-clock:
+        - Introduction: Distributed-computing/Theory/Logical-clock/wikipedia-Logical-clock/index.md
       - Lamport-timestamp:
-        - Lamport-timestamps: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/Lamport-timestamps.md
+        - Introduction: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/index.md
+        - paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System:
+          - Introduction: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System/index.md
+        - towardsdatascience-Understanding-Lamport-Timestamps:
+          - Introduction: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/towardsdatascience-Understanding-Lamport-Timestamps/index.md
       - Happened-before:
         - Introduction: Distributed-computing/Theory/Logical-clock/Happened-before/index.md
+      - scattered-thoughts-Causal-ordering:
+        - Introduction: Distributed-computing/Theory/Logical-clock/scattered-thoughts-Causal-ordering/index.md
   - Technique:
     - Introduction: Distributed-computing/Technique/index.md
-    - Quorum:
-      - Introduction: Distributed-computing/Technique/Quorum/index.md
     - Heartbeat:
       - Introduction: Distributed-computing/Technique/Heartbeat/index.md
     - Transaction:
@@ -482,21 +494,9 @@ nav:
     - Introduction: Distributed-computing/Architecture/index.md
     - "Client\u2013server-architecture": "Distributed-computing/Architecture/Client\u2013\
         server-architecture.md"
-    - Peer-to-peer-architecture: Distributed-computing/Architecture/Peer-to-peer-architecture.md
+    - Peer-to-peer-architecture:
+      - Introduction: Distributed-computing/Architecture/Peer-to-peer-architecture/index.md
     - Client-server-VS-Peer-to-peer: Distributed-computing/Architecture/Client-server-VS-Peer-to-peer.md
-  - Expert-Leslie-Lamport:
-    - Introduction: Distributed-computing/Expert-Leslie-Lamport/index.md
-  - Distributed-hash-table:
-    - Introduction: Distributed-computing/Distributed-hash-table/index.md
-    - Consistent-hashing:
-      - Introduction: Distributed-computing/Distributed-hash-table/Consistent-hashing/index.md
-      - "cnblogs-\u4E00\u81F4\u6027Hash\u7684\u539F\u7406\u548C\u5B9E\u8DF5":
-        - Introduction: "Distributed-computing/Distributed-hash-table/Consistent-hashing/cnblogs-\u4E00\
-            \u81F4\u6027Hash\u7684\u539F\u7406\u548C\u5B9E\u8DF5/index.md"
-    - Rendezvous-hashing:
-      - Introduction: Distributed-computing/Distributed-hash-table/Rendezvous-hashing/index.md
-    - TODO-Consistent-hash-VS-rendezvous-hash: Distributed-computing/Distributed-hash-table/TODO-Consistent-hash-VS-rendezvous-hash.md
-    - wikipedia-Distributed-cache: Distributed-computing/Distributed-hash-table/wikipedia-Distributed-cache.md
 - Model:
   - Introduction: Model/index.md
   - Multiple-model:
@@ -608,6 +608,8 @@ nav:
         - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/TODO-Round-robin-scheduling/index.md
     - Case:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/index.md
+      - HTTP-server:
+        - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/HTTP-server/index.md
   - Expert-Nick-Black:
     - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/index.md
     - Fast-UNIX-Servers:
@@ -692,6 +694,12 @@ nav:
           - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/Nginx-accept_mutex-implementation/index.md
       - Nginx-event-library:
         - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Nginx-event-library/index.md
+  - Timer:
+    - Introduction: Event-driven-concurrent-server/Timer/index.md
+    - Periodic-worker:
+      - Introduction: Event-driven-concurrent-server/Timer/Periodic-worker/index.md
+    - Columbia-paper-Hashed-hierarchical-wheel-timer:
+      - Introduction: Event-driven-concurrent-server/Timer/Columbia-paper-Hashed-hierarchical-wheel-timer/index.md
 - Message-processing-system:
   - Introduction: Message-processing-system/index.md
   - Stream-based:
@@ -721,6 +729,43 @@ nav:
       - Introduction: Message-processing-system/MQ-library/Apache-Kafka/index.md
   - library-Celery:
     - Introduction: Message-processing-system/library-Celery/index.md
+- Distributed-data-store:
+  - Introduction: Distributed-data-store/index.md
+  - Data-Sharding-Strategy:
+    - Introduction: Distributed-data-store/Data-Sharding-Strategy/index.md
+    - Consistent-hashing:
+      - Introduction: Distributed-data-store/Data-Sharding-Strategy/Consistent-hashing/index.md
+      - "cnblogs-\u4E00\u81F4\u6027Hash\u7684\u539F\u7406\u548C\u5B9E\u8DF5":
+        - Introduction: "Distributed-data-store/Data-Sharding-Strategy/Consistent-hashing/cnblogs-\u4E00\
+            \u81F4\u6027Hash\u7684\u539F\u7406\u548C\u5B9E\u8DF5/index.md"
+    - Rendezvous-hashing:
+      - Introduction: Distributed-data-store/Data-Sharding-Strategy/Rendezvous-hashing/index.md
+    - TODO-Consistent-hash-VS-rendezvous-hash: Distributed-data-store/Data-Sharding-Strategy/TODO-Consistent-hash-VS-rendezvous-hash.md
+  - Distributed-hash-table:
+    - Introduction: Distributed-data-store/Distributed-hash-table/index.md
+    - wikipedia-Distributed-cache: Distributed-data-store/Distributed-hash-table/wikipedia-Distributed-cache.md
+  - Distributed-database:
+    - Introduction: Distributed-data-store/Distributed-database/index.md
+    - Google-Spanner:
+      - Introduction: Distributed-data-store/Distributed-database/Google-Spanner/index.md
+      - "paper-Spanner-Google\u2019s-Globally-Distributed-Database":
+        - Introduction: "Distributed-data-store/Distributed-database/Google-Spanner/paper-Spanner-Google\u2019\
+            s-Globally-Distributed-Database/index.md"
+    - YugabyteDB:
+      - Introduction: Distributed-data-store/Distributed-database/YugabyteDB/index.md
+      - blog-4-Data-Sharding-Strategies-in-Building-Distributed-SQL-Database:
+        - Introduction: Distributed-data-store/Distributed-database/YugabyteDB/blog-4-Data-Sharding-Strategies-in-Building-Distributed-SQL-Database/index.md
+    - CockroachDB:
+      - Introduction: Distributed-data-store/Distributed-database/CockroachDB/index.md
+  - Data-system:
+    - Schema:
+      - Introduction: Distributed-data-store/Data-system/Schema/index.md
+    - Redo-log:
+      - Introduction: Distributed-data-store/Data-system/Redo-log/index.md
+    - Transaction-log:
+      - Introduction: Distributed-data-store/Data-system/Transaction-log/index.md
+- RPC:
+  - Introduction: RPC/index.md
 - Thundering-herd-problem:
   - Introduction: Thundering-herd-problem/index.md
   - Thundering-Herd-in-distributed-computing:
@@ -743,13 +788,6 @@ nav:
     - Introduction: Application/Parallel-numeric-processing-system/index.md
     - Dataflow-programming:
       - Introduction: Application/Parallel-numeric-processing-system/Dataflow-programming/index.md
-  - Data-system:
-    - Distributed-data-store: Application/Data-system/Distributed-data-store.md
-    - Version: Application/Data-system/Version.md
-    - Schema:
-      - Introduction: Application/Data-system/Schema/index.md
-    - Redo-log: Application/Data-system/Redo-log.md
-    - Transaction-log: Application/Data-system/Transaction-log.md
   - Blockchain:
     - Introduction: Application/Blockchain/index.md
     - Is-git-a-block-chain:
@@ -758,8 +796,6 @@ nav:
     - Introduction: Application/IPFS/index.md
   - NFS:
     - Network-File-System: Application/NFS/Network-File-System.md
-  - RPC:
-    - Introduction: Application/RPC/index.md
 - software-ZooKeeper:
   - Introduction: software-ZooKeeper/index.md
   - Overview:

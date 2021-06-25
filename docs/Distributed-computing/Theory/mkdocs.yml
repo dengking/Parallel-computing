@@ -1,7 +1,6 @@
 nav:
     - Introduction: index.md
-    
-    - Trouble-with-Distributed-Systems: Trouble-with-Distributed-Systems.md
+    - Distributed-system-challenge: Distributed-system-challenge
     - Abstraction: Abstraction    
     - Design-goal-of-distributed-systems: Design-goal-of-distributed-systems.md
     
