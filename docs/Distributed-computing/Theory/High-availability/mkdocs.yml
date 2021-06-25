@@ -2,3 +2,4 @@ nav:
     - Introduction: index.md
     - Single-point-of-failure: Single-point-of-failure
     - High-availability-cluster: High-availability-cluster
+    - Split-brain: Split-brain
