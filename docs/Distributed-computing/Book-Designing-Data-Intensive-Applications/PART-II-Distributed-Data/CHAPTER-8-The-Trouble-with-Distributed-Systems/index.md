@@ -1,6 +1,10 @@
 # CHAPTER 8 The Trouble with Distributed Systems
 
-A recurring theme in the last few chapters has been how systems handle things going wrong. For example, we discussed replica failover (“Handling Node Outages” on page 156), replication lag (“Problems with Replication Lag” on page 161), and concurrency control for transactions (“Weak Isolation Levels” on page 233). As we come to understand various edge cases（极端情况） that can occur in real systems, we get better at handling them.
+> NOTE: 
+>
+> 本章所总结的是分布式系统的挑战，它是理解分布式系统中各种问题的关键所在
+
+A recurring theme in the last few chapters has been how systems handle things going wrong. For example, we discussed replica failover (“Handling Node Outages” on page 156), replication lag (“Problems with Replication Lag” on page 161), and concurrency control for transactions (“Weak Isolation Levels” on page 233). As we come to understand various edge cases(极端情况) that can occur in real systems, we get better at handling them.
 
 However, even though we have talked a lot about faults, the last few chapters have still been too optimistic. The reality is even darker. 
 

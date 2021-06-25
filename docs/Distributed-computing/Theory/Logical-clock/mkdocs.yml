@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
-    - Logical-clock: Logical-clock.md
+    - wikipedia-Logical-clock: wikipedia-Logical-clock
     - Lamport-timestamp: Lamport-timestamp
     - Happened-before: Happened-before
+    - scattered-thoughts-Causal-ordering: scattered-thoughts-Causal-ordering

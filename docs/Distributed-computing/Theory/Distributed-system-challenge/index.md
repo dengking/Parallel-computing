@@ -1,4 +1,4 @@
-# The Trouble with Distributed Systems
+# The challenge of Distributed Systems
 
 本文对The Trouble with Distributed Systems进行总结。
 
@@ -19,3 +19,4 @@ ZooKeeper: A Distributed Coordination Service for Distributed Applications，因
 > 总结的还可以
 
 ### martinfowler [Patterns of Distributed Systems](https://martinfowler.com/articles/patterns-of-distributed-systems/)
+
