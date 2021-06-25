@@ -40,16 +40,33 @@ It would be unwise to assume that faults are rare and simply hope for the best. 
 
 ## Unreliable Networks
 
-Shared-nothing is not the only way of building systems, but it has become the dominant approach for building internet services, for several reasons: it’s comparatively cheap because it requires no special hardware, it can make use of commoditized cloud computing services, and it can achieve high reliability through redundancy across multiple geographically distributed datacenters.
+Shared-nothing is not the only way of building systems, but it has become the dominant approach for building internet services, for several reasons: it’s comparatively cheap because it requires no special hardware, it can make use of commoditized(商业化的) cloud computing services, and it can achieve high reliability through redundancy across multiple geographically distributed datacenters.
+
+> NOTE: 
+>
+> 一、上面这段话所总结的是"shared-nothing architecture"的优势
+>
+> 二、"it can achieve high reliability through redundancy across multiple geographically distributed datacenters"其实就是HA replication
+>
+> 
 
 The internet and most internal networks in datacenters (often Ethernet) are asynchronous packet networks. In this kind of network, one node can send a message (a packet) to another node, but the network gives no guarantees as to when it will arrive, or whether it will arrive at all. If you send a request and expect a response, many things could go wrong (some of which are illustrated in Figure 8-1):
 
-1. Your request may have been lost (perhaps someone unplugged a network cable).
-2. Your request may be waiting in a queue and will be delivered later (perhaps the network or the recipient is overloaded).
-3. The remote node may have failed (perhaps it crashed or it was powered down).
-4. The remote node may have temporarily stopped responding (perhaps it is experiencing a long garbage collection pause; see “Process Pauses” on page 295), but it will start responding again later.
-5. The remote node may have processed your request, but the response has been lost on the network (perhaps a network switch has been misconfigured).
-6. The remote node may have processed your request, but the response has been delayed and will be delivered later (perhaps the network or your own machine is overloaded).
+1、 Your request may have been lost (perhaps someone unplugged a network cable).
+
+2、 Your request may be waiting in a queue and will be delivered later (perhaps the network or the recipient is overloaded).
+
+3、 The remote node may have failed (perhaps it crashed or it was powered down).
+
+4、 The remote node may have temporarily stopped responding (perhaps it is experiencing a long garbage collection pause; see “Process Pauses” on page 295), but it will start responding again later.
+
+5、 The remote node may have processed your request, but the response has been lost on the network (perhaps a network switch has been misconfigured).
+
+6、 The remote node may have processed your request, but the response has been delayed and will be delivered later (perhaps the network or your own machine is overloaded).
+
+> NOTE: 
+>
+> 看了上面的内容，不要觉得系统太脆弱了；因为上面描述的各种事件，有的发生的可能性是非常低的
 
 ![](./Figure8-1.jpg)
 
@@ -64,6 +81,7 @@ The usual way of handling this issue is a *timeout*: after some time you give up
 We have been building computer networks for decades—one might hope that by now we would have figured out how to make them reliable. However, it seems that we have not yet succeeded.
 
 > Network partitions
+>
 > When one part of the network is cut off from the rest due to a network fault, that is sometimes called a *network partition* or *netsplit*. In this book we’ll generally stick with the more general term *network fault*, to avoid confusion with partitions (shards) of a storage system, as discussed in Chapter 6.
 
 ### Detecting Faults
@@ -99,12 +117,10 @@ When driving a car, travel times on road networks often vary most due to traffic
 
 ## Unreliable Clocks
 
-Clocks and time are important. Applications depend on clocks in various ways to
-answer questions like the following:
+Clocks and time are important. Applications depend on clocks in various ways to answer questions like the following:
 1. Has this request timed out yet?
 2. What’s the 99th percentile response time of this service?
-3. How many queries per second did this service handle on average in the last five
-minutes?
+3. How many queries per second did this service handle on average in the last five minutes?
 4. How long did the user spend on our site?
 5. When was this article published?
 6. At what date and time should the reminder email be sent?
@@ -117,17 +133,19 @@ minutes?
 
 So far in this chapter we have explored the ways in which distributed systems are different from programs running on a single computer: there is no shared memory, only message passing via an unreliable network with variable delays, and the systems may suffer from partial failures, unreliable clocks, and processing pauses.
 
-> NOTE: 这段胡总结的非常好。
+> NOTE: 这段话总结的非常好。
 
 The consequences of these issues are profoundly disorienting if you’re not used to distributed systems. A node in the network cannot know anything for sure—it can only make guesses based on the messages it receives (or doesn’t receive) via the network. A node can only find out what state another node is in (what data it has stored, whether it is correctly functioning, etc.) by exchanging messages with it. If a remote node doesn’t respond, there is no way of knowing what state it is in, because problems in the network cannot reliably be distinguished from problems at a node.
 
-Discussions of these systems border on the philosophical: What do we know to be true or false in our system? How sure can we be of that knowledge, if the mechanisms for perception and measurement are unreliable? Should software systems obey the laws that we expect of the physical world, such as cause and effect?
+Discussions of these systems border(与...接壤) on the philosophical: What do we know to be true or false in our system? How sure can we be of that knowledge, if the mechanisms for perception and measurement are unreliable? Should software systems obey the laws that we expect of the physical world, such as cause and effect?
 
 > NOTE: 对这些系统的讨论近乎于哲学。软件系统是否应该遵循我们所期望的物理世界的法则，比如因果关系?
 
 Fortunately, we don’t need to go as far as figuring out the meaning of life. In a distributed system, we can state the **assumptions** we are making about the behavior (the ***system model***) and design the actual system in such a way that it meets those assumptions. Algorithms can be proved to function correctly within a certain **system model**. This means that reliable behavior is achievable, even if the underlying system model provides very few guarantees.
 
-> NOTE: 这段话是什么含义？
+> NOTE: 
+>
+> 建立system model，每个model都是有一定的assumption，即假设、前提条件
 
 However, although it is possible to make software well behaved in an **unreliable system model**, it is not straightforward to do so. In the rest of this chapter we will further explore the notions of **knowledge** and **truth** in distributed systems, which will help us think about the kinds of **assumptions** we can make and the **guarantees** we may want to provide. In Chapter 9 we will proceed to look at some examples of distributed systems, algorithms that provide particular guarantees under particular assumptions.
 
@@ -135,4 +153,5 @@ However, although it is possible to make software well behaved in an **unreliabl
 
 The moral（寓意） of these stories is that a node cannot necessarily trust its own judgment of a situation. A distributed system cannot exclusively rely on a single node, because a node may fail at any time, potentially leaving the system stuck and unable to recover. Instead, many distributed algorithms rely on a ***quorum***, that is, voting among the nodes (see “Quorums for reading and writing” on page 179): decisions require some minimum number of votes from several nodes in order to reduce the dependence on any one particular node.
 
-That includes decisions about declaring nodes dead. If a quorum of nodes declares another node dead, then it must be considered dead, even if that node still very much feels alive. The individual node must abide by the quorum decision and step down.
+That includes decisions about declaring nodes dead. If a quorum of nodes declares another node dead, then it must be considered dead, even if that node still very much feels alive. The individual node must abide by(遵守) the quorum decision and step down.
+

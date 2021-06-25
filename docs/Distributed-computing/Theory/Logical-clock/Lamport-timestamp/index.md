@@ -100,6 +100,8 @@ Nevertheless, Lamport timestamps can be used to create a [total ordering](https:
 
 11、The theory goes that if one node goes down, if we know the causal relationships between messages, then we can replay those messages and respect the causal relationship to get that node back up to the state it needs to be in.[[2\]](https://en.wikipedia.org/wiki/Lamport_timestamps#cite_note-2)
 
+
+
 ## TODO
 
 swizec [Week 7: Time, Clocks, and Ordering of Events in a Distributed System](https://swizec.com/blog/week-7-time-clocks-and-ordering-of-events-in-a-distributed-system)

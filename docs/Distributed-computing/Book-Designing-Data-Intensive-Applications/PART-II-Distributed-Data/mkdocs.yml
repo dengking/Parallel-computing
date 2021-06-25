@@ -1,4 +1,4 @@
 nav:
     - PART-II-Distributed-Data: index.md
-    - CHAPTER-5-Replication: CHAPTER-5-Replication
-    - CHAPTER-8-The-Trouble-with-Distributed-Systems: CHAPTER-8-The-Trouble-with-Distributed-Systems
+    - 5-Replication: 5-Replication
+    - 8-The-Trouble-with-Distributed-Systems: 8-The-Trouble-with-Distributed-Systems
