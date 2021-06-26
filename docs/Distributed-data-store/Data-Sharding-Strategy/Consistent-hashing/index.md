@@ -115,6 +115,14 @@ But virtual nodes is not an original concept of consistent hashing, but more lik
 
 So, don't bother with phraseology.
 
+
+
+### datastax [Virtual nodes](https://docs.datastax.com/en/dse/6.7/dse-arch/datastax_enterprise/dbArch/archDataDistributeVnodesUsing.html#archDataDistributeVnodesUsing) # Distributing data using vnodes
+
+Virtual vs single-token architecture
+
+![img](https://docs.datastax.com/en/dse/6.7/dse-arch/universalcommons/graphics/arcVnodesCompare.png)
+
 ### 优势
 
 从其中的内容可知，virtual node有如下优势:
@@ -122,6 +130,12 @@ So, don't bother with phraseology.
 1、load balance
 
 2、降低迁移量
+
+
+
+### Implementation
+
+github [mixu](https://github.com/mixu)/**[vnodehash](https://github.com/mixu/vnodehash)**
 
 ## TODO
 
