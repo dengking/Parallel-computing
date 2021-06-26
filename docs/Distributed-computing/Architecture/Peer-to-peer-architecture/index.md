@@ -1,4 +1,6 @@
-# [Peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer)
+# wikipedia [Peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer)
+
+
 
 **Peer-to-peer** (**P2P**) computing or networking is a [distributed application](https://en.wikipedia.org/wiki/Distributed_application) architecture that **partitions** tasks or workloads between peers. Peers are equally privileged, equipotent（均等的） participants in the application. They are said to form a peer-to-peer network of nodes.
 
@@ -82,19 +84,14 @@ The decentralized nature of P2P networks increases **robustness** because it rem
 
 
 
-如下是补充的：
+### 如下是补充的
 
-- [Distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control)
--  [Redis Cluster](https://redis.io/documentation)
+1、[Distributed version control](https://en.wikipedia.org/wiki/Distributed_version_control)
+
+2、[Redis Cluster](https://redis.io/documentation)
 
 
 
-# Centralized VS Decentralized
+## TODO
 
-搜罗了一下，维基百科中关于这两者的文章有如下：
-
-- [Decentralized computing](https://en.wikipedia.org/wiki/Decentralized_computing)
-- [Centralized computing](https://en.wikipedia.org/wiki/Centralized_computing)
-- [Decentralised system](https://en.wikipedia.org/wiki/Decentralised_system)
-
-上述文章中，[Decentralised system](https://en.wikipedia.org/wiki/Decentralised_system)是最最通俗易懂的，前两篇质量一般。
+digitalcitizen [What are P2P (peer-to-peer) networks and what are they used for?](https://www.digitalcitizen.life/what-is-p2p-peer-to-peer/)

@@ -35,7 +35,9 @@
 
 > NOTE: 
 >
-> 1、上面提到的这种"均摊来避免热点"的做法是值得借鉴的，"amortize-to-avoid-hot-point-均摊避免集中热点"
+> 一、上面提到的这种"均摊来避免热点"的做法是值得借鉴的，"amortize-to-avoid-hot-point-均摊避免集中热点"
+>
+> 二、这其实是Cassandra中的virtual node trick，virtual node是非常类似于Redis的hash slot的
 
 ![一致性hash改进版](./Consistent-Hash-forward.png)
 
@@ -48,6 +50,10 @@
 2、确定集群后，根据一致性hash把设备匹配到server的某个instance上(每台server部署多个设备接入层实例（1.每个instance保存的状态信息更分散;2.服务的gc问题会有缓解）
 
 3、建立机器虚拟节点：把user逆序(打乱之前连续`userId`)，组成新的资源段;相当于建立了server虚拟节点
+
+> NOTE: 
+>
+> virtual node
 
 4、记录每台server锁服务的设备数，如果机器A挂了，挑选服务设备数最少的机器去承接kicked-device
 

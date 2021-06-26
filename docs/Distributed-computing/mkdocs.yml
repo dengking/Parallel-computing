@@ -1,6 +1,8 @@
 nav:
     - Introduction: index.md
     - Expert-Leslie-Lamport: Expert-Leslie-Lamport    
+    - Expert-Dr-Werner-Vogels: Expert-Dr-Werner-Vogels
+    - Course: Course
     - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
     - Book-Distributed-operating-systems: book-Distributed-operating-systems    
     - Book-Programming-Models-for-Distributed-Computing: Book-Programming-Models-for-Distributed-Computing

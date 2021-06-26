@@ -2,13 +2,7 @@
 
 一致性哈希。
 
-1、cnblogs [给面试官讲明白：一致性Hash的原理和实践](https://www.cnblogs.com/jingangtx/p/11338592.html)
 
-其中结合了具体的案例来说明，比较容易理解。
-
-2、wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table) # Monotonic keys
-
-其中也讨论了consistent hashing。
 
 ## wikipedia [Consistent hashing](https://en.wikipedia.org/wiki/Consistent_hashing)
 
@@ -77,6 +71,10 @@ Some known instances where consistent hashing is used are:
 
 3、Data partitioning in [Apache Cassandra](https://en.wikipedia.org/wiki/Apache_Cassandra)[[5\]](https://en.wikipedia.org/wiki/Consistent_hashing#cite_note-Lakshman2010b-5)
 
+> NOTE: 
+>
+> 参见 datastax [Consistent hashing](https://docs.datastax.com/en/archived/cassandra/3.0/cassandra/architecture/archDataDistributeHashing.html)
+
 4、Data Partitioning in [Voldemort](https://en.wikipedia.org/wiki/Voldemort_(distributed_data_store))[[6\]](https://en.wikipedia.org/wiki/Consistent_hashing#cite_note-6)
 
 5、[Akka](https://en.wikipedia.org/wiki/Akka_(toolkit))'s consistent hashing router[[7\]](https://en.wikipedia.org/wiki/Consistent_hashing#cite_note-akka-routing-7)
@@ -85,6 +83,49 @@ Some known instances where consistent hashing is used are:
 
 
 
+## 补充内容
+
+1、cnblogs [给面试官讲明白：一致性Hash的原理和实践](https://www.cnblogs.com/jingangtx/p/11338592.html)
+
+其中结合了具体的案例来说明，比较容易理解，并且还说明了virtual node trick
+
+2、wikipedia [Hash table](https://en.wikipedia.org/wiki/Hash_table) # Monotonic keys
+
+其中也讨论了consistent hashing。
+
+3、toptal [A Guide to Consistent Hashing](https://www.toptal.com/big-data/consistent-hashing)
+
+
+
+
+
+## Virtual node trick
+
+在下面文章中，对virtual node trick进行了说明:
+
+1、cnblogs [给面试官讲明白：一致性Hash的原理和实践](https://www.cnblogs.com/jingangtx/p/11338592.html)
+
+### stackoverflow [does redis cluster use consistent hashing](https://stackoverflow.com/questions/50246763/does-redis-cluster-use-consistent-hashing)
+
+[A](https://stackoverflow.com/a/50251141)
+
+You are right, virtual nodes is quite simalar with hash slot.
+
+But virtual nodes is not an original concept of consistent hashing, but more like a trick used by Cassandra based on consistent hashing. So it's also ok for redis to say not using consistent hashing.
+
+So, don't bother with phraseology.
+
+### 优势
+
+从其中的内容可知，virtual node有如下优势:
+
+1、load balance
+
+2、降低迁移量
+
 ## TODO
 
 aaronice.gitbook [Consistent Hashing](https://aaronice.gitbook.io/system-design/distributed-systems/consistent-hashing)
+
+其中给出了两种consistent hash的实现
+
