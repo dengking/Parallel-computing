@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - 01-用三国杀讲分布式算法: 01-用三国杀讲分布式算法
+    - 08-Quorum-NWR: 08-Quorum-NWR
