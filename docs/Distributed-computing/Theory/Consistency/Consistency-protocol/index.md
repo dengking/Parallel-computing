@@ -1,6 +1,12 @@
 # 一致性协议
 
+参考文章:
 
+1、cdmana [Distributed consistency protocols and algorithms](https://cdmana.com/2020/11/20201113073232660u.html)
+
+2、csdn [分布式一致性协议 - CAP、BASE、NWR](https://blog.csdn.net/gege87417376/article/details/109760184)
+
+3、csdn [一致性协议算法-2PC、3PC、Paxos、Raft、ZAB、NWR超详细解析](https://blog.csdn.net/young_0609/article/details/111070578)
 
 ## csdn [分布式一致性协议](https://blog.csdn.net/demon7552003/article/details/86657767)
 
@@ -11,3 +17,4 @@ Google 2009年 在 [Transaction Across DataCenter](https://snarfed.org/transacti
 [![CAP 理论在工业界的实践](http://matt33.com/images/distribute/cap-sumarry.png)](http://matt33.com/images/distribute/cap-sumarry.png)
 
 其中，第一行表头代表了分布式系统中通用的一致性方案，包括冷备、Master/Slave、Master/Master、两阶段提交以及基于 Paxos 算法的解决方案，第一列表头代表了分布式系统大家所关心的各项指标，包括一致性、事务支持程度、数据延迟、系统吞吐量、数据丢失可能性、故障自动恢复方式。
+
