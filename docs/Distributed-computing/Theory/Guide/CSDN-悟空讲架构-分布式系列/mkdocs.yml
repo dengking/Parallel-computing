@@ -1,4 +1,9 @@
 nav:
     - Introduction: index.md
     - 01-用三国杀讲分布式算法: 01-用三国杀讲分布式算法
+    - 02-用太极拳讲分布式理论: 02-用太极拳讲分布式理论
+    - 03-Paxos共识算法: 03-Paxos共识算法
+    - 04-Raft共识算法: 04-Raft共识算法
+    - 05-Consistent-hash: 05-Consistent-hash
+    - 06-Gossip协议: 06-Gossip协议
     - 08-Quorum-NWR: 08-Quorum-NWR
