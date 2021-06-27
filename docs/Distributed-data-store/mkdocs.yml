@@ -3,4 +3,5 @@ nav:
     - Data-Sharding-Strategy: Data-Sharding-Strategy
     - Distributed-hash-table: Distributed-hash-table
     - Distributed-database: Distributed-database
+    - Amazon-Dynamo: Amazon-Dynamo
     - Data-system: Data-system
