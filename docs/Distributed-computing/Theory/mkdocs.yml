@@ -3,7 +3,7 @@ nav:
     - Distributed-system-challenge: Distributed-system-challenge
     - Abstraction: Abstraction    
     - Design-goal-of-distributed-systems: Design-goal-of-distributed-systems.md
-    
+    - Byzantine-Fault-Tolerance: Byzantine-Fault-Tolerance
     # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
 
     - CAP: CAP

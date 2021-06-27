@@ -1,10 +1,10 @@
 # Leslie Lamport
 
-
+分布式领域的顶级专家。
 
 ## wikipedia [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)
 
-Leslie Lamport was the winner of the 2013 [Turing Award](https://en.wikipedia.org/wiki/Turing_Award)[[4\]](https://en.wikipedia.org/wiki/Leslie_Lamport#cite_note-4) for imposing clear, well-defined coherence on the seemingly chaotic behavior of [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) systems, in which several autonomous computers communicate with each other by passing messages. 
+Leslie Lamport was the winner of the 2013 [Turing Award](https://en.wikipedia.org/wiki/Turing_Award)[[4\]](https://en.wikipedia.org/wiki/Leslie_Lamport#cite_note-4) for imposing clear, well-defined coherence on the seemingly chaotic(混乱的) behavior of [distributed computing](https://en.wikipedia.org/wiki/Distributed_computing) systems, in which several autonomous computers communicate with each other by passing messages. 
 
 > NOTE: "make it computational"
 
@@ -43,3 +43,4 @@ These papers relate to such concepts as [logical clocks](https://en.wikipedia.or
 
 
 ## [LESLIE  LAMPORT'S  HOME  PAGE](http://lamport.org/)
+
