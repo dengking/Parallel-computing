@@ -1,4 +1,2 @@
 nav:
-    - Primer: index.md
-    - Primer2: index2.md
-    - wikipedia-Consistency-model: wikipedia-Consistency-model
+    - Introduction: index.md

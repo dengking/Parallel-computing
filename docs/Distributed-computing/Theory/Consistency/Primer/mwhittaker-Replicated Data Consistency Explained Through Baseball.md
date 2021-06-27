@@ -1,1 +1,0 @@
-# [Replicated Data Consistency Explained Through Baseball](https://mwhittaker.github.io/consistency_in_distributed_systems/1_baseball.html)

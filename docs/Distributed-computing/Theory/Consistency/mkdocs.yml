@@ -1,6 +1,7 @@
 nav:
     - Introduction: index.md
     - Primer: Primer
+    - wikipedia-Consistency-model: wikipedia-Consistency-model
     - Classification: Classification
     - Data-consistency: Data-consistency
     - Consistency-protocol: Consistency-protocol
