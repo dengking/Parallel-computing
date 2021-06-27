@@ -1,4 +1,4 @@
-# csdn [诸葛亮 VS 庞统，拿下 Paxos 共识算法](https://blog.csdn.net/jackson0714/article/details/112593110?spm=1001.2014.3001.5501)
+# csdn [诸葛亮 VS 庞统，拿下 Paxos 共识算法](https://blog.csdn.net/jackson0714/article/details/112593110?spm=1001.2014.3001.5501) 
 
 从这篇开始，将会讲解分布式的八大协议/算法。本篇主要讲解 Paxos 共识算法。
 
