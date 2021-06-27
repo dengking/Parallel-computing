@@ -3,5 +3,5 @@ nav:
     - Primer: Primer
     - wikipedia-Consistency-model: wikipedia-Consistency-model
     - Classification: Classification
+    - NWR-quorum-consistency: NWR-quorum-consistency
     - Data-consistency: Data-consistency
-    - Consistency-protocol: Consistency-protocol
