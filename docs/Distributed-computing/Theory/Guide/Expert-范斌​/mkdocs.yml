@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - 漫话分布式系统共识协议2PC-3PC篇: 漫话分布式系统共识协议2PC-3PC篇
+    - 漫话分布式系统共识协议Paxos篇: 漫话分布式系统共识协议Paxos篇

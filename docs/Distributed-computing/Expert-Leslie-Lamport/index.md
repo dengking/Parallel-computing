@@ -1,6 +1,12 @@
 # Leslie Lamport
 
-分布式领域的顶级专家。
+一、分布式计算领域的开拓者，凭借一己之力，构筑了分布式计算大厦的底座，在下面文章中，对他进行了介绍:
+
+1、范斌 zhihu [漫话分布式系统共识协议: Paxos篇](https://zhuanlan.zhihu.com/p/35737689)
+
+> 在我看来, Paxos算法(连同Lamport的其他如BFT, Vector Clock等成就)是上个世纪八十/九十年代的经典分布式系统研究中最纯粹最优美, 也是整栋大厦底座最坚实的那一部分.
+
+
 
 ## wikipedia [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)
 
