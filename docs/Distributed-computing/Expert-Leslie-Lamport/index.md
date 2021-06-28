@@ -6,6 +6,10 @@
 
 > 在我看来, Paxos算法(连同Lamport的其他如BFT, Vector Clock等成就)是上个世纪八十/九十年代的经典分布式系统研究中最纯粹最优美, 也是整栋大厦底座最坚实的那一部分.
 
+二、cornell [Distributed Systems: Ordering and Consistency](http://www.cs.cornell.edu/courses/cs6410/2018fa/slides/14-lamport-clocks.pdf)
+
+![](./Leslie-Lamport.jpg)
+
 
 
 ## wikipedia [Leslie Lamport](https://en.wikipedia.org/wiki/Leslie_Lamport)

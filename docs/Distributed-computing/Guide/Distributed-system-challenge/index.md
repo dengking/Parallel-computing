@@ -50,4 +50,4 @@
 
 ## [Lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization) and ordering
 
-ordering 是computational 的前提，而分布式系统"[Lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization) "，那这要如何解决呢？这在 `Distributed-computing\Theory\Ordering` 章节进行了讨论。
+ordering 是computational 的前提，而分布式系统"[Lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization) "，那这要如何解决呢？这在 `Distributed-computing\Theory\Time&Ordering` 章节进行了讨论。

@@ -26,5 +26,12 @@ Spanner是个可扩展，多版本，全球分布式还支持同步复制的数�
 >
 > "因此有几个 给力的功能：无锁读事务，原子schema修改，读历史数据无block。"
 >
-> 
+> 另外参见: cockroachlabs [Living Without Atomic Clocks](https://www.cockroachlabs.com/blog/living-without-atomic-clocks/)
 
+
+
+
+
+## TODO
+
+csdn [Spanner的TrueTime与分布式事务](https://blog.csdn.net/m0_37962779/article/details/114531665)

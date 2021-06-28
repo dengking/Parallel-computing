@@ -3,9 +3,9 @@ nav:
     - wikipedia-Parallel-computing: wikipedia-Parallel-computing
     - Concurrent-computing: Concurrent-computing
     - Distributed-computing: Distributed-computing
+    - Scalability: Scalability
     - Model: Model
     - Programming-model: Programming-model
-    - Miscellaneous: Miscellaneous
     - Event-driven-concurrent-server: Event-driven-concurrent-server
     - Message-processing-system: Message-processing-system
     - Distributed-data-store: Distributed-data-store

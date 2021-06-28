@@ -6,6 +6,6 @@ nav:
     - Network-partition: Network-partition # CAP 的 P   
     - Fault-tolerance: Fault-tolerance
     - Consensus: Consensus
-    - Ordering: Ordering
+    - Time&Ordering: Time&Ordering
     - Protocol: Protocol
     - Split-brain: Split-brain # 它是有network partition引发的

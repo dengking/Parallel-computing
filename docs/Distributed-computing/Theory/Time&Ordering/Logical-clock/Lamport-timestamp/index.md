@@ -1,12 +1,16 @@
 # Lamport timestamps
 
-Lamport timestamps其实非常简单，正如在 wikipedia [Logical clock](https://en.wikipedia.org/wiki/Logical_clock) 中所述:
+一、Lamport timestamps其实非常简单，正如在 wikipedia [Logical clock](https://en.wikipedia.org/wiki/Logical_clock) 中所述:
 
 > 1、[Lamport timestamps](https://en.wanweibaike.com/wiki-Lamport_timestamps), which are monotonically increasing software counters.
 
 它本质上是一个单调递增的"software counter"；
 
 虽然非常简单，但是具有重要的意义；
+
+二、Lamport timestamps非常重要，它在各种distributed protocol中有着广泛的运用
+
+三、这个领域的开山之作
 
 ## wikipedia [Lamport timestamps](https://en.wikipedia.org/wiki/Lamport_timestamps)
 
@@ -92,7 +96,9 @@ Nevertheless, Lamport timestamps can be used to create a [total ordering](https:
 
 > NOTE:
 >
-> 其实随着科技的发展，
+> 一、"it is not possible in practice to [synchronize time](https://en.wikipedia.org/wiki/Clock_synchronization) across entities (typically thought of as processes) within the system"
+>
+> 其实随着科技的发展，现在已经能够进行全球的时间同步了，Google spanner使用atomic clock + GPS clock就实现了
 
 2、If two entities do not exchange any messages, then they probably do not need to share a common clock; events occurring on those entities are termed as concurrent events.
 

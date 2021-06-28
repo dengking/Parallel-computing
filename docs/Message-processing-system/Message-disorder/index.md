@@ -1,3 +1,15 @@
+# Message disorder
+
+## 分布式消息队列中的message disorder
+
+在csdn [这三年被分布式坑惨了，曝光十大坑](https://blog.csdn.net/jackson0714/article/details/108775573?spm=1001.2014.3001.5501) 中，对此进行了总结。
+
+
+
+## TODO
+
+
+
 https://www.cs.uic.edu/~ajayk/Chapter6.pdf
 
 https://www.ics.uci.edu/~cs230/reading/time.pdf
