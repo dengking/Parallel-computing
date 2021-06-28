@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - wikipedia-State-machine-replication: wikipedia-State-machine-replication    
+    - Conflict-free-replicated-data-type: Conflict-free-replicated-data-type

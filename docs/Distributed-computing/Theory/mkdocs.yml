@@ -2,16 +2,12 @@ nav:
     - Introduction: index.md
     - Distributed-system-challenge: Distributed-system-challenge
     - Abstraction: Abstraction    
-    - Design-goal-of-distributed-systems: Design-goal-of-distributed-systems.md
-    - Byzantine-Fault-Tolerance: Byzantine-Fault-Tolerance
-    # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
-
-    - CAP: CAP
-    - Consistency: Consistency
-    - High-availability: High-availability    
-    - Network-partition: Network-partition
-
+    - CAP: CAP # CAP
+    - Consistency: Consistency # CAP 的 C
+    - High-availability: High-availability # CAP 的 A
+    - Network-partition: Network-partition # CAP 的 P   
+    - Fault-tolerance: Fault-tolerance
     - Consensus: Consensus
-    - Partitioning: Partitioning
-    - Replication: Replication
     - Logical-clock: Logical-clock
+    - Protocol: Protocol
+    - Split-brain: Split-brain # 它是有network partition引发的

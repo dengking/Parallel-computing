@@ -1,14 +1,20 @@
 # wikipedia [State machine replication](https://en.wikipedia.org/wiki/State_machine_replication)
 
-状态机复制
+> NOTE:
+>
+> 状态机复制
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **state machine replication** or **state machine approach** is a general method for implementing a **fault-tolerant service** by replicating servers and coordinating client interactions with server replicas. The approach also provides a framework for understanding and designing replication management protocols.[[1\]](https://en.wikipedia.org/wiki/State_machine_replication#cite_note-schneider-1)
 
-SUMMARY : 使用replicated state machine的目的是构建fault-tolerant service，如果以redis来看的话，fault-tolerant的意思是即使cluster中有一个node出现了问题，系统能够进行failover。恢复的正常的状态。
-***SUMMARY*** : 要想完整地理解state machine replication的含义，其实可以阅读一下如下文章：
-
-- [Raft (computer science)](https://en.wikipedia.org/wiki/Raft_(computer_science))
-- [The Raft Consensus Algorithm](https://raft.github.io/)
+> NOTE: 
+>
+> 使用replicated state machine的目的是构建fault-tolerant service，如果以redis来看的话，fault-tolerant的意思是即使cluster中有一个node出现了问题，系统能够进行failover。恢复的正常的状态。
+>
+>  要想完整地理解state machine replication的含义，其实可以阅读一下如下文章：
+>
+> 1、wikipedia [Raft (computer science)](https://en.wikipedia.org/wiki/Raft_(computer_science))
+>
+> 2、github [The Raft Consensus Algorithm](https://raft.github.io/)
 
 ## Problem definition
 
@@ -51,8 +57,9 @@ In general, a system which supports F failures must have 2F+1 copies (also calle
 
 All of this deduction pre-supposes that replicas are experiencing only random independent faults such as memory errors or hard-drive crash. Failures caused by replicas which attempt to lie, deceive, or collude can also be handled by the State Machine Approach, with isolated changes.
 
-所有这些推断都假设副本只经历随机的独立故障，比如内存错误或硬盘崩溃。
-由试图说谎、欺骗或串通的副本引起的失败也可以由状态机方法处理，并进行独立的更改。
+> NOTE: 
+>
+> 所有这些推断都假设副本只经历随机的独立故障，比如内存错误或硬盘崩溃。由试图说谎、欺骗或串通的副本引起的失败也可以由状态机方法处理，并进行独立的更改。
 
 Failed replicas are not required to stop; they may continue operating, including generating spurious or incorrect Outputs.
 
@@ -68,12 +75,17 @@ Faults where a replica sends different values in different directions (for insta
 
 The preceding intuitive discussion implies a simple technique for implementing a fault-tolerant service in terms of a State Machine:
 
-1. Place copies of the State Machine on multiple, independent servers.
-2. Receive client requests, interpreted as Inputs to the State Machine.
-3. Choose an ordering for the Inputs.
-4. Execute Inputs in the chosen order on each server.
-5. Respond to clients with the Output from the State Machine.
-6. Monitor replicas for differences in State or Output.
+1、Place copies of the State Machine on multiple, independent servers.
+
+2、Receive client requests, interpreted as Inputs to the State Machine.
+
+3、Choose an ordering for the Inputs.
+
+4、Execute Inputs in the chosen order on each server.
+
+5、Respond to clients with the Output from the State Machine.
+
+6、Monitor replicas for differences in State or Output.
 
 The remainder of this article develops the details of this technique.
 

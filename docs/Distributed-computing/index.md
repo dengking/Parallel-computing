@@ -14,11 +14,21 @@ Distributed computing 在某种程度上是遵循 分而治之思想 的。
 
 **Distributed computing** is a field of [computer science](https://en.wikipedia.org/wiki/Computer_science) that studies distributed systems. A *distributed system* is a system whose components are located on different [networked computers](https://en.wikipedia.org/wiki/Computer_network), which communicate and coordinate their actions by [passing messages](https://en.wikipedia.org/wiki/Message_passing) to one another. The components interact with one another in order to achieve a common goal. 
 
+> NOTE: 
+>
+> 一、通过后面的内容我们将会知道: distributed computing中的很多问题都是基于passing message才能够解决的，因此在distributed computing中，设计高效的、可靠的protocol是非常关键的内容，在`Protocol`章节中，对各种protocol进行了总结。
+>
+> 二、通过 [Byzantine fault](https://en.wikipedia.org/wiki/Byzantine_fault) 能够保证我们快速理解这段话的内涵
+
 Three significant characteristics of distributed systems are: 
 
 1、concurrency of components
 
 2、[lack of a global clock](https://en.wikipedia.org/wiki/Clock_synchronization)
+
+> NOTE: 
+>
+> 这是分布式计算的挑战
 
 3、independent failure of components.
 
@@ -61,12 +71,6 @@ Various hardware and software architectures are used for distributed computing. 
 
 Distributed programming typically falls into one of several basic architectures: [client–server](https://en.wikipedia.org/wiki/Client–server_model), [three-tier](https://en.wikipedia.org/wiki/Three-tier_(computing)), [*n*-tier](https://en.wikipedia.org/wiki/Multitier_architecture), or [peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer); or categories: [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling), or [tight coupling](https://en.wikipedia.org/wiki/Computer_cluster). 
 
-1、[Client–server](https://en.wikipedia.org/wiki/Client–server_model): architectures where smart clients contact the server for data then format and display it to the users. Input at the client is committed back to the server when it represents a permanent change.
-
-2、[Three-tier](https://en.wikipedia.org/wiki/Three-tier_(computing)): architectures that move the client intelligence to a middle tier so that [stateless](https://en.wikipedia.org/wiki/Stateless_protocol) clients can be used. This simplifies application deployment. Most web applications are three-tier.
-
-3、[*n*-tier](https://en.wikipedia.org/wiki/Multitier_architecture): architectures that refer typically to web applications which further forward their requests to other enterprise services. This type of application is the one most responsible for the success of [application servers](https://en.wikipedia.org/wiki/Application_server).
-
-4、[Peer-to-peer](https://en.wikipedia.org/wiki/Peer-to-peer): architectures where there are no special machines that provide a service or manage the network resources. Instead all responsibilities are uniformly divided among all machines, known as peers. Peers can serve both as clients and as servers. Examples of this architecture include [BitTorrent](https://en.wikipedia.org/wiki/BitTorrent) and the [bitcoin network](https://en.wikipedia.org/wiki/Bitcoin_network).
-
-Another basic aspect of distributed computing architecture is the method of communicating and coordinating work among concurrent processes. Through various message passing protocols, processes may communicate directly with one another, typically in a [master/slave](https://en.wikipedia.org/wiki/Master-slave_(technology)) relationship. Alternatively, a ["database-centric" architecture](https://en.wikipedia.org/wiki/Database-centric_architecture) can enable distributed computing to be done without any form of direct [inter-process communication](https://en.wikipedia.org/wiki/Inter-process_communication), by utilizing a shared [database](https://en.wikipedia.org/wiki/Database). Database-centric architecture in particular provides relational processing analytics in a schematic architecture allowing for live environment relay. This enables distributed computing functions both within and beyond the parameters of a networked database. 
+> NOTE: 
+>
+> 参见 `Architecture` 章节
