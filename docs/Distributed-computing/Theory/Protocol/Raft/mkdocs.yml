@@ -1,6 +1,8 @@
 nav:
     - Introduction: index.md
-    - wikipedia-Raft(computer-science): wikipedia-Raft(computer-science)
-    - github-The-Raft-Consensus-Algorithm: github-The-Raft-Consensus-Algorithm
-    - paper-In-Search-of-an-Understandable-Consensus-Algorithm: paper-In-Search-of-an-Understandable-Consensus-Algorithm
+    - paper-In-Search-of-an-Understandable-Consensus-Algorithm: paper-In-Search-of-an-Understandable-Consensus-Algorithm    
+    - github-The-Raft-Consensus-Algorithm: github-The-Raft-Consensus-Algorithm    
+    - wikipedia-Raft: wikipedia-Raft
+
+
     
