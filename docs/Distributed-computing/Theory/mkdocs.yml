@@ -7,7 +7,10 @@ nav:
     # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
 
     - CAP: CAP
-    - High-availability: High-availability
+    - Consistency: Consistency
+    - High-availability: High-availability    
+    - Network-partition: Network-partition
+
     - Consensus: Consensus
     - Partitioning: Partitioning
     - Replication: Replication
