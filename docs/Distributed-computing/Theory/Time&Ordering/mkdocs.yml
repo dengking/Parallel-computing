@@ -1,4 +1,3 @@
 nav:
     - Introduction: index.md
     - Logical-clock: Logical-clock    
-    - Version-vector: Version-vector

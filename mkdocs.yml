@@ -372,12 +372,25 @@ nav:
   - Introduction: Distributed-computing/index.md
   - Expert-Leslie-Lamport:
     - Introduction: Distributed-computing/Expert-Leslie-Lamport/index.md
+  - Expert-Dr-Werner-Vogels:
+    - Introduction: Distributed-computing/Expert-Dr-Werner-Vogels/index.md
+    - Eventually-Consistent-Revisited:
+      - Introduction: Distributed-computing/Expert-Dr-Werner-Vogels/Eventually-Consistent-Revisited/index.md
+  - Course:
+    - Course-disco.ethz-Distributed-Systems:
+      - Introduction: Distributed-computing/Course/Course-disco.ethz-Distributed-Systems/index.md
+    - Course-Northeastern-University-CS7680:
+      - Introduction: Distributed-computing/Course/Course-Northeastern-University-CS7680/index.md
+    - Course-Rutgers-Distributed-Systems:
+      - Introduction: Distributed-computing/Course/Course-Rutgers-Distributed-Systems/index.md
+      - Understanding-Paxos:
+        - Introduction: Distributed-computing/Course/Course-Rutgers-Distributed-Systems/Understanding-Paxos/index.md
   - Book-Designing-Data-Intensive-Applications:
     - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/index.md
     - Preface:
       - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/Preface/index.md
-    - Outline-of-This-Book:
-      - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/Outline-of-This-Book/index.md
+    - Outline:
+      - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/Outline/index.md
     - PART-I:
       - 1-Reliable-Scalable-Maintainable-Applications:
         - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-I/1-Reliable-Scalable-Maintainable-Applications/index.md
@@ -387,116 +400,191 @@ nav:
         - Introduction: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/5-Replication/index.md
       - 8-The-Trouble-with-Distributed-Systems:
         - CHAPTER-8-The-Trouble-with-Distributed-Systems: Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/8-The-Trouble-with-Distributed-Systems/index.md
-  - Book-Distributed-operating-systems:
-    - Introduction: Distributed-computing/book-Distributed-operating-systems/index.md
-    - 6-Distributed-Shared-Memory:
-      - 6.3-Consistency-model: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3-Consistency-model.md
-      - 6.3.1-Strict-Consistency: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.1-Strict-Consistency.md
-      - 6.3.2-Sequential-Consistency:
-        - Introduction: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.2-Sequential-Consistency/index.md
-      - 6.3.8-Summary-of-Consistency-Models: Distributed-computing/book-Distributed-operating-systems/6-Distributed-Shared-Memory/6.3.8-Summary-of-Consistency-Models.md
-  - Book-Programming-Models-for-Distributed-Computing:
-    - Introduction: Distributed-computing/Book-Programming-Models-for-Distributed-Computing/index.md
-  - martinfowler-Patterns-of-Distributed-Systems:
-    - Introduction: Distributed-computing/martinfowler-Patterns-of-Distributed-Systems/index.md
+  - Book-Distributed-systems-for-fun-and-profit:
+    - Introduction: Distributed-computing/Book-Distributed-systems-for-fun-and-profit/index.md
+    - 4-Replication:
+      - Introduction: Distributed-computing/Book-Distributed-systems-for-fun-and-profit/4-Replication/index.md
+  - dist-prog-book:
+    - Introduction: Distributed-computing/dist-prog-book/index.md
+  - Guide:
+    - Introduction: Distributed-computing/Guide/index.md
+    - Distributed-system-challenge:
+      - Introduction: Distributed-computing/Guide/Distributed-system-challenge/index.md
+    - Abstraction:
+      - Introduction: Distributed-computing/Guide/Abstraction/index.md
+    - "CSDN-\u609F\u7A7A\u8BB2\u67B6\u6784-\u5206\u5E03\u5F0F\u7CFB\u5217":
+      - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\u6784\
+          -\u5206\u5E03\u5F0F\u7CFB\u5217/index.md"
+      - "01-\u7528\u4E09\u56FD\u6740\u8BB2\u5206\u5E03\u5F0F\u7B97\u6CD5":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/01-\u7528\u4E09\u56FD\u6740\u8BB2\
+            \u5206\u5E03\u5F0F\u7B97\u6CD5/index.md"
+      - "02-\u7528\u592A\u6781\u62F3\u8BB2\u5206\u5E03\u5F0F\u7406\u8BBA":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/02-\u7528\u592A\u6781\u62F3\u8BB2\
+            \u5206\u5E03\u5F0F\u7406\u8BBA/index.md"
+      - "03-Paxos\u5171\u8BC6\u7B97\u6CD5":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/03-Paxos\u5171\u8BC6\u7B97\u6CD5\
+            /index.md"
+      - "04-Raft\u5171\u8BC6\u7B97\u6CD5":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/04-Raft\u5171\u8BC6\u7B97\u6CD5\
+            /index.md"
+      - 05-Consistent-hash:
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/05-Consistent-hash/index.md"
+      - "06-Gossip\u534F\u8BAE":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/06-Gossip\u534F\u8BAE/index.md"
+      - 08-Quorum-NWR:
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/08-Quorum-NWR/index.md"
+    - martinfowler-Patterns-of-Distributed-Systems:
+      - Introduction: Distributed-computing/Guide/martinfowler-Patterns-of-Distributed-Systems/index.md
   - Theory:
     - Introduction: Distributed-computing/Theory/index.md
-    - Distributed-system-challenge:
-      - Introduction: Distributed-computing/Theory/Distributed-system-challenge/index.md
-    - Abstraction:
-      - Abstraction-in-distributed-computing: Distributed-computing/Theory/Abstraction/Abstraction-in-distributed-computing.md
-    - Design-goal-of-distributed-systems: Distributed-computing/Theory/Design-goal-of-distributed-systems.md
     - CAP:
       - Introduction: Distributed-computing/Theory/CAP/index.md
-      - CAP:
-        - Introduction: Distributed-computing/Theory/CAP/CAP/index.md
-      - Consistency:
-        - Introduction: Distributed-computing/Theory/CAP/Consistency/index.md
-        - Primer:
-          - Primer: Distributed-computing/Theory/CAP/Consistency/Primer/index.md
-          - Primer2: Distributed-computing/Theory/CAP/Consistency/Primer/index2.md
-          - wikipedia-Consistency-model:
-            - Introduction: Distributed-computing/Theory/CAP/Consistency/Primer/wikipedia-Consistency-model/index.md
-        - Classification:
-          - Strong-consistency:
-            - Introduction: Distributed-computing/Theory/CAP/Consistency/Classification/Strong-consistency/index.md
-          - Linearizability:
-            - Introduction: Distributed-computing/Theory/CAP/Consistency/Classification/Linearizability/index.md
-          - TODO-Sequential-consistency-VS-linearizability: Distributed-computing/Theory/CAP/Consistency/Classification/TODO-Sequential-consistency-VS-linearizability.md
-          - Sequential-consistency:
-            - Introduction: Distributed-computing/Theory/CAP/Consistency/Classification/Sequential-consistency/index.md
-          - Weak-consistency:
-            - Introduction: Distributed-computing/Theory/CAP/Consistency/Classification/Weak-consistency/index.md
-            - Eventual-consistency:
-              - Introduction: Distributed-computing/Theory/CAP/Consistency/Classification/Weak-consistency/Eventual-consistency/index.md
-            - Causal-consistency:
-              - Introduction: Distributed-computing/Theory/CAP/Consistency/Classification/Weak-consistency/Causal-consistency/index.md
-        - Data-consistency:
-          - Introduction: Distributed-computing/Theory/CAP/Consistency/Data-consistency/index.md
-        - Consistency-protocol:
-          - Introduction: Distributed-computing/Theory/CAP/Consistency/Consistency-protocol/index.md
+    - Consistency:
+      - Introduction: Distributed-computing/Theory/Consistency/index.md
+      - Primer:
+        - Introduction: Distributed-computing/Theory/Consistency/Primer/index.md
+      - wikipedia-Consistency-model:
+        - Introduction: Distributed-computing/Theory/Consistency/wikipedia-Consistency-model/index.md
+      - Classification:
+        - Strong-consistency:
+          - Introduction: Distributed-computing/Theory/Consistency/Classification/Strong-consistency/index.md
+        - Linearizability:
+          - Introduction: Distributed-computing/Theory/Consistency/Classification/Linearizability/index.md
+        - TODO-Sequential-consistency-VS-linearizability: Distributed-computing/Theory/Consistency/Classification/TODO-Sequential-consistency-VS-linearizability.md
+        - Sequential-consistency:
+          - Introduction: Distributed-computing/Theory/Consistency/Classification/Sequential-consistency/index.md
+        - Weak-consistency:
+          - Introduction: Distributed-computing/Theory/Consistency/Classification/Weak-consistency/index.md
+          - Eventual-consistency:
+            - Introduction: Distributed-computing/Theory/Consistency/Classification/Weak-consistency/Eventual-consistency/index.md
+          - Causal-consistency:
+            - Introduction: Distributed-computing/Theory/Consistency/Classification/Weak-consistency/Causal-consistency/index.md
+      - NRW-quorum-consistency:
+        - Introduction: Distributed-computing/Theory/Consistency/NRW-quorum-consistency/index.md
+      - Data-consistency:
+        - Introduction: Distributed-computing/Theory/Consistency/Data-consistency/index.md
     - High-availability:
       - Introduction: Distributed-computing/Theory/High-availability/index.md
       - Single-point-of-failure:
         - Introduction: Distributed-computing/Theory/High-availability/Single-point-of-failure/index.md
       - High-availability-cluster:
         - Introduction: Distributed-computing/Theory/High-availability/High-availability-cluster/index.md
-      - Split-brain:
-        - Introduction: Distributed-computing/Theory/High-availability/Split-brain/index.md
+      - Replication:
+        - Introduction: Distributed-computing/Theory/High-availability/Replication/index.md
+        - wikipedia-State-machine-replication:
+          - Introduction: Distributed-computing/Theory/High-availability/Replication/wikipedia-State-machine-replication/index.md
+        - Conflict-free-replicated-data-type:
+          - Introduction: Distributed-computing/Theory/High-availability/Replication/Conflict-free-replicated-data-type/index.md
+    - Network-partition:
+      - Introduction: Distributed-computing/Theory/Network-partition/index.md
+    - Fault-tolerance:
+      - Introduction: Distributed-computing/Theory/Fault-tolerance/index.md
+      - Byzantine-Fault-Tolerance:
+        - Introduction: Distributed-computing/Theory/Fault-tolerance/Byzantine-Fault-Tolerance/index.md
     - Consensus:
       - Introduction: Distributed-computing/Theory/Consensus/index.md
       - Quorum:
         - Introduction: Distributed-computing/Theory/Consensus/Quorum/index.md
-      - Protocol:
-        - Raft:
-          - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/index.md
-          - wikipedia-Raft(computer-science):
-            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/wikipedia-Raft(computer-science)/index.md
-          - github-The-Raft-Consensus-Algorithm:
-            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/github-The-Raft-Consensus-Algorithm/index.md
-          - paper-In-Search-of-an-Understandable-Consensus-Algorithm:
-            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Raft/paper-In-Search-of-an-Understandable-Consensus-Algorithm/index.md
-        - Paxos:
-          - wikipedia-Paxos(computer-science):
-            - Introduction: Distributed-computing/Theory/Consensus/Protocol/Paxos/wikipedia-Paxos(computer-science)/index.md
       - Leader-election:
         - Introduction: Distributed-computing/Theory/Consensus/Leader-election/index.md
       - VS-consensus-VS-consistency: Distributed-computing/Theory/Consensus/VS-consensus-VS-consistency.md
-    - Partitioning:
-      - Introduction: Distributed-computing/Theory/Partitioning/index.md
-    - Replication:
-      - Introduction: Distributed-computing/Theory/Replication/index.md
-      - CRDT: Distributed-computing/Theory/Replication/CRDT.md
-      - State-machine-replication: Distributed-computing/Theory/Replication/State-machine-replication.md
-    - Logical-clock:
-      - Introduction: Distributed-computing/Theory/Logical-clock/index.md
-      - wikipedia-Logical-clock:
-        - Introduction: Distributed-computing/Theory/Logical-clock/wikipedia-Logical-clock/index.md
-      - Lamport-timestamp:
-        - Introduction: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/index.md
-        - paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System:
-          - Introduction: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System/index.md
-        - towardsdatascience-Understanding-Lamport-Timestamps:
-          - Introduction: Distributed-computing/Theory/Logical-clock/Lamport-timestamp/towardsdatascience-Understanding-Lamport-Timestamps/index.md
-      - Happened-before:
-        - Introduction: Distributed-computing/Theory/Logical-clock/Happened-before/index.md
-      - scattered-thoughts-Causal-ordering:
-        - Introduction: Distributed-computing/Theory/Logical-clock/scattered-thoughts-Causal-ordering/index.md
+    - Time&Ordering:
+      - Introduction: Distributed-computing/Theory/Time&Ordering/index.md
+      - Logical-clock:
+        - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/index.md
+        - wikipedia-Logical-clock:
+          - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/wikipedia-Logical-clock/index.md
+        - Lamport-timestamp:
+          - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/Lamport-timestamp/index.md
+          - paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System:
+            - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/Lamport-timestamp/paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System/index.md
+        - Happened-before:
+          - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/Happened-before/index.md
+        - Vector-clock:
+          - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/Vector-clock/index.md
+        - Version-vector:
+          - Introduction: Distributed-computing/Theory/Time&Ordering/Logical-clock/Version-vector/index.md
+    - Protocol:
+      - Guide:
+        - Introduction: Distributed-computing/Theory/Protocol/Guide/index.md
+        - "Expert-\u8303\u658C":
+          - Introduction: "Distributed-computing/Theory/Protocol/Guide/Expert-\u8303\
+              \u658C/index.md"
+          - "\u6F2B\u8BDD\u5206\u5E03\u5F0F\u7CFB\u7EDF\u5171\u8BC6\u534F\u8BAE2PC-3PC\u7BC7":
+            - Introduction: "Distributed-computing/Theory/Protocol/Guide/Expert-\u8303\
+                \u658C/\u6F2B\u8BDD\u5206\u5E03\u5F0F\u7CFB\u7EDF\u5171\u8BC6\u534F\
+                \u8BAE2PC-3PC\u7BC7/index.md"
+          - "\u6F2B\u8BDD\u5206\u5E03\u5F0F\u7CFB\u7EDF\u5171\u8BC6\u534F\u8BAEPaxos\u7BC7":
+            - Introduction: "Distributed-computing/Theory/Protocol/Guide/Expert-\u8303\
+                \u658C/\u6F2B\u8BDD\u5206\u5E03\u5F0F\u7CFB\u7EDF\u5171\u8BC6\u534F\
+                \u8BAEPaxos\u7BC7/index.md"
+        - "\u4E00\u81F4\u6027\u534F\u8BAE\u7B97\u6CD5-2PC-3PC-Paxos-Raft-ZAB-NWR":
+          - Introduction: "Distributed-computing/Theory/Protocol/Guide/\u4E00\u81F4\
+              \u6027\u534F\u8BAE\u7B97\u6CD5-2PC-3PC-Paxos-Raft-ZAB-NWR/index.md"
+        - "csdn-\u5206\u5E03\u5F0F\u4E00\u81F4\u6027\u534F\u8BAE":
+          - Introduction: "Distributed-computing/Theory/Protocol/Guide/csdn-\u5206\
+              \u5E03\u5F0F\u4E00\u81F4\u6027\u534F\u8BAE/index.md"
+        - "CSDN-\u5206\u5E03\u5F0F\u57FA\u7840\u901A\u4FE1\u534F\u8BAEpaxos-totem-gossip":
+          - Introduction: "Distributed-computing/Theory/Protocol/Guide/CSDN-\u5206\
+              \u5E03\u5F0F\u57FA\u7840\u901A\u4FE1\u534F\u8BAEpaxos-totem-gossip/index.md"
+      - 2PC:
+        - Introduction: Distributed-computing/Theory/Protocol/2PC/index.md
+      - 3PC:
+        - Introduction: Distributed-computing/Theory/Protocol/3PC/index.md
+      - Paxos:
+        - Introduction: Distributed-computing/Theory/Protocol/Paxos/index.md
+        - paper-Paxos-Made-Simple:
+          - Introduction: Distributed-computing/Theory/Protocol/Paxos/paper-Paxos-Made-Simple/index.md
+        - wikipedia-Paxos:
+          - Introduction: Distributed-computing/Theory/Protocol/Paxos/wikipedia-Paxos/index.md
+        - Multi-paxos:
+          - Introduction: Distributed-computing/Theory/Protocol/Paxos/Multi-paxos/index.md
+          - "cnblogs-\u4F7F\u7528multi-paxos\u5B9E\u73B0\u65E5\u5FD7\u540C\u6B65\u5E94\u7528":
+            - Introduction: "Distributed-computing/Theory/Protocol/Paxos/Multi-paxos/cnblogs-\u4F7F\
+                \u7528multi-paxos\u5B9E\u73B0\u65E5\u5FD7\u540C\u6B65\u5E94\u7528\
+                /index.md"
+        - "CSDN-\u91CD\u8981\u7684Paxos\u7B97\u6CD5\u4F60\u770B\u900F\u4E86\u4E48":
+          - Introduction: "Distributed-computing/Theory/Protocol/Paxos/CSDN-\u91CD\
+              \u8981\u7684Paxos\u7B97\u6CD5\u4F60\u770B\u900F\u4E86\u4E48/index.md"
+      - Raft:
+        - Introduction: Distributed-computing/Theory/Protocol/Raft/index.md
+        - paper-In-Search-of-an-Understandable-Consensus-Algorithm:
+          - Introduction: Distributed-computing/Theory/Protocol/Raft/paper-In-Search-of-an-Understandable-Consensus-Algorithm/index.md
+        - github-The-Raft-Consensus-Algorithm:
+          - Introduction: Distributed-computing/Theory/Protocol/Raft/github-The-Raft-Consensus-Algorithm/index.md
+        - wikipedia-Raft:
+          - Introduction: Distributed-computing/Theory/Protocol/Raft/wikipedia-Raft/index.md
+      - Gossip:
+        - Introduction: Distributed-computing/Theory/Protocol/Gossip/index.md
+        - wikipedia-Gossip-protocol:
+          - Introduction: Distributed-computing/Theory/Protocol/Gossip/wikipedia-Gossip-protocol/index.md
+    - Split-brain:
+      - Introduction: Distributed-computing/Theory/Split-brain/index.md
   - Technique:
     - Introduction: Distributed-computing/Technique/index.md
     - Heartbeat:
       - Introduction: Distributed-computing/Technique/Heartbeat/index.md
-    - Transaction:
-      - Introduction: Distributed-computing/Technique/Transaction/index.md
+    - Distributed-transaction:
+      - Introduction: Distributed-computing/Technique/Distributed-transaction/index.md
     - Rendezvous:
       - Introduction: Distributed-computing/Technique/Rendezvous/index.md
   - Architecture:
     - Introduction: Distributed-computing/Architecture/index.md
-    - "Client\u2013server-architecture": "Distributed-computing/Architecture/Client\u2013\
-        server-architecture.md"
+    - "Client\u2013server-architecture":
+      - Introduction: "Distributed-computing/Architecture/Client\u2013server-architecture/index.md"
     - Peer-to-peer-architecture:
       - Introduction: Distributed-computing/Architecture/Peer-to-peer-architecture/index.md
-    - Client-server-VS-Peer-to-peer: Distributed-computing/Architecture/Client-server-VS-Peer-to-peer.md
+    - Shared-nothing-architecture:
+      - Introduction: Distributed-computing/Architecture/Shared-nothing-architecture/index.md
+- Scalability:
+  - Introduction: Scalability/index.md
 - Model:
   - Introduction: Model/index.md
   - Multiple-model:
@@ -553,10 +641,6 @@ nav:
       - Introduction: Programming-model/API/OpenMP/index.md
     - Cilk:
       - Introduction: Programming-model/API/Cilk/index.md
-- Miscellaneous:
-  - Ordering-in-parallel-computing: Miscellaneous/Ordering-in-parallel-computing.md
-  - Scalability:
-    - Introduction: Miscellaneous/Scalability/index.md
 - Event-driven-concurrent-server:
   - Introduction: Event-driven-concurrent-server/index.md
   - Event-driven-model:
@@ -694,6 +778,8 @@ nav:
           - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/Nginx-accept_mutex-implementation/index.md
       - Nginx-event-library:
         - Introduction: Event-driven-concurrent-server/software-Nginx/Concurrency-model/Nginx-event-library/index.md
+    - Nginx-proxy:
+      - Introduction: Event-driven-concurrent-server/software-Nginx/Nginx-proxy/index.md
   - Timer:
     - Introduction: Event-driven-concurrent-server/Timer/index.md
     - Periodic-worker:
@@ -729,6 +815,8 @@ nav:
       - Introduction: Message-processing-system/MQ-library/Apache-Kafka/index.md
   - library-Celery:
     - Introduction: Message-processing-system/library-Celery/index.md
+  - Message-disorder:
+    - Introduction: Message-processing-system/Message-disorder/index.md
 - Distributed-data-store:
   - Introduction: Distributed-data-store/index.md
   - Data-Sharding-Strategy:
@@ -757,6 +845,12 @@ nav:
         - Introduction: Distributed-data-store/Distributed-database/YugabyteDB/blog-4-Data-Sharding-Strategies-in-Building-Distributed-SQL-Database/index.md
     - CockroachDB:
       - Introduction: Distributed-data-store/Distributed-database/CockroachDB/index.md
+      - Living-Without-Atomic-Clocks:
+        - Introduction: Distributed-data-store/Distributed-database/CockroachDB/Living-Without-Atomic-Clocks/index.md
+    - MySQL-Cluster:
+      - Introduction: Distributed-data-store/Distributed-database/MySQL-Cluster/index.md
+  - Amazon-Dynamo:
+    - Introduction: Distributed-data-store/Amazon-Dynamo/index.md
   - Data-system:
     - Schema:
       - Introduction: Distributed-data-store/Data-system/Schema/index.md
@@ -819,6 +913,8 @@ nav:
           - Introduction: software-ZooKeeper/Developers/Application/Lead-election/Herd-Effect-in-ZK/index.md
       - Lock:
         - Introduction: software-ZooKeeper/Developers/Application/Lock/index.md
+  - ZAB:
+    - Introduction: software-ZooKeeper/ZAB/index.md
 - software-Memcached:
   - Introduction: software-Memcached/index.md
   - Thread-model:
