@@ -1,5 +1,9 @@
 # csdn [太上老君的炼丹炉之分布式 Quorum NWR](https://blog.csdn.net/jackson0714/article/details/114338016?spm=1001.2014.3001.5501)
 
+> NOTE: 
+>
+> 一般叫做NRW
+
 ## 一、三个炼丹炉怎么分配的
 
 映射到我们互联网系统中：丹炉类似于服务器节点或数据库节点，通过多个节点来相互备份数据来保证系统的`高可用性`（High Availability）。
