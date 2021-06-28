@@ -2,24 +2,29 @@ nav:
     - Concurrent-computing: index.md
     # 专家和经典书籍
     - Books: Books.md
+    
     - Expert-Herb-Sutter: Expert-Herb-Sutter
+    
     - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
+    
     - Expert-iter_zc: Expert-iter_zc
+    
     - Expert-1024cores: Expert-1024cores
+    
     - Expert-Cameron: Expert-Cameron
+    
     - Course-tau-Multiprocessor-Programming-CS-0368-4061-01: Course-tau-Multiprocessor-Programming-CS-0368-4061-01
 
     - Course-uhcl-Concurrency: Course-uhcl-Concurrency
-    - rochester-paper-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors: rochester-paper-Algorithms-for-Scalable-Synchronization-on-Shared-Memory-Multiprocessors
+    
+    - rochester-paper-Algorithms-for-Scalable-Synchronization: rochester-paper-Algorithms-for-Scalable-Synchronization
     # 先描述 理论知识
     - Concurrency-control: Concurrency-control
-
     # 总结经典问题
     - Classic-problem: Classic-problem
     # 描述具体application
     - Concurrent-data-structure: Concurrent-data-structure
-
-
     # 最最典型的concurrency模式   
-    - Multithread: Multithread
     - Design-and-optimize: Design-and-optimize
+    
+    - 秒杀-流量削峰: 秒杀-流量削峰

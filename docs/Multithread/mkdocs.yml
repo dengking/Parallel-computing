@@ -5,4 +5,4 @@ nav:
     - Inter-thread-communication: Inter-thread-communication
     - Topics: Topics
     - Condition-variables-VS-mutex: Condition-variables-VS-mutex
-    - TODO-Thread-model: TODO-Thread-model
+    - Thread-model: Thread-model
