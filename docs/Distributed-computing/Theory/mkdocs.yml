@@ -1,13 +1,11 @@
 nav:
-    - Introduction: index.md
-    - Distributed-system-challenge: Distributed-system-challenge
-    - Abstraction: Abstraction    
+    - Introduction: index.md 
     - CAP: CAP # CAP
     - Consistency: Consistency # CAP 的 C
     - High-availability: High-availability # CAP 的 A
     - Network-partition: Network-partition # CAP 的 P   
     - Fault-tolerance: Fault-tolerance
     - Consensus: Consensus
-    - Logical-clock: Logical-clock
+    - Ordering: Ordering
     - Protocol: Protocol
     - Split-brain: Split-brain # 它是有network partition引发的

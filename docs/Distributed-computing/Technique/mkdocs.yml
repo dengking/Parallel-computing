@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
     - Heartbeat: Heartbeat
-    - Transaction: Transaction
+    - Distributed-transaction: Distributed-transaction
     - Rendezvous: Rendezvous
