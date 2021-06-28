@@ -1,6 +1,12 @@
 # Lamport timestamps
 
+Lamport timestamps其实非常简单，正如在 wikipedia [Logical clock](https://en.wikipedia.org/wiki/Logical_clock) 中所述:
 
+> 1、[Lamport timestamps](https://en.wanweibaike.com/wiki-Lamport_timestamps), which are monotonically increasing software counters.
+
+它本质上是一个单调递增的"software counter"；
+
+虽然非常简单，但是具有重要的意义；
 
 ## wikipedia [Lamport timestamps](https://en.wikipedia.org/wiki/Lamport_timestamps)
 
@@ -13,6 +19,10 @@ The algorithm of **Lamport timestamps** is a simple algorithm used to determine 
 **Distributed algorithms** such as **resource synchronization** often depend on some method of ordering events to function. For example, consider a system with two processes and a disk. The processes send messages to each other, and also send messages to the disk requesting access. The disk grants access in the order the messages were sent. For example process $ A $ sends a message to the disk requesting write access, and then sends a read instruction message to process $ B $. Process $ B $ receives the message, and as a result sends its own read request message to the disk. If there is a timing delay causing the disk to receive both messages at the same time, it can determine which message *happened-before* the other: $ A $ *happens-before* $ B $ if one can get from $ A $ to $ B $ by a sequence of moves of two types: moving forward while remaining in the same process, and following a message from its sending to its reception. A **logical clock algorithm** provides a mechanism to determine facts about the order of such events.
 
 Lamport invented a simple mechanism by which the *happened-before* ordering can be captured numerically. A **Lamport logical clock** is an **incrementing software counter** maintained in each process.
+
+> NOTE: 
+>
+> 总结地比较好
 
 Conceptually, this logical clock can be thought of as a clock that only has meaning in relation to **messages** moving between processes. When a process receives a **message**, it resynchronizes its **logical clock** with that **sender**. The above mentioned vector clock is a generalization of the idea into the context of an arbitrary number of parallel, independent processes.
 
@@ -79,6 +89,10 @@ Nevertheless, Lamport timestamps can be used to create a [total ordering](https:
 ### Lamport's logical clock in distributed systems
 
 1、In a distributed system, it is not possible in practice to [synchronize time](https://en.wikipedia.org/wiki/Clock_synchronization) across entities (typically thought of as processes) within the system; hence, the entities can use the concept of a logical clock based on the events through which they communicate.
+
+> NOTE:
+>
+> 其实随着科技的发展，
 
 2、If two entities do not exchange any messages, then they probably do not need to share a common clock; events occurring on those entities are termed as concurrent events.
 

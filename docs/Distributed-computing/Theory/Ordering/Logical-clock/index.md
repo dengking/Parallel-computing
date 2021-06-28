@@ -1,6 +1,9 @@
 # 关于本章
 
-在distributed system中，Distributed systems may have no physically synchronous global clock，那如何来为发生于distributed system中的message编号与排序呢？
+正如在 wikipedia [Logical clock](https://en.wikipedia.org/wiki/Logical_clock) 中所言: 
 
-这就是logical clock所解决的问题。
+> Distributed systems may have no physically synchronous global clock
+
+
+这是我们已经知道的distributed system的挑战，那如何来为发生于distributed system中的message、event排序呢？这就是 [Logical clock](https://en.wikipedia.org/wiki/Logical_clock) 所解决的问题。
 

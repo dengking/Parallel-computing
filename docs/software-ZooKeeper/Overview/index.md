@@ -28,9 +28,11 @@ The servers that make up the ZooKeeper service must all know about each other.
 
 ZooKeeper stamps(它的含义非常类似于timestamp) each update with a number that reflects the order of all ZooKeeper transactions. Subsequent operations can use the order to implement higher-level abstractions, such as synchronization primitives.
 
-> NOTE: 这种技术叫什么名称？非常类似于MVCC
+> NOTE: 
 >
-> 上述update具体是指什么？
+> 一、这种技术叫什么名称？非常类似于MVCC；在 [ZooKeeper Programmer's Guide](https://zookeeper.apache.org/doc/r3.6.2/zookeeperProgrammers.html) 中，对此进行了介绍；
+>
+> 二、上述update具体是指什么？
 
 ### ZooKeeper is fast
 
@@ -117,6 +119,8 @@ One of the design goals of ZooKeeper is providing a very simple programming inte
 [ZooKeeper Components](https://zookeeper.apache.org/doc/r3.6.2/zookeeperOver.html#zkComponents) shows the high-level components of the ZooKeeper service. With the exception of the request processor, each of the servers that make up the ZooKeeper service replicates its own copy of each of the components.
 
 > NOTE: 
+>
+> 1、ZooKeeper 使用了自己的consistency protocol: ZAB
 
 
 

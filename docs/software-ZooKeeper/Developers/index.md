@@ -24,7 +24,9 @@ Znodes maintain a **stat** structure that includes:
 
 The version number, together with the timestamp, allows ZooKeeper to validate the cache and to coordinate updates. Each time a znode's data changes, the version number increases.
 
-> NOTE: 这是version技术，参见`Application\Data-system\Version`，在distributed system中有着非常重要的应用，其实它背后的思想有:
+> NOTE: 
+>
+> 一、这是vector version技术，参见`Vector-version`，在distributed system中有着非常重要的应用，其实它背后的思想有:
 >
 > 1、make it computational-ordering
 >

@@ -2,7 +2,9 @@
 
 > NOTE:
 >
-> 状态机复制
+> 一、状态机复制
+>
+> 二、使用state machine这个抽象模型，能够简化对distributed computing中replication的分析、理解。
 
 In [computer science](https://en.wikipedia.org/wiki/Computer_science), **state machine replication** or **state machine approach** is a general method for implementing a **fault-tolerant service** by replicating servers and coordinating client interactions with server replicas. The approach also provides a framework for understanding and designing replication management protocols.[[1\]](https://en.wikipedia.org/wiki/State_machine_replication#cite_note-schneider-1)
 
