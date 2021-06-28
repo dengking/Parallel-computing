@@ -1,3 +1,5 @@
 nav:
-
-    - wikipedia-Paxos(computer-science): wikipedia-Paxos(computer-science)
+    - Introduction: index.md
+    - paper-Paxos-Made-Simple: paper-Paxos-Made-Simple
+    - wikipedia-Paxos: wikipedia-Paxos
+    - Multi-paxos: Multi-paxos

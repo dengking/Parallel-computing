@@ -8,7 +8,7 @@
 
 2PC、3PC、Paxos、Raft、ZAB
 
-### 2PC、2PC
+### 2PC、3PC
 
 zhihu [漫话分布式系统共识协议: 2PC/3PC篇](https://zhuanlan.zhihu.com/p/35298019)
 
@@ -36,7 +36,11 @@ zhihu [漫话分布式系统共识协议: Paxos篇](https://zhuanlan.zhihu.com/p
 
 3、csdn [一致性协议算法-2PC、3PC、Paxos、Raft、ZAB、NWR超详细解析](https://blog.csdn.net/young_0609/article/details/111070578)
 
+> 参见 `一致性协议算法-2PC-3PC-Paxos-Raft-ZAB-NWR` 章节
+
 4、csdn [分布式一致性协议](https://blog.csdn.net/demon7552003/article/details/86657767)
+
+> 参见 `csdn-分布式一致性协议` 章节
 
 [![CAP 理论在工业界的实践](./csdn-分布式一致性协议/cap-sumarry.png)](http://matt33.com/images/distribute/cap-sumarry.png)
 
