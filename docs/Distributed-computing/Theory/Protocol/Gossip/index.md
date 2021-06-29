@@ -9,3 +9,9 @@ highscalability [Using Gossip Protocols For Failure Detection, Monitoring, Messa
 
 flopezluis [What are Gossip Protocols?](https://flopezluis.github.io/gossip-simulator/)
 
+
+
+## Gossip eventual consistency
+
+1、[Redis源码解析：25集群(一)握手、心跳消息以及下线检测](https://www.cnblogs.com/gqtcgq/p/7247044.html)中提及Gossip是一个[**最终一致性算法**](https://en.wikipedia.org/wiki/Eventual_consistency)。
+
