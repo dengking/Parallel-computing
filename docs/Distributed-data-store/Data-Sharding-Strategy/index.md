@@ -1,6 +1,10 @@
 # Data sharding strategy
 
-本章讨论在distributed data store中涉及的data sharding strategy。
+本章讨论在distributed data store中涉及的data sharding strategy，在下面文章中，对各种data sharding strategy、主流的分布式data store的实现进行了总结:
+
+1、yugabyte [Four Data Sharding Strategies We Analyzed in Building a Distributed SQL Database](https://blog.yugabyte.com/four-data-sharding-strategies-we-analyzed-in-building-a-distributed-sql-database)
+
+这篇文章非常好，首先推荐阅读
 
 ## wanweibaike [Partition (database)](https://en.wanweibaike.com/wiki-Partition%20(database))
 
@@ -43,6 +47,10 @@ A **database shard**, or simply a **shard**, is a [horizontal partition](https:/
 [Spanner](https://en.wanweibaike.com/wiki-Spanner_(database)), Google's global-scale distributed database, shards across multiple [Paxos](https://en.wanweibaike.com/wiki-Paxos_(computer_science)) state machines to scale to "millions of machines across hundreds of data centers and trillions of database rows".[[19\]](https://en.wanweibaike.com/wiki-Sharding#cite_note-Spanner-20)
 
 
+
+## 评价指标
+
+1、均匀、负载均衡
 
 
 
