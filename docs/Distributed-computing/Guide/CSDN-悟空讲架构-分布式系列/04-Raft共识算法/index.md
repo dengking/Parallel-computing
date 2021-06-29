@@ -135,7 +135,7 @@
 >
 > 哪种情况下会出现"选票瓜分导致选举失败的情况"？
 >
-> 在Redis中，也有类似的处理。
+> 在Redis中，也有类似的处理，参见 cnblogs [Redis源码解析：20sentinel(一)初始化、建链](https://www.cnblogs.com/gqtcgq/p/7247050.html)
 
 ![成为候选者](https://img-blog.csdnimg.cn/img_convert/0c1f0267ebb930016eaa746c6598bae1.gif)
 
