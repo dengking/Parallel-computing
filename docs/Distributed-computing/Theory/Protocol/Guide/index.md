@@ -24,7 +24,9 @@
 
 ## 发展历程
 
-2PC、3PC、Paxos、Raft、ZAB
+一、2PC、3PC、**Paxos**、Raft、ZAB
+
+二、**Paxos** 是一个划时代的算法，它对2PC、3PC进行了改进，Raft、ZAB都是基于 **Paxos**
 
 ### 2PC、3PC
 
@@ -45,3 +47,16 @@ csdn [诸葛亮 VS 庞统，拿下 Paxos 共识算法](https://blog.csdn.net/jac
 zhihu [漫话分布式系统共识协议: Paxos篇](https://zhuanlan.zhihu.com/p/35737689)
 
 讲得一般
+
+
+
+## 横向对比上述algorithm
+
+
+
+|        | 2PC  | 3PC  | Paxos | Raft | ZAB  |
+| ------ | ---- | ---- | ----- | ---- | ---- |
+| 角色   |      |      |       |      |      |
+| 阶段   |      |      |       |      |      |
+| voting |      |      |       |      |      |
+
