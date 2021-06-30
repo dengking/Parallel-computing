@@ -38,11 +38,15 @@ The remainder of the paper introduces the **replicated state machine problem** (
 
 ## 2 Replicated state machines
 
+> NOTE: 
+>
+> 这一段关于Replicated state machine的介绍是非常好的，容易理解，并且图示也非常形象
+
 **Consensus algorithms** typically arise in the context of **replicated state machines** [33]. In this approach, **state machines** on a collection of servers compute identical copies of the same state and can continue operating even if some of the servers are down. **Replicated state machines** are used to solve a variety of **fault tolerance problems** in distributed systems. For example, large-scale systems that have a single **cluster leader**, such as GFS [7], HDFS [34], and RAMCloud [30], typically use a separate **replicated state machine** to manage **leader election** and store configuration information that must survive leader crashes. Examples of **replicated state machines** include Chubby [2] and ZooKeeper [9].
 
 > NOTE : [Chubby](https://static.googleusercontent.com/media/research.google.com/zh-CN//archive/chubby-osdi06.pdf)，[ZooKeeper](https://zookeeper.apache.org/)
 
-
+![](./Replicated-state-machine-architecture.jpg)
 
 Figure 1: Replicated state machine architecture. The consensus algorithm manages a replicated log containing state machine commands from clients. The state machines process identical sequences of commands from the logs, so they produce the same outputs.
 
