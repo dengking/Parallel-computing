@@ -4,3 +4,4 @@ nav:
     - YugabyteDB: YugabyteDB
     - CockroachDB: CockroachDB    
     - MySQL-Cluster: MySQL-Cluster
+    - NewSQL: NewSQL
