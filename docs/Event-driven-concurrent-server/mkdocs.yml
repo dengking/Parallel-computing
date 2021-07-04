@@ -1,6 +1,5 @@
 nav:
     - Introduction: index.md
-    - Case: Case
     - Event-driven-model: Event-driven-model
     - Event-library: Event-library
     - Concurrent-server: Concurrent-server

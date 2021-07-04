@@ -1,6 +1,6 @@
 # Concurrent computing
 
-
+本章讨论concurrent computing。
 
 ## 我的学习之路
 

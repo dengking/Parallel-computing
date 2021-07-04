@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md    
+    - Case: Case    
     - The-C10K-problem: The-C10K-problem
     - High-performance-server: High-performance-server
     - Load-balancing: Load-balancing
