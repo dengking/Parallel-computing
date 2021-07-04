@@ -1,5 +1,9 @@
 # 关于本章
 
+本章讨论多线程。
+
+
+
 ## TODO
 
 ### consistency in multithread

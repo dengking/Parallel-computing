@@ -1,7 +1,7 @@
+# condition variables VS mutex
 
 
-
-# [Advantages of using condition variables over mutex](https://stackoverflow.com/questions/4742196/advantages-of-using-condition-variables-over-mutex)
+## stackoverflow [Advantages of using condition variables over mutex](https://stackoverflow.com/questions/4742196/advantages-of-using-condition-variables-over-mutex)
 
 I was wondering what is the performance benefit of using **condition variables** over **mutex locks** in pthreads.
 
@@ -20,7 +20,7 @@ Can you please explain what actually happens.
 
 
 
-## [A](https://stackoverflow.com/a/4742236)
+### [A](https://stackoverflow.com/a/4742236)
 
 A **condition variable** allows a thread to be signaled when something of interest to that thread occurs.
 
@@ -44,7 +44,7 @@ I don't see why you can't drop the condition variable and just use the mutex in 
 
 
 
-## [A](https://stackoverflow.com/a/4743033)
+### [A](https://stackoverflow.com/a/4743033)
 
 If you are looking for performance, then start reading about "non blocking / non locking" thread synchronization algorithms. They are based upon **atomic operations**, which `gcc` is kind enough to provide. Lookup `gcc` atomic operations. Our tests showed we could increment a global value with multiple threads using **atomic operation** magnitudes faster than locking with a mutex. [Here is some sample code that shows how to add items to and from a linked list from multiple threads at the same time without locking.](https://stackoverflow.com/questions/4600208/is-memory-allocation-in-linux-non-blocking/4650200#4650200)
 
@@ -56,7 +56,7 @@ Thanks a lot for pointing out the area of non-locking synchronization! I am look
 
 Nice tip about using signals instead of condition variables. – [Eloff](https://stackoverflow.com/users/152580/eloff) [Apr 6 '13 at 18:16](https://stackoverflow.com/questions/4742196/advantages-of-using-condition-variables-over-mutex#comment22563237_4743033)
 
-## [A](https://stackoverflow.com/a/4742791)
+### [A](https://stackoverflow.com/a/4742791)
 
 You're looking for too much overlap in two separate but related things: a mutex and a condition variable.
 
@@ -72,6 +72,6 @@ When a thread holding the mutex exclusively signals the condition variable, for 
 There are many complicated details that come into play, but this sketch should give you a feel for the structures and operations in play.
 
 
-# mutex and condition variable
+## mutex and condition variable
 
 condition variable是一种inter-thread communication的方式，而mutex并不具备此功能。mutex仅仅是一种互斥。

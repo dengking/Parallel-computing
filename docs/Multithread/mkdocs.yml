@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Expert-Herb-Sutter: Expert-Herb-Sutter    
     - Thread-safety: Thread-safety
     - Lifetime: Lifetime
     - Inter-thread-communication: Inter-thread-communication

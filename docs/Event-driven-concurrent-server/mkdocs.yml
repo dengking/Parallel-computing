@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
+    - Case: Case
     - Event-driven-model: Event-driven-model
     - Event-library: Event-library
     - Concurrent-server: Concurrent-server
@@ -8,9 +9,7 @@ nav:
     - Design-pattern: Design-pattern
     - library-linyacool-WebServer: library-linyacool-WebServer
     - library-yedf-handy: library-yedf-handy
-    
     - Apache-Thrift: Apache-Thrift
     - library-POCO: library-POCO    
-    
     - software-Nginx: software-Nginx
     - Timer: Timer

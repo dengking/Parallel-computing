@@ -3,8 +3,6 @@ nav:
     # 专家和经典书籍
     - Books: Books.md
     
-    - Expert-Herb-Sutter: Expert-Herb-Sutter
-    
     - Expert-Jeff-Preshing: Expert-Jeff-Preshing    
     
     - Expert-iter_zc: Expert-iter_zc
