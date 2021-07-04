@@ -1,5 +1,4 @@
 nav:
     - Introduction: index.md
     - Thundering-Herd-in-distributed-computing: Thundering-Herd-in-distributed-computing
-    - Thundering-Herd-problem-in-Linux: Thundering-Herd-problem-in-Linux
     - TODO-louqibin-Robinhood-宕机-幕后黑手Thundering-Herd: TODO-louqibin-Robinhood-宕机-幕后黑手Thundering-Herd

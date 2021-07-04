@@ -652,10 +652,6 @@ nav:
       - Introduction: Programming-model/API/Cilk/index.md
 - Event-driven-concurrent-server:
   - Introduction: Event-driven-concurrent-server/index.md
-  - Case:
-    - Introduction: Event-driven-concurrent-server/Case/index.md
-    - HTTP-server:
-      - Introduction: Event-driven-concurrent-server/Case/HTTP-server/index.md
   - Event-driven-model:
     - Introduction: Event-driven-concurrent-server/Event-driven-model/index.md
     - What-is-event-driven-model:
@@ -684,6 +680,10 @@ nav:
       - Introduction: Event-driven-concurrent-server/Event-library/library-muduo/index.md
   - Concurrent-server:
     - Introduction: Event-driven-concurrent-server/Concurrent-server/index.md
+    - Case:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/index.md
+      - HTTP-server:
+        - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/HTTP-server/index.md
     - The-C10K-problem:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/index.md
       - kegel-Unix-The-C10K-problem:
@@ -876,12 +876,6 @@ nav:
     - "zhihu-\u5206\u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94":
       - Introduction: "Thundering-herd-problem/Thundering-Herd-in-distributed-computing/zhihu-\u5206\
           \u5E03\u5F0F\u7CFB\u7EDF\u7684Thundering-Herd\u6548\u5E94/index.md"
-  - Thundering-Herd-problem-in-Linux:
-    - Introduction: Thundering-herd-problem/Thundering-Herd-problem-in-Linux/index.md
-    - uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem:
-      - Introduction: Thundering-herd-problem/Thundering-Herd-problem-in-Linux/uwsgi-Serializing-accept-AKA-Thundering-Herd-AKA-the-Zeeg-Problem/index.md
-    - SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd:
-      - Introduction: Thundering-herd-problem/Thundering-Herd-problem-in-Linux/SO_REUSEPORT-EPOLLEXCLUSIVE-mitigate-Thundering-herd/index.md
   - "TODO-louqibin-Robinhood-\u5B95\u673A-\u5E55\u540E\u9ED1\u624BThundering-Herd":
     - Introduction: "Thundering-herd-problem/TODO-louqibin-Robinhood-\u5B95\u673A\
         -\u5E55\u540E\u9ED1\u624BThundering-Herd/index.md"
