@@ -35,26 +35,6 @@ nav:
 - Concurrent-computing:
   - Concurrent-computing: Concurrent-computing/index.md
   - Books: Concurrent-computing/Books.md
-  - Expert-Herb-Sutter:
-    - Introduction: Concurrent-computing/Expert-Herb-Sutter/index.md
-    - 01-The-Pillars-of-Concurrency:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/01-The-Pillars-of-Concurrency/index.md
-    - 02-How-Much-Scalability-Do-You-Have-or-Need:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/02-How-Much-Scalability-Do-You-Have-or-Need/index.md
-    - 06-Use-Lock-Hierarchies-to-Avoid-Deadlock:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/06-Use-Lock-Hierarchies-to-Avoid-Deadlock/index.md
-    - 07-TODO-Break-Amdahl's-Law:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/07-TODO-Break-Amdahl's-Law/index.md
-    - 11-Maximize-Locality-Minimize-Contention:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/11-Maximize-Locality-Minimize-Contention/index.md
-    - 12-Choose-Concurrency-Friendly-Data-Structures:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/12-Choose-Concurrency-Friendly-Data-Structures/index.md
-    - 15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue/index.md
-    - 20-TODO-Sharing-Is-the-Root-of-All-Contention:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/20-TODO-Sharing-Is-the-Root-of-All-Contention/index.md
-    - 31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread:
-      - Introduction: Concurrent-computing/Expert-Herb-Sutter/31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread/index.md
   - Expert-Jeff-Preshing:
     - Introduction: Concurrent-computing/Expert-Jeff-Preshing/index.md
     - Performance:
@@ -316,6 +296,26 @@ nav:
     - Introduction: "Concurrent-computing/\u79D2\u6740-\u6D41\u91CF\u524A\u5CF0/index.md"
 - Multithread:
   - Introduction: Multithread/index.md
+  - Expert-Herb-Sutter:
+    - Introduction: Multithread/Expert-Herb-Sutter/index.md
+    - 01-The-Pillars-of-Concurrency:
+      - Introduction: Multithread/Expert-Herb-Sutter/01-The-Pillars-of-Concurrency/index.md
+    - 02-How-Much-Scalability-Do-You-Have-or-Need:
+      - Introduction: Multithread/Expert-Herb-Sutter/02-How-Much-Scalability-Do-You-Have-or-Need/index.md
+    - 06-Use-Lock-Hierarchies-to-Avoid-Deadlock:
+      - Introduction: Multithread/Expert-Herb-Sutter/06-Use-Lock-Hierarchies-to-Avoid-Deadlock/index.md
+    - 07-TODO-Break-Amdahl's-Law:
+      - Introduction: Multithread/Expert-Herb-Sutter/07-TODO-Break-Amdahl's-Law/index.md
+    - 11-Maximize-Locality-Minimize-Contention:
+      - Introduction: Multithread/Expert-Herb-Sutter/11-Maximize-Locality-Minimize-Contention/index.md
+    - 12-Choose-Concurrency-Friendly-Data-Structures:
+      - Introduction: Multithread/Expert-Herb-Sutter/12-Choose-Concurrency-Friendly-Data-Structures/index.md
+    - 15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue:
+      - Introduction: Multithread/Expert-Herb-Sutter/15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue/index.md
+    - 20-TODO-Sharing-Is-the-Root-of-All-Contention:
+      - Introduction: Multithread/Expert-Herb-Sutter/20-TODO-Sharing-Is-the-Root-of-All-Contention/index.md
+    - 31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread:
+      - Introduction: Multithread/Expert-Herb-Sutter/31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread/index.md
   - Thread-safety:
     - Introduction: Multithread/Thread-safety/index.md
     - What-cause-unsafety:
@@ -346,6 +346,8 @@ nav:
       - Introduction: Multithread/Lifetime/Termination/index.md
   - Inter-thread-communication:
     - Introduction: Multithread/Inter-thread-communication/index.md
+    - Condition-variables-VS-mutex:
+      - Introduction: Multithread/Inter-thread-communication/Condition-variables-VS-mutex/index.md
   - Topics:
     - Sleep-forever:
       - Introduction: Multithread/Topics/Sleep-forever/index.md
@@ -363,8 +365,6 @@ nav:
       - Introduction: Multithread/Topics/Thread-pool/index.md
       - library-progschj-ThreadPool:
         - Introduction: Multithread/Topics/Thread-pool/library-progschj-ThreadPool/index.md
-  - Condition-variables-VS-mutex:
-    - Introduction: Multithread/Condition-variables-VS-mutex/index.md
   - Thread-model:
     - Introduction: Multithread/Thread-model/index.md
     - "TODO-Locate-assign-\u7EBF\u7A0B\u5B9A\u4F4D":
@@ -439,9 +439,16 @@ nav:
       - "06-Gossip\u534F\u8BAE":
         - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
             \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/06-Gossip\u534F\u8BAE/index.md"
+      - "07-\u5206\u5E03\u5F0F\u7CFB\u7EDF\u7684\u5751":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/07-\u5206\u5E03\u5F0F\u7CFB\u7EDF\
+            \u7684\u5751/index.md"
       - 08-Quorum-NWR:
         - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
             \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/08-Quorum-NWR/index.md"
+      - "\u670D\u52A1\u96EA\u5D29":
+        - Introduction: "Distributed-computing/Guide/CSDN-\u609F\u7A7A\u8BB2\u67B6\
+            \u6784-\u5206\u5E03\u5F0F\u7CFB\u5217/\u670D\u52A1\u96EA\u5D29/index.md"
     - martinfowler-Patterns-of-Distributed-Systems:
       - Introduction: Distributed-computing/Guide/martinfowler-Patterns-of-Distributed-Systems/index.md
   - Theory:
@@ -480,8 +487,8 @@ nav:
         - Introduction: Distributed-computing/Theory/High-availability/High-availability-cluster/index.md
       - Replication:
         - Introduction: Distributed-computing/Theory/High-availability/Replication/index.md
-        - wikipedia-State-machine-replication:
-          - Introduction: Distributed-computing/Theory/High-availability/Replication/wikipedia-State-machine-replication/index.md
+        - State-machine-replication:
+          - Introduction: Distributed-computing/Theory/High-availability/Replication/State-machine-replication/index.md
         - Conflict-free-replicated-data-type:
           - Introduction: Distributed-computing/Theory/High-availability/Replication/Conflict-free-replicated-data-type/index.md
     - Network-partition:
@@ -645,6 +652,10 @@ nav:
       - Introduction: Programming-model/API/Cilk/index.md
 - Event-driven-concurrent-server:
   - Introduction: Event-driven-concurrent-server/index.md
+  - Case:
+    - Introduction: Event-driven-concurrent-server/Case/index.md
+    - HTTP-server:
+      - Introduction: Event-driven-concurrent-server/Case/HTTP-server/index.md
   - Event-driven-model:
     - Introduction: Event-driven-concurrent-server/Event-driven-model/index.md
     - What-is-event-driven-model:
@@ -677,8 +688,6 @@ nav:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/index.md
       - kegel-Unix-The-C10K-problem:
         - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/kegel-Unix-The-C10K-problem/index.md
-    - TODO-linuxgazette-Concurrent-Server-Design-on-Linux-Systems:
-      - Introduction: Event-driven-concurrent-server/Concurrent-server/TODO-linuxgazette-Concurrent-Server-Design-on-Linux-Systems/index.md
     - High-performance-server:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/High-performance-server/index.md
       - "developer.51cto-\u9AD8\u6027\u80FD\u5F00\u53D1\u7684\u5341\u5927\u6B66\u5668":
@@ -692,10 +701,6 @@ nav:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/index.md
       - TODO-Round-robin-scheduling:
         - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/TODO-Round-robin-scheduling/index.md
-    - Case:
-      - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/index.md
-      - HTTP-server:
-        - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/HTTP-server/index.md
   - Expert-Nick-Black:
     - Introduction: Event-driven-concurrent-server/Expert-Nick-Black/index.md
     - Fast-UNIX-Servers:
@@ -851,6 +856,8 @@ nav:
         - Introduction: Distributed-data-store/Distributed-database/CockroachDB/Living-Without-Atomic-Clocks/index.md
     - MySQL-Cluster:
       - Introduction: Distributed-data-store/Distributed-database/MySQL-Cluster/index.md
+    - NewSQL:
+      - Introduction: Distributed-data-store/Distributed-database/NewSQL/index.md
   - Amazon-Dynamo:
     - Introduction: Distributed-data-store/Amazon-Dynamo/index.md
   - Data-system:
