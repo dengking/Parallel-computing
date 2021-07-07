@@ -233,8 +233,9 @@ Reactor 模式是灵活多变的，可以应对不同的业务场景，灵活在
 
 方案具体使用进程还是线程，要看使用的编程语言以及平台有关：
 
-- Java 语言一般使用线程，比如 Netty;
-- C 语言使用进程和线程都可以，例如 Nginx 使用的是进程，Memcache 使用的是线程。
+2、Java 语言一般使用线程，比如 Netty;
+
+3、C 语言使用进程和线程都可以，例如 Nginx 使用的是进程，Memcache 使用的是线程。
 
 接下来，分别介绍这三个经典的 Reactor 方案。
 
@@ -335,9 +336,11 @@ Redis 是由 C 语言实现的，它采用的正是「单 Reactor 单进程」�
 
 老规矩，闻其名不如看其图。多 Reactor 多进程 / 线程方案的示意图如下（以线程为例）：
 
+![](./v2-4da008d8b7f55a0c18bef0e87c5c5bb1_hd.jpg)
 
-
-![img](https://pic1.zhimg.com/50/v2-4da008d8b7f55a0c18bef0e87c5c5bb1_hd.jpg?source=1940ef5c)![img](https://pic1.zhimg.com/80/v2-4da008d8b7f55a0c18bef0e87c5c5bb1_1440w.jpg?source=1940ef5c)
+```
+![img](https://pic1.zhimg.com/50/v2-4da008d8b7f55a0c18bef0e87c5c5bb1_hd.jpg?source=1940ef5c)
+```
 
 
 
