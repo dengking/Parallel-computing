@@ -4,5 +4,5 @@ nav:
     - Observer-pattern: Observer-pattern
     - Active-object+observer+visitor: Active-object+observer+visitor
     - Proactor-reactor: Proactor-reactor
-    - Actor-and-active-object: Actor-and-active-object
+    - Actor&&active-object: Actor&&active-object
     - Master-worker: Master-worker
