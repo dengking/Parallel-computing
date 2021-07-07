@@ -1,6 +1,6 @@
 # Event VS signal VS exception
 
-正如在[Event-driven-model](./Event-driven-model.md)中所总结的：
+正如在`Event-driven-model`中所总结的：
 
 > Event是一个非常概括、宽泛的概念
 
