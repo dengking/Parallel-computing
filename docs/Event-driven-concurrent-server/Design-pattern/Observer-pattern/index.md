@@ -1,8 +1,18 @@
 # Observer pattern
 
-1、Observer pattern使用OOP的语言来描述event-driven model
+一、Observer pattern使用OOP的语言来描述event-driven model
 
-2、observer pattern和 [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish-subscribe_pattern) 比较相关
+二、observer pattern和 [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish-subscribe_pattern) 比较相关
+
+三、在下面章节中，也对observer pattern进行了说明
+
+1、工程`programming-language`的`Multi-thread&&observer-pattern`章节
+
+2、nextptr [Using weak_ptr for circular references](https://www.nextptr.com/tutorial/ta1382183122/using-weak_ptr-for-circular-references) 
+
+四、开源软件中使用observer pattern的
+
+1、spdlog `async_logger`
 
 ## wikipedia [Observer pattern](https://en.wikipedia.org/wiki/Observer_pattern)
 
@@ -18,7 +28,13 @@ The observer pattern is also a key part in the familiar [model–view–controll
 
 The observer pattern can cause [memory leaks](https://en.wikipedia.org/wiki/Memory_leak), known as the [lapsed listener problem](https://en.wikipedia.org/wiki/Lapsed_listener_problem), because in basic implementation it requires both explicit registration and explicit deregistration, as in the [dispose pattern](https://en.wikipedia.org/wiki/Dispose_pattern), because the subject holds strong references to the observers, keeping them alive. This can be prevented by the subject holding [weak references](https://en.wikipedia.org/wiki/Weak_reference) to the observers.
 
-> NOTE: 如何来解决呢？
+> NOTE: 
+>
+> 一、如何来解决呢？
+>
+> 1、C++，参见: 
+>
+> nextptr [Using weak_ptr for circular references](https://www.nextptr.com/tutorial/ta1382183122/using-weak_ptr-for-circular-references) 
 
 ### Coupling and typical pub-sub implementations
 
@@ -34,6 +50,37 @@ The observer pattern, as described in the [GOF book](https://en.wikipedia.org/wi
 
 Related patterns: [Publish–subscribe pattern](https://en.wikipedia.org/wiki/Publish–subscribe_pattern), [mediator](https://en.wikipedia.org/wiki/Mediator_pattern), [singleton](https://en.wikipedia.org/wiki/Singleton_pattern).
 
+### Example
+
+#### Python
+
+```Python
+class Observable(object):
+    def __init__(self) -> None:
+        self._observers = []
+
+    def register_observer(self, observer) -> None:
+        self._observers.append(observer)
+
+    def notify_observers(self, *args, **kwargs) -> None:
+        for observer in self._observers:
+            observer.notify(self, *args, **kwargs)
+
+
+class Observer(object):
+    def __init__(self, observable) -> None:
+        observable.register_observer(self)
+
+    def notify(self, observable, *args, **kwargs) -> None:
+        print('Got', args, kwargs, 'From', observable)
+
+
+subject = Observable()
+observer = Observer(subject)
+subject.notify_observers('test')
+
+```
+
 
 
 ## w3sdesign [Observer design pattern](http://w3sdesign.com/?gr=b07&ugr=proble#gf)
@@ -42,15 +89,17 @@ Related patterns: [Publish–subscribe pattern](https://en.wikipedia.org/wiki/Pu
 
 The Observer design pattern solves problems like:
 
-- How can a one-to-many dependency between objects be defined without making the objects tightly coupled?
-- How can an object **notify** an open-ended-number of other objects?
+1、How can a one-to-many dependency between objects be defined without making the objects tightly coupled?
+
+2、How can an object **notify** an open-ended-number of other objects?
 
 > NOTE: “open-ended-number of other objects”意味着，在runtime，可以增加observer，也可以删除observer。
 
 The Observer pattern describes how to solve such problems:
 
-- Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
-- The key idea in this pattern is to establish a flexible *notification-registration* mechanism that *notifies* all *registered* objects automatically when an event of interest occurs.
+1、Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+2、The key idea in this pattern is to establish a flexible *notification-registration* mechanism that *notifies* all *registered* objects automatically when an event of interest occurs.
 
 > NOTE: *notification-registration* mechanism是observer pattern的核心思想，凭借它，observer pattern解决了前面提出的问题。*notification-registration*也叫做publish-subscribe。
 
@@ -74,7 +123,15 @@ The Observer pattern describes how to solve such problems:
 
 
 
-## microsoft [Observer Design Pattern](https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern)
+## TODO
+
+observer pattern VS publish subscribe pattern
+
+https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c
+
+
+
+### microsoft [Observer Design Pattern](https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern)
 
 [Events and routed events overview](https://docs.microsoft.com/zh-cn/previous-versions/windows/apps/hh758286(v=win.10))
 
@@ -82,22 +139,15 @@ The Observer pattern describes how to solve such problems:
 
 
 
-## oodesign [Observer Pattern](https://www.oodesign.com/observer-pattern.html)
+### oodesign [Observer Pattern](https://www.oodesign.com/observer-pattern.html)
 
 
 
-
-
-## refactoring [Observer](https://refactoring.guru/design-patterns/observer)
+### refactoring [Observer](https://refactoring.guru/design-patterns/observer)
 
 > NOTE: 前面给出的示例都没有准确描述对不同类型的事件，执行不同的函数，而本文的示例则展示了这一点。它的代码也是值得阅读的https://refactoring.guru/design-patterns
 
 
 
-## cpppatterns [Observer](https://cpppatterns.com/patterns/observer.html) 
+### cpppatterns [Observer](https://cpppatterns.com/patterns/observer.html) 
 
-## TODO
-
-observer pattern VS publish subscribe pattern
-
-https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c

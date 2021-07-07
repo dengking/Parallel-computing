@@ -1,1 +1,0 @@
-# [Lapsed listener problem](https://infogalactic.com/info/Lapsed_listener_problem)
