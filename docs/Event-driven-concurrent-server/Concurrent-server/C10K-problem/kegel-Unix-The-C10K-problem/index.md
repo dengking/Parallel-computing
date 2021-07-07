@@ -95,7 +95,7 @@ The following five combinations seem to be popular:
 
 ### 1. Serve many clients with each thread, and use nonblocking I/O and level-triggered readiness notification
 
-Serve many clients with each thread的意思是：为每个线程提供许多客户端，它实际上所指为一个thread处理多个client；
+> Serve many clients with each thread的意思是：为每个线程提供许多客户端，它实际上所指为一个thread处理多个client；
 
 ... set **nonblocking mode** on all **network handles**, and use `select()` or `poll()` to tell which **network handle** has data waiting. This is the traditional favorite. With this scheme, the kernel tells you whether a **file descriptor** is ready, whether or not you've done anything with that **file descriptor** since the last time the kernel told you about it. (The name 'level triggered' comes from computer hardware design; it's the opposite of ['edge triggered'](http://www.kegel.com/c10k.html#nb.edge). Jonathon Lemon introduced the terms in his [BSDCON 2000 paper on kqueue()](http://people.freebsd.org/~jlemon/papers/kqueue.pdf).)
 
@@ -181,88 +181,7 @@ For an unabashedly pro-thread viewpoint, see [Why Events Are A Bad Idea (for Hig
 
 对于一个毫不掩饰的亲线程观点，请参阅HotOS IX上的von Behren，Condit和Brewer，UCB，为什么事件是一个坏主意（对于高并发服务器）。反线营地的任何人都在指出一篇反驳这篇论文的论文吗？ :-)
 
-#### LinuxThreads
 
-[LinuxTheads](http://pauillac.inria.fr/~xleroy/linuxthreads/) is the name for the standard Linux thread library. It is integrated into glibc since glibc2.0, and is mostly Posix-compliant, but with less than stellar performance and signal support.
-
-#### NGPT: Next Generation Posix Threads for Linux
-
-[NGPT](http://www-124.ibm.com/pthreads/) is a project started by IBM to bring good Posix-compliant thread support to Linux. It's at stable version 2.2 now, and works well... but the NGPT team has that they are putting the NGPT codebase into support-only mode because they feel it's "the best way to support the community for the long term". The NGPT team will continue working to improve Linux thread support, but now focused on improving NPTL. (Kudos to the NGPT team for their good work and the graceful way they conceded to NPTL.)
-
-#### NPTL: Native Posix Thread Library for Linux
-
-[NPTL](http://people.redhat.com/drepper/nptl/) is a project by  (the benevolent dict^H^H^H^Hmaintainer of ) and  to bring world-class Posix threading support to Linux.
-
-The first major distribution to include an early snapshot of NPTL was Red Hat 9. (This was a bit inconvenient for some users, but somebody had to break the ice...)
-
-NPTL links:
-
-- [Mailing list for NPTL discussion](https://listman.redhat.com/mailman/listinfo/phil-list)
-- [NPTL source code](http://people.redhat.com/drepper/nptl/)
-- [Initial announcement for NPTL](http://lwn.net/Articles/10465/)
-- [Original whitepaper describing the goals for NPTL](http://people.redhat.com/drepper/glibcthreads.html)
-- [Revised whitepaper describing the final design of NPTL](http://people.redhat.com/drepper/nptl-design.pdf)
-- [Ingo Molnar's](http://marc.theaimsgroup.com/?l=linux-kernel&m=103230439008204&w=2) first benchmark showing it could handle 10^6 threads
-- [Ulrich's benchmark](http://marc.theaimsgroup.com/?l=linux-kernel&m=103269598000900&w=2) comparing performance of LinuxThreads, NPTL, and IBM's [NGPT](http://www.kegel.com/c10k.html#threads.ngpt). It seems to show NPTL is much faster than NGPT.
-
-Here's my try at describing the history of NPTL (see also [Jerry Cooperstein's article](http://www.onlamp.com/pub/a/onlamp/2002/11/07/linux_threads.html)
-
-[In March 2002, Bill Abt of the NGPT team, the glibc maintainer Ulrich Drepper, and others met](http://people.redhat.com/drepper/glibcthreads.html) to figure out what to do about LinuxThreads. One idea that came out of the meeting was to improve mutex performance; Rusty Russell [et al](http://marc.theaimsgroup.com/?l=linux-kernel&m=103284847815916&w=2) subsequently implemented [fast userspace mutexes (futexes)](http://marc.theaimsgroup.com/?l=linux-kernel&m=102196625921110&w=2)), which are now used by both NGPT and NPTL. Most of the attendees figured NGPT should be merged into glibc.
-
-Ulrich Drepper, though, didn't like NGPT, and figured he could do better. (For those who have ever tried to contribute a patch to glibc, this may not come as a big surprise :-) Over the next few months, Ulrich Drepper, Ingo Molnar, and others contributed glibc and kernel changes that make up something called the Native Posix Threads Library (NPTL). NPTL uses all the kernel enhancements designed for NGPT, and takes advantage of a few new ones. Ingo Molnar [described](https://listman.redhat.com/pipermail/phil-list/2002-September/000013.html) the kernel enhancements as follows:
-
-> While NPTL uses the three kernel features introduced by NGPT: getpid() returns PID, CLONE_THREAD and futexes; NPTL also uses (and relies on) a much wider set of new kernel features, developed as part of this project.
->
-> Some of the items NGPT introduced into the kernel around 2.5.8 got modified, cleaned up and extended, such as thread group handling (CLONE_THREAD). [the CLONE_THREAD changes which impacted NGPT's compatibility got synced with the NGPT folks, to make sure NGPT does not break in any unacceptable way.]
->
-> The kernel features developed for and used by NPTL are described in the design whitepaper, http://people.redhat.com/drepper/nptl-design.pdf ...
->
-> A short list: TLS support, various clone extensions (CLONE_SETTLS, CLONE_SETTID, CLONE_CLEARTID), POSIX thread-signal handling, sys_exit() extension (release TID futex upon VM-release), the sys_exit_group() system-call, sys_execve() enhancements and support for detached threads.
->
-> There was also work put into extending the PID space - eg. procfs crashed due to 64K PID assumptions, max_pid, and pid allocation scalability work. Plus a number of performance-only improvements were done as well.
->
-> *In essence the new features are a no-compromises approach to 1:1 threading - the kernel now helps in everything where it can improve threading, and we precisely do the minimally necessary set of context switches and kernel calls for every basic threading primitive.*
-
-One big difference between the two is that NPTL is a 1:1 threading model, whereas NGPT is an M:N threading model (see below). In spite of this, [Ulrich's initial benchmarks](https://listman.redhat.com/pipermail/phil-list/2002-September/000009.html)
-
-#### FreeBSD threading support
-
-FreeBSD supports both LinuxThreads and a userspace threading library. Also, a M:N implementation called KSE was introduced in FreeBSD 5.0. For one overview, see [www.unobvious.com/bsd/freebsd-threads.html](http://www.unobvious.com/bsd/freebsd-threads.html)
-
-On 25 Mar 2003, [Jeff Roberson posted on freebsd-arch](http://docs.freebsd.org/cgi/getmsg.cgi?fetch=121207+0+archive/2003/freebsd-arch/20030330.freebsd-arch):
-
-> *... Thanks to the foundation provided by Julian, David Xu, Mini, Dan Eischen, and everyone else who has participated with KSE and libpthread development Mini and I have developed a 1:1 threading implementation. This code works in parallel with KSE and does not break it in any way. It actually helps bring M:N threading closer by testing out shared bits. ...*
-
-And in July 2006, [Robert Watson proposed that the 1:1 threading implementation become the default in FreeBsd 7.x](http://marc.theaimsgroup.com/?l=freebsd-threads&m=115191979412894&w=2)
-
-> *I know this has been discussed in the past, but I figured with 7.x trundling forward, it was time to think about it again. In benchmarks for many common applications and scenarios, libthr demonstrates significantly better performance over libpthread... libthr is also implemented across a larger number of our platforms, and is already libpthread on several. The first recommendation we make to MySQL and other heavy thread users is "Switch to libthr", which is suggestive, also! ... So the strawman proposal is: make libthr the default threading library on 7.x.*
-
-#### NetBSD threading support
-
-According to a note from Noriyuki Soda:
-
-> *Kernel supported M:N thread library based on the Scheduler Activations model is merged into NetBSD-current on Jan 18 2003.*
-
-For details, see [An Implementation of Scheduler Activations on the NetBSD Operating System](http://web.mit.edu/nathanw/www/usenix/freenix-sa/)
-
-#### Solaris threading support
-
-The thread support in Solaris is evolving... from Solaris 2 to Solaris 8, the default threading library used an M:N model, but Solaris 9 defaults to 1:1 model thread support. See [Sun's multithreaded programming guide](http://docs.sun.com/db/doc/805-5080)[Sun's note about Java and Solaris threading](http://java.sun.com/docs/hotspot/threads/threads.html)
-
-#### Java threading support in JDK 1.3.x and earlier
-
-As is well known, Java up to JDK1.3.x did not support any method of handling network connections other than one thread per client. [Volanomark](http://www.volano.com/report/)[Table 4](http://www.volano.com/report/#nettable)
-
-#### Note: 1:1 threading vs. M:N threading
-
-There is a choice when implementing a threading library: you can either put all the threading support in the kernel (this is called the 1:1 threading model), or you can move a fair bit of it into userspace (this is called the M:N threading model). At one point, M:N was thought to be higher performance, but it's so complex that it's hard to get right, and most people are moving away from it.
-
-- [Why Ingo Molnar prefers 1:1 over M:N](http://marc.theaimsgroup.com/?l=linux-kernel&m=103284879216107&w=2)
-- [Sun is moving to 1:1 threads](http://java.sun.com/docs/hotspot/threads/threads.html)
-- [NGPT](http://www-124.ibm.com/pthreads/) is an M:N threading library for Linux.
-- Although [Ulrich Drepper planned to use M:N threads in the new glibc threading library](http://people.redhat.com/drepper/glibcthreads.html), he has since [switched to the 1:1 threading model.](http://people.redhat.com/drepper/nptl-design.pdf)
-- [MacOSX appears to use 1:1 threading.](http://developer.apple.com/technotes/tn/tn2028.html#MacOSXThreading)
-- [FreeBSD](http://people.freebsd.org/~julian/) and [NetBSD](http://web.mit.edu/nathanw/www/usenix/freenix-sa/) appear to still believe in M:N threading... The lone holdouts? Looks like freebsd 7.0 might switch to 1:1 threading (see above), so perhaps M:N threading's believers have finally been proven wrong everywhere.
 
 ### 5. Build the server code into the kernel
 
@@ -272,34 +191,6 @@ The linux-kernel list has been discussing the pros and cons of this approach, an
 ## Bring the TCP stack into userspace
 
 See for instance the [netmap](http://info.iet.unipi.it/~luigi/netmap/) packet I/O framework, and the [Sandstorm](http://conferences.sigcomm.org/hotnets/2013/papers/hotnets-final43.pdf) proof-of-concept web server based on it.
-
-## Comments
-
-
-
-
-
-## Limits on open filehandles
-
-
-
-## Limits on threads
-
-
-
-## Java issues
-
-
-
-## Other tips
-
-
-
-## Other limits
-
-
-
-## Kernel Issues
 
 
 
@@ -334,26 +225,4 @@ See for instance the [netmap](http://info.iet.unipi.it/~luigi/netmap/) packet I/
 
 - [ribs2](https://github.com/Adaptv/ribs2)
 - [cmogstored](http://bogomips.org/cmogstored/README) - uses epoll/kqueue for most networking, threads for disk and accept4
-
-### Interesting kqueue()-based servers
-
-
-
-### Interesting realtime signal-based servers
-
-
-
-### Interesting thread-based servers
-
-
-
-### Interesting in-kernel servers
-
-
-
-### Other interesting links
-
-
-
-### Translations
 

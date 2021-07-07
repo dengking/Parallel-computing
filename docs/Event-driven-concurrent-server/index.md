@@ -10,5 +10,10 @@
 
 
 
+## time event && file event
 
+大多数concurrent server需要处理:
 
+1、time event 
+
+2、file event
