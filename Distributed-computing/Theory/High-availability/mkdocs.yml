@@ -3,3 +3,4 @@ nav:
     - Single-point-of-failure: Single-point-of-failure
     - High-availability-cluster: High-availability-cluster
     - Replication: Replication
+    - 多活-双活: 多活-双活

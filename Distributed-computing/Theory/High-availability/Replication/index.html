@@ -8653,6 +8653,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wikipedia#redundancy#engineering" class="md-nav__link">
+    wikipedia Redundancy (engineering)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    两种方式
+  </a>
+  
+    <nav class="md-nav" aria-label="两种方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master#slave" class="md-nav__link">
+    master slave
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    成组
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -8735,6 +8769,45 @@
           
         </ul>
       </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_9_4_5" type="checkbox" id="__nav_5_9_4_5" >
+      
+      <label class="md-nav__link" for="__nav_5_9_4_5">
+        多活-双活
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="多活-双活" data-md-level="4">
+        <label class="md-nav__title" for="__nav_5_9_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          多活-双活
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%A4%9A%E6%B4%BB-%E5%8F%8C%E6%B4%BB/" class="md-nav__link">
+        Introduction
+      </a>
     </li>
   
 
@@ -16801,6 +16874,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wikipedia#redundancy#engineering" class="md-nav__link">
+    wikipedia Redundancy (engineering)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    两种方式
+  </a>
+  
+    <nav class="md-nav" aria-label="两种方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#master#slave" class="md-nav__link">
+    master slave
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    成组
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -16818,6 +16925,18 @@
 <p>有备无患。</p>
 <h2 id="wikipedia#replication#computing">wikipedia <a href="https://en.wikipedia.org/wiki/Replication_(computing)">Replication (computing)</a></h2>
 <p><strong>Replication</strong> in <a href="https://en.wikipedia.org/wiki/Computing">computing</a> involves sharing information so as to ensure <strong>consistency</strong> between redundant resources, such as <a href="https://en.wikipedia.org/wiki/Software">software</a> or <a href="https://en.wikipedia.org/wiki/Computer_hardware">hardware</a> components, to improve reliability, <a href="https://en.wikipedia.org/wiki/Fault-tolerance">fault-tolerance</a>, or accessibility.</p>
+<h2 id="wikipedia#redundancy#engineering">wikipedia <a href="https://en.wikipedia.org/wiki/Redundancy_(engineering)">Redundancy (engineering)</a></h2>
+<h2 id="_1">两种方式</h2>
+<h3 id="master#slave">master slave</h3>
+<p>这种方式比较广泛的，比如: </p>
+<p>1、Redis sentinel HA就是采用的这种方式</p>
+<h3 id="_2">成组</h3>
+<p>其实这也是一种replication，在下面的文章中，介绍了这种用法:</p>
+<p>1、Redis doc <a href="https://redis.io/topics/partitioning">Partitioning: how to split data among multiple Redis instances</a></p>
+<blockquote>
+<p>It is <em>not</em> a <strong>single point of failure</strong> since you can start multiple proxies and instruct your clients to connect to the first that accepts the connection.</p>
+</blockquote>
+<p>显然，是通过成组来避免**single point of failure** 。</p>
                 
               
               
