@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - Distributed-system-challenge: Distributed-system-challenge
+    - Abstraction: Abstraction
+    - CSDN-悟空讲架构-分布式系列: CSDN-悟空讲架构-分布式系列
+    - martinfowler-Patterns-of-Distributed-Systems: martinfowler-Patterns-of-Distributed-Systems

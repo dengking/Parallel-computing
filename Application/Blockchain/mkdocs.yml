@@ -1,3 +1,3 @@
 nav:
-    - Blockchain: Blockchain.md
-    - Is-git-a-block-chain: Is-git-a-block-chain.md
+    - Introduction: index.md
+    - Is-git-a-block-chain: Is-git-a-block-chain

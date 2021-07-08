@@ -2,5 +2,5 @@ nav:
     - Introduction: index.md
     - Liveness: Liveness
     - Lock-free: Lock-free
-    - TODO-paper-obstruction-free synchronization-double-ended-queues: TODO-paper-obstruction-free synchronization-double-ended-queues
+
     

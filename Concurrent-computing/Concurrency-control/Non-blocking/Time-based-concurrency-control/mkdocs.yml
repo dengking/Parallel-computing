@@ -1,4 +1,0 @@
-nav:
-    - Introduction: index.md
-    - MVCC: MVCC
-    - Timestamp-based concurrency-control: Timestamp-based concurrency-control.md

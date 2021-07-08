@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - State-machine-replication: State-machine-replication    
+    - Conflict-free-replicated-data-type: Conflict-free-replicated-data-type

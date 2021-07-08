@@ -1,6 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Lead-election: Lead-election
-
-    - Lock: Lock
-    - Herd-Effect-in-ZK: Herd-Effect-in-ZK.md

@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Single-point-of-failure: Single-point-of-failure.md
-    - High-availability-cluster: High-availability-cluster.md
+    - Single-point-of-failure: Single-point-of-failure
+    - High-availability-cluster: High-availability-cluster
+    - Replication: Replication

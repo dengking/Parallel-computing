@@ -1,5 +1,5 @@
 nav:
     - Introduction: index.md
-    - Client–server-architecture: Client–server-architecture.md
-    - Peer-to-peer-architecture: Peer-to-peer-architecture.md
-    - Client-server-VS-Peer-to-peer: Client-server-VS-Peer-to-peer.md
+    - Client–server-architecture: Client–server-architecture
+    - Peer-to-peer-architecture: Peer-to-peer-architecture
+    - Shared-nothing-architecture: Shared-nothing-architecture

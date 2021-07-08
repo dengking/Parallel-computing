@@ -1,7 +1,0 @@
-nav:
-    - Introduction: index.md
-    - Thread-safety: Thread-safety
-    - Lifetime: Lifetime
-    - Inter-thread-communication: Inter-thread-communication
-    - Topics: Topics
-    - Condition-variables-VS-mutex: Condition-variables-VS-mutex

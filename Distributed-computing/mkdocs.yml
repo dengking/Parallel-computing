@@ -1,6 +1,12 @@
 nav:
-    - Distributed-computing: index.md
+    - Introduction: index.md
+    - Expert-Leslie-Lamport: Expert-Leslie-Lamport    
+    - Expert-Dr-Werner-Vogels: Expert-Dr-Werner-Vogels
+    - Course: Course
+    - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
+    - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
+    - dist-prog-book: dist-prog-book
+    - Guide: Guide
     - Theory: Theory
     - Technique: Technique
     - Architecture: Architecture
-    - Expert-Leslie-Lamport: Expert-Leslie-Lamport

@@ -1,9 +1,8 @@
 nav:
     - Introduction: index.md
     - Producer–consumer-problem: Producer–consumer-problem
-    - Dining-philosophers-problem: Dining-philosophers-problem
     - Readers–writers-problem: Readers–writers-problem
-    - ABA-problem: ABA-problem
+    - Dining-philosopher: Dining-philosopher
     - Checkpoint-Synchronization: Checkpoint-Synchronization
     - Sleeping-barber-problem: Sleeping-barber-problem
     - Cigarette-smokers-problem: Cigarette-smokers-problem

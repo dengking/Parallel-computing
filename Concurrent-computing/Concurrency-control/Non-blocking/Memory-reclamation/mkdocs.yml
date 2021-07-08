@@ -1,5 +1,8 @@
 nav:
     - Introduction: index.md
     - cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies: cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies
+    - Quiescent-state-based-reclamation-QSBR: Quiescent-state-based-reclamation-QSBR
+    - Epoch-Based-Reclamation-EBR: Epoch-Based-Reclamation-EBR
+    - Hazard-pointer-based reclamation-HPBR: Hazard-pointer-based reclamation-HPBR
     - preshing-Using-Quiescent-States-to-Reclaim-Memory: preshing-Using-Quiescent-States-to-Reclaim-Memory
    

@@ -1,16 +1,11 @@
 nav:
-    - Introduction: index.md
-    
-    - Trouble-with-Distributed-Systems: Trouble-with-Distributed-Systems.md
-    - Abstraction: Abstraction    
-    - Design-goal-of-distributed-systems: Design-goal-of-distributed-systems.md
-    - Book-Designing-Data-Intensive-Applications: Book-Designing-Data-Intensive-Applications
-    - book-Distributed-operating-systems: book-Distributed-operating-systems
-    # - Book-Distributed-systems-for-fun-and-profit: Book-Distributed-systems-for-fun-and-profit
-
-    - CAP: CAP
-    - High-availability: High-availability
+    - Introduction: index.md 
+    - CAP: CAP # CAP
+    - Consistency: Consistency # CAP 的 C
+    - High-availability: High-availability # CAP 的 A
+    - Network-partition: Network-partition # CAP 的 P   
+    - Fault-tolerance: Fault-tolerance
     - Consensus: Consensus
-    - Partitioning: Partitioning
-    - Replication: Replication
-    - Logical-clock: Logical-clock
+    - Time&Ordering: Time&Ordering
+    - Protocol: Protocol
+    - Split-brain: Split-brain # 它是有network partition引发的

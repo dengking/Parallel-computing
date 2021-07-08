@@ -1,0 +1,6 @@
+nav:
+    - Introduction: index.md
+    - paper-Paxos-Made-Simple: paper-Paxos-Made-Simple
+    - wikipedia-Paxos: wikipedia-Paxos
+    - Multi-paxos: Multi-paxos
+    - CSDN-重要的Paxos算法你看透了么: CSDN-重要的Paxos算法你看透了么

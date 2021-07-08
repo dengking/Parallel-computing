@@ -1,0 +1,8 @@
+nav:
+    - Guide: Guide
+    - 2PC: 2PC
+    - 3PC: 3PC
+    - Paxos: Paxos    
+    - Raft: Raft
+    - Gossip: Gossip
+    

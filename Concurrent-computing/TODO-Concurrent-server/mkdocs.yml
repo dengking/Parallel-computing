@@ -1,7 +1,0 @@
-nav:
-    - Introduction: index.md
-    - The-C10K-problem: The-C10K-problem
-    - Asynchronous-method-dispatch: Asynchronous-method-dispatch.md
-    - High-performance-server: High-performance-server
-    - Design-pattern: Design-pattern
-    - TODO-thread-model: TODO-thread-model

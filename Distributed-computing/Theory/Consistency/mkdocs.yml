@@ -1,0 +1,7 @@
+nav:
+    - Introduction: index.md
+    - Primer: Primer
+    - wikipedia-Consistency-model: wikipedia-Consistency-model
+    - Classification: Classification
+    - NRW-quorum-consistency: NRW-quorum-consistency
+    - Data-consistency: Data-consistency
