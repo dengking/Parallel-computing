@@ -494,6 +494,9 @@ nav:
           - Introduction: Distributed-computing/Theory/High-availability/Replication/State-machine-replication/index.md
         - Conflict-free-replicated-data-type:
           - Introduction: Distributed-computing/Theory/High-availability/Replication/Conflict-free-replicated-data-type/index.md
+      - "\u591A\u6D3B-\u53CC\u6D3B":
+        - Introduction: "Distributed-computing/Theory/High-availability/\u591A\u6D3B\
+            -\u53CC\u6D3B/index.md"
     - Network-partition:
       - Introduction: Distributed-computing/Theory/Network-partition/index.md
     - Fault-tolerance:
