@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
     - cnblogs-一致性Hash的原理和实践: cnblogs-一致性Hash的原理和实践
+    - toptal-A-Guide-to-Consistent-Hashing: toptal-A-Guide-to-Consistent-Hashing
