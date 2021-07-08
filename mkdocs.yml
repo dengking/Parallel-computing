@@ -685,14 +685,14 @@ nav:
       - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/index.md
       - HTTP-server:
         - Introduction: Event-driven-concurrent-server/Concurrent-server/Case/HTTP-server/index.md
-    - The-C10K-problem:
-      - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/index.md
+    - C10K-problem:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/C10K-problem/index.md
       - kegel-Unix-The-C10K-problem:
-        - Introduction: Event-driven-concurrent-server/Concurrent-server/The-C10K-problem/kegel-Unix-The-C10K-problem/index.md
-    - Load-balancing:
-      - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/index.md
+        - Introduction: Event-driven-concurrent-server/Concurrent-server/C10K-problem/kegel-Unix-The-C10K-problem/index.md
+    - Load-balance:
+      - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balance/index.md
       - Round-robin:
-        - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balancing/Round-robin/index.md
+        - Introduction: Event-driven-concurrent-server/Concurrent-server/Load-balance/Round-robin/index.md
     - "developer.51cto-\u652F\u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837":
       - Introduction: "Event-driven-concurrent-server/Concurrent-server/developer.51cto-\u652F\
           \u6491\u4EBF\u7EA7\u9AD8\u5E76\u53D1\u7684\u7CFB\u7EDF\u957F\u5565\u6837\
