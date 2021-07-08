@@ -5,4 +5,4 @@ nav:
     - Ticket-lock: Ticket-lock
     - library-geidav-spinlocks-bench: library-geidav-spinlocks-bench
     - library-honkiko-Multi-Core-Toolbox: library-honkiko-Multi-Core-Toolbox
-    - library-honkiko-Multi-Core-Toolbox: library-honkiko-Multi-Core-Toolbox
+    - library-bogachevdmitry-CLHLock: library-bogachevdmitry-CLHLock

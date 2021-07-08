@@ -272,6 +272,10 @@
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/library-bogachevdmitry-CLHLock/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Double-checked-locking/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
@@ -405,6 +409,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking-VS-blocking/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking-VS-blocking/Lock-free-VS-lock-based/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1228,19 +1236,35 @@
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server/</loc>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server/Case/</loc>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Case/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server/Case/HTTP-server/</loc>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Case/HTTP-server/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server/developer.51cto-%E6%94%AF%E6%92%91%E4%BA%BF%E7%BA%A7%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%B3%BB%E7%BB%9F%E9%95%BF%E5%95%A5%E6%A0%B7/</loc>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/C10K-problem/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/C10K-problem/kegel-Unix-The-C10K-problem/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Load-balance/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Load-balance/Round-robin/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/developer.51cto-%E6%94%AF%E6%92%91%E4%BA%BF%E7%BA%A7%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%B3%BB%E7%BB%9F%E9%95%BF%E5%95%A5%E6%A0%B7/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -1508,6 +1532,10 @@
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/Consistent-hashing/toptal-A-Guide-to-Consistent-Hashing/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/Rendezvous-hashing/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
@@ -1577,6 +1605,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/RPC/</loc>
+     <lastmod>2021-07-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://dengking.github.io/Parallel-computing/RPC/gRPC/</loc>
      <lastmod>2021-07-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
