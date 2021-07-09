@@ -82,7 +82,7 @@ MCS Lock algorithm implementation in C
 
 Implementation and benchmark of different spin lock types
 
-
+其中就给出了MCS spinning lock的实现，参见 `library-geidav-spinlocks-bench` 章节。
 
 ### [NoiseEHC](https://github.com/NoiseEHC)/**[spinpool](https://github.com/NoiseEHC/spinpool)**
 

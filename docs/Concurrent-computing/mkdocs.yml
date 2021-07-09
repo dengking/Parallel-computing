@@ -15,7 +15,6 @@ nav:
 
     - Course-uhcl-Concurrency: Course-uhcl-Concurrency
     
-    - rochester-paper-Algorithms-for-Scalable-Synchronization: rochester-paper-Algorithms-for-Scalable-Synchronization
     # 先描述 理论知识
     - Concurrency-control: Concurrency-control
     # 总结经典问题

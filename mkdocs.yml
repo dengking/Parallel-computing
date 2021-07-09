@@ -141,8 +141,6 @@ nav:
     - Introduction: Concurrent-computing/Course-tau-Multiprocessor-Programming-CS-0368-4061-01/index.md
   - Course-uhcl-Concurrency:
     - Introduction: Concurrent-computing/Course-uhcl-Concurrency/index.md
-  - rochester-paper-Algorithms-for-Scalable-Synchronization:
-    - Introduction: Concurrent-computing/rochester-paper-Algorithms-for-Scalable-Synchronization/index.md
   - Concurrency-control:
     - Introduction: Concurrent-computing/Concurrency-control/index.md
     - Synchronization:
@@ -160,10 +158,12 @@ nav:
         - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/index.md
         - Spinning-lock-optimization:
           - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/Spinning-lock-optimization/index.md
-        - rochester-paper-Spinlock-with-timeout:
-          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/rochester-paper-Spinlock-with-timeout/index.md
+        - paper-Algorithms-for-Scalable-Synchronization:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/paper-Algorithms-for-Scalable-Synchronization/index.md
+        - paper-Spinlock-with-timeout:
+          - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/paper-Spinlock-with-timeout/index.md
           - paper:
-            - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/rochester-paper-Spinlock-with-timeout/paper/index.md
+            - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/paper-Spinlock-with-timeout/paper/index.md
         - Ticket-lock:
           - Introduction: Concurrent-computing/Concurrency-control/Lock/Spinlock/Ticket-lock/index.md
         - library-geidav-spinlocks-bench:
