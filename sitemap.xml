@@ -1,1723 +1,1723 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://dengking.github.io/Parallel-computing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/wikipedia-Parallel-computing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Books/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Performance/The-Cost-of-Enabling-Exception-Handling/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/01-Locks-Aren%27t-Slow-Lock-Contention-Is/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/02-Always-Use-a-Lightweight-Mutex/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/03-A-C%2B%2BProfiling-Module-for-Multithreaded-APIs/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/04-A-Look-Back-at-Single-Threaded-CPU-Performance/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/05-Roll-Your-Own-Lightweight-Mutex/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/05-Roll-Your-Own-Lightweight-Mutex/Benaphore/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/06-Implementing-a-Recursive-Mutex/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Multithread/07-Lightweight%20In-Memory%20Logging/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Hash-map/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Hash-map/Hash-Collision-Probabilities/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Hash-map/Hash-Table-Performance-Tests/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/02-Memory-Reordering-Caught-in-the-Act/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/02-Memory-Reordering-Caught-in-the-Act/gcc-source-code/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/03-An-Introduction-to-Lock-Free-Programming/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/04-Memory-Ordering-at-Compile-Time/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/05-Memory-Barriers-Are-Like-Source-Control-Operations/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/06-Acquire-and-Release-Semantics/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/07-Weak-vs-Strong-Memory-Models/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/08-This-Is-Why-They-Call-It-a-Weakly-Ordered-CPU/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/09-Atomic-vs-Non-Atomic-Operations/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/10-The-Happens-Before-Relation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/11-The-Synchronizes-With-Relation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/12-Acquire-and-Release-Fences/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/13-Double-Checked-Locking-is-Fixed-In-C%2B%2B11/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/14-Acquire-and-Release-Fences-Don%E2%80%99t-Work-the-Way-You%E2%80%99d-Expect/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/15-The-Purpose-of-memory_order_consume-in-C%2B%2B11/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Lock-Free-Programming/16-You-Can-Do-Any-Kind-of-Atomic-Read-Modify-Write-Operation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/TODO-Preshing-Safe-Bitfields-in-C%2B%2B/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/TODO-Preshing-Semaphores-are-Surprisingly-Versatile/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Library-cpp11-on-multicore/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Library-cpp11-on-multicore/Read-code/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Jeff-Preshing/Library-cpp11-on-multicore/Read-code/inmemorylogger/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-iter_zc/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-iter_zc/CSDN-%E8%81%8A%E8%81%8A%E9%AB%98%E5%B9%B6%E5%8F%91-5-%E7%90%86%E8%A7%A3%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E5%AF%B9%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E5%BD%B1%E5%93%8D/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-iter_zc/CSDN-%E8%81%8A%E8%81%8A%E9%AB%98%E5%B9%B6%E5%8F%91-6-%E5%AE%9E%E7%8E%B0%E5%87%A0%E7%A7%8D%E8%87%AA%E6%97%8B%E9%94%81%E4%B8%80/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-iter_zc/CSDN-%E8%81%8A%E8%81%8A%E9%AB%98%E5%B9%B6%E5%8F%91-7-%E5%AE%9E%E7%8E%B0%E5%87%A0%E7%A7%8D%E8%87%AA%E6%97%8B%E9%94%81%E4%BA%8C/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-1024cores/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-1024cores/Lockfree-Algorithms/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-1024cores/Lockfree-Algorithms/TODO-Introduction/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-1024cores/Lockfree-Algorithms/TODO-Producer-Consumer-Queues/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-1024cores/Lockfree-Algorithms/TODO-Lazy-Concurrent-Initialization/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Cameron/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Cameron/Library-readerwriterqueue/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Expert-Cameron/Library-concurrentqueue/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Course-tau-Multiprocessor-Programming-CS-0368-4061-01/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Course-uhcl-Concurrency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Synchronization/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/TODO-Mutex/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Linux-Seqlock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Read%E2%80%93write-lock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/Spinning-lock-optimization/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/paper-Algorithms-for-Scalable-Synchronization/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/paper-Spinlock-with-timeout/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/paper-Spinlock-with-timeout/paper/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/Ticket-lock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/library-geidav-spinlocks-bench/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/library-honkiko-Multi-Core-Toolbox/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Spinlock/library-bogachevdmitry-CLHLock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Double-checked-locking/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/TODO-Hand-over-hand-lock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Disadvantage/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Disadvantage/Deadlock-and-livelock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Disadvantage/Starvation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Granularity-of-lock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Lock/Evaluation-metric/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Barrier/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/TODO-Level-of-free/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/TODO-Level-of-free/Liveness/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/TODO-Level-of-free/Lock-free/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Primer/microsoft-Lockless-Programming-Considerations-for-Xbox-360-and-Microsoft-Windows/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Atomic-operation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Atomic-operation/Atomic-instruction/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-barrier/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Copy-on-write/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Copy-on-write/wikipedia-Copy-on-write/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/cs.toronto-Comparative-Performance-of-Memory-Reclamation-Strategies/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Quiescent-state-based-reclamation-QSBR/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Epoch-Based-Reclamation-EBR/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Hazard-pointer-based%20reclamation-HPBR/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/Hazard-pointer-based%20reclamation-HPBR/TODO-Hazard-pointer/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Memory-reclamation/preshing-Using-Quiescent-States-to-Reclaim-Memory/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Read-copy-update/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Read-copy-update/lwn-User-space-RCU/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Version-based/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Version-based/MVCC/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking/Version-based/Timestamp-based-concurrency-control/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Transactional-memory/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Optimistic-and-pessimistic/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Optimistic-and-pessimistic/zhihu-%E4%BD%A0%E4%BA%86%E8%A7%A3%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81%E5%90%97/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking-VS-blocking/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrency-control/Non-blocking-VS-blocking/Lock-free-VS-lock-based/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Producer%E2%80%93consumer-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Producer%E2%80%93consumer-problem/Unbounded-producer-and-consumer-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Readers%E2%80%93writers-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Dining-philosopher/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Dining-philosopher/mariusbancila-Dining-philosopher/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Dining-philosopher/mariusbancila-Dining-philosopher/Chandy-Misra-algorithm/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Dining-philosopher/TODO-howardhinnant-Dining-Philosophers-Rebooted/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Checkpoint-Synchronization/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Sleeping-barber-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Classic-problem/Cigarette-smokers-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Queue/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Queue/TODO-paper-obstruction-free%20synchronization-double-ended-queues/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Queue/TODO-paper-wait-free-queue-with-multiple-enqueuers-and-dequeuers/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Queue/Circular-queue/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Hash-table/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Linked-list/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Collection-library/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Collection-library/Library-libcds/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Course-Practical-lock-free-data-structures/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Course-Practical-lock-free-data-structures/paper-Concurrent-Programming-Without-Locks/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/Course-Practical-lock-free-data-structures/paper-Non-blocking-hashtables-with-open-addressing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Concurrent-data-structure/TODO-simongui-Improving-performance-of-lockless-data-structures/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/Design-and-optimize/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Concurrent-computing/%E7%A7%92%E6%9D%80-%E6%B5%81%E9%87%8F%E5%89%8A%E5%B3%B0/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/01-The-Pillars-of-Concurrency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/02-How-Much-Scalability-Do-You-Have-or-Need/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/06-Use-Lock-Hierarchies-to-Avoid-Deadlock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/07-TODO-Break-Amdahl%27s-Law/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/11-Maximize-Locality-Minimize-Contention/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/12-Choose-Concurrency-Friendly-Data-Structures/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/15-TODO-Writing-Lock-Free-Code-A-Corrected-Queue/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/20-TODO-Sharing-Is-the-Root-of-All-Contention/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Expert-Herb-Sutter/31-Prefer-Using-Active-Objects-Instead-of-Naked-Thread/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Race/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Race/stackoverflow-What-is-a-race-condition/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Race/wikipedia-Race-condition/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Race/TODO-Increment-operator/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Time-of-check-to-time-of-use/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Time-of-check-to-time-of-use/wikipedia-Time-of-check-to-time-of-use/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Out-of-order-execution%26%26memory-reorder/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/What-cause-unsafety/Out-of-order-execution%26%26memory-reorder/acmqueue-Shared-Variables-or-Memory-Models/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-safety/wikipedia-Thread-safety/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Lifetime/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Lifetime/Creation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Lifetime/Termination/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Inter-thread-communication/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Inter-thread-communication/Condition-variables-VS-mutex/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Sleep-forever/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Execute-once/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Stop-a-blocked-thread/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Wait-VS-sleep/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Stop-a-sleeping-thread/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/False-death/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Thread-pool/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Topics/Thread-pool/library-progschj-ThreadPool/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Multithread/Thread-model/TODO-Locate-assign-%E7%BA%BF%E7%A8%8B%E5%AE%9A%E4%BD%8D/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Expert-Leslie-Lamport/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Expert-Dr-Werner-Vogels/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Expert-Dr-Werner-Vogels/Eventually-Consistent-Revisited/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Course/Course-disco.ethz-Distributed-Systems/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Course/Course-Northeastern-University-CS7680/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Course/Course-Rutgers-Distributed-Systems/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Course/Course-Rutgers-Distributed-Systems/Understanding-Paxos/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/Preface/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/Outline/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-I/1-Reliable-Scalable-Maintainable-Applications/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/5-Replication/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Designing-Data-Intensive-Applications/PART-II/8-The-Trouble-with-Distributed-Systems/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Distributed-systems-for-fun-and-profit/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Book-Distributed-systems-for-fun-and-profit/4-Replication/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/dist-prog-book/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/Distributed-system-challenge/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/Abstraction/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/01-%E7%94%A8%E4%B8%89%E5%9B%BD%E6%9D%80%E8%AE%B2%E5%88%86%E5%B8%83%E5%BC%8F%E7%AE%97%E6%B3%95/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/02-%E7%94%A8%E5%A4%AA%E6%9E%81%E6%8B%B3%E8%AE%B2%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/03-Paxos%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/04-Raft%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/05-Consistent-hash/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/06-Gossip%E5%8D%8F%E8%AE%AE/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/07-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%9D%91/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/08-Quorum-NWR/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/CSDN-%E6%82%9F%E7%A9%BA%E8%AE%B2%E6%9E%B6%E6%9E%84-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E5%88%97/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Guide/martinfowler-Patterns-of-Distributed-Systems/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/CAP/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Primer/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/wikipedia-Consistency-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/Strong-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/Linearizability/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/TODO-Sequential-consistency-VS-linearizability/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/Sequential-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/Weak-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/Weak-consistency/Eventual-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Classification/Weak-consistency/Causal-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/NRW-quorum-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consistency/Data-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/Single-point-of-failure/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/High-availability-cluster/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/Replication/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/Replication/State-machine-replication/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/Replication/Conflict-free-replicated-data-type/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/High-availability/%E5%A4%9A%E6%B4%BB-%E5%8F%8C%E6%B4%BB/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Network-partition/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Fault-tolerance/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Fault-tolerance/Byzantine-Fault-Tolerance/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consensus/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consensus/Quorum/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consensus/Leader-election/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Consensus/VS-consensus-VS-consistency/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/wikipedia-Logical-clock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/Lamport-timestamp/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/Lamport-timestamp/paper-Time-Clocks-and-the-Ordering-of-Events-in-a-Distributed-System/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/Happened-before/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/Vector-clock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Time%26Ordering/Logical-clock/Version-vector/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/Expert-%E8%8C%83%E6%96%8C/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/Expert-%E8%8C%83%E6%96%8C/%E6%BC%AB%E8%AF%9D%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%85%B1%E8%AF%86%E5%8D%8F%E8%AE%AE2PC-3PC%E7%AF%87/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/Expert-%E8%8C%83%E6%96%8C/%E6%BC%AB%E8%AF%9D%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E5%85%B1%E8%AF%86%E5%8D%8F%E8%AE%AEPaxos%E7%AF%87/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE%E7%AE%97%E6%B3%95-2PC-3PC-Paxos-Raft-ZAB-NWR/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/csdn-%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%80%E8%87%B4%E6%80%A7%E5%8D%8F%E8%AE%AE/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Guide/CSDN-%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AEpaxos-totem-gossip/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/2PC/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/3PC/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Paxos/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Paxos/paper-Paxos-Made-Simple/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Paxos/wikipedia-Paxos/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Paxos/Multi-paxos/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Paxos/Multi-paxos/cnblogs-%E4%BD%BF%E7%94%A8multi-paxos%E5%AE%9E%E7%8E%B0%E6%97%A5%E5%BF%97%E5%90%8C%E6%AD%A5%E5%BA%94%E7%94%A8/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Paxos/CSDN-%E9%87%8D%E8%A6%81%E7%9A%84Paxos%E7%AE%97%E6%B3%95%E4%BD%A0%E7%9C%8B%E9%80%8F%E4%BA%86%E4%B9%88/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Raft/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Raft/paper-In-Search-of-an-Understandable-Consensus-Algorithm/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Raft/github-The-Raft-Consensus-Algorithm/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Raft/wikipedia-Raft/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Gossip/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Protocol/Gossip/wikipedia-Gossip-protocol/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Theory/Split-brain/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Technique/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Technique/Heartbeat/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Technique/Distributed-transaction/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Technique/Rendezvous/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Architecture/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Architecture/Client%E2%80%93server-architecture/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Architecture/Peer-to-peer-architecture/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-computing/Architecture/Shared-nothing-architecture/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Scalability/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/Shared-data/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/Shared-data/TODO-Shared-memory/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/Shared-data/Shared-resource/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/Contention-and-race/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/Contention-and-race/Resource-contention/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Multiple-model/Read-and-write/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Fork%E2%80%93join-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Stream-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Model/Communicating-Sequential-Processes/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Active-and-passive/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Active-and-passive/Polling/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Active-and-passive/Busy-waiting/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Active-and-passive/Polling-and-notify/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/TODO-MapReduce/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Blocking-and-synchronous/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Blocking-and-non-blocking/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Sync-and-async/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Sync-and-async/Asynchronous-programming/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Sync-and-async/Asynchronous-programming/Coroutine-async-await/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Sync-and-async/Asynchronous-programming/Coroutine-async-await/Coroutine/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Sync-and-async/Asynchronous-programming/Promise-future/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/Sync-and-async/Asynchronous-programming/Promise-future/Future-promise-VS-observer-pattern-VS-callback/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/API/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/API/Threading-Building-Blocks/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/API/OpenMP/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Programming-model/API/Cilk/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/What-is-event-driven-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/What-is-event-driven-model/Monitor-notify-dispatch/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/Event-loop/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/Event-loop/Implementation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/Event-passing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-driven-model/Event-VS-exception-VS-signal/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/library-Netty/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/library-libevent/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/library-libuv/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/library-libuv/Design-overview/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/library-libuv/User-guide/Basics-of-libuv/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Event-library/library-muduo/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Case/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Case/HTTP-server/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/C10K-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/C10K-problem/kegel-Unix-The-C10K-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Load-balance/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/Load-balance/Round-robin/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Concurrent-server-/developer.51cto-%E6%94%AF%E6%92%91%E4%BA%BF%E7%BA%A7%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%B3%BB%E7%BB%9F%E9%95%BF%E5%95%A5%E6%A0%B7/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Expert-Nick-Black/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Expert-Nick-Black/Fast-UNIX-Servers/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Expert-Nick-Black/library-libtorque/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Expert-Jeff-Darcy/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Expert-Jeff-Darcy/High-Performance-Server-Architecture/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Asynchronous-method-dispatch/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Observer-pattern/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Observer-pattern/Code/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Observer-pattern/Lapsed-listener-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Active-object%2Bobserver%2Bvisitor/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Active-object%2Bobserver%2Bvisitor/drdobbs-Message-Handling-Without-Dependencies/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Proactor-reactor/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Proactor-reactor/zhihu-%E5%A6%82%E4%BD%95%E6%B7%B1%E5%88%BB%E7%90%86%E8%A7%A3reactor%E5%92%8Cproactor/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Proactor-reactor/Proactor/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Proactor-reactor/Reactor/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Actor/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Actor/brianstorti-The-actor-model-in-10-minutes/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Actor/Writing-Concurrent-Programs-Using-F%23-Mailbox-Processors/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Active-object/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Active-object/Asynchronous-method-invocation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Active-object/Impl/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Active-object/Impl/library-syscpp/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Active-object/Impl/rosettacode-Active-object/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Actor%26%26active-object/Active-object/Impl/kjellhedstrom2-Active-Object-the-C%2B%2B11-way/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Design-pattern/Master-worker/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/library-linyacool-WebServer/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/library-yedf-handy/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Apache-Thrift/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Apache-Thrift/paper-Thrift-Scalable-Cross-Language-Services-Implementation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Apache-Thrift/cnblogs-thrift%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E4%BD%BF%E7%94%A8/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Apache-Thrift/zhihu-Thrift%E7%9A%84%E9%82%A3%E4%BA%9B%E6%9C%8D%E5%8A%A1%E6%A8%A1%E5%9E%8B/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/library-POCO/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/library-POCO/POCO-PRO-C%2B%2Bframework/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/zhihu-nginx-master-worker%E8%BF%9B%E7%A8%8B%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/blog-Inside-NGINX-How-We-Designed-for-Performance-%26-Scale/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/Nginx-Socket-Sharding/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/Thundering-herd-in-Nginx/Nginx-accept_mutex-implementation/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Concurrency-model/Nginx-event-library/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/software-Nginx/Nginx-proxy/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Timer/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Timer/Periodic-worker/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Event-driven-concurrent-server/Timer/Columbia-paper-Hashed-hierarchical-wheel-timer/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Stream-based/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Stream-based/Apache-Flink/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Distributed-log-system/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Messaging-pattern/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Messaging-pattern/Message-queue/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Messaging-pattern/Message-queue/AMQP/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Messaging-pattern/Message-queue/AMQP/Fan-out/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Messaging-pattern/Pub-sub/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/MQ-library/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/MQ-library/library-Rabbitmq/AMQP-0-9-1-Model-Explained/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/MQ-library/library-ZeroMQ/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/MQ-library/Apache-Kafka/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/library-Celery/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Message-processing-system/Message-disorder/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/Consistent-hashing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/Consistent-hashing/cnblogs-%E4%B8%80%E8%87%B4%E6%80%A7Hash%E7%9A%84%E5%8E%9F%E7%90%86%E5%92%8C%E5%AE%9E%E8%B7%B5/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/Consistent-hashing/toptal-A-Guide-to-Consistent-Hashing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/Rendezvous-hashing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-Sharding-Strategy/TODO-Consistent-hash-VS-rendezvous-hash/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-hash-table/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-hash-table/wikipedia-Distributed-cache/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/Google-Spanner/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/Google-Spanner/paper-Spanner-Google%E2%80%99s-Globally-Distributed-Database/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/YugabyteDB/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/YugabyteDB/blog-4-Data-Sharding-Strategies-in-Building-Distributed-SQL-Database/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/CockroachDB/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/CockroachDB/Living-Without-Atomic-Clocks/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/MySQL-Cluster/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Distributed-database/NewSQL/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Amazon-Dynamo/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-system/Schema/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-system/Redo-log/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Distributed-data-store/Data-system/Transaction-log/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/RPC/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/RPC/gRPC/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Thundering-herd-problem/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Thundering-herd-problem/Thundering-Herd-in-distributed-computing/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Thundering-herd-problem/Thundering-Herd-in-distributed-computing/zhihu-%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84Thundering-Herd%E6%95%88%E5%BA%94/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Thundering-herd-problem/TODO-louqibin-Robinhood-%E5%AE%95%E6%9C%BA-%E5%B9%95%E5%90%8E%E9%BB%91%E6%89%8BThundering-Herd/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/Parallel-numeric-processing-system/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/Parallel-numeric-processing-system/Dataflow-programming/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/Blockchain/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/Blockchain/Is-git-a-block-chain/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/IPFS/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/Application/NFS/Network-File-System/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Overview/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/ZK-client/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/ZK-client/Java-Apache-Curator/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/ZK-client/Zookeeper-cpp/Read-code/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/Application/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/Application/Lead-election/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/Application/Lead-election/Automatic-failover-using-ZK/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/Application/Lead-election/Herd-Effect-in-ZK/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/Developers/Application/Lock/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-ZooKeeper/ZAB/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-Memcached/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://dengking.github.io/Parallel-computing/software-Memcached/Thread-model/</loc>
-     <lastmod>2021-07-09</lastmod>
+     <lastmod>2021-07-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
