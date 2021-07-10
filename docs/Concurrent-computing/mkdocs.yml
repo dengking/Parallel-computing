@@ -11,10 +11,9 @@ nav:
     
     - Expert-Cameron: Expert-Cameron
     
-    - Course-tau-Multiprocessor-Programming-CS-0368-4061-01: Course-tau-Multiprocessor-Programming-CS-0368-4061-01
+    - Course-tau-Multiprocessor-Programming: Course-tau-Multiprocessor-Programming
 
     - Course-uhcl-Concurrency: Course-uhcl-Concurrency
-    
     # 先描述 理论知识
     - Concurrency-control: Concurrency-control
     # 总结经典问题
