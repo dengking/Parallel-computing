@@ -1,6 +1,6 @@
 # Design and optimize
 
-1、Optimize的目的是提高**并发**，最终目的是提供performance、遵循optimization principle。
+1、Optimize的目的是提高**并发**，最终目的是提高performance、遵循optimization principle。
 
 2、以Herb Sutter的"Effective concurrency"系列文章为蓝本来进行总结
 
@@ -110,8 +110,6 @@ Herb Sutter 2005年发表的 [The Free Lunch Is Over: A Fundamental Turn Toward 
 
 
 
-
-
 ### draft: cache locality and scalability and contention
 
 如果多个thread都使用(read、write)同一个lock、variable，则就会出现high contention
@@ -149,6 +147,8 @@ TAS spin lock中，所有的thread都使用同一个shared data-->CLH Lock、MCS
 1、`02-How-Much-Scalability-Do-You-Have-or-Need`
 
 2、工程`discrete`的`Divide-and-Conquer`章节
+
+
 
 ## Cache optimization
 
