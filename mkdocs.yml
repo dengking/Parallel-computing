@@ -137,8 +137,8 @@ nav:
       - Introduction: Concurrent-computing/Expert-Cameron/Library-readerwriterqueue/index.md
     - Library-concurrentqueue:
       - Introduction: Concurrent-computing/Expert-Cameron/Library-concurrentqueue/index.md
-  - Course-tau-Multiprocessor-Programming-CS-0368-4061-01:
-    - Introduction: Concurrent-computing/Course-tau-Multiprocessor-Programming-CS-0368-4061-01/index.md
+  - Course-tau-Multiprocessor-Programming:
+    - Introduction: Concurrent-computing/Course-tau-Multiprocessor-Programming/index.md
   - Course-uhcl-Concurrency:
     - Introduction: Concurrent-computing/Course-uhcl-Concurrency/index.md
   - Concurrency-control:
@@ -381,6 +381,11 @@ nav:
     - Introduction: Distributed-computing/Expert-Dr-Werner-Vogels/index.md
     - Eventually-Consistent-Revisited:
       - Introduction: Distributed-computing/Expert-Dr-Werner-Vogels/Eventually-Consistent-Revisited/index.md
+  - Expert-Martin-Kleppmann:
+    - Introduction: Distributed-computing/Expert-Martin-Kleppmann/index.md
+    - How-to-do-distributed-locking: Distributed-computing/Expert-Martin-Kleppmann/How-to-do-distributed-locking.md
+    - Please-stop-calling-databases-CP-or-AP:
+      - Introduction: Distributed-computing/Expert-Martin-Kleppmann/Please-stop-calling-databases-CP-or-AP/index.md
   - Course:
     - Course-disco.ethz-Distributed-Systems:
       - Introduction: Distributed-computing/Course/Course-disco.ethz-Distributed-Systems/index.md

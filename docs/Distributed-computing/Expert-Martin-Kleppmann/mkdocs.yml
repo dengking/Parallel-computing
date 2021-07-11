@@ -1,0 +1,4 @@
+nav:
+    - Introduction: index.md
+    - How-to-do-distributed-locking: How-to-do-distributed-locking.md
+    - Please-stop-calling-databases-CP-or-AP: Please-stop-calling-databases-CP-or-AP
