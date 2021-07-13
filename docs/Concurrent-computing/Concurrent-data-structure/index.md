@@ -6,11 +6,17 @@
 
 3、本章收录了一些library、implementation
 
-## Wikipedia [Concurrent data structure](https://infogalactic.com/info/Concurrent_data_structure)
+## wanweibaike [Concurrent data structure](https://en.wanweibaike.com/wiki-Concurrent%20data%20structure)
 
 
 
+## Concurrency friendly data structure
 
+参见:
+
+1、stackoverflow [Skip List vs. Binary Search Tree](https://stackoverflow.com/questions/256511/skip-list-vs-binary-search-tree) # [A](https://stackoverflow.com/a/260277)
+
+2、
 
 ## TODO
 
