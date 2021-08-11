@@ -40,7 +40,11 @@ Lamport's research contributions have laid the foundations of the theory of dist
 
 These papers relate to such concepts as [logical clocks](https://en.wikipedia.org/wiki/Logical_clocks) (and the *[happened-before](https://en.wikipedia.org/wiki/Happened-before)* relationship) and [Byzantine failures](https://en.wikipedia.org/wiki/Byzantine_failure). They are among the most cited papers in the field of computer science,[[17\]](https://en.wikipedia.org/wiki/Leslie_Lamport#cite_note-17) and describe algorithms to solve many fundamental problems in distributed systems, including:
 
-> NOTE: 上述 happened-before让我想起来C++ memory model中的[std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order)中的*happens-before*
+> NOTE: 
+>
+> 一、上述 happened-before让我想起来C++ memory model中的[std::memory_order](https://en.cppreference.com/w/cpp/atomic/memory_order)中的*happens-before*
+>
+> 二、上面这段话的意思是: 前面列举的这些论文，都和" [logical clocks](https://en.wikipedia.org/wiki/Logical_clocks) (and the *[happened-before](https://en.wikipedia.org/wiki/Happened-before)* relationship) and [Byzantine failures](https://en.wikipedia.org/wiki/Byzantine_failure)"相关，或者说是基于这两个基本概念的
 
 1、the [Paxos algorithm](https://en.wikipedia.org/wiki/Paxos_algorithm) for [consensus](https://en.wikipedia.org/wiki/Consensus_(computer_science)),
 

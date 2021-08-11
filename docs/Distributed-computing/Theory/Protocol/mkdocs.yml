@@ -5,4 +5,4 @@ nav:
     - Paxos: Paxos    
     - Raft: Raft
     - Gossip: Gossip
-    
+    - PoW: PoW

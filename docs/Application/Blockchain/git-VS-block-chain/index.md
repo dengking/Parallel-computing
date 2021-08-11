@@ -1,4 +1,42 @@
-# ycombinator [Is Git a Block Chain?](https://news.ycombinator.com/item?id=9436847)
+# Git VS Blockchain
+
+**Blockchain**的block，非常类似于git的commit；
+
+blockchain中chain的含义就是linked block。git中的**branch**其实对应的就是linked commit。
+
+blockchain使用[cryptographic hash](https://en.wikipedia.org/wiki/Cryptographic_hash_function) 来作为两个block的link，这其实就是[Hash Chain](http://en.wikipedia.org/wiki/Hash_chain)。blockchain的这种组织方式实现了Data Assurance（在前面章节中所介绍的）:
+
+> Once recorded, the data in any given block cannot be altered retroactively without alteration of all subsequent blocks, which requires consensus of the network majority. 
+
+git也采用了类似的link来组织commit，git的这种组织方式实现Data Assurance，参见：
+
+- [Data Assurance](https://git-scm.com/about/info-assurance)
+
+- [Cryptographic authentication of history](https://en.wikipedia.org/wiki/Git#Characteristics)
+
+可以看到，两者都使用了[Hash Chain](http://en.wikipedia.org/wiki/Hash_chain)，这种链式依赖的结构能够非常好的实现Data Assurance。
+
+blockchain中使用 [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) 来组织 transaction data。git中使用  [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) 来组织 tracked file。
+
+blockchain中添加一个新的block需要network中的所有的peer的consensus 。git中添加一个新的commit不涉及这些问题，git中使用pull和push来在各个peer（repository）之间的同步。
+
+blockchain使用peer-to-peer架构；git使用peer-to-peer架构；
+
+思考：git的每个peer都有一个自己的repository来保存完整的commit数据，blockchain呢？是否也是类似这样的？应该是这样的。
+
+
+
+git和blockchain都可以看做是[Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree)，不同的是git是支持branch，所以git的commit所组成的是tree，而blockchain则是线性的。
+
+
+
+## stackoverflow [Why is Git not considered a “block chain”?](https://stackoverflow.com/questions/46192377/why-is-git-not-considered-a-block-chain)
+
+
+
+
+
+## ycombinator [Is Git a Block Chain?](https://news.ycombinator.com/item?id=9436847)
 
 ​	
 

@@ -60,3 +60,5 @@ zhihu [漫话分布式系统共识协议: Paxos篇](https://zhuanlan.zhihu.com/p
 | 阶段   |      |      |       |      |      |
 | voting |      |      |       |      |      |
 
+都有中心化的角色。
+

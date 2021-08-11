@@ -1,3 +1,4 @@
 nav:
     - Introduction: index.md
-    - Is-git-a-block-chain: Is-git-a-block-chain
+    - Protocol: Protocol
+    - git-VS-block-chain: git-VS-block-chain    

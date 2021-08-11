@@ -2,4 +2,10 @@ nav:
     - Introduction: index.md
     - Heartbeat: Heartbeat
     - Distributed-transaction: Distributed-transaction
+    - Distributed-snapshot: Distributed-snapshot
+    - Distributed-lock: Distributed-lock
     - Rendezvous: Rendezvous
+
+
+    
+    
