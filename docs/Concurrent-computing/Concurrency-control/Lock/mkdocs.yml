@@ -6,7 +6,8 @@ nav:
     - Spinlock: Spinlock
     - Double-checked-locking: Double-checked-locking    
     - TODO-Hand-over-hand-lock: TODO-Hand-over-hand-lock
-    
     - Disadvantage: Disadvantage
-    - Granularity-of-lock: Granularity-of-lock
+    - Lock-granularity: Lock-granularity
     - Evaluation-metric: Evaluation-metric
+    
+    
