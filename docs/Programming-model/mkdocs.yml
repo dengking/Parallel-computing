@@ -1,10 +1,9 @@
 nav:
     - Introduction: index.md
-    - Active-and-passive: Active-and-passive
+    - Active-passive: Active-passive
     - TODO-MapReduce: TODO-MapReduce
-    - Blocking-and-synchronous: Blocking-and-synchronous
-    - Blocking-and-non-blocking: Blocking-and-non-blocking
-    - Sync-and-async: Sync-and-async    
-
+    - Blocking-synchronous: Blocking-synchronous
+    - Blocking-non-blocking: Blocking-non-blocking
+    - Sync-async: Sync-async    
     - API: API
     
