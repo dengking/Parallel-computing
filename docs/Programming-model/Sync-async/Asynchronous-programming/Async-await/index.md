@@ -2,7 +2,7 @@
 
 1、"async"的含义是"asynchronous"，"await"的含义是"等待"。
 
-2、感觉它也是基于"promise-future communication channel"的
+2、它也是基于"promise-future communication channel"的
 
 ## wikipedia [Async/await](https://en.wikipedia.org/wiki/Async/await)
 
@@ -62,10 +62,6 @@ public async Task<int> FindPageSize(Uri uri)
 
 
 
-A function using `async`/`await` can use as many `await` expressions as it wants, and each will be handled in the same way (though(虽然) a **promise** will only be returned to the caller for the first await, while every other await will utilize(利用) internal callbacks). A function can also hold a **promise** object directly and do other processing first (including starting other **asynchronous tasks**), delaying awaiting the promise until its result is needed. Functions with promises also have promise aggregation methods that allow you to await multiple promises at once or in some special pattern (such as C#'s `Task.WhenAll()`, which returns a valueless `Task` that resolves when all of the tasks in the arguments have resolved). Many promise types also have additional features beyond what the `async`/`await` pattern normally uses, such as being able to set up more than one result callback or inspect the progress(进展) of an especially long-running task.
-
-
-
 ### In C++
 
 In C++, await (named co_await in C++) has been officially merged into C++20 draft, so it is on course to be formally accepted as a part of official C++20;[[11\]](https://en.wikipedia.org/wiki/Async/await#cite_note-11) also [MSVC](https://en.wikipedia.org/wiki/MSVC) and [Clang](https://en.wikipedia.org/wiki/Clang) compilers are already supporting at least some form of co_await ([GCC](https://en.wikipedia.org/wiki/GNU_Compiler_Collection) still has no support for it).
@@ -104,3 +100,4 @@ int main()
 raywenderlich [5Async/Await](https://www.raywenderlich.com/books/kotlin-coroutines-by-tutorials/v2.0/chapters/5-async-await#toc-chapter-009-anchor-001)
 
 lankydan [Async/await in coroutines](https://lankydan.dev/async-await-in-coroutines)
+

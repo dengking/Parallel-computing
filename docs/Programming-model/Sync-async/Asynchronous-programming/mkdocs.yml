@@ -1,4 +1,5 @@
 nav:
     - Introduction: index.md
-    - Coroutine-async-await: Coroutine-async-await
+    - Async-await: Async-await
     - Promise-future: Promise-future
+    - Coroutine: Coroutine-
