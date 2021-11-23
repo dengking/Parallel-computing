@@ -30,3 +30,4 @@ More information about event notification mechanisms for network servers can be 
 
 
 
+## gitbooks [libevent 深入浅出](https://aceld.gitbooks.io/libevent/content/)
