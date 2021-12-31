@@ -21,6 +21,6 @@ nav:
     # 描述具体application
     - Concurrent-data-structure: Concurrent-data-structure
     # 最最典型的concurrency模式   
-    - Design-and-optimize: Design-and-optimize
+    - Design&optimize: Design&optimize
     
     - 秒杀-流量削峰: 秒杀-流量削峰
