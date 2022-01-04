@@ -1,5 +1,6 @@
 nav:
     - Introduction: index.md
-    - Threading-Building-Blocks: Threading-Building-Blocks
+    - Intel-oneAPI: Intel-oneAPI
     - OpenMP: OpenMP
     - Cilk: Cilk
+    
