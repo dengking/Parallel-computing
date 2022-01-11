@@ -1,13 +1,100 @@
 # Linearizability
 
-"linearizability"的含义是"可线性化"，其实就是我们平时所说的"串行"。
+"linearizability"的中文含义是 "线性一致性"。
+
+## stackoverflow [What is "Linearizability"?](https://stackoverflow.com/questions/9762101/what-is-linearizability)
+
+Can anyone out there help me understand what **Linearizability** is? I need an explanation that is simple and easy to understand. I'm reading *The Art of Multiprocessor Programming* by Maruice Herilihy and Nir Shavit and am trying to understand Chapter 3 about Concurrent Objects.
+
+I understand that a method is Linearizable if it has a point where it seems to "take effect" instantaneously(瞬时的) from the point of view of the other threads. That makes sense, but it is also said that Linearizability is actually a property of the **execution history**. What does it mean for an **execution history** to be Linearizable, why do I care, and how does it relate to a method or object being Linearizable?
+
+Thank you!
+
+### [A](https://stackoverflow.com/a/50653833/10173843)
+
+A picture is worth 1000 words.
+
+[![enter image description here](https://i.stack.imgur.com/gGYMq.png)](https://i.stack.imgur.com/gGYMq.png)
+
+The first `SELECT` statement reads the value of 50, while the second `SELECT` reads the value of 10 since in between the two read operations a write operation was executed.
+
+Linearizability means that modifications happen instantaneously, and once a **registry value** is written, any subsequent read operation will find the very same value as long as the registry will not undergo any modification.
+
+> NOTE: 
+>
+> 一、翻译如下:
+>
+> "线性化意味着修改立即发生，一旦写入注册表值，只要注册表不进行任何修改，任何后续的读操作都会找到相同的值。"
+
+#### What happens if you don't have Linearizability?
+
+[![enter image description here](https://i.stack.imgur.com/WYcNo.png)](https://i.stack.imgur.com/WYcNo.png)
+
+This time, we don’t have a single **registry** or a single source of truth. Our system uses asynchronous database replication, and we have a Primary node that takes both reads and writes and a Follower node used for read operations only.
+
+Because replication happens asynchronously, there’s a **lag**(滞后) between the Primary node row modification and the time when the Follower applies the same change.
+
+One database connection changes the account balance from 50 to 10 and commits the transaction. Right after, a second transaction reads from the Follower node, but since replication did not apply the balance modification, the value of 50 is read.
+
+Therefore, this system is not linearizable since changes don’t appear to happen instantaneously. In order to make this system linearizable, we need to use **synchronous replication**, and the Primary node UPDATE operation will not complete until the Follower node also applies the same modification.
+
+### [A](https://stackoverflow.com/a/48183351/10173843)
+
+
+
+## stackexchange [What is a linearization point?](https://cs.stackexchange.com/questions/7132/what-is-a-linearization-point)
+
+With respect concurrent programming, what is a **linearization point**?
+
+They seem to occur at a **compare-and-swap** instruction apparently. The best definition I could find is [here](http://en.wikipedia.org/wiki/Atomicity_(programming)#Linearization_points).
+
+> All function calls have a **linearization point** at some instant between their invocation and their response.
+
+Okay that's fine, they occur somewhere within a function call, but what are they?
+
+> All functions appear to occur instantly at their **linearization point**, behaving as specified by the sequential definition.
+
+Occur instantly at their LP's??? I don't understand this.
+
+> NOTE: 
+>
+> "LP"是**linearization point**。
+
+I also read through [this](http://www.eecs.qmul.ac.uk/~ohearn/Workshops/Concurrency09/slides/vafeiadis.pdf) which attempts to prove LP's. I am having trouble finding any solid definitions. Could anyone help?
+
+### [A](https://cs.stackexchange.com/a/7133)
+
+Sounds like you are reading The Art of Multiprocessor Programming.
+
+> "All function calls have a linearization point at some instant between their invocation and their response"
+>
+> > Okay that's fine, they occur somewhere within a function call, but what are they?
+
+Side effects of the functions. http://en.wikipedia.org/wiki/Side_effect_(computer_science):
+
+> A function or expression is said to have a side effect if, in addition to returning a value, it also modifies some state or has an observable interaction with calling functions or the outside world.
+
+In C/C++ side effects are basically writing to memory that is not on the function stack.
+
+> "All functions appear to occur instantly at their linearization point, behaving as specified by the sequential definition"
+>
+> > Occur instantly at their LP's??? I don't understand this.
+
+It means that memory writes become visible to other CPUs in the system at that point. Imagine a function of 100 instructions. Instruction 90 is CAS which is a **linearization point**. Once the instruction has completed the effects of preceding memory writes become visible to other CPUs instantly ([release semantics](http://www.niallryan.com/node/138)). This happens some time after the function has been called but before it returned (on instruction 90 of 100).
+
+Note, that memory writes may not always be visible to other CPUs in the system if **linearization points** are not employed.
+
+> NOTE: 
+>
+> 其实就是同步点
 
 ## wikipedia [Linearizability](https://en.wikipedia.org/wiki/Linearizability)
 
 In [concurrent programming](https://en.wikipedia.org/wiki/Concurrent_programming), an operation (or set of operations) is **linearizable** if it consists of an ordered list of invocation and **response events** ([callbacks](https://en.wikipedia.org/wiki/Callbacks)), that may be extended by adding **response events** such that:
 
-1. The extended list can be re-expressed as a **sequential history** (is [serializable](https://en.wikipedia.org/wiki/Serializability)), and
-2. That **sequential history** is a subset of the original unextended list.
+1、The extended list can be re-expressed as a **sequential history** (is [serializable](https://en.wikipedia.org/wiki/Serializability)), and
+
+2、That **sequential history** is a subset of the original unextended list.
 
 Informally, this means that the unmodified list of events is linearizable [if and only if](https://en.wikipedia.org/wiki/If_and_only_if) its invocations were [serializable](https://en.wikipedia.org/wiki/Serializability), but some of the responses of the serial schedule have yet to return.[[1\]](https://en.wikipedia.org/wiki/Linearizability#cite_note-:0-1)
 
@@ -112,6 +199,8 @@ A common theme when designing linearizable objects is to provide an **all-or-not
 ### Examples of linearizability
 
 > NOTE: 这段介绍了使用
+
+> 
 
 ## TODO
 
