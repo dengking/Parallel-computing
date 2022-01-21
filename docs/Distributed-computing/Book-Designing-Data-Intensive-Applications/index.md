@@ -2,6 +2,8 @@
 
 本章是阅读 [Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321) 的笔记。“data-intensive”的含义是“数据密集的”。
 
+在zhihu [有哪些你看了以后大呼过瘾的编程书？](https://www.zhihu.com/question/50408698) 中，有关于这本书的讨论。
+
 ## 写作思路
 
 作者写作本书的思路可以概括如下:
