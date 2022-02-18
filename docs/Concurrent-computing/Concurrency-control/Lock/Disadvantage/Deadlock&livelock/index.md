@@ -50,9 +50,9 @@
 
 
 
-### TODO
+### 素材
 
-https://www.guru99.com/what-is-livelock-example.html
+guru99 [Livelock: What is, Example, Difference with Deadlock](https://www.guru99.com/what-is-livelock-example.html)
 
 https://www.geeksforgeeks.org/deadlock-starvation-and-livelock/
 
