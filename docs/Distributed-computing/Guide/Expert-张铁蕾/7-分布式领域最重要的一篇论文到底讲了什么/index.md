@@ -1,0 +1,3 @@
+# **张铁蕾** [分布式领域最重要的一篇论文，到底讲了什么？](https://mp.weixin.qq.com/s/FZnJLPeTh-bV0amLO5CnoQ)
+
+正在阅读本文的读者们，可能之前已经读过了我写的有关[线性一致性、顺序一致性](https://mp.weixin.qq.com/s?__biz=MzA4NTg1MjM0Mg==&mid=2657261790&idx=1&sn=08449ee5b39d93b25442c1e583e3ba99&scene=21#wechat_redirect)以及[因果一致性](https://mp.weixin.qq.com/s?__biz=MzA4NTg1MjM0Mg==&mid=2657261809&idx=1&sn=cff64fe049a8a04ae719b34e7bf57dd1&scene=21#wechat_redirect)的分析文章。这些一致性模型的关键在于，它们定义了一个系统在分布式环境下对于读写操作的某种排序规则。
