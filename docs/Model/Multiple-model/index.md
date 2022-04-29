@@ -4,6 +4,14 @@
 
 ## What is multiple model?
 
+### 前言
+
+"Unit of parallel computing"即"并行的单位"（参见<文章Unit>），类似于在维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)所述的[Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)、或者说是：并发的级别。unit是一个更加抽象/概括的概念，能够让我们站在更加高的角度来理解和分析在parallel computing中的各种问题，能够让我们清楚地看到在不同层级的parallel computing中，都会面临的问题，比如无论是multiple process、multiple thread都涉及通信问题。在后面我们有时候也会使用“entity”来表示，后面我们将使用unit/entity的概念来描述在各种parallel computing中的各种问题，如：
+
+
+
+
+
 在有了parallel computing、concurrent computing、distributed computing的一些理论知识后，我们会发现它们涉及到了非常多类似的概念（问题）：
 
 - race condition
@@ -76,9 +84,9 @@ One: shared data
 
 **多个**比**单个**的复杂度要高很多，在**multiple model**中存在着一系列问题：
 
-- 多个element之间的race
-- 多个element之间如何进行communication（消息传递，进行沟通）
-- 多个element之间如何进行coordination（协作、协调）
+- 多个entity之间的race
+- 多个entity之间如何进行communication（消息传递，进行沟通）
+- 多个entity之间如何进行coordination（协作、协调）、synchronization
 - 多个entity之间如何达成consensus（共识）
 - ......
 

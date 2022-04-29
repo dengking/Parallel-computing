@@ -28,12 +28,3 @@
 
 充分发挥computation power，克服越来越多的挑战。
 
-## Unit of parallel computing
-
-"Unit of parallel computing"即"并行的单位"（参见<文章Unit>），类似于在维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)所述的[Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)、或者说是：并发的级别。unit是一个更加抽象/概括的概念，能够让我们正在更加高的角度来理解和分析在parallel computing中的各种问题，能够让我们清楚地看到在不同层级的parallel computing中，都会面临的问题，比如无论是multiple process、multiple thread都涉及通信问题。在后面我们有时候也会使用“entity”来表示，后面我们将使用unit/entity的概念来描述在各种parallel computing中的各种问题，如：
-
-- parallel的entity/unit是什么？
-- 这些entity之间如何进行通信？
-- 这些entity之间如何进行synchroniz？
-- 有哪些通用的model？
-- 这些entity之间如何达成共识？
