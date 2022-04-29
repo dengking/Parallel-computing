@@ -4,7 +4,7 @@
 
 > The terms "[concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)", "[parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)", and "distributed computing" have a lot of overlap(重叠), and no clear distinction exists between them. The same system may be characterized both as "parallel" and "distributed"; the processors in a typical distributed system run concurrently in parallel. Parallel computing may be seen as a particular tightly coupled form of distributed computing, and distributed computing may be seen as a loosely coupled form of parallel computing.
 
-所以，有必要对它们进行研究。本工程按照wikipedia [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing) 的思路进行组织，它将[Distributed computing](https://en.wikipedia.org/wiki/Concurrent_computing)、[Concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing)都归入[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)的范轴，本工程对相关理论知识进行梳理。
+所以，有必要对它们进行研究。本工程按照wikipedia [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing) 的思路进行组织，它将 [Distributed computing](https://en.wikipedia.org/wiki/Concurrent_computing)、[Concurrent computing](https://en.wikipedia.org/wiki/Concurrent_computing) 都归入 [Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing) 的范轴，本工程对相关理论知识进行梳理。
 
 
 
@@ -19,8 +19,8 @@
 下面是截取自 `Book-Designing-Data-Intensive-Applications`:
 
 > 4、CPU clock speeds are barely increasing, but multi-core processors are standard, and networks are getting faster. This means parallelism is only going to increase.
->
-> > NOTE: CPU clock speed几乎不增加，multi-core processors被广泛采用，网络越来越快，这些都意味着“parallelism”将会增加。
+
+> NOTE: CPU clock speed几乎不增加，multi-core processors被广泛采用，网络越来越快，这些都意味着“parallelism”将会增加。
 
 
 
