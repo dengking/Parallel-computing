@@ -6,11 +6,7 @@
 
 ### 前言
 
-"Unit of parallel computing"即"并行的单位"（参见<文章Unit>），类似于在维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)所述的[Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)、或者说是：并发的级别。unit是一个更加抽象/概括的概念，能够让我们站在更加高的角度来理解和分析在parallel computing中的各种问题，能够让我们清楚地看到在不同层级的parallel computing中，都会面临的问题，比如无论是multiple process、multiple thread都涉及通信问题。在后面我们有时候也会使用“entity”来表示，后面我们将使用unit/entity的概念来描述在各种parallel computing中的各种问题，如：
-
-
-
-
+"Unit of parallel computing"即"并行的单位"（参见<文章Unit>），类似于在维基百科[Parallel computing](https://en.wikipedia.org/wiki/Parallel_computing)所述的[Types of parallelism](https://en.wikipedia.org/wiki/Parallel_computing#Types_of_parallelism)、或者说是：并发的级别。unit是一个更加抽象/概括的概念，能够让我们站在更加高的角度来理解和分析在parallel computing中的各种问题，能够让我们清楚地看到在不同层级的parallel computing中，都会面临的问题，比如无论是multiple process、multiple thread都涉及通信问题。在后面我们有时候也会使用“entity”来表示，后面我们将使用unit/entity的概念来描述在各种parallel computing中的各种问题。
 
 在有了parallel computing、concurrent computing、distributed computing的一些理论知识后，我们会发现它们涉及到了非常多类似的概念（问题）：
 
@@ -130,26 +126,5 @@ One: shared data
 
 ## Consistency
 
-关于此的非常好的论述:
+参见对应章节。
 
-### zhuanlan.zhihu [高并发编程--多处理器编程中的一致性问题(上)](https://zhuanlan.zhihu.com/p/48157076)
-
-在分布式存储系统中，为了提高**可靠性**，通常会引入多个副本，多个副本需要向用户表现出一致的内容。这很自然的让人想到如何确保多副本之间的一致性。为此也有了paxos和raft等保证多副本之间一致性的协议。当我们在一个多处理器机器上编程时我们通常会忽略在多处理器环境下的一致性问题，因为系统已经为我们做好了基本的**一致性**保证，当存在一致性问题的时候上层编程语言也提供了具备一致性语意的接口，只是我们在编程中并没有意识到这些**接口**与**一致性**的关系。无论是分布式存储还是多处理器编程都有一个共同点，就是会涉及共享对象的操作。
-
-> NOTE: 
->
-> 1、"可靠性"，其实就是HA
->
-> "多个副本"，其实就是master-slave
->
-> "一致的内容"，其实就是consistency
->
-> "共享对象"其实就是multiple model中的shared data
->
-> 2、上述其实可以使用multiple model-shared data来进行描述
-
-一旦出现共享，就会出现正确性的问题，那么如何定义在并发中操作共享对象的正确性，这就是一致性协议的任务了。
-
-本文主要针对多处理器系统中的一致性问题进行了一些总结，对于分布式中的一致性问题会在后面文章中总结。
-
-多处理器中的一致性问题源于并发，源于共享。对于共享内存并发操作下的正确性保证是硬件设计者需要提供给上层开发人员最重要的保证。对于上层开发人员来说，系统内部的一致性是透明的，但是去了解系统内部一致性的设计及原理有利于我们更能够面向机器编程，写出正确的代码。

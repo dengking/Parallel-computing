@@ -5,6 +5,8 @@
 1) `Chapter1. Reliable, Scalable, and Maintainable Applications#Simplicity: Managing Complexity` :
 
 > NOTE: 原文这段的核心思想是: creat abstraction to remove accidental complexity. 
+>
+> "accidental complexity"的意思是"偶然的复杂性"。
 
 Making a system simpler does not necessarily mean reducing its functionality; it can also mean removing ***accidental complexity***. Moseley and Marks [32] define complexity as **accidental** if it is not inherent in the problem that the software solves (as seen by the users) but arises only from the implementation.
 

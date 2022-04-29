@@ -1,5 +1,39 @@
 # Primer
 
+## 含义
+
+"consistency"的含义是"一致"。
+
+multiple的各个entity之间保持consistency，在computer science中，主要是data 保持consistency。
+
+下面是一些例子:
+
+### Memory and database
+
+在drdobbs [Generic: Change the Way You Write Exception-Safe Code — Forever](https://www.drdobbs.com/cpp/generic-change-the-way-you-write-excepti/184403758) 中描述了这样的情况:
+
+```C++
+void User::AddFriend(User& newFriend)
+{
+    // Add the new friend to the vector of friends
+    // If this throws, the friend is not added to
+    //     the vector, nor the database
+    friends_.push_back(&newFriend);
+    // Add the new friend to the database
+    pDB_->AddFriend(GetName(), newFriend.GetName());
+}
+```
+
+This definitely causes **consistency** in the case of `vector::push_back` failing. Unfortunately, as you consult `UserDatabase::AddFriend`'s documentation, you discover with annoyance that *it* can throw an exception, too! Now you might end up with the friend in the vector, but not in the database!
+
+> NOTE: 
+>
+> 显然是需要使用transaction的。
+
+## 什么时候需要考虑consistency？
+
+HA的一种方式是replication，这就同时存在着多个entity，如果是data system的话，就涉及如何保证这些entity之间的data的consistency。
+
 
 
 ## 如何掌握consistency model?
@@ -14,7 +48,31 @@
 
 ### Consistency model是一个非常强大的、适用面非常广泛的model
 
-它能够对multiple model中的shared data进行描述，multiple model能够描述非常多的，下面可以看到:
+它能够对multiple model中的shared data进行描述，multiple model能够描述非常多的。
+
+### zhuanlan.zhihu [高并发编程--多处理器编程中的一致性问题(上)](https://zhuanlan.zhihu.com/p/48157076)
+
+在分布式存储系统中，为了提高**可靠性**，通常会引入多个副本，多个副本需要向用户表现出一致的内容。这很自然的让人想到如何确保多副本之间的一致性。为此也有了paxos和raft等保证多副本之间一致性的协议。当我们在一个多处理器机器上编程时我们通常会忽略在多处理器环境下的一致性问题，因为系统已经为我们做好了基本的**一致性**保证，当存在一致性问题的时候上层编程语言也提供了具备一致性语意的接口，只是我们在编程中并没有意识到这些**接口**与**一致性**的关系。无论是分布式存储还是多处理器编程都有一个共同点，就是会涉及共享对象的操作。
+
+> NOTE: 
+>
+> 1、"可靠性"，其实就是HA
+>
+> "多个副本"，其实就是master-slave
+>
+> "一致的内容"，其实就是consistency
+>
+> "共享对象"其实就是multiple model中的shared data
+>
+> 2、上述其实可以使用multiple model-shared data来进行描述
+
+一旦出现共享，就会出现正确性的问题，那么如何定义在并发中操作共享对象的正确性，这就是一致性协议的任务了。
+
+本文主要针对多处理器系统中的一致性问题进行了一些总结，对于分布式中的一致性问题会在后面文章中总结。
+
+多处理器中的一致性问题源于并发，源于共享。对于共享内存并发操作下的正确性保证是硬件设计者需要提供给上层开发人员最重要的保证。对于上层开发人员来说，系统内部的一致性是透明的，但是去了解系统内部一致性的设计及原理有利于我们更能够面向机器编程，写出正确的代码。
+
+
 
 ### Multiple model
 
