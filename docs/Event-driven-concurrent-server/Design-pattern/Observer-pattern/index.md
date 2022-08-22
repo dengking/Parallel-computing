@@ -2,7 +2,7 @@
 
 一、Observer pattern使用OOP的语言来描述event-driven model
 
-二、observer pattern和 [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish-subscribe_pattern) 比较相关
+二、observer pattern 和 [publish-subscribe pattern](https://en.wikipedia.org/wiki/Publish-subscribe_pattern) 相关
 
 三、在下面章节中，也对observer pattern进行了说明
 
@@ -18,7 +18,9 @@
 
 The **observer pattern** is a [software design pattern](https://en.wikipedia.org/wiki/Design_pattern_(computer_science)) in which an [object](https://en.wikipedia.org/wiki/Object_(computer_science)#Objects_in_object-oriented_programming), called the **subject**, maintains a list of its dependents, called **observers**, and notifies them automatically of any state changes, usually by calling one of their [methods](https://en.wikipedia.org/wiki/Method_(computer_science)).
 
-> NOTE: subject对应的是event-driven model的**monitor**的角色，observer对应的是event-driven model的**executor**角色。subject通过调用observer的method来实现message passing。
+> NOTE: 
+>
+> 一、subject对应的是event-driven model的**monitor**的角色，observer对应的是event-driven model的**executor**角色。subject通过调用observer的method来实现message passing。
 
 It is mainly used to implement distributed [event handling](https://en.wikipedia.org/wiki/Event_handling) systems, in "event driven" software. Most modern languages such as C# have built in "event" constructs which implement the observer pattern components.
 
@@ -123,15 +125,41 @@ The Observer pattern describes how to solve such problems:
 
 
 
-## TODO
+## Lapsed listener problem
 
-observer pattern VS publish subscribe pattern
+素材:
+
+1、wikipedia [Lapsed listener problem](https://en.wikipedia.org/wiki/Lapsed_listener_problem)
+
+2、nextptr [Using weak_ptr for circular references](https://www.nextptr.com/tutorial/ta1382183122/using-weak_ptr-for-circular-references) 
+
+3、wikipedia [Weak reference](https://en.wikipedia.org/wiki/Weak_reference) 
+
+
+
+### wikipedia [Lapsed listener problem](https://en.wikipedia.org/wiki/Lapsed_listener_problem)
+
+> NOTE:
+>
+> 一、概括的说: 在observer pattern中，如果register strong reference to listener，那么它就需要被explicit unregister，就像在 dispose pattern 中一样。如果programmer忘记了unregister，那么listener object不会被GC回收从而导致memory leak。解决的办法是: register weak reference to listener。
+
+The **lapsed listener problem** is a common source of [memory leaks](https://en.wikipedia.org/wiki/Memory_leak) for [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) programming languages, among the most common ones for [garbage collected](https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)) languages.[[1\]](https://en.wikipedia.org/wiki/Lapsed_listener_problem#cite_note-1)
+
+It originates in the [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), where observers (or listeners) register with a subject (or publisher) to receive events. In basic implementation, this requires both explicit registration and explicit deregistration, as in the [dispose pattern](https://en.wikipedia.org/wiki/Dispose_pattern), because the subject holds strong references to the observers, keeping them alive. The leak happens when an observer fails to unsubscribe from the subject when it no longer needs to listen. Consequently, the subject still holds a reference to the observer which prevents it from being garbage collected — including all other objects it is referring to — for as long as the subject is alive, which could be until the end of the application.
+
+This causes not only a memory leak, but also a performance degradation with an "uninterested" observer receiving and acting on unwanted events. This can be prevented by the subject holding [weak references](https://en.wikipedia.org/wiki/Weak_reference) to the observers, allowing them to be garbage collected as normal without needing to be unregistered.
+
+
+
+## 素材
+
+一、observer pattern VS publish subscribe pattern
 
 https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c
 
 
 
-### microsoft [Observer Design Pattern](https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern)
+二、microsoft [Observer Design Pattern](https://docs.microsoft.com/en-us/dotnet/standard/events/observer-design-pattern)
 
 [Events and routed events overview](https://docs.microsoft.com/zh-cn/previous-versions/windows/apps/hh758286(v=win.10))
 
@@ -139,15 +167,15 @@ https://hackernoon.com/observer-vs-pub-sub-pattern-50d3b27f838c
 
 
 
-### oodesign [Observer Pattern](https://www.oodesign.com/observer-pattern.html)
+三、oodesign [Observer Pattern](https://www.oodesign.com/observer-pattern.html)
 
 
 
-### refactoring [Observer](https://refactoring.guru/design-patterns/observer)
+四、refactoring [Observer](https://refactoring.guru/design-patterns/observer)
 
 > NOTE: 前面给出的示例都没有准确描述对不同类型的事件，执行不同的函数，而本文的示例则展示了这一点。它的代码也是值得阅读的https://refactoring.guru/design-patterns
 
 
 
-### cpppatterns [Observer](https://cpppatterns.com/patterns/observer.html) 
+五、cpppatterns [Observer](https://cpppatterns.com/patterns/observer.html) 
 
