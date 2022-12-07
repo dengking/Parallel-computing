@@ -6,7 +6,9 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), **consist
 
 The system is said to support a given model if operations on **memory** follow specific **rules**. The **data consistency model** specifies a **contract** between programmer and system, wherein the system guarantees that if the programmer follows the rules, memory will be [consistent](https://en.wikipedia.org/wiki/Consistent) and the results of reading, writing, or updating memory will be **predictable**. 
 
-> NOTE: 上述**predictable**，让我想起了"make it computational"。
+> NOTE: 
+>
+> 一、上述**predictable**，让我想起了"make it computational"。
 >
 > **predictable**说白了其实就是数据不会丢失，不会出现错误。
 
@@ -14,13 +16,17 @@ This is different from **coherence**, which occurs in systems that are [cached](
 
 Coherence deals with maintaining a **global order** in which writes to a single location or single variable are seen by all processors. **Consistency** deals with the **ordering of operations** to multiple locations with respect to all processors.
 
-> NOTE:  coherence，在工程hardware中进行了描述；
+> NOTE:  
 >
-> 上述consistency，可以使用consistency model abstract machine来描述；
+> 一、coherence，在工程hardware中进行了描述；
+>
+> 二、上述consistency，可以使用consistency model abstract machine来描述；
 
 [High level languages](https://en.wikipedia.org/wiki/High_level_language), such as [C++](https://en.wikipedia.org/wiki/C%2B%2B) and [Java](https://en.wikipedia.org/wiki/Java_(programming_language)), partially maintain the contract by translating memory operations into low-level operations in a way that preserves [memory semantics](https://en.wikipedia.org/wiki/Memory_semantics_(computing)). To hold to the contract, compilers may reorder some memory instructions, and library calls such as `pthread_mutex_lock()` encapsulate required synchronization.[[1\]](https://en.wikipedia.org/wiki/Consistency_model#cite_note-1)
 
-> NOTE: programming language的memory model。
+> NOTE: 
+>
+> 一、programming language的memory model。
 
 Verifying [sequential consistency](https://en.wikipedia.org/wiki/Sequential_consistency) through [model checking](https://en.wikipedia.org/wiki/Model_checking) is [undecidable](https://en.wikipedia.org/wiki/Undecidable_problem) in general, even for finite-state [cache coherence](https://en.wikipedia.org/wiki/Cache_coherence) protocols.[[2\]](https://en.wikipedia.org/wiki/Consistency_model#cite_note-2)
 
@@ -40,19 +46,29 @@ There are two methods to define and categorize **consistency models**; issue and
 
 Issue method describes the restrictions(限制) that define how a process can issue operations.
 
-> NOTE: 定义进程如何发出操作的限制
+> NOTE: 
+>
+> 一、翻译如下: 
+>
+> 定义进程如何发出操作的限制
 
 2、View
 
 View method which defines the order of operations visible to processes.
 
-> NOTE: 定义进程可见的操作顺序，这是一个非常重要的概念，如何来理解"the order of operations visible to processes"？
+> NOTE: 
+>
+> 一、翻译如下:
+>
+> 定义进程可见的操作顺序，这是一个非常重要的概念，如何来理解"the order of operations visible to processes"？
 >
 > 
 
 For example, a consistency model can define that a process is not allowed to issue an operation until all previously issued operations are completed. Different consistency models enforce different **conditions**. One consistency model can be considered **stronger** than another if it requires all conditions of that model and more. In other words, a model with fewer constraints is considered a weaker consistency model.
 
-> NOTE: level and tradeoff
+> NOTE: 
+>
+> 一、level and tradeoff
 
 These models define how the hardware needs to be laid out and at high-level, how the programmer must code. The chosen model also affects how the compiler can re-order instructions. Generally, if **control dependencies** between instructions and if writes to same location are **ordered**, then the compiler can reorder as required. However, with the models described below, some may allow writes before loads to be reordered while some may not.
 
@@ -82,7 +98,9 @@ In this model, the programmer’s expected result will be received every time. I
 
 The [sequential consistency](https://en.wikipedia.org/wiki/Sequential_consistency) model was proposed by Lamport(1979). It is a weaker memory model than strict consistency model. A write to a variable does not have to be seen instantaneously, however, **writes to variables by different processors have to be seen in the same order by all processors**. As defined by Lamport(1979),[[4\]](https://en.wikipedia.org/wiki/Consistency_model#cite_note-Lamport-4)sequential consistency is met if "the result of any execution is the same **as if** the operations of all the processors were executed in some **sequential order**, and the operations of each individual processor appear in this sequence in the order specified by its program."
 
-> NOTE: 如何来理解Lamport(1979) 关于 sequential order的定义呢？参见 "introduction" 章节；
+> NOTE: 
+>
+> 一、如何来理解Lamport(1979) 关于 sequential order的定义呢？参见 "introduction" 章节；
 >
 > 上面这段话中的"writes to variables by different processors have to be seen in the same order by all processors"要如何进行理解呢？在 csdn [强一致性、顺序一致性、弱一致性和共识](https://blog.csdn.net/chao2016/article/details/81149674) 中给出了例子，可以结合其中的例子来进行理解。
 

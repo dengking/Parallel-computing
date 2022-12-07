@@ -1,10 +1,8 @@
 # Sequential consistency
 
+一、"sequential"的含义是"连续的"
 
-
-## 总结
-
-相较于strict consistency model，放松了**所有的write立即生效**的限制，因此在Consistency model abstract machine上的运行结果可能存在dirty data的；
+二、相较于strict consistency model，放松了**所有的write立即生效**的限制，因此在consistency model abstract machine上的运行结果可能存在dirty data的；
 
 Constrain: 实际的运行结果能够使用下面描述的方式进行**模拟**:
 
@@ -14,7 +12,7 @@ Constrain: 实际的运行结果能够使用下面描述的方式进行**模拟*
 
 2、每个entity对应一个thread，shared data对应process中所有线程共享的数据
 
-3、在一个process中进行运行，可以得到在Consistency model abstract machine上的运行结果。
+3、在一个process中进行运行，可以得到在consistency model abstract machine上的运行结果。
 
 > NOTE: 关于上述过程的具体例子，参见: stackoverflow [C++11 introduced a standardized memory model. What does it mean? And how is it going to affect C++ programming?](https://stackoverflow.com/questions/6319146/c11-introduced-a-standardized-memory-model-what-does-it-mean-and-how-is-it-g) # [A](https://stackoverflow.com/a/6319356)，其中有非常好的描述。
 
