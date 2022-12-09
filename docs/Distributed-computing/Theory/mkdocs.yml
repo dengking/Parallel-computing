@@ -1,7 +1,7 @@
 nav:
     - Introduction: index.md 
     - CAP: CAP # CAP
-    - Consistency: Consistency # CAP 的 C
+    - Consistency-model: Consistency-model # CAP 的 C
     - High-availability: High-availability # CAP 的 A
     - Network-partition: Network-partition # CAP 的 P   
     - Fault-tolerance: Fault-tolerance
@@ -9,3 +9,4 @@ nav:
     - Time&Ordering: Time&Ordering
     - Protocol: Protocol
     - Split-brain: Split-brain # 它是有network partition引发的
+    

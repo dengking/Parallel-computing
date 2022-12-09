@@ -90,13 +90,17 @@ Multiple model中的entity可以为:
 
 ### 理想 与 现实
 
+**理想**: 各个entity之间的**通信延时**为0，或者说，它们之间不存在延时，这样就不存在**同步延时**，这样任何一个entity对自己的copy of shared data的修改能够立即同步到其他的entity中，各个entity的**copy of shared data**是不存在差异的，即各个entity所看到的**shared data**是相同的。其实这就是**strict consistency**。
+
+
+
 **现实**: 各个entity之间存在着**通信延时**(**delay**)，一旦entity对自己的**copy of shared data**做出了write，在完成和其他的entity的**synchronization**之前(**同步延时**)，各个entity的**copy of shared data**是存在着差异的，即各个entity所看到的**shared data**是不同的。
 
 > NOTE: 
 >
-> replication lag
-
-**理想**: 各个entity之间的**通信延时**为0，或者说，它们之间不存在延时，这样就不存在**同步延时**，这样任何一个entity对自己的copy of shared data的修改能够立即同步到其他的entity中，各个entity的**copy of shared data**是不存在差异的，即各个entity所看到的**shared data**是相同的。其实这就是**strict consistency**。
+> 一、replication lag
+>
+> lag的意思是延迟
 
 
 
@@ -130,7 +134,7 @@ Multiple model中的entity可以为:
 
 2、entity的copy of shared data能够一直保持相同
 
-因此**Strict consistency model**可以这样模拟: 
+因此**strict consistency model**可以这样模拟: 
 
 所有的**entity**都在同一个processor上执行，使用同一个shared data，这个processor没有cache，所有的write立即生效。
 
