@@ -162,7 +162,9 @@ Multiple model中的entity可以为:
 
 ## csdn [强一致性、顺序一致性、弱一致性和共识](https://blog.csdn.net/chao2016/article/details/81149674)
 
-> NOTE: 比较难以理解的:
+> NOTE: 
+>
+> 一、比较难以理解的:
 >
 > "系统中进程看到的顺序"和 "全局时钟下的顺序"
 >
