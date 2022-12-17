@@ -1,2 +1,4 @@
-
-*.DS_Store
+.DS_Store
+.DS_Store
+.DS_Store?
+docs/Distributed-computing/.DS_Store
