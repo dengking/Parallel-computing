@@ -139,12 +139,6 @@ Multiple model中的entity可以为:
 
 
 
-## consistency vs coherence
-
-参见: 
-
-1、wikipedia [Consistency model](https://en.wikipedia.org/wiki/Consistency_model)
-
 
 
 ## wikipedia [Consistency model](https://en.wikipedia.org/wiki/Consistency_model)
@@ -297,6 +291,16 @@ W(x)1 and W(x)2 are causally related due to the read made by P2 to x before W(x)
 ### [Consistency and replication](https://en.wikipedia.org/wiki/Consistency_model#Consistency_and_replication)
 
 > NOTE:这就是寻常所说的 "主备的一致性"，这是很多的data system采用的方法，redis就是采用的这种方式。
+
+
+
+## consistency vs coherence
+
+参见: 
+
+1、wikipedia [Consistency model](https://en.wikipedia.org/wiki/Consistency_model)
+
+
 
 
 
