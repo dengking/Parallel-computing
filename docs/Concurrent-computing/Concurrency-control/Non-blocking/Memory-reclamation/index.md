@@ -12,6 +12,8 @@
 
 三、在使用类似于copy-on-write、RCU方法来实现lock-free data structure时，并且host programming language是没有garbage-collection的，则需要由programmer自己来实现对old copy的reclamation，即需要由programmer自己来实现一个garbage collection。
 
+
+
 ## Safe memory reclamation strategy
 
 本节总结一些memory reclamation strategy。
@@ -39,8 +41,6 @@
 1、工程programming-language的`Reference-counting`章节
 
 2、http://www.cse.chalmers.se/~tsigas/papers/MemoryReclamation-ReferenceCounting-ISPAN05.pdf
-
-
 
 
 
