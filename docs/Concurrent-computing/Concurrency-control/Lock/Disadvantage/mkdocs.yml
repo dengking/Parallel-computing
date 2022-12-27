@@ -2,3 +2,5 @@ nav:
     - Introduction: index.md
     - Deadlock&livelock: Deadlock&livelock
     - Starvation: Starvation
+    - Lock-convoy: Lock-convoy
+    

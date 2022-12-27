@@ -1,6 +1,6 @@
 # Read-copy-update
 
-RCU:
+简称: RCU。
 
 一、multiple reader thread、single writer thread
 
@@ -36,15 +36,7 @@ In [computer science](https://en.wikipedia.org/wiki/Computer_science), **read-co
 >
 > update: write
 >
-> ## 与MVCC类似
->
-> 感觉它和MVCC有些类似:
->
-> 1、都是  [space–time tradeoff](https://en.wikipedia.org/wiki/Space–time_tradeoff)
->
-> 2、参见 "Advantages and disadvantages"，其中点到了 version
->
-> 3、在原文的 "See also" 章节中，给出了 [Multiversion concurrency control](http://en.wiki.sxisa.org/wiki/Multiversion_concurrency_control) 链接
+> 
 >
 > 
 
@@ -144,9 +136,17 @@ These mechanisms distribute the work among read and update paths in such a way a
 
 ## RCU VS MVCC
 
-zhihu [Linux中的RCU机制[一] - 原理与使用方法](https://zhuanlan.zhihu.com/p/89439043)
+一、zhihu [Linux中的RCU机制[一] - 原理与使用方法](https://zhuanlan.zhihu.com/p/89439043)
 
 > RCU是有唯一意思的，尤其是Linux内核的角度下；而Fedor Pikus说的是，理解“RCU”不能简单地从名字出发。确实，版本号也可以达到类似的“读写并行进行”的效果；但RCU和版本号的区别在于，RCU有特别的内存回收方式，也就是文中描述的——**写者线程**等待**读者线程**退出后者的critical section，再进行**内存回收**，这是RCU最关键的地方。因为它最早是用在Linux内核，而内核知道读者线程的进度而几乎不需要额外的簿记信息，因此能够获得很好的性能。
+
+二、RCU与MVCC的类似之处:
+
+1、都是  [space–time tradeoff](https://en.wikipedia.org/wiki/Space–time_tradeoff)
+
+2、参见 "Advantages and disadvantages"，其中点到了 version
+
+3、在原文的 "See also" 章节中，给出了 [Multiversion concurrency control](http://en.wiki.sxisa.org/wiki/Multiversion_concurrency_control) 链接
 
 
 

@@ -4,15 +4,23 @@
 
 
 
-some thoughts:
+## Q&A
 
 1、reader、writer
 
 reader 通过 pointer来read shared data，write可能将这个pointer给释放掉
 
-
-
 2、hazard pointer VS shared pointer、weak pointer
+
+3、为什么hazard pointer能够避免ABA？
+
+ABA一般出现在由CAS实现的算法中。
+
+4、hazard pointer vs reference counting
+
+参考素材:
+
+zditect [Hazard pointer](https://zditect.com/blog/2721263.html)
 
 
 
@@ -71,11 +79,6 @@ class hazard_pointer {
 
 hazard_pointer make_hazard_pointer();
 
-```
-
-
-
-```c++
 template <typename T> class hazard_pointer_obj_base<T> {
   void retire() noexcept;
 };
@@ -158,23 +161,24 @@ class WRRMMap {
 
 Whenever the **`WRRMMap`** needs to be updated, the thread wanting to do so creates an entirely new copy of the map pointed to by **`pMap_`**, replaces **`pMap_`** with that new copy, and then disposes of the old **`pMap_`**. We agreed that that's not an inefficient thing to do because **`WRRMMap`** is read often and updated only rarely. The nagging(使人不得安宁的) problem was, "How could we dispose of **`pMap_`** properly, given that there could be other threads reading through it at any time?"
 
+> NOTE:
+>
+> 一、上面描述的思路和RCU非常类似，在zhihu [Linux中的RCU机制[一] - 原理与使用方法](https://zhuanlan.zhihu.com/p/89439043) 中有如下描述:
+>
+> > RCU是有唯一意思的，尤其是Linux内核的角度下；而Fedor Pikus说的是，理解“RCU”不能简单地从名字出发。确实，版本号也可以达到类似的“读写并行进行”的效果；但RCU和版本号的区别在于，RCU有特别的内存回收方式，也就是文中描述的——**写者线程**等待**读者线程**退出后者的critical section，再进行**内存回收**，这是RCU最关键的地方。因为它最早是用在Linux内核，而内核知道读者线程的进度而几乎不需要额外的簿记信息，因此能够获得很好的性能。
+
 #### Reader thread
 
 **Hazard pointers** are a safe, efficient mechanism for threads to advertise(通告) to all other threads about their memory usage. Each **reader thread** owns a single-writer/multi-reader shared pointer called "**hazard pointer**". When a **reader thread** assigns the address of a map to its **hazard pointer**, it is basically announcing to other threads (writers), "I am reading this map. You can replace it if you want, but don't change its contents and certainly keep your **delete**ing hands off it."
 
 > NOTE:
 >
-> 一、hazard pointer是 "single-writer/multi-reader shared pointer"
+> 一、hazard pointer是 "single-writer/multi-reader shared pointer"，它的writer是谁？它的reader是谁？
 >
-> 需要区分reader thread、write thread
 
 #### Writer thread
 
 On their part, **writer threads** have to check the **hazard pointers** of the readers before they can **delete** any replaced maps. So, if a writer removes a map after a reader (or more) has already set its **hazard pointer** to the address of that map, then the writer will not **delete** that map as long as the **hazard pointer** remains unchanged.
-
-> NOTE:
->
-> 一、write thread在删除之前需要先检查reader的hazard pointer。
 
 
 
@@ -261,23 +265,73 @@ Each thread holds a "**retired list**" (actually a **`vector<Map<K,V>*>`** in ou
 
 ```c++
 template <class K, class V>
-class WRRMMap {
-   Map<K, V> * pMap_;
-   ...
+class WRRMMap
+{
+    Map<K, V> *pMap_;
+    // ...
 private:
-   static void Retire(Map<K, V> * pOld) {
-   // put it in the retired list
-   rlist.push_back(pOld);
-   if (rlist.size() >= R) {
-      Scan(HPRecType::Head());
-      }
-   }
+    static void Retire(Map<K, V> *pOld)
+    {
+        // put it in the retired list
+        rlist.push_back(pOld);
+        if (rlist.size() >= R)
+        {
+            Scan(HPRecType::Head());
+        }
+    }
 };
 ```
 
 
 
+Nothing up our sleeves! Now, the **Scan** function performs a "set difference" between the pointers in the current thread's **retired list**, and all hazard pointers for all threads. What does that **set difference** mean? Let's think of it for a second: It's the set of all old **`pMap_`** pointers that this thread considers useless, except those that are found among the hazard pointers of all threads. But, hey, these are exactly the goners(已死者)! By definition of the retired list and that of the hazard pointers, if a pointer is retired and not marked as "hazardous" (for example, "in use") by any thread, the set intersection of the two sets yields precisely the pointers that can be **delete**d.
 
+### The Main Algorithm
+
+Okay, now let's see how to implement the **Scan** algorithm, and what guarantees it can provide. We need to perform a set difference between **`rlist`** and **`pHead_`** whenever performing a scan. That operation is tantamount to: "For each pointer in the retired list, find it in the hazard set. If it's not, it belongs to the difference, so it can be **delete**d." To optimize that, we can sort the hazard pointers before lookup, and then perform one binary search in it for each retired pointer. Let's take a look at such an implementation of **Scan**:
+
+```c++
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+void Scan(HPRecType *head)
+{
+    // Stage 1: Scan hazard pointers list
+    // collecting all non-null ptrs
+    vector<void *> hp;
+    while (head)
+    {
+        void *p = head->pHazard_;
+        if (p)
+            hp.push_back(p);
+        head = head->pNext_;
+    }
+    // Stage 2: sort the hazard pointers
+    sort(hp.begin(), hp.end(), less<void *>());
+    // Stage 3: Search for'em!
+    vector<Map<K, V> *>::iterator i = rlist.begin();
+    while (i != rlist.end())
+    {
+        if (!binary_search(hp.begin(), hp.end(), *i))
+        {
+            // Aha!
+            delete *i;
+            if (&*i != &rlist.back())
+            {
+                *i = rlist.back();
+            }
+            rlist.pop_back();
+        }
+        else
+        {
+            ++i;
+        }
+    }
+}
+
+```
 
 
 
@@ -301,21 +355,25 @@ This is not the case for a typical lock-free dynamic object, when running in pro
 
 ## TODO
 
-下面是一些比较好的文章:
+
+
+kongfy [Hazard Pointer](http://blog.kongfy.com/2017/02/hazard-pointer/)
+
+cnblogs [实现无锁的栈与队列(5)：Hazard Pointer](https://www.cnblogs.com/catch/p/5129586.html)
+
+stackoverflow [Hazard Pointers with well defined allocators in C++](https://stackoverflow.com/questions/61674826/hazard-pointers-with-well-defined-allocators-in-c)
+
+
 
 ticki.github [Fearless concurrency with hazard pointers](http://ticki.github.io/blog/fearless-concurrency-with-hazard-pointers/) 
 
 open-std [Why Hazard Pointers Should Be in C++26](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2022/p2530r0.pdf) 
 
-infoq [Lock-free Programming in C++ with Herb Sutter](https://www.infoq.com/news/2014/10/cpp-lock-free-programming/)
-
 Herb Sutter [Lock-Free Programming or, How to Juggle Razor Blades](http://www.alfasoft.com/files/herb/40-LockFree.pdf) 
 
-ticki.github [Fearless concurrency with hazard pointers](http://ticki.github.io/blog/fearless-concurrency-with-hazard-pointers/)
+
 
 simongui.github [Improving performance of lockless data structures](http://simongui.github.io/2017/01/23/improving-lockless-synchronization-performance.html)
-
-https://github.com/topics/hazard-pointer
 
 
 

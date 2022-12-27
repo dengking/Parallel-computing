@@ -130,6 +130,18 @@ What this difference impiles is:
 
 
 
+## 对比
+
+一、
+
+tsingfun [C++ Lock-free Hazard Pointer（冒险指针）](https://m.tsingfun.com/it/cpp/hazard_pointer.html)
+
+[C++ Lock-free Hazard Pointer](https://sf-zhou.github.io/programming/hazard_pointer.html)
+
+二、folly的文档
+
+
+
 ## Implementation
 
 ### [rmind](https://github.com/rmind)/**[libqsbr](https://github.com/rmind/libqsbr)**
