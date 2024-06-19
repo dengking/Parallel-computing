@@ -92,3 +92,8 @@ While RDDs are a powerful abstraction, Spark also provides higher-level APIs lik
 ### cnblogs [Spark学习之路 （三）Spark之RDD](https://www.cnblogs.com/qingyunzong/p/8899715.html)
 
 RDD（Resilient Distributed Dataset）叫做**弹性分布式数据集**，**是Spark中最基本的数据抽象**，它代表一个不可变、可分区、里面的元素可并行计算的集合。
+
+
+
+## [Spark SQL Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) 
+
