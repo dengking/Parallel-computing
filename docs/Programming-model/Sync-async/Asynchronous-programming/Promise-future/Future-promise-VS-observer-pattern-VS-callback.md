@@ -2,9 +2,9 @@
 
 三种都能够用于notification、通知。
 
-1、future promise 通过判断future的状态来进行判断，它是较高的封装、抽象
+1、future promise 通过判断future的状态来进行判断，它是较高的封装、抽象(主动)
 
-2、observe pattern、callback 通过执行对应的callback来进行通知
+2、observe pattern、callback 通过执行对应的callback来进行通知(被动)
 
 observer pattern允许开放式的注册、注销
 
